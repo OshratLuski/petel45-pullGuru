@@ -155,6 +155,8 @@ def post_inline_review(comments: list[dict]):
     commit_id = pr.json()["head"]["sha"]
     payload = {"event": "COMMENT", "commit_id": commit_id, "comments": comments}
     r = requests.post(url, headers=gh_headers(), json=payload, timeout=30)
+    if r.status_code >= 400:
+        raise RuntimeError(f"GitHub review API failed {r.status_code}: {r.text}")
     r.raise_for_status()
 
 def build_unified_diff(files):
