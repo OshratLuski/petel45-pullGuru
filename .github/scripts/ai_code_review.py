@@ -6,6 +6,7 @@
 import os, json, re, argparse
 import requests
 import boto3
+import sys
 
 # ---------- Env ----------
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
@@ -21,7 +22,7 @@ GH_API = "https://api.github.com"
 DEBUG = os.environ.get("DEBUG", "0") == "1"
 def debug(msg: str):
     if DEBUG:
-        print(f"DEBUG: {msg}")
+        print(f"[DEBUG] {msg}", file=sys.stderr)
 
 # ---------- GitHub helpers ----------
 def gh_headers():
