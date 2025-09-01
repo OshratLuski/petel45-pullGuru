@@ -110,7 +110,10 @@ export const init = async() => {
             const enableBulkButton = document.getElementById('block-massaction-enable-bulk-editing');
             // Remove the initial disabled attribute which is there to avoid too early clicks by users.
             enableBulkButton.disabled = false;
-            enableBulkButton?.addEventListener('click', () => editor.dispatch('bulkEnable', true));
+            // enableBulkButton?.addEventListener('click', () => editor.dispatch('bulkEnable', true));
+
+            editor.dispatch('bulkEnable', true);
+
             return true;
         })
         .catch(error => Log.debug(error));
