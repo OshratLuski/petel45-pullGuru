@@ -1,0 +1,97 @@
+.sharesequence-modal {
+    .modal-content {
+        .modal-header {
+            box-shadow: 0 .1875rem .25rem 0 $petel-primary !important;
+            .modal-title {
+                font-family: $font-family-headers;
+            }
+        }
+        .petel-progressbar-wrapper {
+            .underpin-text {
+                color: $petel-primary !important;
+            }
+            .petel-progressbar-item {
+                .pin-circle {
+                    background-color: $white !important;
+                    border: 0.0625rem solid $petel-lightgray !important;
+                    span {
+                        color: $petel-primary !important;
+                    }
+                }
+            }
+
+            .petel-progressbar-item.active {
+                .pin-circle {
+                    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, $petel-primary 66%) !important;
+                    background-color: $petel-primary !important;
+                    border: 0.0625rem solid $petel-primary !important;
+                    span {
+                        color: $white !important;
+                    }
+                }
+                .underpin-text {
+                    font-weight: bold;
+                }
+                .petel-progressbar-progressline {
+                    height: 0.375rem;
+                    opacity: 0.5;
+                }
+            }
+            .petel-progressbar-progressline {
+                background-color: $petel-secondarylight !important;
+            }
+        }
+        .units-block,
+        .sequence-block {
+            font-family: $font-family-text;
+        }
+        .block-title {
+            font-family: inherit;
+            color: $petel-primary !important;
+        }
+        .block-subtitle {
+            font-family: inherit;
+            color: $body-color !important;
+        }
+        .custom-control-label::before {
+            border-color: $petel-secondary !important;
+        }
+        .section-item-wrapper,
+        .sequence-item {
+            box-shadow: 0 0.1875rem 0.1875rem 0 rgba($petel-primary, 0.25) !important;
+            border: solid 0.0625rem $petel-secondarylight !important;;
+            color: $body-color;
+
+        }
+        .section-item {
+            background-color: $white !important;
+            &:hover {
+                background-color: $petel-light !important;
+            }
+            &.active {
+                background-color: $petel-secondarylight !important;
+            }
+        }
+        .collapse-section-btn {
+            i {
+                color: $petel-secondary !important;
+            }
+        }
+        .section-collapse {
+            background-color: $petel-fairgray !important;
+        }
+        .collapse-subsection-btn {
+            color: $petel-gray !important;
+        }
+        .sequence-item:hover {
+            background-color: $petel-light !important;
+        }
+        .sequence-item-sort,
+        .sequence-item-delete {
+           color: $petel-secondary !important;
+        }
+        .sequence-item-rename {
+          color: $petel-primary !important;
+        }
+    }
+}

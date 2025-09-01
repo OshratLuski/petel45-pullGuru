@@ -1,0 +1,57 @@
+
+  {{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+  }}
+  {{!
+    @template tiny_poodll/history
+
+    Tiny Poodll history template.
+
+    The purpose of this template is to render recorder type history by user.
+  }}
+<div data-medium-type="{{CSS.HISTORY}}" data-field="history" data-loaded="false" class="tab-pane" id="{{elementid}}_{{CSS.HISTORY}}">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css"/>
+    <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tiny_poodll_history_table">
+        <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>{{# str }} title, tiny_poodll {{/ str }}</th>
+            <th>{{# str }} date, tiny_poodll {{/ str }}</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>&nbsp;</th>
+            <th>{{# str }} title, tiny_poodll {{/ str }}</th>
+            <th>{{# str }} date, tiny_poodll {{/ str }}</th>
+        </tr>
+        </tfoot>
+        <tbody id="history-table-body">
+        {{#data}}
+        <tr data-history-id="{{id}}" class="history-row">
+            <td class="details-control">
+                    {{# pix }} t/collapsed, core{{/ pix }}
+            </td>
+            {{#editablefield}}
+            <td>{{> core/inplace_editable}} </td>
+            {{/editablefield}}
+            <td>{{displaydateofentry}}</td>
+        </tr>
+        {{/data}}
+        </tbody>
+    </table>
+</div>
+  <div data-medium-type="{{CSS.HISTORY}}" data-field="history-" data-loaded="false" class="tab-pane" id="{{elementid}}_{{CSS.HISTORY}}">

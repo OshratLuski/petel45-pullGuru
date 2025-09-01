@@ -1,0 +1,75 @@
+.block_pdc .content li {
+  margin-bottom: 0.3em;
+}
+.block_pdc .footer {
+  margin-top: 5px;
+}
+.block_pdc .user-course a {
+  text-decoration: none;
+  color: inherit;
+}
+.block_pdc .user-course__item {
+  padding: 8px 8px 8px 46px;
+}
+.block_pdc .simul_block {
+  min-height: 12rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(43, 43, 43, 0.25);
+}
+.block_pdc .simul_block a:hover {
+  text-decoration: none;
+}
+.block_pdc .simul_block:last-of-type {
+  margin-bottom: 0;
+}
+.block_pdc .simul_block .simul_block-body-img {
+  display: block;
+  height: 9rem;
+  border-radius: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  max-width: 14rem;
+  flex-shrink: 0;
+}
+.block_pdc .simul_block .title {
+  line-height: 1;
+}
+.block_pdc .simul_block .title a {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.block_pdc .simul_block .simul_block-body-main-inner {
+  line-height: normal;
+  font-size: 1rem;
+}
+
+#selectCourse .spinner-border {
+  border-color: transparent;
+  border-right-color: transparent !important;
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+/* .spinner-border-sm {
+    width: $spinner-width-sm;
+    height: $spinner-height-sm;
+    border-width: $spinner-border-width-sm;
+} *//*# sourceMappingURL=styles.css.map */

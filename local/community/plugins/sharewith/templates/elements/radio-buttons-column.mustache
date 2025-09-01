@@ -1,0 +1,53 @@
+<div class="form-group mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+            {{{title}}}
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+        </label>
+        <div class="pl-4">
+            <a target="_blank" href="{{{config.wwwroot}}}/local/community/plugins/sharewith/rights_management/petel_teacher_rights_using_3rd_party_content.pdf">
+            {{#str}}rights_management, community_sharewith{{/str}}
+        </a>
+        </div>
+
+        {{#agree_to_copyright_enable}}
+            <div class="custom-control custom-checkbox mr-3 mb-2">
+                <input type="checkbox" class="custom-control-input" id="agree_to_copyright" name="agreetocopyright" value="1">
+                <label class="custom-control-label" for="agree_to_copyright">{{#str}}agree_to_copyright, community_sharewith{{/str}}</label>
+            </div>
+
+            <div style="font-size: 16px;" class="invalid-feedback error-agreetocopyright">
+                {{#str}}share_item_error, community_sharewith{{/str}}
+                "{{#str}}agree_to_copyright, community_sharewith{{/str}}"
+            </div>
+        {{/agree_to_copyright_enable}}
+
+    {{/title}}
+
+    <div class="custom-control custom-radio mb-1">
+        <input type="radio" id="no_copyright_{{unique}}" name="question_activity"
+               value="false" class="custom-control-input no_copyright" {{#checkbox_no}}checked{{/checkbox_no}}>
+        <label class="custom-control-label" for="no_copyright_{{unique}}">
+            {{#str}}no_copyright_of_activity_is_mine_only, community_sharewith{{/str}}
+        </label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="based_on_another_activity_{{unique}}" name="question_activity"
+               value="true" class="custom-control-input based_on_another_activity" {{#checkbox_yes}}checked{{/checkbox_yes}}>
+        <label class="custom-control-label" for="based_on_another_activity_{{unique}}">
+            {{#str}}yes_i_processed_activity_based_on_another_activity, community_sharewith{{/str}}
+        </label>
+    </div>
+
+    <div class="custom-control p-0 question-activity-url-wrapper" {{#checkbox_no}}style="display: none;"{{/checkbox_no}}>
+        <p class=" mb-1 mt-3">{{#str}}register_resource, community_sharewith{{/str}}</p>
+        <textarea class="form-control" name="question_activity_url" placeholder="">{{{textarea_value}}}</textarea>
+    </div>
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharewith{{/str}} "{{{title}}}"
+    </div>
+
+</div>

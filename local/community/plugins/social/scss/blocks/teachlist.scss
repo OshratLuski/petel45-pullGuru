@@ -1,0 +1,54 @@
+.social {
+
+  .teachlist-wrap {
+    display: flex;
+    margin-top: 83px;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+  }
+
+  .teachlist-text {
+    font-weight: $font-weight-semibold;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: inherit;
+    margin-left: 11px;
+  }
+
+  .teachlist-item {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    font-family: inherit;
+    border: 1px solid $purple;
+    border-radius: 5px;
+    margin-left: 25px;
+    padding: 0 10px 2px;
+    transition: .2s;
+    &:hover {
+      box-shadow: -3px 3px 4px #c8c8c8;
+    }
+  }
+
+  .teachlist-item.active {
+    color: #fff;
+    background-color: $purple;
+  }
+
+  .teachlist-num {
+
+  }
+}
+
+@media #{$tablet-width} {
+  .social {
+    .teachlist-wrap  {
+      flex-direction: row;
+      height: auto;
+      justify-content: flex-start;
+    }
+  }
+}

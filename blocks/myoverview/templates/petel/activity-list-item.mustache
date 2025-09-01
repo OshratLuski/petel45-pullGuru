@@ -1,0 +1,68 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public Licensebllsdsadfasfd
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_recentlyaccesseditems/view-cards
+
+    This template renders the items cards of the Recently accessed items block.
+
+    Example context (json):
+    {
+        "items": [
+            {
+                "cmid": 64,
+                "courseid": 2,
+                "coursename": "Course",
+                "courseviewurl": "https://moodlesite/course/view.php?id=2",
+                "icon": "<img class=\"icon\" alt=\"Forum\" title=\"Forum\" src=\"http://moodlesite/theme/image.php/boost/forum/1539858121/icon\" />",
+                "name": "Assignment due 1",
+                "id": 17,
+                "modname": "Forum",
+                "name": "Forum",
+                "timeaccess": 1539848498,
+                "userid": 2,
+                "viewurl": "http://moodlesite/mod/forum?id=64"
+            }
+        ]
+    }
+}}
+
+<div class="text-center">
+    <h6 class="font-weight-bold">{{#str}} continuelastactivity, block_myoverview {{/str}}</h6>
+</div>
+
+{{#course_modules}}
+
+    <div class="course-activities">
+        <div class="list-group-item flex-column py-2 px-0 border-0" data-region="event-list-item">
+           
+                <a href="{{viewurl}}" aria-label="{{arialabel}}" class="w-100 d-flex align-items-center justify-content-start text-secondary line-height-4">
+                        <span class="icon-size-4 align-self-top mr-1">
+                          {{{icon}}}
+                        </span>
+                        {{{name}}}
+                </a>
+                <div class="d-flex justify-content-start">
+                    <small class="text-right text-nowrap ml-1">
+                        {{#str}} lastaccess, block_myoverview {{/str}}
+                        {{{dateaccess}}}
+                    </small>
+                </div>
+           
+        </div>
+    </div>
+
+{{/course_modules}}

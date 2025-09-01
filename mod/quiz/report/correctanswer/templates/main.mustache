@@ -1,0 +1,37 @@
+{{#enable_hints}}
+    {{#hints}}
+        <div class="card mb-2 bg-light quiz-correctanswer-hint">
+            <div class="card-body">
+                <h5 class="card-title">{{#str}}hint, quiz_correctanswer{{/str}} {{counter}}</h5>
+                {{{hint}}}
+            </div>
+        </div>
+    {{/hints}}
+{{/enable_hints}}
+
+{{#qexpectedanswer}}
+    <div class="card mb-2 bg-light quiz-correctanswer-mddata">
+        <div class="card-body">
+            <h5 class="card-title">{{#str}}qexpectedanswer, quiz_correctanswer{{/str}}</h5>
+            {{{qexpectedanswer}}}
+        </div>
+    </div>
+{{/qexpectedanswer}}
+
+{{#qteachercomments}}
+    <div class="card mb-2 bg-light quiz-correctanswer-mddata">
+        <div class="card-body">
+            <h5 class="card-title">{{#str}}qteachercomments, quiz_correctanswer{{/str}}</h5>
+            {{{qteachercomments}}}
+        </div>
+    </div>
+{{/qteachercomments}}
+
+{{#generalfeedback}}
+    <div class="card mb-2 bg-light quiz-correctanswer-generalfeedback">
+        <div class="card-body">
+            <h5 class="card-title">{{#str}}generalfeedback, quiz_correctanswer{{/str}}</h5>
+            {{{generalfeedback}}}
+        </div>
+    </div>
+{{/generalfeedback}}

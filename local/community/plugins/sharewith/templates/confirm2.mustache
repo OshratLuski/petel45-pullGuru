@@ -1,0 +1,32 @@
+<div class="modal-header bg-secondary p-1 text-white">
+    <h5 class="modal-title">{{title}}</h5>
+    <button id="confirmClose" type="button" class="close text-white d-flex align-items-center justify-content-center m-0" data-dismiss="modal" aria-label="Close">
+        <i class="fa-light fa-circle-xmark"></i>
+    </button>
+</div>
+
+<div class="modal-body">
+    <span>{{text}}</span>
+    <br><br>
+    <div>{{{text2}}}</div>
+</div>
+
+<div class="modal-footer">
+
+    {{^hidebtnback}}
+<!--        <button class="btn btn-secondary" type="button" data-handler="goBack">{{#str}}back, community_sharewith{{/str}}</button>-->
+    {{/hidebtnback}}
+
+    <button class="btn btn-success" type="button" data-dismiss="modal">{{#str}}finish2, community_sharewith{{/str}}</button>
+    <a href="{{{wwwroot}}}/message/index.php?id={{userid}}&mess=2&modname={{modname}}&coursename={{coursename}}"
+                class="btn btn-primary" type="button">{{#str}}redirectmessage, community_sharewith{{/str}}
+    </a>
+</div>
+
+{{#js}}
+    require(['jquery'], function ($) {
+        //setTimeout(function(){
+        //    $('#confirmClose').trigger('click');
+        //}, 10000);
+    })
+{{/js}}

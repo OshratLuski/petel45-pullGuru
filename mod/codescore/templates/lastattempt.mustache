@@ -1,0 +1,29 @@
+{{#hasAttempts}}
+    <h3 class='lastattemptHead'>{{title}}</h3>
+    <div class='mt-2 lastattempt'>
+        <textarea name="" cols="" rows="" id="codeEditor">{{code}}</textarea>
+        <ul>
+            {{#isteacher}}
+                <li>{{#str}} startedat, codescore {{/str}} {{timestart}}</li>
+                <li>{{#str}} timefinish, codescore {{/str}} {{timefinish}}</li>
+                <li>{{#str}} gradestatus, codescore {{/str}} {{status}}</li>
+                <li>{{#str}} viewdategraded, codescore {{/str}} {{convertedTime}}</li>
+                <li>{{#str}} reportgrade, codescore {{/str}} {{grade}}</li>
+                <li>{{#str}} aigradereport, codescore {{/str}} {{aigrade}}</li>
+                {{#rubrics}}
+                    <li> {{prompt}} : {{grade}} </li> 
+                {{/rubrics}}
+                {{#formatfeedback}}<li> {{formatfeedback}} </li> {{/formatfeedback}}
+                <li>{{#str}} notesreport, codescore {{/str}} {{studentnotes}}</li>
+            {{/isteacher}}
+            {{^isteacher}}
+                <li>{{#str}} gradestatus, codescore {{/str}} {{status}}</li>
+                <li>{{#str}} startedat, codescore {{/str}} {{timestart}}</li>
+                <li>{{#str}} timefinish, codescore {{/str}} {{timefinish}}</li>
+                {{#formatfeedback}}<li> {{formatfeedback}} </li> {{/formatfeedback}}
+                {{#studentnotes}}<li>{{#str}} notesreport, codescore {{/str}} {{studentnotes}}</li>{{/studentnotes}}
+                <li>{{#str}} reportgrade, codescore {{/str}} {{grade}}</li>
+            {{/isteacher}}
+        </ul>
+    </div>
+{{/hasAttempts}}

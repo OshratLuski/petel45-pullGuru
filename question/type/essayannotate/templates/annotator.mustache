@@ -1,0 +1,128 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Annotator mustache template
+
+    @package    qtype_essayannotate
+    @copyright  2024 IIT Palakkad
+    @copyright  based on work by Ravisha Hesh
+    @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+    Originally taken from Ravisha Hesh : https://github.com/RavishaHesh/PDFJsAnnotations/tree/master
+    @author     Nideesh N, VM Sreeram (IIT Palakkad)
+    changes made by Tausif Iqbal and Vishal Rao
+    (added return to all the onclick callback function
+    and removed onclick function call from i tag and putted it outside)
+    changes made by Asha and Parvathy
+    (Background color of color-tool active changed to black)
+    changes made by Nideesh N and VM Sreeram
+    (Converted HTML format to Mustache for plugin, added messagebox)
+
+    @template qtype_essayannotate/annotator
+
+    Template for the qtype_essayannotate annotator.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * font_size String The label to show before the font size dropdown.
+    * font_sizes Array An array of font sizes to populate the dropdown menu. Each
+        element in the array should have a 'value' representing the font size and
+        an optional 'selected' boolean to indicate if it is the default selected size.
+    * color_tools Array An array of color tools for selecting annotation color.
+        Each element should have a 'color' property representing the color in RGB format
+        and an optional 'active' boolean to indicate if it is the default selected color.
+    * other_tools Array An array of additional annotation tools. Each element should
+        have an 'other_tools_id' for identifying the tool, an 'icon_class' for the icon to
+        display, a 'tooltip' for the tooltip text, and an optional 'selected' boolean to
+        indicate if it is the default selected tool.
+    * other_tools_extra Array An array of extra tools. Each element should have an
+        'other_tools_extra_id' for identifying the tool, an 'icon_class' for the icon
+        to display, and optional flags like 'select_danger', 'select_light', and
+        'select_savenexit' along with their respective texts like 'save_exit' if applicable.
+
+    Example context (json):
+    {
+        "font_size": "Font Size",
+        "font_sizes": [
+            {"value": "10"},
+            {"value": "12"},
+            {"value": "16", "selected": true},
+            {"value": "18"},
+            {"value": "24"},
+            {"value": "32"},
+            {"value": "48"},
+            {"value": "64"},
+            {"value": "72"},
+            {"value": "108"}
+        ],
+        "color_tools": [
+            {"color": "rgb(0, 0, 0)", "active": true},
+            {"color": "rgb(251, 17, 17)"},
+            {"color": "rgb(2, 2, 182)"},
+            {"color": "rgb(13, 93, 13)"},
+            {"color": "rgb(255, 255, 0)"}
+        ],
+        "other_tools": [
+            {"other_tools_id": "select", "icon_class": "fa fa-hand-pointer-o", "tooltip": "Select", "selected": true},
+            {"other_tools_id": "pencil", "icon_class": "fa fa-pencil", "tooltip": "Pen"},
+            {"other_tools_id": "text", "icon_class": "fa fa-font", "tooltip": "Add Text"},
+            {"other_tools_id": "rectangle", "icon_class": "fa fa-square-o", "tooltip": "Highlight Box"}
+        ],
+        "other_tools_extra": [
+            {"select_danger": true, "other_tools_extra_id": "deletebtn", "icon_class": "fa fa-trash"},
+            {"select_light": true, "other_tools_extra_id": "savebtn", "icon_class": "fa fa-save", "select_savenexit": true, "save_exit": "Save and Exit"}
+        ]
+    }
+}}
+
+<div id="essayannotator-annotator" class="annotator">
+    <div class="qtype_essayannotate_toolbar">
+        <div class="tool">
+            <label id="font-size-label"> {{ font_size }} </label>
+            <select id="font-size" class="form-control">
+                {{# font_sizes }}
+                    <option value="{{ value }}" {{# selected }}selected{{/ selected }}>{{ value }}</option>
+                {{/ font_sizes }}
+            </select>
+        </div>
+        <div class="tool">
+            {{# color_tools }}
+                <button class="color-tool{{# active }} active{{/ active }}" style="background-color: {{ color }};"></button>
+            {{/ color_tools }}
+        </div>
+
+        {{# other_tools }}
+            <div class="tool">
+                <button id={{ other_tools_id }} class="tool-button{{# selected }} active{{/ selected }}" ><i class="{{ icon_class }}" title="{{ tooltip }}"></i></button>
+            </div>
+        {{/ other_tools }}
+        {{# other_tools_extra }}
+            <div class="tool">
+                <button id={{ other_tools_extra_id }} class="btn btn-{{# select_danger }}danger{{/ select_danger }}{{# select_light }}light{{/ select_light }}" ><i class="{{ icon_class }}"></i>{{# select_savenexit }} {{ save_exit }}{{/ select_savenexit }}</button>
+            </div>
+        {{/ other_tools_extra }}
+    </div>
+    <div class="qtype_essayannotate_pdf_container" id="pdf-container">
+    </div>
+    <div class="qtype_essayannotate_messagebox hidden" id="message-box-saved">{{ file_saved_message_text }}</div>
+    <div class="qtype_essayannotate_messagebox hidden" id="message-box-not-saved">{{ file_not_saved_message_text }}</div>
+</div>

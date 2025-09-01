@@ -1,0 +1,28 @@
+<h3 class="reportTitle">{{title}}</h3>
+{{#hasAttempts}}
+    <button type="button" class="disabled btn btn-secondary mb-2" id="deleteAttempts" data-toggle="modal" data-target="#exampleModal">
+      {{#str}} deleteBtnText, codescore {{/str}}
+    </button>
+    <button type="button" class="disabled btn btn-secondary mb-2" id="regradeAttempts" data-toggle="modal">
+        {{#str}} regrade, codescore {{/str}}
+    </button>
+{{/hasAttempts}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class='mb-0'> {{#str}} areyousure, codescore {{/str}} </h5>
+      </div>
+      <div class="modal-body">
+        <p class='mb-0'> {{#str}} irreversible, codescore {{/str}} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"> {{#str}} no, codescore {{/str}} </button>
+        <button type="button" id='deleteAttemptsConfirm' class="btn btn-primary"> {{#str}} yes, codescore {{/str}} </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="tableWrapper">
+
+</div>

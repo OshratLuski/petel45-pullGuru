@@ -1,0 +1,129 @@
+.format-flexsections {
+    .petel-custom-tooltip {
+        display: none;
+        min-width: 22rem;
+        max-width: 26rem;
+        font-size: .8rem;
+        background-color: $white;
+        border: 0.0625rem solid $secondary;
+        border-radius: 0.25rem;
+        z-index: 10;
+        box-shadow: 0 0.1875rem 0.375rem 0 rgba(43, 43, 43, .25);
+
+        .petel-custom-tooltip-inner {
+            font-family: $primary-font;
+            font-size: 1.125rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-align: left;
+            color: $body-color;
+            /* white-space: nowrap; */
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0.5rem 0.3125rem 0 0.3125rem;
+            border-color: $secondary transparent transparent transparent !important;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+
+            border-width: 0.5rem 0.3125rem 0 0.3125rem;
+            border-color: #fff transparent transparent transparent !important;
+            margin-top: 0.0625rem;
+            z-index: 5;
+        }
+
+        &[data-position="top"] {
+            left: 0;
+            bottom: calc(100% + 0.5rem);
+        }
+   
+    
+        &[data-carret-position="center"] {
+            &::before {
+                bottom: -0.5rem;
+                left: 0.5rem;
+            }
+
+            &::after {
+                bottom: -0.5625rem;
+                left: 0.5rem;
+                z-index: -1;
+            }
+        }
+    }
+    .activity.activity-wrapper {
+        border-top: none;
+    }
+    .activity {
+        .aalink.stretched-link {
+            &:hover {
+                .petel-custom-tooltip {
+                    display: block;
+                }
+            }
+        }
+    }
+    .show-download-modal-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 0.25rem;
+        border: .0625rem solid $petel-secondary;
+        background: $white;
+        box-shadow: 0rem .375rem .25rem 0rem rgba(108, 117, 125, 0.15);
+        i {
+            color: $petel-secondary;
+            font-size: 1rem;
+        }
+        &:hover {
+            border: .0625rem solid $petel-secondarymedium;
+            outline: .0625rem solid $petel-secondarymedium;
+            box-shadow: 0rem .375rem .75rem .25rem rgba(108, 117, 125, 0.20);
+        }
+        &:active {
+            border: .0625rem solid $petel-secondary;
+            outline: .0625rem solid $petel-secondary;
+            box-shadow: 0rem .125rem .25rem 0rem rgba(108, 117, 125, 0.25);
+            background-color: $petel-light;
+        }
+        &:focus {
+            border: .0625rem solid $petel-primary;
+            outline: .0625rem solid $petel-primary;
+            box-shadow: 0rem .125rem .25rem 0rem rgba(108, 117, 125, 0.25);
+            background-color: $petel-light;
+
+            i {
+                color: $petel-primary;
+            }
+        }
+    }
+}
+
+// EC-585. Trick to fix atto editor btns dropdown menu on rtl.
+html[dir="rtl"] {
+    .format-flexsections {
+        .uploadactivity,
+        .uploadcourse {
+            ul.dropdown-menu:is([id*="_menubutton_"]) {
+                right: unset;
+                left: calc(100% - 2.5rem);
+            }
+        }
+    }
+}

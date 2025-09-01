@@ -1,0 +1,131 @@
+ <div class="quiz-time-block-wrapper">
+
+    <div id="quiz-time-block" class="quiz-time-block pb-3">
+        <div class="quiz-time-block-header d-flex align-items-top mb-2">
+            <div class="text reminder-info-wrapper d-flex align-items-top">
+                <i class="fas fa-alarm-clock mr-2"></i>
+                <span class="reminder-info hidden">
+                    {{#str}} timeleft, theme_petel {{/str}}
+                    <span id="time_left_info"></span>
+                    {{#str}} timeleftfrom, theme_petel {{/str}}
+                    <span id="alltime_info"></span>
+                    <br>
+                    <span id="reminder_type_info"></span>
+                </span>
+            </div>
+            <a href="#" class="setting_btn ml-auto" id="setting_btn">
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+        <div class="quiz-time-block-body px-2">
+            <div class="timeline-wrapper">
+                <span>
+                    {{#str}} remainingtime, theme_petel {{/str}}
+                </span>
+                <div class="timeline d-flex align-items-center mb-1" id="timeline_progress" data-time="{{progress}}">
+                    <div class="inner d-flex h-100" style="width: {{progress}}%;" id="timeline_progress_inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-time-settings" style="display: none;">
+        <div class="quiz-time-settings-header py-2">
+            <a href="#" class="back_btn" id="back_btn">
+                <!--TODO: use arrow from mockup -->
+                <i class="far fa-arrow-right mr-3"></i>
+                <span>
+                    {{#str}} return, theme_petel {{/str}}
+                </span>
+            </a>
+        </div>
+        <div class="quiz-time-settings-body py-3">
+            <div class="title d-flex align-items-center mb-2">
+                <i class="fas fa-alarm-clock mr-3"></i>
+                <span></span>
+                <p class="stopwatch-title mb-0">
+                    {{#str}} stopwatchandalerts, theme_petel {{/str}}
+                </p>
+            </div>
+            <div class="alerts-wrapper">
+                <p class="alerts-wrapper-title mb-0">
+                    {{#str}} stopwatchshowhide, theme_petel {{/str}}
+                </p>
+            </div>
+            <div class="stopwatch-wrapper">
+                <div class="stopwatch-control mb-3">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="displayStopwatch">
+                        <label class="custom-control-label pl-2" for="displayStopwatch">
+                            <span class="isshown">
+                                {{#str}} stopwatchisshown, theme_petel {{/str}}
+                            </span>
+                            <span class="ishiden">
+                                {{#str}} stopwatchishidden, theme_petel {{/str}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="alerts-wrapper mb-5">
+                <p class="alerts-wrapper-title mb-0">
+                    {{#str}} alerts, theme_petel {{/str}}
+                </p>
+                <div class="custom-control custom-radio mb-2">
+                    <input type="radio" value="every30Min" id="every30Min" name="setAlertTimer" class="custom-control-input">
+                    <label class="custom-control-label" for="every30Min">
+                        {{#str}} every30minutes, theme_petel {{/str}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio mb-2">
+                    <input type="radio" value="thirtyMinBeforeEnd" id="thirtyMinBeforeEnd" name="setAlertTimer" class="custom-control-input">
+                    <label class="custom-control-label" for="thirtyMinBeforeEnd">
+                        {{#str}} thirthyminutesbeforetheend, theme_petel {{/str}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio mb-2">
+                    <input type="radio" value="fifteenMinBeforeEnd" id="fifteenMinBeforeEnd" name="setAlertTimer" class="custom-control-input">
+                    <label class="custom-control-label" for="fifteenMinBeforeEnd">
+                        {{#str}} fifteenminutesbeforebnd, theme_petel {{/str}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio mb-2">
+                    <input type="radio" value="fiveMinBeforeEnd" id="fiveMinBeforeEnd" name="setAlertTimer" class="custom-control-input">
+                    <label class="custom-control-label" for="fiveMinBeforeEnd">
+                        {{#str}} fiveminutesbeforetheend, theme_petel {{/str}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio mb-2">
+                    <input type="radio" value="withoutWarnings" id="withoutWarnings" name="setAlertTimer" class="custom-control-input">
+                    <label class="custom-control-label" for="withoutWarnings">
+                        {{#str}} withoutwarnings, theme_petel {{/str}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+require(['jquery'], function ($) {
+    $(document).ready(function(){
+
+        $('#setting_btn').on('click', function(){
+            $('.quiz-time-block').hide();
+            $('.quiz-time-settings').show();
+            $('#mod_quiz_navblock .singlebutton').hide();
+            $('#mod_quiz_navblock .qn_buttons').hide();
+            $('#mod_quiz_navblock .qn_buttons').toggleClass('d-flex');
+
+        });
+
+        $('#back_btn').on('click', function(){
+            $('.quiz-time-settings').hide();
+            $('.quiz-time-block').show();
+            $('#mod_quiz_navblock .singlebutton').show();
+            $('#mod_quiz_navblock .qn_buttons').toggleClass('d-flex');
+            $('#mod_quiz_navblock .qn_buttons').show();
+        });
+
+    });
+});
+{{/js}}

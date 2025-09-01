@@ -1,0 +1,49 @@
+<div class = "p-3">
+
+    <div class = "tag-wrapper d-flex flex-wrap mb-2">
+      <button class = "btn btn-outline-primary mb-2 mr-2 d-none example" data-handler = "removeTag">
+        <i class="icon fa fa-times"></i>
+      </button>
+    </div>
+
+    <div class = "form-group d-flex flex-column position-relative">
+        <label for="selectteacher" class="mb-0 alert-secondary border rounded-top p-1">{{#str}}sharewithteacher, community_sharequestion{{/str}}</label>
+        <input
+            class = "form-control mb-0 border-top-0 w-100 moves"
+            type = "text"
+            data-handler = "selectTeacher"
+            data-placement = "top"
+            data-trigger="manual"
+            data-content = "{{#str}}enterteacherhere, community_sharequestion{{/str}}"
+            placeholder="{{#str}}enterteacherhere, community_sharequestion{{/str}}">
+        <div class = "result-block d-none"></div>
+    </div>
+
+    <div class = "form-group">
+        <textarea data-handler = "messageForTeacher" class = "form-control" placeholder="{{#str}}commenttoteacher, community_sharequestion{{/str}}"></textarea>
+    </div>
+
+
+<!--    <div class = "form-group d-flex flex-column border rounded-top">-->
+<!--        <p class = "mb-0 alert-secondary border-bottom rounded-top p-1 px-2">{{#str}}teachersyouvesent, community_sharequestion{{/str}}</p>-->
+<!--        <div class="d-flex">-->
+<!--            {{#teachers}}-->
+<!--            <div class = "d-flex border border-secondary m-1 p-2">-->
+<!--                <div class = "sw-img">-->
+<!--                    <img src="{{#teacher_url}}{{teacher_url}}{{/teacher_url}}{{^teacher_url}}/theme/image.php/boost/core/1559478333/u/f2{{/teacher_url}}"-->
+<!--                         alt="{{#str}}userfoto, community_sharequestion{{/str}}">-->
+<!--                </div>-->
+<!--                <span class = "pl-2">{{teacher_name}}</span>-->
+<!--            </div>-->
+<!--            {{/teachers}}-->
+<!--            {{^teachers}}-->
+<!--            <div class = "mb-0 d-flex align-items-center p-2">{{#str}}nosharing, community_sharequestion{{/str}}</div>-->
+<!--            {{/teachers}}-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div style="font-size: 16px;" class="invalid-feedback error-teachers">
+        {{#str}}teachers_error, community_sharequestion{{/str}}
+    </div>
+
+</div>

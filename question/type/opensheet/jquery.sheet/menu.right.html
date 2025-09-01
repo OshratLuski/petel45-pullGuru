@@ -1,0 +1,140 @@
+<div style="text-align: center;">
+    <a href="#" onclick="this.jS.cellStyleToggle('styleBold'); return false;" title="Bold">
+        <img alt="Bold" src="/question/type/opensheet/jquery.sheet/images/text_bold.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleItalics'); return false;" title="Italic">
+        <img alt="Italic" src="/question/type/opensheet/jquery.sheet/images/text_italic.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleUnderline', 'styleLineThrough'); return false;" title="Underline">
+        <img alt="Underline" src="/question/type/opensheet/jquery.sheet/images/text_underline.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleLineThrough', 'styleUnderline'); return false;" title="Strike Through">
+        <img alt="Strike Through" src="/question/type/opensheet/jquery.sheet/images/text_strikethrough.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleLeft', 'styleCenter styleRight'); return false;" title="Align Left">
+        <img alt="Align Left" src="/question/type/opensheet/jquery.sheet/images/text_align_left.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleCenter', 'styleLeft styleRight'); return false;" title="Align Center">
+        <img alt="Align Center" src="/question/type/opensheet/jquery.sheet/images/text_align_center.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleRight', 'styleLeft styleCenter'); return false;" title="Align Right">
+        <img alt="Align Right" src="/question/type/opensheet/jquery.sheet/images/text_align_right.png"/></a>
+    <a href="#" onclick="this.jS.cellStyleToggle('styleWrap'); return false;" title="Wrap Text">
+        <img alt="Web Link" src="/question/type/opensheet/jquery.sheet/images/text_horizontalrule.png"/></a>
+    <a href="#" onclick="this.jS.merge(); return false;" title="Merge Cells">
+        <img alt="Fill Down" src="/question/type/opensheet/jquery.sheet/images/mergecell.png"/></a>
+    <a href="#" onclick="this.jS.unmerge(); return false;" title="Un-Merge Cells">
+        <img alt="Fill Down" src="/question/type/opensheet/jquery.sheet/images/mergecell.png"/></a>
+    <a href="#" onclick="this.jS.toggleHide.rowShowAll(); return false;" title="Show All Rows">
+        <img alt="Fill Down" src="/question/type/opensheet/jquery.sheet/images/show_table_row.png"/></a>
+    <a href="#" onclick="this.jS.toggleHide.columnShowAll(); return false;" title="Show All Columns">
+        <img alt="Fill Down" src="/question/type/opensheet/jquery.sheet/images/show_table_column.png"/></a>
+    <a href="#" onclick="this.jS.fillUpOrDown(); return false;" title="Fill Down">
+        <img alt="Fill Up" src="/question/type/opensheet/jquery.sheet/images/arrow_down.png"/></a>
+    <a href="#" onclick="this.jS.fillUpOrDown(true); return false;" title="Fill Up">
+        <img alt="Fill Up" src="/question/type/opensheet/jquery.sheet/images/arrow_up.png"/></a>
+
+    <!--<a href="#" onclick="this.jS.sortVerticalSingle(); return false" title="Sort Ascending">-->
+    <a href="#" onclick="this.jS.sortVerticalSelectAscending();" title="Sort Ascending">
+        <img alt="Sort Ascending" src="/question/type/opensheet/jquery.sheet/images/sort_up.png"/></a>
+
+    <!--<a href="#" onclick="this.jS.sortVerticalSingle(true); return true;" title="Sort Descending">-->
+    <a href="#" onclick="this.jS.sortVerticalSelectDescending(true); return true;" title="Sort Descending">
+        <img alt="Sort Descending" src="/question/type/opensheet/jquery.sheet/images/sort_down.png"/></a>
+
+    <!--<a href="#" onclick="this.jS.sortHorizontal(); return true;" title="Sort Right">-->
+    <a href="#" onclick="this.jS.sortHorizontalSelectAscending(); return true;" title="Sort Right">
+        <img alt="Sort Right" src="/question/type/opensheet/jquery.sheet/images/sort_right.png"/></a>
+
+    <!--<a href="#" onclick="this.jS.sortHorizontal(); return false;" title="Sort Left">-->
+    <a href="#" onclick="this.jS.sortHorizontalSelectDescending(); return false;" title="Sort Left">
+        <img alt="Sort Left" src="/question/type/opensheet/jquery.sheet/images/sort_left.png"/></a>
+
+<!--    <span class="colorPickers">-->
+<!--        <input title="Foreground color" class="colorPickerFont" style="background-image: url('/question/type/opensheet/jquery.sheet/images/palette.png') ! important; width: 16px; height: 16px;"/>-->
+<!--        <input title="Background Color" class="colorPickerCell" style="background-image: url('/question/type/opensheet/jquery.sheet/images/palette_bg.png') ! important; width: 16px; height: 16px;"/>-->
+<!--    </span>-->
+    <a href="#" onclick="
+            var jS = this.jS,
+                cell = ((this.jS.obj.tdActive()[0] || {}).jSCell || {}),
+                url = prompt('Enter Web Address', 'http://www.visop-dev.com/'),
+                args = [],
+                doubleQuote = String.fromCharCode(34);
+
+            if (!url) {
+                return false;
+            }
+
+            cell.calcLast = 0;
+            args.push(doubleQuote + url + doubleQuote);
+
+            if (cell.value) {
+                args.push(doubleQuote + cell.value + doubleQuote);
+                cell.value = '';
+            }
+
+            cell.formula = 'HYPERLINK(' + args.join(',') + ')';
+
+            jS.setDirty(true);
+            jS.calcDependencies.call(cell);
+            return false;
+        " title="HyperLink">
+        <img alt="Web Link" src="/question/type/opensheet/jquery.sheet/images/page_link.png"/></a>
+    <a href="#" onclick="this.jS.getTdRange(null, this.jS.obj.formula().val()); return false;" title="Get Cell Range">
+        <img alt="Get Cell Range" src="/question/type/opensheet/jquery.sheet/images/sheet_get_range.png"/></a>
+    <a href="#" onclick="this.jS.calc(this.jS.i, true); return false;" title="Refresh Calculations">
+        <img alt="Refresh Calculations" src="/question/type/opensheet/jquery.sheet/images/arrow_refresh.png"/></a>
+    <a href="#" onclick="this.jS.cellFind(); return false;" title="Find">
+        <img alt="Find" src="/question/type/opensheet/jquery.sheet/images/find.png"/></a>
+    <a href="#" onclick="this.jS.toggleFullScreen(); return false;" title="Toggle Full Screen">
+        <img alt="Toggle Full Screen" src="/question/type/opensheet/jquery.sheet/images/arrow_out.png"/></a><!--<a href="#" onclick="insertAt('jSheetControls_formula', '~np~text~'+'/np~');return false;" title="Non-parsed"><img alt="Non-parsed" src="/question/type/opensheet/jquery.sheet/images/noparse.png"/></a>-->
+
+    <script>
+        // Update url for current domain.
+        $('img').each(function(){
+
+            let src = $(this).attr('src');
+            if (src.indexOf(M.cfg.wwwroot) < 0) {
+                let url = M.cfg.wwwroot + src;
+                $(this).attr('src', url);
+            }
+        })
+
+        var parent = undefined;
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.chart-dropdown') && parent) {
+                closeDropdownChart();
+            }
+        });
+
+        function toggleDropdownChart(target) {
+            parent = target.closest('.chart-dropdown');
+            parent.classList.toggle('shown');
+        }
+
+        function closeDropdownChart() {
+            if(parent) {
+                parent.classList.remove('shown');
+            }
+        }
+
+    </script>
+
+    <div class="dropdown chart-dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="dropdownbtn" type="button" data-toggle="dropdown" aria-expanded="false"
+                onclick="toggleDropdownChart(this); return false;">
+
+            <img alt="Create chart" src="/question/type/opensheet/jquery.sheet/images/chart_column_solid.png"/>
+        </button>
+        <div class="dropdown-menu">
+            <!--<a href="javascript:void(0);" class="dropdown-item" onclick="closeDropdownChart(); this.jS.createChart(this, 'BARCHART'); return false;">BARCHART</a>-->
+            <!--<a href="javascript:void(0);" class="dropdown-item" onclick="closeDropdownChart(); this.jS.createChart(this, 'HBARCHART'); return false;">HBARCHART</a>-->
+            <!--<a href="javascript:void(0);" class="dropdown-item" onclick="closeDropdownChart(); this.jS.createChart(this, 'PIECHART'); return false;">PIECHART</a>-->
+
+            <a href="javascript:void(0);" class="dropdown-item class_LINECHART" onclick="closeDropdownChart(); this.jS.createChartExternal(this, 'LINECHART'); return false;">Line Chart</a>
+            <a href="javascript:void(0);" class="dropdown-item class_SCATTERCHART" onclick="closeDropdownChart(); this.jS.createChartExternal(this, 'SCATTERCHART'); return false;">Scatter Chart</a>
+            <a href="javascript:void(0);" class="dropdown-item class_BARCHART" onclick="closeDropdownChart(); this.jS.createChartExternal(this, 'BARCHART'); return false;">Bar Chart</a>
+            <a href="javascript:void(0);" class="dropdown-item class_PIECHART" onclick="closeDropdownChart(); this.jS.createChartExternal(this, 'PIECHART'); return false;">Pie Chart</a>
+            <a href="javascript:void(0);" class="dropdown-item class_DOUGHNUTCHART" onclick="closeDropdownChart(); this.jS.createChartExternal(this, 'DOUGHNUTCHART'); return false;">Doughnut Chart</a>
+        </div>
+    </div>
+
+    <a href="javascript:void(0);" class="insert-chart" style="display:none;" onclick="this.jS.insertChart(this); return false;" title="Insert Chart to cell">
+        Insert Chart</a>
+        
+</div>

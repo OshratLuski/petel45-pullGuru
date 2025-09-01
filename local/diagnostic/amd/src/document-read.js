@@ -1,0 +1,12 @@
+define(['jquery'], function($){
+  $(document).ready(function() {
+    $("html").on("mouseenter",".popup-local-diagnostic .diagnostic input#daterange", function(){
+        $(".popup-local-diagnostic .diagnostic .daterange-select i").css("color", "#000000");
+    });
+    $("html").on("mouseleave",".popup-local-diagnostic .diagnostic input#daterange", function(){
+        $(".popup-local-diagnostic .diagnostic .daterange-select i").css("color", "#ffffff");
+    });
+
+    $(".popup-local-diagnostic .modal-content .modal-header .close").html("✕");
+  });
+});

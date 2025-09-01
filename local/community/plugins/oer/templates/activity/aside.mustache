@@ -1,0 +1,105 @@
+<h3 class="activity-aside-menu-title p-2 mb-0">
+    {{#str}}titleaside, community_oer{{/str}}
+</h3>
+
+<ul class="list-unstyled p-0 m-0">
+
+    {{#aside_menu}}
+    <li class="p-0">
+        <div class="d-flex heading-wrapp p-2">
+            <div class="collapse-btn border-0 mr-2 p-0 " role="button" data-toggle="collapse" data-target="#activitycategory{{cat_id}}"
+                aria-expanded="false" aria-controls="activitycategory{{cat_id}}">
+                <i class="fa-solid fa-caret-left  m-0"></i>
+            </div>
+            <a class="menu-heading  bold d-flex align-items-center" href="javascript:void(0);"
+                data-plugin="activity" data-area="sidemenu" data-action="category" data-value="{{cat_id}}"
+                data-breadcrumbs="{{cat_name}}">
+                {{cat_name}}
+            </a>
+        </div>
+
+        <ul class="activity-aside-menu-block collapse list-unstyled p-0 m-0" id="activitycategory{{cat_id}}">
+            {{#courses}}
+
+            <li class="collapsed p-0 pl-3">
+                <div class="d-flex heading-wrapp submenu-heading-wrapp p-2 pl-3">
+                    <div class="collapse-btn border-0 mr-2 p-0 " role="button" data-toggle="collapse" data-target="#activitycourse{{id}}"
+                        aria-expanded="false" aria-controls="activitycourse{{id}}">
+                        <i class="fa-solid fa-caret-left  m-0"></i>
+                    </div>
+
+
+                    <a class="submenu-heading d-flex align-items-center " href="javascript:void(0);"
+                        data-plugin="activity" data-area="sidemenu" data-action="course" data-value="{{id}}"
+                        data-breadcrumbs="{{cat_name}} | {{fullname}}">
+
+                        {{fullname}}
+                    </a>
+                </div>
+
+                <ul class="sub-menu collapse list-unstyled m-0" id="activitycourse{{id}}">
+                    {{#sections}}
+                    <li class="">
+                        <a href="javascript:void(0);" class="sub-menu-item py-2 pr-2" role="button" data-plugin="activity"
+                            data-area="sidemenu" data-action="section" data-value="{{sectionid}}" data-parentcourse="{{id}}"
+                            data-breadcrumbs="{{cat_name}} | {{fullname}} | {{section_name}}">
+                            {{section_name}}
+                        </a>
+                    </li>
+                    {{/sections}}
+
+                </ul>
+            </li>
+            {{/courses}}
+        </ul>
+    </li>
+    {{/aside_menu}}
+</ul>
+
+{{#js}}
+require(['jquery'], function ($) {
+
+    var aside = $('ul.list-unstyled');
+
+    function setActive(target) {
+        aside.find('.active').removeClass('active');
+        target.parent().addClass('active');
+    }
+
+    function collapseNotActive(target) {
+
+        if ($(target).hasClass('menu-heading')) {
+            var elements = $('.menu-heading').not($(target));
+            elements.each(function () {
+                $(this).siblings('.collapse-btn').attr('aria-expanded', 'false');
+                $(this).closest('li').find('.collapse.show').removeClass('show');
+            });
+            $(target).siblings('.collapse-btn').attr('aria-expanded', 'true');
+            $(target).closest('li').find('ul.collapse.activity-aside-menu-block').addClass('show');
+        };
+
+        if ($(target).hasClass('submenu-heading')) {
+            var elements = $('.submenu-heading').not($(target));
+            elements.each(function () {
+                $(this).siblings('.collapse-btn').attr('aria-expanded', 'false');
+                $(this).closest('li').find('.collapse.show').removeClass('show');
+            });
+            $(target).siblings('.collapse-btn').attr('aria-expanded', 'true');
+            $(target).closest('li').find('ul.collapse.sub-menu').addClass('show');
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.menu-heading');
+            collapseNotActive(parent);
+        };
+
+        if ($(target).hasClass('sub-menu-item')) {
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.submenu-heading');
+            collapseNotActive(parent);
+        };
+    };
+
+    $(document).on('click', '.menu-heading, .submenu-heading, .sub-menu-item', function (e) {
+        var target = $(e.currentTarget);
+        setActive(target);
+        collapseNotActive(target);
+    });
+});
+{{/js}}

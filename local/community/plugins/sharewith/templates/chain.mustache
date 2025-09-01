@@ -1,0 +1,35 @@
+<div class="modal-header bg-secondary p-1 text-white">
+    <h5 class="modal-title">{{#str}}selectchain, community_sharewith{{/str}}</h5>
+    <button type="button" class="close text-white d-flex align-items-center justify-content-center m-0" data-dismiss="modal" aria-label="Close">
+      <i class="fa-light fa-circle-xmark"></i>
+    </button>
+</div>
+
+<p class = "m-0 pr-3 pl-3 pt-2">{{#str}}copy_activity_chain, community_sharewith{{/str}}</p>
+<div id="activitieschain" class="modal-body d-flex justify-content-center">
+    <div class ="d-flex flex-column align-items-center">
+      {{#chains}}
+          <label class = "d-flex align-items-center btn btn-outline-primary p-2 text-left m-0">
+              <input class = "sr-only" type = "checkbox" value = {{cmid}} name = "cmid[]" checked {{^visible}} disabled {{/visible}}>
+              <span class="checkbox-custom"><i class="fa fa-check" aria-hidden="true"></i></span>
+              <span class = "name ml-1">{{name}}</span>
+          </label>
+          <i class="icon fa fa-arrow-down m-1" aria-hidden="true"></i>
+      {{/chains}}
+    </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-success" type="button" data-handler="saveChain">{{#str}}continue, community_sharewith{{/str}}</button>
+  <button class="btn btn-secondary" type="button"  data-dismiss="modal">{{#str}}cancel, community_sharewith{{/str}}</button>
+</div>
+
+{{#js}}
+  require(['jquery'], function ($) {
+      $('#activitieschain').on('click', 'label', function(){
+          $(this).find('input').prop('checked', true);
+          $(this).nextAll().find('input').prop('checked', false);
+          $(this).prevAll().find('input').prop('checked', true);
+      });
+  })
+{{/js}}

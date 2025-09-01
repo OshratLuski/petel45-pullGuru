@@ -1,0 +1,37 @@
+<div class = "teacher-cards-head d-flex align-items-center justify-content-between text-primary mb-4">
+    <span>{{teachers_current_tab.tab_name}}
+        {{#teachers_current_tab.tab_count_active}}
+            ({{teachers_current_tab.tab_count}})
+        {{/teachers_current_tab.tab_count_active}}
+    </span>
+    <div class="teacher_search" title="">
+        <div class="teacher_search-label">
+            <input class="teacher_search-input" type="text" id="search_teachers" name="search_teachers" value="{{teachers_current_tab.tab_search}}" placeholder="{{#str}} typesearch, community_social{{/str}}" alt="" autofocus>
+            <div data-tab_id="{{teachers_current_tab.tab_id}}" data-handler="search_teacher" class="teacher_search-icon" title="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                    <path d="M16.7585 13.833L13.6426 10.7177C13.502 10.5771 13.3114 10.499 13.1113 10.499H12.6019C13.4645 9.39596 13.977 8.00859 13.977 6.49936C13.977 2.90909 11.0674 0 7.47655 0C3.88566 0 0.976074 2.90909 0.976074 6.49936C0.976074 10.0896 3.88566 12.9987 7.47655 12.9987C8.98604 12.9987 10.3736 12.4863 11.4768 11.6239V12.1332C11.4768 12.3332 11.555 12.5238 11.6956 12.6644L14.8115 15.7797C15.1052 16.0734 15.5803 16.0734 15.8709 15.7797L16.7554 14.8954C17.0491 14.6017 17.0491 14.1267 16.7585 13.833ZM7.47655 10.499C5.26701 10.499 3.47626 8.71165 3.47626 6.49936C3.47626 4.29021 5.26389 2.49976 7.47655 2.49976C9.68609 2.49976 11.4768 4.28708 11.4768 6.49936C11.4768 8.70852 9.68921 10.499 7.47655 10.499Z" fill="#554283"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div class = "teacher-cards">
+
+    <input type="hidden" id="social_teacher_tabid" value="{{teachers_current_tab.tab_id}}">
+    <input type="hidden" id="social_teacher_loaded_users_onpage" value="{{load_users_onpage}}">
+
+    {{^teachers_tab_date_empty}}
+        {{#teachers_current_tab.tab_data}}
+            {{>community_social/teachers/card}}
+        {{/teachers_current_tab.tab_data}}
+
+        <div class="lazyload"></div>
+
+    {{/teachers_tab_date_empty}}
+
+
+    {{#teachers_tab_date_empty}}
+        <div class = "">{{#str}} noteachers, community_social{{/str}}</div>
+    {{/teachers_tab_date_empty}}
+
+</div>

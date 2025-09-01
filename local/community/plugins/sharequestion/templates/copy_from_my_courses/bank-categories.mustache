@@ -1,0 +1,16 @@
+{{#categories}}
+    <div class="bank-categories-wrapper mb-1">
+        <p class="sub-cat-{{level}} bank-categories-wrapper-name d-flex align-items-center collapsed pr-2 pl-5 ml-1 mb-2" type="button" data-toggle="collapse"
+            data-target="#bank_categories_wrapp_{{uniqueid}}_{{catid}}" aria-expanded="false" aria-controls="bank_categories_wrapp_{{uniqueid}}_{{catid}}">
+            <i class="fa fa-caret-down text-primary mx-2" aria-hidden="true"></i>
+            <span class="ml-1">{{catname}}</span> &nbsp; <span class="question-counter">({{qtotal}})</span>
+        </p>
+        <div class="bank-categories-wrapper-collapse collapse px-2 py-2" id="bank_categories_wrapp_{{uniqueid}}_{{catid}}" data-catid="{{catid}}">
+
+        </div> 
+    </div>
+{{/categories}}
+
+{{^categories}}
+    <p>{{#str}}nocategories, community_sharequestion{{/str}}</p>
+{{/categories}}

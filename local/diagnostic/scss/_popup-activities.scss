@@ -1,0 +1,107 @@
+#local_diagnostic_activities_modal {
+    z-index: 2500;
+
+    .activities-footer{
+        display: flex;
+    }
+
+    #question_list_sections{
+        max-height: 570px;
+        overflow-y: auto;
+    }
+}
+
+.activities-diagnostic {
+    button {
+        font-family: "Meoded Pashut";
+        color: #2b2b2b;
+        background: none;
+        /* font-size: 1.5rem; */
+        line-height: 1.21;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        padding-bottom: 0.3125rem;
+    }
+
+    button:focus {
+        outline: 0;
+    }
+
+    button i {
+        position: relative;
+        top: 0.25rem;
+        font-size: 1.75rem !important;
+        transition: all 0.25s ease-out;
+        color: #554283 !important;
+    }
+
+    button[aria-expanded="false"] i {
+        transform: rotate(90deg);
+    }
+
+    .collapse-block {
+        margin-left: 1.625rem;
+        margin-top: 0.25rem;
+    }
+
+    label {
+        margin-left: 0.625rem;
+        font-family: "Heebo" !important;
+        color: #2b2b2b !important;
+        font-weight: 500 !important;
+        margin-bottom: 0.25rem;
+        cursor: pointer;
+    }
+
+    input {
+        cursor: pointer;
+    }
+
+    /* --- */
+
+    ul {
+        list-style-type: none;
+    }
+
+    ul li:first-child input {
+        width: 21px;
+        height: 21px;
+    }
+
+    ul li label {
+        font-family: OEMeodedPashutPro;
+        color: #2b2b2b;
+        font-weight: 300;
+    }
+
+    ul li:first-child label {
+        font-family: OEMeodedPashutPro;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2b2b2b;
+    }
+
+    ul li {
+        padding-left: 40px;
+        padding-top: 8px;
+    }
+
+    ul li:first-child {
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    h2 {
+        font-family: Heebo;
+        font-size: 24px;
+        color: #554283;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+
+    input[type="checkbox"] {
+        accent-color: #554283;
+    }
+}

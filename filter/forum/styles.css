@@ -1,0 +1,55 @@
+/* filter_forum */
+.filter_forum {
+    text-align: left;
+}
+
+.dir-rtl .filter_forum {
+    text-align: right;
+}
+
+/*
+.filter_forum a:link {
+
+}
+
+.filter_forum a:hover {
+
+}
+
+.filter_forum a:visited {
+
+}
+*/
+
+.filter_forum ul {
+    margin-left: 0;
+    padding-left: 2px;
+}
+
+.dir-rtl .filter_forum ul {
+    margin-right: 0;
+    padding-right: 5px;
+}
+
+.filter_forum li {
+    list-style: none;
+}
+
+.filter_forum img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.filter_forum ul {
+    margin-bottom: 10px;
+}
+
+.newsfilter #youropinion {
+    margin: 0 5px;
+}
+
+/* Hide course and forum name from students, only teachers and admin can see it */
+.role-student .forumtitle.teacheronly {
+    display: none;
+}

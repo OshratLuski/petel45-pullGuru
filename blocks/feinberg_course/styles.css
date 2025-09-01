@@ -1,0 +1,35 @@
+.feinberg_course_data {
+    text-align: left;
+    direction: ltr;
+    height: 220px;
+    overflow: auto;
+    margin-bottom: 25px;
+    font-size: 12px;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 3px aliceblue;
+    border-style: solid;
+
+}
+
+.feinberg_course_data_short{
+    text-align: left;
+    direction: ltr;
+    margin-bottom: 25px;
+    font-size: 12px;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 3px aliceblue;
+    border-style: solid;
+}
+
+.feinberg_course_field {
+    direction: ltr;
+    text-align: center;
+}
+
+#Website {
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 3px;
+}

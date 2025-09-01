@@ -1,0 +1,15 @@
+#page-question-type-essayrubric, #page-admin-question-type-essayrubric-indicators {
+    #ind_addnew {
+        color: $petel-primary;
+        border-color: $petel-primary !important;
+    }
+    #ind_delete {
+        background-color: $petel-primary;
+    }
+    #ind_submit {
+        background-color: $petel-primary;
+    }
+    .n_catch, .n_catch_all {
+        accent-color: $petel-primary;;
+    }
+}

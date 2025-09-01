@@ -1,0 +1,3 @@
+<?php
+// Display current date and time.
+echo date('H:i:s, d-M-Y');

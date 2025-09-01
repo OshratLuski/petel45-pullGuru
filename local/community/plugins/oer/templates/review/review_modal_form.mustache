@@ -1,0 +1,203 @@
+
+
+        <div class="modal-content review_modal" id = "reviewForm">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <div class="modal-header-img" style = "background-image: url({{activityimg}})"></div>
+                    <div>
+                        {{#str}}add_activity_review, community_oer {{/str}}
+                        <span class = "modal-header-title"><a href="{{activityurl}}" class="modal-header-link" target = "_blank">{{activityname}}</a></span>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form_block">
+                    <div class="inputs-wrapper">
+                        <h3 class="form_block-title">{{#str}}timing_moving_activity, community_oer {{/str}}</h3>
+                        <p class="form_block-subtitle">{{#str}}share_your_experience, community_oer {{/str}}</p>
+                        <div class="radio_btns">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" id="l1" type="radio" name="activity_by" value="1">
+                                <label for="l1" class="involve__label custom-control-label"> {{#str}}preparation_for_topic, community_oer {{/str}} </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" id="l2" type="radio" name="activity_by" value="2">
+                                <label for="l2" class="involve__label custom-control-label"> {{#str}}topic_start, community_oer {{/str}} </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" id="l3" type="radio" name="activity_by" value="3">
+                                <label for="l3" class="involve__label custom-control-label"> {{#str}}during_subject, community_oer {{/str}} </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" id="l4" type="radio" name="activity_by" value="4">
+                                <label for="l4" class="involve__label custom-control-label"> {{#str}}when_topic_over, community_oer {{/str}} </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" id="l5" type="radio" name="activity_by" value="5">
+                                <label for="l5" class="involve__label custom-control-label"> {{#str}}inpreparation_for_test, community_oer {{/str}} </label>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        href = "{{activityurl}}"
+                        target="_blank"
+                        class="btn btn-outline-primary btn-sm ">
+                        {{#str}}open_activity, community_oer {{/str}}
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="form_block">
+                    <h3 class="form_block-title">
+                        {{#str}}mode_transferring_activity, community_oer {{/str}}
+                        <span>{{#str}}can_choose_more_than_one_option, community_oer {{/str}}</span>
+                    </h3>
+                    <div class="activity_mode_wrapper">
+                      <label class="icon_wrapper">
+                        <input type="checkbox" class="icon_wrapper_input sr-only" name="classroom"/>
+                        <div class="icon">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="icon_title">{{#str}}classroom, community_oer {{/str}}</h4>
+                     </label>
+                    <label class="icon_wrapper">
+                      <input type="checkbox" class="icon_wrapper_input sr-only" name="home"/>
+                        <div class="icon">
+                          <i class="fa fa-home" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="icon_title">{{#str}}home, community_oer {{/str}}</h4>
+                    </label>
+                    <label class="icon_wrapper">
+                      <input type="checkbox" class="icon_wrapper_input sr-only" name="phone"/>
+                      <div class="icon">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                      </div>
+                      <h4 class="icon_title">{{#str}}smartphone, community_oer {{/str}}</h4>
+                    </label>
+                    <label class="icon_wrapper">
+                      <input type="checkbox" class="icon_wrapper_input sr-only" name="pc"/>
+                      <div class="icon">
+                        <i class="fa fa-laptop" aria-hidden="true"></i>
+                      </div>
+                      <h4 class="icon_title">{{#str}}computer, community_oer {{/str}}</h4>
+                    </label>
+                    </div>
+                </div>
+                <!-- error block  -->
+                <button
+                    class="btn btn-outline-primary mt-2 mb-2"
+                    data-handler = "toggleView"
+
+                    >
+                    {{#str}}report_error, community_oer {{/str}}
+                    <i class="icon fa fa-arrows-v fa-fw" aria-hidden="true"></i>
+                </button>
+                <div class="form_block form_block-block toggle">
+                    <p class="form_block-subtitle">{{#str}}please_inform_of_error, community_oer {{/str}}</p>
+                    <div class="radio_btns">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" id="l6" type="radio" name="error_reporting" value="bug">
+                            <label for="l6" class="involve__label custom-control-label"> {{#str}}report_bug, community_oer {{/str}} </label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" id="l7" type="radio" name="error_reporting" value="mistake">
+                            <label for="l7" class="involve__label custom-control-label"> {{#str}}report_mistake, community_oer {{/str}} </label>
+                        </div>
+                    </div>
+                    <p class="form_block-subtitle">{{#str}}describe_location, community_oer {{/str}}</p>
+                    <textarea class="modal_textarea p-2" id="issue_descr" placeholder="{{#str}}problem_details, community_oer {{/str}}"></textarea>
+                    <div class="screenshotpreviews">
+                      <div class = "addscreenshot">
+                        <p class="add_file_title"><i class="fa fa-paperclip" aria-hidden="true"></i>{{#str}}add_picture, community_oer {{/str}}</p>
+                        <div class="screenshot_icon_wrapper">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- error block end -->
+                <div class="form_block">
+                    <h3 class="form_block-title">{{#str}}provide_information, community_oer {{/str}}</h3>
+                    <ul class="undertitle_questions">
+                        <li class="pb-1">{{#str}}timing_activity, community_oer {{/str}}</li>
+                        <li class="pb-1">{{#str}}insights_experiences, community_oer {{/str}}</li>
+                        <li>{{#str}}recommendations_teachers, community_oer {{/str}}</li>
+                    </ul>
+                    <div class="textarea_wrapper">
+                        <textarea class="description_text pr-2 pl-2" id="descr1" placeholder="{{#str}}how_transfer_activity, community_oer {{/str}}"></textarea>
+                        <textarea class="description_text pr-2 pl-2" id="descr2" placeholder="{{#str}}experience_transfer_activity, community_oer {{/str}}"></textarea>
+                        <textarea class="description_text pr-2 pl-2" id="descr3" placeholder="{{#str}}recommendations_transfer_activity, community_oer {{/str}}"></textarea>
+                    </div>
+                </div>
+
+                <div class="pb-4">
+                    <h3 class="form_block-title">{{#str}}recommend_activity_to_teachers, community_oer {{/str}}</h3>
+                    <div class = "d-flex w-100 justify-content-between mb-2">
+                        <span>{{#str}}dontrecommend, community_oer {{/str}}</span>
+                        <span>{{#str}}recommend, community_oer {{/str}}</span>
+                    </div>
+                          <input
+                              type="range"
+                              list = 'dl'
+                              class="custom-range"
+                              min="1"
+                              max="5"
+                              step="1"
+                              id="customRange3"/>
+                          <span class = "range_stick"></span>
+
+                </div>
+                <div class="modal-footer">
+                    <button
+                        data-handler="sendReview"
+                        data-activityid="{{activityid}}"
+                        data-requestid="{{requestid}}"
+                        type="button"
+                        class="btn btn-primary">
+                        {{#str}}send, community_oer {{/str}}
+                    </button>
+                    <button data-dismiss="modal" type="button" class="btn btn-outline-primary">
+                        {{#str}}cancel, community_oer {{/str}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+{{#js}}
+require(['jquery'], function ($) {
+    var fileinputs = 0;
+
+    $('[data-handler="toggleView"]').on('click', function(){
+      $(this).toggleClass('slide');
+      $(this).siblings('.toggle').slideToggle();
+    });
+
+    $(document).on('click', '.addscreenshot', function(){
+        $('.screenshotpreviews').append('<label class = "screenshot" for="screenshot" id="screenshot' + fileinputs + '" ><div class="screenshot_icon_wrapper" ><img src="#" id="screenshotimg' + fileinputs + '"  /><input class = "sr-only screenshots d-none" data-imageid="' + fileinputs + '" type="file" id="screenshotfile' + fileinputs + '" accept=".jpg, .jpeg, .png"></div><span class="btn removescreenshot"><i class="fa fa-close"></i></span></label>');
+        $('#screenshotfile' + fileinputs).change(function(){
+            createPreview(this);
+        });
+        $('#screenshotfile' + fileinputs).click();
+        fileinputs++;
+    });
+
+    $(document).on('click', '.removescreenshot', function(){
+        $(this).parents('.screenshot').remove();
+    });
+
+    function createPreview(input) {
+        if (input.files && input.files[0]) {
+            var inputid = input.dataset.imageid;
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#screenshotimg' + inputid).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+});
+{{/js}}

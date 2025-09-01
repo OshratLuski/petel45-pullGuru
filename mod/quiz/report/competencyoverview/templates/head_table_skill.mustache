@@ -1,0 +1,21 @@
+<div class="header-inner checked">
+    <div class="title-wrapper d-flex align-items-center justify-content-between">
+        <input type="checkbox" value="" checked="checked" data-compid="{{compid}}" id="comptenecy-id-{{compid}}"
+            class="selected-comp custom-checkbox mr-1">
+        <label for="comptenecy-id-{{compid}}" class="title my-0 mr-auto"> {{colid}}</label>
+        <a href="#" class="sortcol" data-colid="{{columnid}}"></a>
+    </div>
+    <div>
+        {{key}} <br>
+        <a href="#" class="questionsbycompetency" style="text-decoration: none;" data-compid="{{compid}}"
+            data-qset="{{qset}}"
+            data-comptitle="{{#str}}skill, quiz_competencyoverview{{/str}} {{colid}} &ndash; {{key}}">
+            {{{numquest}}} {{#str}}questions, quiz_competencyoverview{{/str}} &ndash; {{ classsuccess }}%
+            {{#str}}classsuccess, quiz_competencyoverview{{/str}}
+        </a>
+    </div>
+    <hr>
+    <div href="#" class="hlfilter text-secondary text-muted" style="text-decoration: none;" data-skill="skill_{{keys}}">
+        {{{htmlranges}}}
+    </div>
+</div>

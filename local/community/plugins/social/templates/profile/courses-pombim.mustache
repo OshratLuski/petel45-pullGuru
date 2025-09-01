@@ -1,0 +1,167 @@
+<!--<span class="course__count text-primary">-->
+<!--    {{^editable}}-->
+<!--        <span>{{firstname_pombim}}</span>-->
+<!--        <span>{{#str}}wordsharing, community_social{{/str}}</span>-->
+<!--        <span>{{count_courses_pombim}}</span>-->
+<!--        <span>{{#str}}wordcourses, community_social{{/str}}</span>-->
+<!--    {{/editable}}-->
+
+<!--    {{#editable}}-->
+<!--        <span>{{#str}}wordyou, community_social{{/str}}</span>-->
+<!--        <span>{{#str}}wordsharing, community_social{{/str}}</span>-->
+<!--        <span>{{count_courses_pombim}}</span>-->
+<!--        <span>{{#str}}wordcourses, community_social{{/str}}</span>-->
+<!--        <span>{{#str}}wordwith, community_social{{/str}}</span>-->
+<!--        <span>{{count_collegues}}</span>-->
+<!--        <span>{{#str}}wordteachers, community_social{{/str}}</span>-->
+<!--    {{/editable}}-->
+<!--  </span>-->
+
+{{#button_courses_pombim_enable}}
+    <!-- <a class = "btn btn--inline" data-handler = "request-followed-courses" href = "javascript:void(0)">{{#str}}requestaddcourses, community_social{{/str}}</a> -->
+{{/button_courses_pombim_enable}}
+
+<div class="course__filed pt-3">
+
+    {{#courses_pombim}}
+
+        <div class="course border border-secondarymedium px-3">
+            <a class="course-img-wrapper border border-secondarylight" {{#if_can_see_url}} href="{{{courseurl}}}" {{/if_can_see_url}}>
+                <div class="course__img" style="background-image: url('{{{imageurl}}}')"></div>
+            </a>
+            <div class="course-main">
+                <div class="teacher-block d-flex align-items-center flex-wrap mb-3">
+                    <a href="javascript:void(0);" class="teacher-block-info border-right border-primary d-flex align-items-center pr-2 mr-2">
+                        <div class="teacher-img rounded-circle" style="background-image: url('{{{user_image}}}');"></div>
+                        {{user_name}}
+                    </a>
+                    <a href="javascript:void(0);" class="teacher-block-date border-right border-primary pr-2 mr-2">
+                        {{created_date}}
+                    </a>
+                    <div class="text-primary course-info-tooltip position-relative  d-inline-flex" >
+                        <span class="teacher-info text-body p-0 ">
+                            <i class="fas fa-list" aria-hidden="true"></i>
+                            {{#str}} sectionlist, community_social {{/str}}
+                        </span>
+                        <div class="oer-tooltip position-absolute p-1 {{^sectionlist}}d-none{{/sectionlist}}"
+                            data-position="bottom-center" data-carret-position="top-center" data-simplebar>
+                            {{#sectionlist}}
+                                <li>{{.}}</li>
+                            {{/sectionlist}}
+                        </div>
+                    </div>
+                </div>
+                 <!-- <p class="course__teachers-h">{{#str}}colleagueteachers, community_social{{/str}}</p> -->
+                    <div class="course__teachers">
+                        <!--<button class="tc-circlebtn" data-handler="slideCourseCard"></button> -->
+                        <a {{#if_can_see_url}} href="{{{courseurl}}}" {{/if_can_see_url}} class="w-100 mb-auto">
+                            <h2 class="course__name text-body bold">{{fullname}}</h2>
+                        </a>
+                    </div>
+                    <div class="course__preview" title="{{summary}}">{{{summary}}}</div>
+                    <div class="text-primary course-info-tooltip position-relative" >
+                            <span class="teacher-info text-body p-0 ">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                                {{#str}} listofusers, community_social {{/str}}
+                            </span>
+                            <div class="oer-tooltip position-absolute p-1 {{^collegues}}d-none{{/collegues}}" data-position="bottom-center" data-carret-position="top-center" data-simplebar>
+                                {{#collegues}}
+                                {{firstname}} {{lastname}},
+                                {{/collegues}}
+                            </div>
+                        </div>
+                        {{#collegues}}
+                        {{#if_can_delete}}
+                        <!-- PTL-7759
+                        <div class="course__teacher-item">
+                            <span class="course__teacher-name">{{firstname}} {{lastname}}</span>
+                            <span data-courseid= {{social_shared_courses_id}} data-userid = {{userid}} data-handler="remove-teacher-request" class = "course__teacher-item-close"></span>
+                        </div>-->
+                        {{/if_can_delete}}
+                        {{^if_can_delete}}
+                        <!--
+                        <div class="course__teacher-item">
+                            <span class="course__teacher-name">{{firstname}} {{lastname}}</span>
+                        </div>-->
+                        {{/if_can_delete}}
+                        {{/collegues}}
+            </div>
+            <div class="course-info ml-auto flex-shrink-0">
+                    <!-- Button copy course -->
+
+                    {{#ifcopy}}
+                        <div class="copy-activity-dropdown-wrapper">
+                            <button class="copy-course-pombim-btn btn
+                            {{#course_shared}}btn--white{{/course_shared}} {{^course_shared}}btn-primary{{/course_shared}} rounded mb-3 w-100"
+                                    type="button" id="copy_corse_btn_{{id}}" data-cid="{{id}}" data-error-category="{{error_category}}">
+
+                                <i class="fa-light fa-copy mr-2"></i>
+
+                                <span>
+                                    {{#course_shared}}{{#str}}activitycopied, community_oer{{/str}}{{/course_shared}}
+                                    {{^course_shared}}{{#str}}activitycopy, community_oer{{/str}}{{/course_shared}}
+                                </span>
+                            </button>
+                        </div>
+                    {{/ifcopy}}
+
+                    {{^ifcopy}}
+                        <div class="copy-activity-dropdown-wrapper">
+                            <div class="text-primary copy-course-info-tooltip position-relative" >
+                                <button {{^ifcopy}} disabled="" {{/ifcopy}} class="copy-course-pombim-btn btn
+                                {{#course_shared}}btn--white{{/course_shared}} {{^course_shared}}btn-primary{{/course_shared}} rounded mb-3 w-100"
+                                        type="button" id="copy_corse_btn_{{id}}" data-cid="{{id}}" data-error-category="{{error_category}}">
+
+                                    <i class="fa-light fa-copy mr-2"></i>
+
+                                    <span>
+                                        {{#course_shared}}{{#str}}activitycopied, community_oer{{/str}}{{/course_shared}}
+                                        {{^course_shared}}{{#str}}activitycopy, community_oer{{/str}}{{/course_shared}}
+                                    </span>
+                                </button>
+
+                                <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left" data-carret-position="top-left" >
+                                    <span>{{#str}}course_shared_disabled, community_oer{{/str}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/ifcopy}}
+
+                    <div class="course-info-blocks d-flex align-items-start justify-content-end">
+                        <div class="activity-info-block text-center">
+                            <i class="fa-light fa-download text-secondary"></i>
+                            <p class="text-body m-0">{{course_shared_users_count}}</p>
+                        </div>
+                    </div>
+            </div>
+            {{#button_courses_pombim_enable}}
+
+            {{#button_wait_for_answer}}
+            <div class="course__tag">{{#str}}buttonwaitforanswer, community_social{{/str}}</div>
+            {{/button_wait_for_answer}}
+
+            {{#button_request_decline}}
+            <div class="course__tag">{{#str}}buttonrequestdecline, community_social{{/str}}</div>
+            {{/button_request_decline}}
+
+            {{#button_send_request}}
+            <button data-handler="send_followed_single_course" data-courseid="{{id}}" class="course__btn btn btn--primary rounded ">
+            {{#str}}requestaccess, community_social{{/str}}
+            </button>
+            {{/button_send_request}}
+
+            {{/button_courses_pombim_enable}}
+        </div>
+    {{/courses_pombim}}
+
+    {{^courses_pombim}}
+        <div class="course__preview">{{#str}} nocourses, community_social{{/str}}</div>
+    {{/courses_pombim}}
+
+</div>
+
+{{#js}}
+    require(['jquery', 'community_oer/course'], function ($, Course) {
+        Course.downloadCoursePombim();
+    });
+{{/js}}

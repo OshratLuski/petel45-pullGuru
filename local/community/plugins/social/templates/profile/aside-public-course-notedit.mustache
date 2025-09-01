@@ -1,0 +1,27 @@
+      <div class = "public-course__header">
+        <div class = "public-course__head text-secondary">
+          {{#str}}publiccourses, community_social{{/str}}
+          <span
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title = "{{#str}}publiccourseshelp, community_social{{/str}}"
+            >
+          </span>
+        </div>
+
+        {{#editable}}
+          <a data-handler = "courses_pombim" href = "javascript:void(0)" class = "btn-settings"><i class="fa fa-cog" aria-hidden="true"></i>{{#str}}settings, community_social{{/str}}</a>
+        {{/editable}}
+
+      </div>
+      {{#courses_pombim}}
+        <div class = "public-course__item">{{fullname}}</div>
+      {{/courses_pombim}}
+
+      {{^courses_pombim}}
+        <div class = "public-course__message text-primary">{{#str}} nopubliccourses, community_social{{/str}}</div>
+      {{/courses_pombim}}
+
+      {{#button_courses_pombim_enable}}
+        <!-- <a data-handler = "request-followed-courses" href = "javascript:void(0)" class = "btn btn--left">{{#str}}requestaccess, community_social{{/str}}</a> -->
+      {{/button_courses_pombim_enable}}

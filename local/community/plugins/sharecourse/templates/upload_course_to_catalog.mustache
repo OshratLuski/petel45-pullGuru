@@ -1,0 +1,29 @@
+<div id="uploadcourse" class="uploadcourse">
+    <form class="container-fluid" action="" id="sharing_courses_form_{{uniqueid}}" method="post"
+        enctype="multipart/form-data">
+        <input type="hidden" name="courseid" value="{{courseid}}">
+
+        <p tabindex="0" role="heading" class="first-paragraph" autofocus>{{#str}}sharing_content_materials_repository, community_sharecourse{{/str}}</p>
+
+        {{{uploadhtml}}}
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary uploadcourseclose" type="button" data-handler="goBack">
+                {{#str}}cancel, community_sharecourse{{/str}}
+            </button>
+
+            <button type="button" class="btn btn-success submited uploadcoursesubmit">
+                <div class="spinner-border spinner-border-sm modalspinner d-none" role="status"></div>
+                <span>{{#str}}share, community_sharecourse{{/str}}</span>
+            </button>
+
+        </div>
+
+    </form>
+</div>
+
+{{#js}}
+    require(['community_sharecourse/uploadPopup'], function(uploadPopup) {
+        uploadPopup.init('{{uniqueid}}');
+    });
+{{/js}}

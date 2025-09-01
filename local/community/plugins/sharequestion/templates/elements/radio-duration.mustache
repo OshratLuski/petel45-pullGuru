@@ -1,0 +1,51 @@
+<div class="form-group mb-5 w-50 {{#required}}required{{/required}}" id="range-{{unique}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2" for="{{shortname}}{{unique}}">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    <div class="uploadactivity-range-wrapper position-relative">
+        <input type="range" class="custom-range uploadactivity-custom-range w-100 position-absolute" min="0"
+            max="{{count}}" data-default="{{defaultdata}}" value="{{defaultdata}}" id="{{shortname}}{{unique}}" name="{{shortname}}">
+        <div class="innerblock">
+            <div class="uploadactivity-range-bottom d-flex justify-content-between w-100 bg-light">
+                {{#data_formated}}
+                <div class="pin bg-light border border-primary rounded-circle"></div>
+                {{/data_formated}}
+            </div>
+
+            <div class="uploadactivity-range-bottom-textmarker d-flex justify-content-between w-100">
+                {{#data_formated}}
+                <div class="text-marker"></div>
+                {{/data_formated}}
+            </div>
+        </div>
+        <div class="uploadactivity-range-bottom-textblock d-flex justify-content-between position-absolute">
+            {{#data_formated}}
+            <div class="text-mark position-relative">{{metadata_name}}</div>
+            {{/data_formated}}
+        </div>
+    </div>
+</div>
+{{#js}}
+    require(['jquery'], function($) {
+        var range = $('#range-{{unique}}').find('.uploadactivity-custom-range');
+        var rangeTextBlock = $('#range-{{unique}}').find('.uploadactivity-range-bottom-textblock .text-mark');
+      $(document).ready(function(){
+        var defaultVal = range.data('default');       
+        rangeTextBlock.eq(defaultVal).addClass('bold');
+      });
+      range.on('input', function () {
+         var val = $(this).val()
+         rangeTextBlock.removeClass('bold');
+            rangeTextBlock.eq(val).addClass('bold');
+        });
+    });
+{{/js}}

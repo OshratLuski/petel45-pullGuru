@@ -1,0 +1,20 @@
+/* Highlight can use local store MUC (admin settings) */
+.canuselocalstore span.yes {
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+/* Atto numbering */
+menu,
+ol,
+ul {
+    padding: 0 0 0 25px;
+}
+
+/* EC-489 Disable oercatalog and social menu for mobile. */
+.oer-popup-btn,
+.social-popup-btn {
+    display: none;
+}

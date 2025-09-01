@@ -1,0 +1,26 @@
+<div class="mlnlpresponse" id="mlnlpresponse-{{qid}}{{questionattemptid}}">
+    <table class="table table-borderless table-hover">
+        <thead>
+        <tr>
+            <th scope="col">{{#str}}nameresponce, qtype_mlnlpessay{{/str}}</th>
+            <th scope="col">{{#str}}typeresponce, qtype_mlnlpessay{{/str}}</th>
+            <th scope="col">{{#str}}resultresponce, qtype_mlnlpessay{{/str}}</th>
+            {{#showoverridden}}<th scope="col">{{#str}}override, qtype_mlnlpessay{{/str}}</th>{{/showoverridden}}
+        </tr>
+        </thead>
+        <tbody>
+        {{#categories}}
+            <tr class="table-{{#correct}}success{{/correct}}{{^correct}}danger{{/correct}}">
+                <td class="col-6">{{{description}}}</td>
+                <td>{{type}}</td>
+                <td>{{#correct}}<i class="fas fa-check text-success"></i>{{/correct}}
+                    {{^correct}}<i class="fas fa-times text-danger"></i>{{/correct}}
+                </td>
+                {{#showoverridden}}
+                    <td><input type="checkbox" data-categoryid="{{id}}" data-questionid="{{questionid}}" data-questionattemptid="{{questionattemptid}}" class="override-trigger-{{questionid}}{{questionattemptid}}" {{#overridden}}checked{{/overridden}}/></td>
+                {{/showoverridden}}
+            </tr>
+        {{/categories}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,136 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_learningmap/activityselector
+
+    Template for displaying the activity selector in the editor.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+
+    Example context (json):
+    {
+    "sections":[
+        {
+            "name":"Section 0",
+            "coursemodules":[
+                {
+                "id":"1039",
+                "name":"Activity 1",
+                "completionenabled":"true",
+                "hidden":"false"
+                },
+                {
+                "id":"1040",
+                "name":"Activity 2",
+                "completionenabled":"false",
+                "hidden":"false"
+                }
+            ]
+        },
+        {
+            "name":"Section 1",
+            "coursemodules":[
+                {
+                "id":"1043",
+                "name":"Activity 3",
+                "completionenabled":"true",
+                "hidden":"false"
+                }
+            ]
+        }
+    ]
+    }
+}}
+<div id="learningmap-activity-setting" class="card border-dark">
+    <div class="card-body">
+        <div class="card-title alert alert-dark">{{#str}} editplace, learningmap {{/str}}</div>
+        <div class="card-text">
+
+            <!-- Activity options -->
+            <div class="mb-3" id="activity-selector-container">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="radio-activity" name="linkoractivity" class="custom-control-input" checked>
+                    <label class="custom-control-label" for="radio-activity">{{#str}} activity, core {{/str}}</label>
+                    <select id="learningmap-activity-selector" class="form-control" aria-labelledby="radio-activity">
+                        {{#sections}}
+                        <option disabled title="{{name}}">-- {{#shortentext}} 30, {{{name}}} {{/shortentext}} --</option>
+                        {{#coursemodules}}
+                        {{^completionenabled}}
+                        <option value="{{id}}" disabled class="learningmap-disabled-activity"
+                            title="{{#str}} nocompletionenabled, learningmap {{/str}}">{{#shortentext}} 30, {{{name}}}
+                            {{/shortentext}}</option>
+                        {{/completionenabled}}
+                        {{#completionenabled}}
+                        <option value="{{id}}" title="{{name}}" data-activity-hidden="{{hidden}}">{{#shortentext}} 30,
+                            {{{name}}} {{/shortentext}}</option>
+                        {{/completionenabled}}
+                        {{/coursemodules}}
+                        {{/sections}}
+                    </select>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="radio-link" name="linkoractivity" class="custom-control-input">
+                    <label class="custom-control-label" for="radio-link">{{#str}} externalurl, learningmap {{/str}}</label>
+                    <input type="text" id="learningmap-external-link" class="form-control" placeholder="https://">
+                </div>
+                <small id="external-link-error" class="text-danger" style="display: none;">
+                    {{#str}} invalidurl, mod_learningmap {{/str}}
+                </small>
+            </div>
+
+            <!-- Other Settings (existing) -->
+            <div class="alert alert-warning mt-3" hidden id="learningmap-activity-hidden-warning">
+                {{#str}} hiddenactivitywarning, learningmap {{/str}}
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="learningmap-activity-starting">
+                    <label class="custom-control-label" for="learningmap-activity-starting">{{#str}} startingplace, learningmap{{/str}}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="learningmap-activity-target">
+                    <label class="custom-control-label" for="learningmap-activity-target">{{#str}} targetplace, learningmap {{/str}}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="learningmap-activity-newwindow">
+                    <label class="custom-control-label" for="learningmap-activity-newwindow">{{#str}} openinnewwindow, learningmap {{/str}}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="learningmap-activity-transparent">
+                    <label class="custom-control-label" for="learningmap-activity-transparent">{{#str}} maketransparent, learningmap {{/str}}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="learningmap-activity-pointsize">{{#str}} pointsize, learningmap {{/str}}</label>
+                <input type="range" class="custom-range" id="learningmap-activity-pointsize" min="1" max="10">
+            </div>
+        </div>
+    </div>
+</div>

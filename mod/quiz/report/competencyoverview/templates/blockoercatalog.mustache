@@ -1,0 +1,294 @@
+{{#blocks}}
+
+    <div class="bg-white w-100 border border-light d-flex position-relative activity-item mx-3 flex-wrap flex-xl-nowrap">
+        <div class="activity-img-wrapper overflow-hidden position-relative ">
+            <a class="activity-img d-block border border-secondary-light position-relative" href="{{{urlactivitymid}}}"
+               title="{{image_title}}" style="background-image: url('{{{imageactivity}}}');">
+                <div class="certificate_stamp-wrapper d-flex align-items-center justify-content-center position-absolute">
+                    {{#stamp_teachers_offer}}
+                        <div class="certificate_stamp bg-warning text-center" data-type="teachers_offer">
+                            <i class="fal fa-heart"></i>
+                            <span>{{#str}}teachers_offer, community_oer{{/str}}</span>
+                        </div>
+                    {{/stamp_teachers_offer}}
+
+                    {{#stamp_tested_by_petel}}
+                        <div class="certificate_stamp bg-success text-center" data-type="tested_by_petel">
+                            <i class="fab fa-raspberry-pi"></i>
+                            <span>{{#str}}tested_by_petel, community_oer{{/str}}</span>
+                        </div>
+                    {{/stamp_tested_by_petel}}
+
+                    {{#stamp_tested_by_teachers}}
+                        <div class="certificate_stamp bg-danger text-center" data-type="tested_by_teachers">
+                            <i class="fab fa-raspberry-pi"></i>
+                            <span>{{#str}}tested_by_teachers, community_oer{{/str}}</span>
+                        </div>
+                    {{/stamp_tested_by_teachers}}
+                </div>
+            </a>
+
+            {{#activityrating}}
+                <div class="activityrating-stripe bg-primary">
+                    <div class="stripe-content">
+                        <div class="corner left_corner"></div>
+                        {{#str}} teachers_recommendations, community_oer {{/str}}
+                        <div class="corner right_corner"></div>
+                    </div>
+                </div>
+            {{/activityrating}}
+
+            {{#display_whats_new}}
+                <div class="new-stripe bg-primary">
+                    <div class="stripe-content">
+                        <div class="corner left_corner"></div>
+                        {{#str}} activity_whatsnew, community_oer {{/str}}
+                        <div class="corner right_corner"></div>
+                    </div>
+                </div>
+            {{/display_whats_new}}
+
+            {{#not_visible}}
+                <div class="notvisible-stripe bg-primary">
+                    <div class="stripe-content">
+                        <div class="corner left_corner"></div>
+                        {{#str}} activity_notvisible, community_oer {{/str}}
+                        <div class="corner right_corner"></div>
+                    </div>
+                </div>
+            {{/not_visible}}
+
+        </div>
+
+        <div class="activity-main">
+            <div class="teacher-block d-flex align-items-center flex-wrap mb-1">
+
+                {{#users}}
+                    <a href="{{{urltosocialprofile}}}" {{#urltosocialtarget}} target="_blank" {{/urltosocialtarget}}>
+                        <div class="teacher-img rounded-circle ml-1" style="background-image: url('{{{user_image}}}');"
+                             role="presentation"></div>
+                    </a>
+
+                    <a href="{{{urltosocialprofile}}}" {{#urltosocialtarget}} target="_blank" {{/urltosocialtarget}}>
+                        <span class="teacher-info text-body border-right border-primary">{{user_fname}} {{user_lname}}</span>
+                    </a>
+                {{/users}}
+
+                <span class="teacher-info text-body border-right border-primary">{{{modicon}}} {{modname}}</span>
+                <div class="teacher-info-tooltip d-inline-block position-relative">
+                    <span class="teacher-info text-body">{{cm_updated_format}}</span>
+                    <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left"
+                         data-carret-position="top-right">
+                        <span>{{#str}}createddate, community_oer{{/str}} {{cm_created_format}}</span>
+                    </div>
+                </div>
+            </div>
+            <a href="{{{urlactivitymid}}}"
+               class="activity-title bold text-body mb-3">
+                <h2 class="font-weight-bold mb-0 mr-2">{{{mod_name}}}</h2>
+                <div class="font-weight-normal activity-title-info">{{info_metadata}}</div>
+            </a>
+
+            {{#trimteacherremarks}}
+
+                <div id="tr-{{cmid}}" class="activity-text text-body mb-0 text-ellipsis mb-3">{{{metadata_teacherremarks}}}</div>
+
+                <button id="btn-{{cmid}}" class="btn btn-outline-primary"
+                        onclick="document.getElementById('tr-{{cmid}}').classList.toggle('text-ellipsis');this.classList.toggle('show')">
+                    <span class="fulltext">{{#str}}fulltext, community_oer{{/str}}</span>
+                    <span class="trimtext">{{#str}}trimtext, community_oer{{/str}}</span>
+                </button>
+
+                {{#js}}
+                    require(['jquery'], function ($) {
+                    var element = $('#tr-{{cmid}}');
+                    var btn = $('#btn-{{cmid}}');
+                    if ((element[0].scrollHeight > (element.innerHeight() + 1)) || (element[0].scrollWidth > (element.innerWidth() + 1))) {
+                    btn.show();
+                    } else {
+                    btn.hide();
+                    }
+                    })
+                {{/js}}
+
+                <style>
+                    .fulltext {
+                        display: block;
+                    }
+
+                    .trimtext {
+                        display: none;
+                    }
+
+                    .show .fulltext {
+                        display: none;
+                    }
+
+                    .show .trimtext {
+                        display: block;
+                    }
+                </style>
+
+            {{/trimteacherremarks}}
+
+            {{^trimteacherremarks}}
+                <div id="tr-{{cmid}}" class="activity-text text-body mb-0 ">{{{metadata_teacherremarks}}}</div>
+            {{/trimteacherremarks}}
+
+            {{#urltranslatemid}}
+                <a href="{{{urltranslatemid}}}" target="_blank" class="urltranslate mb-1">{{labeltranslate}}</a>
+            {{/urltranslatemid}}
+
+        </div>
+        <div class="activity-info ml-auto ">
+            <div class="copy-link-wrapper w-100 position-relative mb-2">
+                <div class="copy-link w-100 ml-auto d-flex align-items-center justify-content-end"
+                     data-linkrel="{{{urlactivitymid}}}" data-toggle="dropdown" role="button" tabindex="0">
+                    <i class="fa-light fa-link mr-2"></i>
+                    <u>{{#str}}copyactivityadress, community_oer{{/str}}</u>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right p-3 w-100" aria-labelledby="dropdownMenuLink">
+                    <p>
+                        {{#str}}linkcopiedtoclipboard, community_oer{{/str}}
+                    </p>
+                    <input class="w-100" type="text" value="">
+                </div>
+            </div>
+
+            {{^iframe}}
+                <div id="oer_btn_container" class="d-flex ">
+                    <div class="dropdown copy-activity-dropdown-wrapper">
+                        {{#showbutton}}
+                        <button class="btn btn-outline-primary d-flex align-items-left justify-content-center pr-3 pl-3 quiz_competencyoverview-select-button" data-activity_id="{{cmid}}"
+                                data-course_id="{{courseid}}" data-modname="{{mod_name}}">
+                         {{#str}}selectactivity, community_oer{{/str}}
+                        </button>
+                        {{/showbutton}}
+
+                        <div class="activity-info-blocks d-flex align-items-start justify-content-end">
+                            <div class="activity-info-block">
+                                <div class="text-primary activity-info-tooltip position-relative">
+                                    <i class="fa-light fa-screen-users"></i>
+                                    <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left"
+                                         data-carret-position="top-left">
+                                        <span>{{count_used_activity}} {{#str}}used_activity, community_oer{{/str}}</span>
+                                    </div>
+                                </div>
+                                <p class="text-body m-0">{{count_used_activity}}</p>
+                            </div>
+
+                            <div class="activity-info-block">
+                                <div class="text-primary activity-info-tooltip position-relative">
+                                    <i class="fa-light fa-graduation-cap"></i>
+                                    <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left"
+                                         data-carret-position="top-left">
+                                        <span>{{count_student_response}} {{#str}}student_response, community_oer{{/str}}</span>
+                                    </div>
+                                </div>
+                                <p class="text-body m-0">{{count_student_response}}</p>
+                            </div>
+                            {{! TODO: remove this option PTL-4658 }}
+                            {{#showteachercomments}}
+                                <div class="activity-info-block">
+                                    <a href="{{{urlactivity}}}&comments=1" target="__blank"
+                                       title="{{#str}}teachersdiscourse, community_comments{{/str}}">
+                                        <div class="text-primary">
+                                            <i class="fa-light fa-comment"></i>
+                                        </div>
+                                        <p class="text-body m-0">{{countcomments}}</p>
+                                    </a>
+                                </div>
+                            {{/showteachercomments}}
+
+                            {{#diagnostic}}
+                                <div class="activity-info-block">
+                                    <div class="text-primary activity-info-tooltip position-relative">
+                                        <i class="fa-light fa-chart-network"></i>
+                                        <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left"
+                                             data-carret-position="top-left">
+                                            <span>{{#str}}oercatalogtooltip, local_diagnostic{{/str}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/diagnostic}}
+
+                            <div class="activity-info-block">
+                                {{#metadata_sourceurl}}
+                                    <div class="text-primary activity-info-tooltip position-relative">
+                                        <i class="fa-light fa-book"></i>
+                                        <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left"
+                                             data-carret-position="top-left">
+                                            <span>{{{metadata_sourceurl}}}</span>
+                                        </div>
+                                    </div>
+                                {{/metadata_sourceurl}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            {{/iframe}}
+
+            {{#iframe}}
+                <label
+                        class="btn btn-outline-primary oer-activity-custom-checkbox d-flex align-items-center justify-content-center pr-1 pl-3"
+                        for="custom-checkbox-{{cmid}}" role="button">
+                    <input class="custom-control-input" type="checkbox" id="custom-checkbox-{{cmid}}" value="{{cmid}}"
+                        {{#checkbox_selected}} checked {{/checkbox_selected}} />
+                    <span> {{#str}}selectactivity, community_oer{{/str}} </span>
+                </label>
+            {{/iframe}}
+
+        </div>
+    </div>
+
+{{/blocks}}
+
+{{#enable_pagination}}
+    {{> community_oer/pagination }}
+{{/enable_pagination}}
+
+{{#js}}
+    require(['jquery', 'community_oer/activity'], function ($, Activity) {
+    Activity.openDropdownMenuForBlock();
+
+    $('.copy-link').on('click', function(e){
+    const target = $(e.currentTarget);
+    const dropdownMenu = target.siblings('.dropdown-menu');
+    const url = target.data('linkrel');
+    let temp = $("<input>");
+    $("body").append(temp);
+    temp.val(url).select();
+    document.execCommand("copy");
+    temp.remove();
+    dropdownMenu.find('input').val(url);
+    })
+
+    $('.oer-activity-custom-checkbox').on('click', function() {
+    let input = $(this).find('input[type=checkbox]');
+    let cmid = input.val();
+    let prev_data = $('#oer_activity_items_selected').val();
+
+    let data = [];
+    if(prev_data.length !== 0){
+    data = JSON.parse(prev_data);
+    }
+
+    if (input.is(':checked')) {
+    data.push(cmid);
+    }else{
+    let data_new = data;
+    data = [];
+    $.each(data_new, function (index, value) {
+    if(value !== cmid){
+    data.push(value);
+    }
+    });
+    }
+
+    $('#oer_activity_items_selected').val(JSON.stringify(data));
+    });
+
+    });
+{{/js}}

@@ -1,0 +1,79 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_myoverview/course-action-menu
+
+    This template renders action menu for each course.
+
+    Example context (json):
+    {
+        "isfavourite": true
+    }
+}}
+<div class="dropdown d-flex align-items-center justify-content-center flex-shrink-0">
+    <button class="btn btn-link btn-icon coursemenubtn d-flex align-items-center justify-content-center flex-shrink-0"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M17.625 11C17.625 11.2984 17.5065 11.5845 17.2955 11.7955C17.0845 12.0065 16.7984 12.125 16.5 12.125C16.2016 12.125 15.9155 12.0065 15.7045 11.7955C15.4935 11.5845 15.375 11.2984 15.375 11C15.375 10.7016 15.4935 10.4155 15.7045 10.2045C15.9155 9.99353 16.2016 9.875 16.5 9.875C16.7984 9.875 17.0845 9.99353 17.2955 10.2045C17.5065 10.4155 17.625 10.7016 17.625 11ZM12 11C12 11.2984 11.8815 11.5845 11.6705 11.7955C11.4595 12.0065 11.1734 12.125 10.875 12.125C10.5766 12.125 10.2905 12.0065 10.0795 11.7955C9.86853 11.5845 9.75 11.2984 9.75 11C9.75 10.7016 9.86853 10.4155 10.0795 10.2045C10.2905 9.99353 10.5766 9.875 10.875 9.875C11.1734 9.875 11.4595 9.99353 11.6705 10.2045C11.8815 10.4155 12 10.7016 12 11ZM5.25 12.125C4.95163 12.125 4.66548 12.0065 4.4545 11.7955C4.24353 11.5845 4.125 11.2984 4.125 11C4.125 10.7016 4.24353 10.4155 4.4545 10.2045C4.66548 9.99353 4.95163 9.875 5.25 9.875C5.54837 9.875 5.83452 9.99353 6.0455 10.2045C6.25647 10.4155 6.375 10.7016 6.375 11C6.375 11.2984 6.25647 11.5845 6.0455 11.7955C5.83452 12.0065 5.54837 12.125 5.25 12.125Z" fill="white"/>
+        </svg>
+            <span class="sr-only">
+                {{#str}} aria:courseactions, block_myoverview {{/str}} {{{fullname}}}
+            </span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-left">
+        <a class="dropdown-item {{#isfavourite}}hidden{{/isfavourite}}" href="#"
+            data-action="add-favourite"
+            data-course-id="{{id}}"
+            aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
+            >
+            {{#str}} addtofavourites, block_myoverview {{/str}}
+        </a>
+        <a class="dropdown-item {{^isfavourite}}hidden{{/isfavourite}}" href="#"
+            data-action="remove-favourite"
+            data-course-id="{{id}}"
+            aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
+            >
+            {{#str}} removefromfavourites, block_myoverview {{/str}}
+            <div class="sr-only">
+                {{#str}} aria:removefromfavourites, block_myoverview {{/str}} {{{fullname}}}
+            </div>
+        </a>
+        <a class="dropdown-item {{^hidden}}hidden{{/hidden}}" href="#"
+            data-action="show-course"
+            data-course-id="{{id}}"
+            aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
+            >
+            {{#str}} show, block_myoverview {{/str}}
+            <div class="sr-only">
+                {{#str}} aria:showcourse, block_myoverview, {{fullname}} {{/str}}
+            </div>
+        </a>
+        <a class="dropdown-item {{#hidden}}hidden{{/hidden}}" href="#"
+            data-action="hide-course"
+            data-course-id="{{id}}"
+            aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
+            >
+            {{#str}} hidecourse, block_myoverview {{/str}}
+            <div class="sr-only">
+                {{#str}} aria:hidecourse, block_myoverview, {{fullname}} {{/str}}
+            </div>
+        </a>
+    </div>
+</div>

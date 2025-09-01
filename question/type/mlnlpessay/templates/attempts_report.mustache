@@ -1,0 +1,29 @@
+<link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+
+<div class="mb-3">
+    {{#str}} qid, qtype_mlnlpessay {{/str}}:
+    <span class="">{{questioninfo.qid}}</span>
+</div>
+
+<div class="mb-3">
+    {{#str}} quizattquiz, qtype_mlnlpessay {{/str}}:
+    <span class=""><a target="_blank" href="{{config.wwwroot}}{{questioninfo.quizattquiz}}">{{questioninfo.quizattquiz}}</a></span>
+</div>
+
+<div class="mb-3">
+    {{#str}} qattquestionsummary, qtype_mlnlpessay {{/str}}:
+    <br>
+    <span class="">{{questioninfo.qattquestionsummary}}</span>
+</div>
+
+<input type="text" id="searchInput" placeholder="Search" class="mb-3" size="50">
+
+
+<div class="mb-3" id="questionattempts">
+
+</div>
+
+
+<a href="#" type="button" class="btn btn-gray mb-3" id="downloadFullDataButton">
+    {{#str}}download_csv, qtype_mlnlpessay{{/str}}
+</a>

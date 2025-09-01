@@ -1,0 +1,57 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template format_flexsections/sectionstatus
+    Section complition/submission status.
+}}
+
+{{#cmlastaccess}}
+    <span class="cmlastaccess">{{#str}} cmlastaccess, format_flexsections {{/str}}</span>
+    <a class="cmlastaccess-link ml-2" href="{{{cmurl}}}">{{cmname}}</a>
+{{/cmlastaccess}}
+
+{{#firstrow}}
+<div class="d-flex align-items-center mb-3" id="firstrow">
+    <div class="statusicon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" fill="none">
+            <path id="Vector" d="M0 23.25C0 23.6625 0.3375 24 0.75 24H17.25C17.6625 24 18 23.6625 18 23.25C18 22.8375 17.6625 22.5 17.25 22.5H16.5V20.4047C16.5 18.9234 16.0125 17.4797 15.1125 16.3031L11.8172 12L15.1078 7.69219C16.0125 6.51563 16.5 5.07656 16.5 3.59531V1.5H17.25C17.6625 1.5 18 1.1625 18 0.75C18 0.3375 17.6625 0 17.25 0H0.75C0.3375 0 0 0.3375 0 0.75C0 1.1625 0.3375 1.5 0.75 1.5H1.5V3.59531C1.5 5.07656 1.9875 6.52031 2.8875 7.69687L6.18281 12L2.8875 16.3078C1.9875 17.4844 1.5 18.9234 1.5 20.4047V22.5H0.75C0.3375 22.5 0 22.8375 0 23.25ZM3 22.5V20.4047C3 19.2516 3.37969 18.1312 4.07812 17.2172L7.72031 12.4547C7.92656 12.1875 7.92656 11.8125 7.72031 11.5453L4.07812 6.78281C3.37969 5.86875 3 4.74844 3 3.59531V1.5H15V3.59531C15 4.74844 14.6203 5.86875 13.9219 6.78281L10.2797 11.5453C10.0734 11.8125 10.0734 12.1875 10.2797 12.4547L13.9219 17.2172C14.6203 18.1312 15 19.2516 15 20.4047V22.5H3ZM9.60938 9.43594L13.3594 4.18594C13.5234 3.95625 13.5422 3.65625 13.4156 3.40781C13.2891 3.15937 13.0312 3 12.75 3H9H5.25C4.96875 3 4.71094 3.15469 4.58438 3.40781C4.45781 3.66094 4.47656 3.95625 4.64062 4.18594L8.39062 9.43594C8.53125 9.63281 8.76094 9.75 9 9.75C9.23906 9.75 9.46875 9.63281 9.60938 9.43594ZM9 4.5H11.2922L9 7.71094L6.70781 4.5H9Z" fill="#23164F"/>
+        </svg>
+    </div>
+    <span class="info-block-value text-secondary px-2">{{value}}</span>
+    <span class="info-block-text">{{label}}</span>
+</div>
+{{/firstrow}}
+
+{{#secondrow}}
+<div class="d-flex align-items-center mb-3" id="secondrow">
+    <i class="fa-light fa-triangle-exclamation info-block-icon text-danger"></i>
+    <span class="info-block-value text-secondary px-2">{{value}}</span>
+    <span class="info-block-text">{{label}}</span>
+</div>
+{{/secondrow}}
+
+{{#thirdrow}}
+<div class="d-flex align-items-center mb-3" id="thirdrow">
+    <div class="statusicon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path id="Vector" d="M4.32187 0C1.93594 0 0 1.93594 0 4.32187C0 5.175 0.248437 5.97187 0.675 6.64219C0.895312 6.99375 1.35938 7.09219 1.71094 6.87188C2.0625 6.65156 2.16094 6.1875 1.94063 5.83594C1.66406 5.4 1.5 4.87969 1.5 4.32187C1.5 2.76094 2.76094 1.5 4.32187 1.5C5.0625 1.5 5.7375 1.78594 6.23906 2.25469C6.54375 2.53594 7.01719 2.51719 7.29844 2.21719C7.57969 1.91719 7.56094 1.43906 7.26094 1.15781C6.4875 0.435938 5.45625 0 4.32187 0ZM16.7391 1.15313C16.4344 1.43438 16.4156 1.90781 16.7016 2.2125C16.9875 2.51719 17.4562 2.53594 17.7609 2.25C18.2625 1.78594 18.9375 1.5 19.6781 1.5C21.2344 1.5 22.5 2.76094 22.5 4.32187C22.5 4.87969 22.3406 5.4 22.0594 5.83594C21.8391 6.1875 21.9375 6.64688 22.2891 6.87188C22.6406 7.09688 23.1 6.99375 23.325 6.64219C23.7516 5.97187 24 5.175 24 4.32187C24 1.93594 22.0641 0 19.6781 0C18.5437 0 17.5078 0.435938 16.7391 1.15313ZM2.77969 23.7797L5.12344 21.4359C6.96563 23.0344 9.37031 24 12 24C14.6297 24 17.0344 23.0344 18.8766 21.4359L21.2203 23.7797C21.5109 24.0703 21.9891 24.0703 22.2797 23.7797C22.5703 23.4891 22.5703 23.0109 22.2797 22.7203L19.9359 20.3766C21.5344 18.5344 22.5 16.1297 22.5 13.5C22.5 7.70156 17.7984 3 12 3C6.20156 3 1.5 7.70156 1.5 13.5C1.5 16.1297 2.46562 18.5344 4.06406 20.3766L1.72031 22.7203C1.42969 23.0109 1.42969 23.4891 1.72031 23.7797C2.01094 24.0703 2.48906 24.0703 2.77969 23.7797ZM12 4.5C14.3869 4.5 16.6761 5.44821 18.364 7.13604C20.0518 8.82387 21 11.1131 21 13.5C21 15.8869 20.0518 18.1761 18.364 19.864C16.6761 21.5518 14.3869 22.5 12 22.5C9.61305 22.5 7.32387 21.5518 5.63604 19.864C3.94821 18.1761 3 15.8869 3 13.5C3 11.1131 3.94821 8.82387 5.63604 7.13604C7.32387 5.44821 9.61305 4.5 12 4.5ZM12 7.5C11.5875 7.5 11.25 7.8375 11.25 8.25V15C11.25 15.4125 11.5875 15.75 12 15.75C12.4125 15.75 12.75 15.4125 12.75 15V8.25C12.75 7.8375 12.4125 7.5 12 7.5ZM13.125 18C13.125 17.7016 13.0065 17.4155 12.7955 17.2045C12.5845 16.9935 12.2984 16.875 12 16.875C11.7016 16.875 11.4155 16.9935 11.2045 17.2045C10.9935 17.4155 10.875 17.7016 10.875 18C10.875 18.2984 10.9935 18.5845 11.2045 18.7955C11.4155 19.0065 11.7016 19.125 12 19.125C12.2984 19.125 12.5845 19.0065 12.7955 18.7955C13.0065 18.5845 13.125 18.2984 13.125 18Z" fill="#008ECD"/>
+        </svg>
+    </div>
+    <span class="info-block-value text-secondary px-2">{{value}}</span>
+    <span class="info-block-text">{{label}}</span>
+</div>
+{{/thirdrow}}

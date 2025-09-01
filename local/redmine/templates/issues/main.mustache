@@ -1,0 +1,7 @@
+<div id="local-redmine-issues-page"></div>
+
+{{#js}}
+    require(['jquery', 'local_redmine/issues'], function ($, Issues) {
+        Issues.init({{issueid}});
+    });
+{{/js}}

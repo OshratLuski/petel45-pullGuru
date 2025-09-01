@@ -1,0 +1,38 @@
+<div class="form-group mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    <div class="custom-control custom-radio mb-1">
+        <input type="radio" id="no_copyright_{{unique}}" name="{{shortname}}_checkbox" value="false"
+               class="custom-control-input no_copyright" {{#checkbox_no}}checked{{/checkbox_no}}>
+        <label class="custom-control-label" for="no_copyright_{{unique}}">
+            {{#str}}no_copyright_of_activity_is_mine_only, community_sharesequence{{/str}}
+        </label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="based_on_another_activity_{{unique}}" name="{{shortname}}_checkbox" value="true"
+               class="custom-control-input based_on_another_activity" {{#checkbox_yes}}checked{{/checkbox_yes}}>
+        <label class="custom-control-label" for="based_on_another_activity_{{unique}}">
+            {{#str}}yes_i_processed_activity_based_on_another_activity, community_sharesequence{{/str}}
+        </label>
+    </div>
+
+    <div class="custom-control p-0 question-activity-url-wrapper" style="{{#checkbox_no}}display: none;{{/checkbox_no}}">
+        <p class=" mb-1 mt-3">{{#str}}register_resource, community_sharesequence{{/str}}</p>
+        <textarea class="form-control" name="{{shortname}}" placeholder="http://www">{{{textarea_value}}}</textarea>
+    </div>
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharesequence{{/str}} {{{title}}}
+    </div>
+
+</div>

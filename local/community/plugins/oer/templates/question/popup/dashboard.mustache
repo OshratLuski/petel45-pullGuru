@@ -1,0 +1,183 @@
+<div class="activity-filters">
+
+    <div class="d-flex align-items-center btns-block">
+        <div class="filter-pic d-flex align-items-center">
+            <i class="fal fa-filter"></i>
+        </div>
+        {{#filters}}
+        <button class="btn filter-btn dropdown-btn ml-3 {{#fullwidth}} fullwidth {{/fullwidth}}" type="button" data-id="#{{nav_id}}">
+            {{nav_title}}
+            <i class="fa fa-caret-down ml-2" aria-hidden="true"></i>
+        </button>
+        {{/filters}}
+
+    </div>
+
+    {{#filters}}
+    <div class="filter-collapse" id="{{nav_id}}" style="display: none;">
+        <div class="filter-collapse-card card card-body p-3 d-inline-flex">
+            <form action="" class="filter-form d-flex {{#fullwidth}} flex-wrap {{/fullwidth}}">
+
+                {{#columns}}
+                <div class="form-col mr-3 {{#fullwidth}} mb-3 {{/fullwidth}}">
+                    <h4 class="form-col-title mb-1" role="heading">
+                        {{title}}
+                    </h4>
+
+                    {{#data}}
+                    <div class="custom-control custom-checkbox py-1">
+                        <input class="custom-control-input" type="checkbox" id="{{uniqueid}}" data-plugin="question"
+                            data-area="filters" data-action="{{field}}" data-value="{{value}}" data-search="{{search}}"
+                            data-group="{{group}}">
+                        <label class="custom-control-label" for="{{uniqueid}}">
+                            {{print_value}}
+                        </label>
+                    </div>
+                    {{/data}}
+                </div>
+                {{/columns}}
+
+            </form>
+        </div>
+    </div>
+    {{/filters}}
+
+</div>
+
+<div class="checked-option-pills d-flex flex-wrap align-items-center pt-4"></div>
+<div class="question-block activity-block pt-4">
+    <h3 class="total-questions-block total-activities-block question-block-title mr-auto mb-3 bold"></h3>
+    <div class="activity-block-header question-block-header d-flex align-items-center justify-content-end mb-4">
+
+        <button class="btn activity-block-header-btn dropdown-btn rounded ml-3 d-flex align-items-center btn-view-selected-questions" type="button">
+            <i class="fa-light fa-copy mr-2"></i>
+            <span>
+                {{#str}}view_selected_questions, community_oer{{/str}}
+            </span>
+        </button>
+        <div class="dropdown dropdownmoremenu">
+            <button class="btn activity-block-header-btn dropdown-btn rounded dropdown sort-result-dropdown-btn d-flex align-items-center d-flex align-items-center ml-3" type="button"
+                id="sort_result_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{#str}}sortby, community_oer{{/str}}
+                <i class="fa fa-caret-down ml-2" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu sort-result-dropdown-menu" aria-labelledby="sort_result_dropdown">
+                <form class="py-3 px-1">
+    
+                    {{#sorting}}
+                    <div class="form-group">
+                        <div class="form-check d-flex align-items-center pl-0">
+    
+                            <input type="checkbox" class="form-check-input d-none" id="dropdownSorting{{value}}"
+                                data-plugin="question" data-area="sorting" data-value="{{value}}"
+                                {{#selected}} data-selected="1" checked {{/selected}}>
+    
+                            <i class="fal fa-check mr-2" aria-hidden="true"></i>
+                            <label class="form-check-label " for="dropdownSorting{{value}}">
+                                {{name}}
+                            </label>
+                        </div>
+                    </div>
+                    {{/sorting}}
+    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Hidden selected questions-->
+    <input type="hidden" id="questions_selected" value="[]">
+
+    <div class="activity-blocks-content">
+    </div>
+
+</div>
+
+{{#js}}
+require(['jquery'], function ($) {
+    const filterBtns = $('.filter-btn');
+    filterBtns.on('click', function(){
+        const btn = $(this);
+        let target = $(this).data('id');
+        let ofset = Math.floor($(this).position().left);
+        let cssStr = 'padding-left';
+        if($('html').attr('dir') == "rtl") {
+            const btnWidth = btn.outerWidth();
+            const activityFiltersWidth = $('.activity-filters').outerWidth();
+            ofset = Math.floor(activityFiltersWidth - (ofset + btnWidth) + 16);
+            cssStr = 'padding-right';
+        }
+        if($(this).hasClass('active')){
+            $(target).toggle();
+            $(this).removeClass('active');
+        } else {
+            filterBtns.removeClass('active');
+            $(this).addClass('active');
+            $('.filter-collapse').hide();
+            $(target).find('.card-body').removeClass('d-inline-flex');
+            if(!btn.hasClass('fullwidth')){
+                $(target).css(cssStr, ofset + "px");
+                $(target).find('.card-body').addClass('d-inline-flex')
+            }
+            $(target).show();
+        }
+    })
+
+    $('.sort-result-dropdown-menu').find('.form-check input').on('click', function () {
+        $('.sort-result-dropdown-menu').find('.form-check input').not(this).prop('checked', false);
+    })
+});
+
+require([
+        'jquery',
+        'community_sharequestion/main',
+        'community_oer/popup-question',
+        'core/str',
+        'core/ajax',
+        'core/modal_factory',
+        'core/modal_events',
+        'core/notification',
+    ], function($, Main, Question, Str, Ajax, ModalFactory, ModalEvents, Notification) {
+
+    // Event on button.
+    $('.btn-view-selected-questions').on("click", function (e) {
+
+        if($('.btn-view-selected-questions').hasClass('active')){
+            Question.renderBlocks();
+            $('.btn-view-selected-questions').removeClass('active');
+
+            $('.btn-view-selected-questions').removeClass('btn-success');
+            $('.btn-view-selected-questions').addClass('btn-outline-primary');
+        }else{
+            let data = JSON.parse($('#questions_selected').val());
+            Question.renderSelectedBlocks(data);
+            $('.btn-view-selected-questions').addClass('active');
+
+            $('.btn-view-selected-questions').removeClass('btn-outline-primary');
+            $('.btn-view-selected-questions').addClass('btn-success');
+        }
+    });
+
+    $(document).on('click', (e) => {
+        if ($(e.target).hasClass('filter-btn')) {
+            return
+        } else if($(e.target).parent().hasClass('filter-btn')){
+            return
+        }
+        else if ($(e.target).hasClass('filter-collapse-card')) {
+            return
+        }
+        else if ($(e.target).closest('.filter-collapse-card').length == 1){
+            return
+        }
+        else {
+            let activeFilterBtn = $('.filter-btn.active');
+            let activeFilterId = activeFilterBtn.data('id');
+            if (activeFilterBtn.length > 0) {
+                $(activeFilterId).hide();
+                activeFilterBtn.removeClass('active');
+            }
+        }
+    })
+});
+{{/js}}

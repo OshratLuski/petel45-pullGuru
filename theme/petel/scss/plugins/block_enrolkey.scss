@@ -1,0 +1,24 @@
+.block_enrol_key {
+    .enrolkey-input {
+        display: flex;
+        width: 10.9375rem;
+        height: 2rem;
+        padding: 0 0.5rem;
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 1px solid#E2E1E1;
+        background: #FFF;
+    }
+
+    .enrolkey-submit-btn {
+        display: flex;
+        height: 2rem;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,98 @@
+<div id="local-redmine-messages-page" class="col pt-3">
+    <div class="messages-loading-wrapper position-absolute" style="display: none; ">
+        {{>core/loading}}
+    </div>
+    <button href="javascript:void(0);" class="back-btn btn btn-outline-primary mb-3" data-action="back_button">
+        <i class="fal fa-arrow-circle-right"  data-action="back_button"></i>
+        {{#str}}back, local_redmine{{/str}}
+    </button>
+
+    <h1 class="bold mb-4">
+
+        {{#redmine_url_enable}}
+            <a href="{{redmine_url}}" class="">
+                {{#str}}issuenumber, local_redmine{{/str}} {{id}}
+            </a>
+        {{/redmine_url_enable}}
+
+        {{^redmine_url_enable}}
+            {{#str}}issuenumber, local_redmine{{/str}} {{id}}
+        {{/redmine_url_enable}}
+
+    </h1>
+
+    {{#isauthor}}
+        {{#status_opened}}
+            {{#alert_note_enable}}
+                <div class="attention-info-block align-items-center">
+                    <i class="far fa-alarm-exclamation"></i>
+                    <p class="attention-info-text mb-0">
+                        {{alert_note}}
+                    </p>
+                </div>
+            {{/alert_note_enable}}
+        {{/status_opened}}
+    {{/isauthor}}
+
+    <div class="d-flex">
+        {{! Start right info column  }}
+       
+        <div class="info-block">
+            <h2 class="block-title bold">
+                {{#str}}issuedetails, local_redmine{{/str}}
+            </h2>
+            <div class="info-block-item mb-3" data-type="type">
+                <h3 class="info-block-item-title bold">
+                    {{#str}}typeissue, local_redmine{{/str}}
+                </h3>
+                <p class="info-block-item-text mb-0">
+                    {{type}}
+                </p>
+            </div>
+            <div class="info-block-item mb-3">
+                <h3 class="info-block-item-title bold" data-type="appeal_status">
+                    {{#str}}statusissue, local_redmine{{/str}}
+                </h3>
+                <p class="info-block-item-text mb-0">
+                    {{status}}
+                </p>
+            </div>
+            <div class="info-block-item mb-3">
+                <h3 class="info-block-item-title bold" data-type="appeal_authorname">
+                    {{#str}}authornameissue, local_redmine{{/str}}
+                </h3>
+                <p class="info-block-item-text mb-0">
+                    {{{authorname}}}
+                </p>
+            </div>
+            <div class="info-block-item mb-3">
+                <h3 class="info-block-item-title bold" data-type="appeal_date">
+                    {{#str}}dateissue, local_redmine{{/str}}
+                </h3>
+                <p class="info-block-item-text mb-0">
+                    {{created_on}}
+                </p>
+            </div>
+            <div class="info-block-item mb-3" data-type="update_appeal_date">
+                <h3 class="info-block-item-title bold">
+                    {{#str}}issuelastchanges, local_redmine{{/str}}
+                </h3>
+                <p class="info-block-item-text mb-0">
+                    {{updated_on}}
+                </p>
+            </div>
+            <div class="info-block-item mb-3">
+                <h3 class="info-block-item-title bold">
+                    {{#str}}issuepage, local_redmine{{/str}}
+                </h3>
+                <a target="_blank" href="{{url}}" class="info-block-item-text d-block info-block-link mb-0">
+                    {{url}}
+                </a>
+            </div>
+        </div>
+       
+        {{! End right info column  }}
+
+        <div id="local_redmine_messages_content" class="w-100"></div>
+    </div>
+</div>

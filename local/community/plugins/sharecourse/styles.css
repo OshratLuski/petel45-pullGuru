@@ -1,0 +1,78 @@
+.treeview,
+.treeview * {
+	user-select: none;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+.treeview p {
+	padding-left: 20px;
+	margin: 0px;
+}
+
+.treeview .item {
+	cursor: pointer;
+	display: inline-block;
+	padding: 4px;
+	width: calc(100% - 30px);
+}
+.treeview .item:hover {
+	background: #ddd;
+}
+
+.treeview .group [fold-button] {
+	display: inline-block;
+	padding: 10px;
+	width: 30px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.treeview .group [fold-button]:hover {
+	background: #aaa;
+}
+
+.treeview .item i {
+	margin-right: 10px;
+}
+.treeview .item[check-value="2"] {
+	color: #333;
+}
+.treeview .item[check-value="1"] {
+	color: #333;
+}
+.treeview .item[check-value="0"] {
+	color: #333;
+}
+.treeview .fa-caret-left {
+	transition: all 0.25s ease-out;
+}
+.treeview .fa-caret-left.rotated {
+	transition: all 0.25s ease-out;
+	transform: rotate(-90deg);
+}
+
+.copy-course-to-my-category-modal .modal-body,
+.copy-course-to-my-category-modal .modal-dialog,
+.copy-course-to-my-category-modal .modal-content {
+	overflow: visible !important;
+}
+
+/* TODO: move to correct place. */
+.sharemodal.sharecoursemodal .modal-content {
+	border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.sharemodal.sharecoursemodal .modal-dialog {
+	max-width: 33rem;
+	min-width: 30rem;
+}
+
+.sharemodal.sharecoursemodal .modal-content .modal-body .sharewith-action-buttons .sharemodal-btn {
+	min-width: 7.75rem;
+	max-width: 8.5rem;
+	min-height: 5.75rem;
+	margin-bottom: 0;
+}

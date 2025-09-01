@@ -1,0 +1,120 @@
+<div id="uploadsequence" class="uploadsequence">
+    <div class="petel-progressbar-wrapper d-flex align-items-center position-relative">
+        <div class="petel-progressbar-item passed">
+            <div class="d-flex flex-column align-items-center position-relative pin-circle-wrapper">
+                <div class="pin-circle rounded-circle d-flex align-items-center justify-content-center">
+                    <span>1</span>
+                </div>
+                <div class="underpin-line"></div>
+                <div class="underpin-text">{{#str}} sequence_description, community_sharesequence {{/str}}</div>
+            </div>
+        </div>
+        <div class="petel-progressbar-item active">
+            <div class="d-flex flex-column align-items-center position-relative pin-circle-wrapper">
+                <div class="pin-circle rounded-circle d-flex align-items-center justify-content-center">
+                    <span>2</span>
+                </div>
+                <div class="underpin-line"></div>
+                <div class="underpin-text">{{#str}} selection_of_sequence_units, community_sharesequence {{/str}}</div>
+            </div>
+        </div>
+    </div>
+    <form class="container-fluid" action="" onclick="return" id="sharing_sequence_form_{{uniqueid}}" method="post"
+        enctype="multipart/form-data">
+
+        <input type="hidden" name="courseid" value="{{courseid}}">
+        <input type="hidden" name="coursecontext" value="{{coursecontext}}">
+        <input type="hidden" name="default_data" value="{{default_data}}">
+
+        <div class="row">
+            <div class="col-6 units-block pl-0 border-right border-primary">
+                <h3 class="block-title">
+                    {{#str}}teaching_units, community_sharesequence {{/str}}
+                </h3>
+                <p class="block-subtitle">
+                    {{#str}}teaching_units_subtitle, community_sharesequence{{/str}}
+                </p>
+                <div class="units-wrapper" data-simplebar>
+
+                    {{#main_sections}}
+                        <div class="section-item-parent mb-3">
+                            <div class="section-item-wrapper border">
+
+                                <div class="section-item d-flex align-items-center pr-0">
+                                    <div class="custom-control custom-checkbox unit-custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input check-section-checkbox" id="section-main-{{id}}-{{uniqueid}}" data-checkbox-name="section">
+                                        <label class="custom-control-label" for="section-main-{{id}}-{{uniqueid}}">
+                                        </label>
+                                    </div>
+                                    <a class="check-section-label mb-0 d-flex align-items-center w-100 pr-2"
+                                        data-toggle="collapse" href="#section-collapse-{{id}}-{{uniqueid}}" role="button" aria-expanded="false" 
+                                        aria-controls="section-collapse-{{id}}-{{uniqueid}}"
+                                        title="{{name}}">
+                                        <span class="section-name pr-2">
+                                            {{name}}
+                                        </span>        
+                                        <i class="fa fa-caret-down collapse-section-btn d-flex border-0 bg-transparent collapsed ml-auto" aria-hidden="true"></i>
+                                            
+                                    </a>
+                                </div>
+
+                                <div class="section-collapse multicollapse collapse bg-light" id="section-collapse-{{id}}-{{uniqueid}}" data-checbox-parent="section-main-{{id}}-{{uniqueid}}"
+                                     data-sectionid="{{id}}">
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/main_sections}}
+
+                </div>
+            </div>
+
+            <div class="col-6 sequence-block">
+                <h3 class="block-title">
+                    {{#str}}teaching_sequence, community_sharesequence {{/str}}
+                </h3>
+                <p class="block-subtitle">
+                    {{#str}}teaching_sequence_subtitle, community_sharesequence{{/str}}
+                </p>
+                <div class="sequence-wrapper" data-simplebar>
+                    <ul id="sequence-item-list-{{uniqueid}}" class="sequence-item-list pl-0" >
+                       
+                    </ul>
+                </div>
+
+                <h4 class="mb-0 text-center alert sequence-item-list-alert" style="display:none; color: red;">
+                    {{#str}}nothing_selected, community_sharesequence{{/str}}
+                </h4>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary uploadsequenceclose" type="button" data-handler="goBack">
+                {{#str}}cancel, community_sharesequence{{/str}}
+            </button>
+
+            <button type="button" class="btn btn-secondary back-btn backtoform1">
+                <span>{{#str}}back_to_page1, community_sharesequence{{/str}}</span>
+            </button>
+
+            <button type="button" class="btn btn-secondary submited uploadsequencesubmit">
+                <div class="spinner-border spinner-border-sm modalspinner d-none" role="status"></div>
+                <span>{{#str}}share_page2, community_sharesequence{{/str}}</span>
+            </button>
+
+        </div>
+
+    </form>
+</div>
+{{#js}}
+    require(['community_sharesequence/uploadPopupPage2', 'community_sharesequence/uploadPopupActionsPage2', 'jquery'], function(uploadPopupPage2, uploadPopupActionsPage2, $) {
+        $(document).ready(()=>{
+            uploadPopupPage2.init('{{uniqueid}}');
+            uploadPopupActionsPage2.init('#sharing_sequence_form_{{uniqueid}}', {{uniqueid}});
+            uploadPopupActionsPage2.selectActivities({{uniqueid}});
+            uploadPopupActionsPage2.openInviewSection('.section-collapse');
+            
+        })
+    });
+{{/js}}

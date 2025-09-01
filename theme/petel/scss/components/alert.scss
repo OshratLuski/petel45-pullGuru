@@ -1,0 +1,94 @@
+//
+// Base styles
+//
+
+.alert {
+    position: relative;
+    padding: 0;
+    margin-bottom: $alert-margin-bottom;
+    border: $alert-border-width solid transparent;
+    @include border-radius($alert-border-radius);
+    box-shadow: 0 .1875rem .375rem 0 rgba(0, 0, 0, 0.20);
+
+}
+
+.alert-color-stripe {
+    width: 0.5rem;
+    border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+.alert-inner {
+    .alert-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        height: 1.5rem;
+    }
+
+    .alert-text {
+        font-family: $primary-font;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+// Headings for larger alerts
+.alert-heading {
+    // Specified to prevent conflicts of changing $headings-color
+    color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert-link {
+    font-weight: $alert-link-font-weight;
+}
+
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+    padding-right: 2.25rem;
+
+    // Adjust close link position
+    .close {
+        position: absolute;
+        top: .0938rem;
+        right: 0.5rem;
+        z-index: 2;
+        padding: .25rem;
+        color: inherit;
+    }
+}
+
+.que .outcome,
+.que .comment {
+    @include alert-variant(theme-color-level('warning', $alert-bg-level), theme-color-level('warning', $alert-border-level), $body-color); /* stylelint-disable-line max-line-length */
+    // Darken link colour inside comments for better colour contrast against regular text.
+    a {
+        color: darken($link-color, 30%);
+    }
+}
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+@each $color,
+$value in $theme-colors {
+    .alert-#{$color} {
+        @include alert-variant(theme-color-level($color, $alert-bg-level),
+            theme-color-level($color, $alert-border-level),
+            theme-color-level($color, $alert-color-level));
+    }
+}

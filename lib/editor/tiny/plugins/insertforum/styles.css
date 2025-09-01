@@ -1,0 +1,11 @@
+#insertforum-modal {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+}
+#insertforum-modal label {
+    width: 190px;
+}
+#insertforum-modal > div {
+    display: flex;
+}

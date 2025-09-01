@@ -1,0 +1,40 @@
+<div class="modal" id="local_diagnostic_description_modal" data-backdrop="static" data-region="modal-container" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{#str}}description_title, local_diagnostic{{/str}}</h5>
+                <button type="button" aria-label="Close" class="description-close close popup-close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body-description">
+                <h3>{{#str}}descriptionheader, local_diagnostic{{/str}} <b></b></h3>
+                <div class="description-info pb-2">
+                </div>
+                <span class="font-weight-bold">
+                    {{#str}}recommend_text, local_diagnostic{{/str}}
+                </span>
+                <div class="modal-body-recommend form-group d-flex align-items-center justify-content-start flex-wrap pb-2">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="activityrecomyes" name="activityrecomradio" class="custom-control-input recommend" required checked/>
+                        <label class="custom-control-label d-flex align-items-center" for="activityrecomyes">{{#str}}yes, moodle{{/str}}</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-1">
+                        <input type="radio" id="activityrecomno" name="activityrecomradio" class="custom-control-input" required />
+                        <label class="custom-control-label d-flex align-items-center" for="activityrecomno">{{#str}}no, moodle{{/str}}</label>
+                    </div>
+                </div>
+                <div>
+                    {{#str}}description_text, local_diagnostic{{/str}}
+                </div>
+                <textarea class="w-100" rows="4"></textarea>
+            </div>
+            <div class="description-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary m-1 description-close">{{#str}}cancel,
+                    local_diagnostic{{/str}}</button>
+                <button id="description_submit" type="button" class="btn btn-success m-1">{{#str}}submit,
+                    local_diagnostic{{/str}}</button>
+            </div>
+        </div>
+    </div>
+</div>

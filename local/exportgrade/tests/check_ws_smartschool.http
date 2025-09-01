@@ -1,0 +1,72 @@
+# Get initial auth token via OAUTH2 (PETEL Physics instance)
+
+# curl -X POST
+#-F "form_params[grant_type]={{auth2_token_client}}"
+#-F "form_params[client_key]={{auth2_token}}"
+#-F "form_params[client_secret]=$CLIENTSECRET" https://petel.stweizmann.org.il/physics/local/exportgrade/oauth2/token.php
+POST https://petel.stweizmann.org.il/physics/local/exportgrade/oauth2/token.php
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="form_params[grant_type]"
+
+client_credentials
+--WebAppBoundary
+Content-Disposition: form-data; name="form_params[client_key]"
+
+{{auth2_token_client}}
+--WebAppBoundary
+Content-Disposition: form-data; name="form_params[client_secret]"
+
+{{auth2_token}}
+--WebAppBoundary--
+
+### local_exportgrades_learninggroup_activities
+# the {{auth_token_petel_mashov_ws}} is retrived by calling
+# https://petel.stweizmann.org.il/physics/local/exportgrade/oauth2/token.php
+
+#POST https://petel-dev-m41.stweizmann.org.il/physics/webservice/restful/server.php/local_exportgrades_learninggroup_activities
+POST https://petel.stweizmann.org.il/physics/webservice/restful/server.php/local_exportgrades_learninggroup_activities
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_petel_mashov_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "year": 2022,
+  "school_symbol": 12345,
+  "learninggroup_id": 444,
+  "teacher_idnumber": 123456789
+}
+
+### As asked by Yossi (smartschool)
+### Course: https://petel.stweizmann.org.il/physics/course/view.php?id=3164
+### Course: https://petel-dev-m41.stweizmann.org.il/physics/course/view.php?id=7150
+POST https://petel.stweizmann.org.il/physics/webservice/restful/server.php/local_exportgrades_learninggroup_activities
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_petel_mashov_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "year": 2022,
+  "school_symbol": 441006,
+  "learninggroup_id": 4443,
+  "teacher_idnumber": 999634132
+}
+
+
+###
+
+POST https://petel.stweizmann.org.il/physics/webservice/restful/server.php/local_exportgrades_learninggroup_grades
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_petel_mashov_ws}}
+user-agent: phpstorm-test-client
+
+{
+"smscode": "",
+"subject": "physics",
+"learninggroup_id": 4443,
+"cmid": 443298
+}

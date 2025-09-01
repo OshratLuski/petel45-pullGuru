@@ -1,0 +1,99 @@
+.tooltip {
+
+    .tooltip-inner {
+        background-color: $white;
+        border: 1px solid $gray-300;
+        color: $link-color;
+        padding: .25rem .5rem;
+        max-width: 17.5rem;
+        text-align: left;
+    }
+
+    .arrow {
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+        }
+    }
+
+    &.bs-tooltip-top {
+        .arrow {
+
+            &::before {
+                border-top-color: $gray-300;
+            }
+
+            &::after {
+                top: -0.0625rem;
+                border-width: $tooltip-arrow-height (
+                    $tooltip-arrow-width / 2) 0;
+                border-top-color: $white;
+            }
+        }
+    }
+
+    &.bs-tooltip-right {
+        .arrow {
+            &::before {
+                border-right-color: $gray-300;
+            }
+
+            &::after {
+                right: -0.0625rem;
+                border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height (
+                    $tooltip-arrow-width / 2) 0;
+                border-right-color: $white;
+            }
+        }
+    }
+
+    &.bs-tooltip-bottom {
+        .arrow {
+            &::before {
+                bottom: 0;
+                border-bottom-color: $gray-300;
+            }
+
+            &::after {
+                bottom: -0.0625rem;
+                border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+                border-bottom-color: $white;
+            }
+        }
+    }
+
+    &.bs-tooltip-left {
+        .arrow {
+            &::before {
+                border-left-color: $gray-300;
+            }
+
+            &::after {
+                left: -0.0625rem;
+                border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+                border-left-color: $white;
+            }
+        }
+    }
+
+}
+html[dir="rtl"] {
+    .bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^="left"] .arrow {
+        left: 0;
+        right: unset;
+        width: .4rem;
+        height: .8rem;
+        transform: rotate(180deg);
+    }
+    .bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^="right"] .arrow {
+        right: 0;
+        left: unset;
+        width: .4rem;
+        height: .8rem;
+        transform: rotate(180deg);
+    }
+}

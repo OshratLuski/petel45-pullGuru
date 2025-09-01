@@ -1,0 +1,188 @@
+.path-local-community-plugins-social {
+    .intro {
+        color: $body-color;
+        font-family: $primary-font;
+    }
+
+    .social__wrapper {
+        .aside {
+            background-color: $petel-light;
+        }
+    }
+
+    #teachers_card_block {
+        .teacher-tabs {
+            background-color: $petel-light;
+            color: $body-color;
+        }
+
+        .teachlist-item {
+
+            &.active,
+            &:active {
+                background-color: $petel-secondarymedium;
+                span {
+                    color: $white;
+                    font-weight: 500;
+                }
+            }
+            &:hover {
+                background-color: $petel-secondarylight;
+                span {
+                    color: $body-color;
+                    font-weight: 500;
+                }
+            }
+
+            &.active:hover {
+                background-color: $petel-secondary;
+                span {
+                    color: $white;
+                    font-weight: 500;
+                }
+            }
+            &.disabled,
+            &:disabled {
+                background-color: $gray-200;
+                span {
+                    color: $body-color;
+                    font-weight: 500;
+                }
+            }
+            &:focus {
+                background-color: $petel-secondarylight;
+                border: .0625rem solid $petel-secondarymedium;
+                box-shadow: none;
+                span {
+                    color: $body-color;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .teacher-cards {
+            .tc {
+                border: .0625rem solid $petel-light;
+                &:hover {
+                    background-color: $petel-light;
+                    border: .0625rem solid $secondarymedium;
+                }
+                &:focus {
+                    background-color: $petel-light;
+                    border: .125rem solid $secondarymedium;
+                }
+                .tc-image {
+                    border: .125rem solid $petel-secondary;
+                }
+
+                .tc-main-text {
+                    color: $body-color;
+                }
+            }
+            .tc-label svg path {
+                fill: $primary;
+            }
+        }
+    }
+    .teacher_search,
+    .profile_search {
+        .teacher_search-input,
+        .profile_search-input {
+            border: .0625rem solid $gray-300;
+            &::placeholder {
+               color: $gray-600;
+            }
+            &:active, &:focus, &:focus-visible {
+                outline: .0625rem solid $gray-500;
+            }
+        }
+
+        .teacher_search-icon,
+        .profile_search-icon {
+            border-radius: 0rem 0.5rem 0.5rem 0rem;
+            background-color: $secondarylight !important;
+            path {
+                fill: $primary;
+            }
+        }
+      }
+
+    .aside {
+        .user {
+            .user__link {
+                .user__image {
+                    border: .1875rem solid $secondary;
+                }
+
+                .user__name {
+                    color: $secondary;
+                }
+            }
+            .collegue-link {
+                svg {
+                    path {
+                        fill: $secondary;
+                    }
+                }
+            }
+            .usertext {
+                color: $body-color;
+            }
+
+          .btns-wrapper {
+            [data-handler="follow"],
+            .btn {
+                svg {
+                    path {
+                        fill: $primary;
+                    }
+                }
+            }
+          }
+        }
+        .about-link {
+            path {
+                fill: $primary;
+            }
+        }
+        .public-course__items {
+            border: .0625rem solid $petel-secondarylight;
+
+            .public-course__item {
+                color: $body-color;
+            }
+        }
+    }
+}
+
+#page-local-community-plugins-social-profile {
+    .main_header {
+        .main_head a {
+            color: $body-color;
+        }
+
+        .profile_search-input {
+            border: .0625rem solid $gray-300;
+        }
+    }
+
+
+    .modal {
+        .modal-header {
+            background-color: $secondary;
+        }
+
+        .custom-control-label::before {
+            border: .0625rem solid $secondary;
+        }
+
+        .custom-control-input:checked~.custom-control-label::before {
+            border-color: $secondary;
+            background-color: $secondary;
+        }
+        .col-card:hover {
+            background-color: $light;
+            border-color: $secondary !important;
+        }
+    }
+}

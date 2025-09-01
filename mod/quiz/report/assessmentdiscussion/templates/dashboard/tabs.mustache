@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs mr-md-3 pr-0">
+    {{#tabs}}
+        <li class="nav-item">
+            <button class="nav-link d-flex align-items-center justify-content-center {{#disable}}disabled{{/disable}} {{#active}}active{{/active}}"
+                    type="button" data-name="" aria-pressed="{{#active}}true{{/active}} {{^active}}false{{/active}}" data-value="{{name}}" data-label=""
+                    data-id="{{id}}" {{#clickable}} data-handler="dashboard_tab" {{/clickable}}>
+                <p class=" mb-0 ml-1">
+                    {{name}} <span>({{count}})</span>
+                </p>
+            </button>
+        </li>
+    {{/tabs}}
+</ul>

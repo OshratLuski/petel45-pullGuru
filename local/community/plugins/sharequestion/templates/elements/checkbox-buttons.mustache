@@ -1,0 +1,26 @@
+<div class="form-group d-flex align-items-center justify-content-start flex-wrap mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+        {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    {{#data_formated}}
+        <div class="custom-control custom-checkbox mr-4 mb-2">
+            <input type="checkbox" class="custom-control-input" id="{{metadata_id}}" name="{{shortname}}"
+                   value="{{metadata_value}}" {{#metadata_checked}}checked{{/metadata_checked}}>
+            <label class="custom-control-label" for="{{metadata_id}}">{{metadata_name}}</label>
+        </div>
+    {{/data_formated}}
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharequestion{{/str}} {{{title}}}
+    </div>
+
+</div>

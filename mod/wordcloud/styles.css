@@ -1,0 +1,145 @@
+.path-mod-wordcloud #mod-wordcloud-div {
+    overflow: hidden;
+    min-width: 450px;
+}
+
+.path-mod-wordcloud #mod-wordcloud-new-word {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: .25rem;
+    padding-left: 1em;
+}
+
+.path-mod-wordcloud #mod-wordcloud-words-box {
+    border: 1px solid #e5e5e5;
+    border-radius: 0 0 5px 5px;
+    padding: 1em;
+    overflow: auto;
+}
+
+.path-mod-wordcloud #mod-wordcloud-btn {
+    width: 100%;
+}
+
+.path-mod-wordcloud .wordcloud-header {
+    border-radius: 5px 5px 0 0;
+    padding: 1em;
+}
+
+.path-mod-wordcloud .wordcloud-header-color {
+    background-color: #e5e5e5;
+    border: 1px solid #e5e5e5;
+}
+
+.path-mod-wordcloud .word {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.path-mod-wordcloud .center {
+    margin: auto;
+}
+
+.path-mod-wordcloud .w1 {
+    font-size: 18px;
+}
+
+.path-mod-wordcloud .w2 {
+    font-size: 24px;
+}
+
+.path-mod-wordcloud .w3 {
+    font-size: 30px;
+}
+
+.path-mod-wordcloud .w4 {
+    font-size: 36px;
+}
+
+.path-mod-wordcloud .w5 {
+    font-size: 42px;
+}
+
+.path-mod-wordcloud .w6 {
+    font-size: 58px;
+}
+
+.path-mod-wordcloud .wordcloud-export {
+    display: block;
+    text-align: center;
+}
+
+.path-mod-wordcloud #mod-wordcloud-content:fullscreen {
+    background-color: white;
+    padding-top: 5em;
+}
+
+.path-mod-wordcloud .heading.col-md-auto {
+    padding-left: 0;
+}
+
+.path-mod-wordcloud .success {
+    color: green;
+    opacity: 0;
+}
+
+.path-mod-wordcloud .fade {
+    animation-name: mod-wordcloud-fade-effect;
+    animation-duration: 4s;
+}
+
+@keyframes mod-wordcloud-fade-effect {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.path-mod-wordcloud th.remove,
+.path-mod-wordcloud td.remove,
+.path-mod-wordcloud th.save,
+.path-mod-wordcloud td.save {
+    width: 10%;
+    text-align: center;
+}
+
+.path-mod-wordcloud th.count,
+.path-mod-wordcloud td.count {
+    width: 20%;
+    text-align: center;
+}
+
+.path-mod-wordcloud th.word,
+.path-mod-wordcloud td.word {
+    width: 40%;
+    text-align: center;
+}
+
+.path-mod-wordcloud .tablewidth {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.path-mod-wordcloud #mod-wordcloud-div {
+    visibility: hidden;
+}
+
+.path-mod-wordcloud #mod-wordcloud-list-export {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.path-mod-wordcloud .wc-right-align {
+    float: right;
+}
+
+.path-mod-wordcloud .wc-padding-y {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

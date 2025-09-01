@@ -1,0 +1,164 @@
+<div id="local-redmine-activeissues-block" class="active-appeals-block">
+    {{^table_empty}}
+                <h2 class="active-appeals-title bold mb-3"> {{#str}}activeissues, local_redmine{{/str}}
+                    <span class="active-appeals-count">({{total_count}})</span>
+                </h2>
+
+<!--                <div class="select-wrapper  mb-3">-->
+<!--                    <i class="fal fa-filter"></i>-->
+<!--                    <select class="custom-select">-->
+<!--                        {{#period}}-->
+<!--                            <option {{#active}}selected{{/active}} data-area="filter" data-value="{{value}}">-->
+<!--                                {{name}}-->
+<!--                            </option>-->
+<!--                        {{/period}}-->
+<!--                    </select>-->
+<!--                    <i class="fas fa-caret-down position-absolute"></i>-->
+<!--                </div>-->
+<!--                <p class="showed-rows-info mb-1 bold">-->
+<!--                    {{#str}}showing, local_redmine{{/str}} {{pagination.limit}}-->
+<!--                    {{#str}}of, local_redmine{{/str}} {{pagination.total_count}} {{#str}}issues, local_redmine{{/str}}-->
+<!--                </p>-->
+    
+                <div class="appeals-history-table">
+                    <div class="appeals-history-table-header d-flex align-items-center mb-2">
+
+                        <a href="javascript:void(0);" type="button" class="appeals-table-text sorting-title text-white d-flex align-items-center {{columns.type.sorting}}"
+                           data-area="sorting-TODO" data-column="type" data-value="{{columns.type.sorting}}" data-column-type="type">
+                            {{#str}}typeissue, local_redmine{{/str}}
+
+                            <div class="sorting-indication d-flex flex-column align-items-center justify-content-center ml-1">
+<!--                                <i class="fa fa-sort-asc" aria-hidden="true"></i>-->
+<!--                                <i class="fa fa-sort-desc" aria-hidden="true"></i>-->
+                            </div>
+                        </a>
+
+                        <div class="appeals-table-text sorting-title text-white d-flex align-items-center"
+                           data-column-type="title">
+                            {{#str}}contentissue, local_redmine{{/str}}
+                        </div>
+
+                        <a href="javascript:void(0);" type="button" class="appeals-table-text sorting-title text-white d-flex align-items-center justify-content-center {{columns.created_on.sorting}}"
+                           data-area="sorting" data-column="created_on" data-value="{{columns.created_on.sorting}}" data-column-type="appeal_date">
+                            {{#str}}dateissue, local_redmine{{/str}}
+
+                            <div class="sorting-indication d-flex flex-column align-items-center justify-content-center ml-1">
+                                <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                            </div>
+                        </a>
+
+                        <a href="javascript:void(0);" type="button" class="appeals-table-text sorting-title text-white d-flex align-items-center justify-content-center {{columns.id.sorting}}"
+                           data-area="sorting" data-column="id" data-value="{{columns.id.sorting}}" data-column-type="appeal_number">
+                            {{#str}}numberissue, local_redmine{{/str}}
+
+                            <div class="sorting-indication d-flex flex-column align-items-center justify-content-center ml-1">
+                                <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                            </div>
+                        </a>
+
+                        <a href="javascript:void(0);" type="button" class="appeals-table-text sorting-title text-white d-flex align-items-center justify-content-center {{columns.status.sorting}}"
+                           data-area="sorting" data-column="status" data-value="{{columns.status.sorting}}" data-column-type="appeal_status">
+
+                            {{#str}}statusissue, local_redmine{{/str}}
+
+                            <div class="sorting-indication d-flex flex-column align-items-center justify-content-center ml-1">
+                                <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="appeals-history-table-body">
+
+                        {{#table}}
+                            <div class="appeals-history-table-row rounded d-flex align-items-center border mb-3" data-area="edit_page" data-value="{{id}}">
+                                <div class="appeals-table-text" data-column-type="type">
+                                    {{type}}
+                                </div>
+                                <div class="appeals-table-text" data-column-type="title">
+                                    <span>
+                                        {{subject}}
+                                    </span>
+                                </div>
+                                <div class="appeals-table-text text-center" data-column-type="appeal_date">
+                                    {{created_on}}
+                                </div>
+                                <div class="appeals-table-text text-center" data-column-type="appeal_number">
+                                    {{id}}
+                                </div>
+                                <div class="appeals-table-text text-center" data-column-type="appeal_status">
+                                    {{status}}
+                                </div>
+                            </div>
+
+                            <div class="attention-info-block align-items-center mb-3 {{^alert_note_enable}}d-none{{/alert_note_enable}}">
+                                <i class="far fa-alarm-exclamation"></i>
+                                <p class="attention-info-text mb-0">
+                                    {{alert_note}}
+                                </p>
+                            </div>
+                        {{/table}}
+
+                    </div>
+                </div>
+
+        {{#pagination_enable}}
+            <nav class="d-flex justify-content-center align-items-center">
+                <ul class="pagination">
+
+                    <li class="page-item">
+                        {{#pagination.prev_button}}
+                            <a class="page-link" data-area="paging" data-value="previus" href="javascript:void(0);">
+                                {{#str}}previous{{/str}}
+                            </a>
+                        {{/pagination.prev_button}}
+
+                        {{^pagination.prev_button}}
+                            <a class="page-link disabled" href="javascript:void(0);">
+                                {{#str}}previous{{/str}}
+                            </a>
+                        {{/pagination.prev_button}}
+                    </li>
+
+                    {{#pagination.view_pages}}
+                        <li class="page-item {{#active}}active{{/active}}">
+                            <a class="page-link" data-area="paging" data-value="{{page_num}}" href="javascript:void(0);">
+                                {{page_num}}
+                            </a>
+                        </li>
+                    {{/pagination.view_pages}}
+
+                    {{#pagination.next_button}}
+                        <li class="page-item">
+                            <a class="page-link" data-area="paging" data-value="next" href="javascript:void(0);">
+                                {{#str}}next{{/str}}
+                            </a>
+                        </li>
+                    {{/pagination.next_button}}
+
+                    {{^pagination.next_button}}
+                        <a class="page-link disabled" href="javascript:void(0);">
+                            {{#str}}next{{/str}}
+                        </a>
+                    {{/pagination.next_button}}
+
+                </ul>
+            </nav>
+        {{/pagination_enable}}
+    {{/table_empty}}
+
+    {{#table_empty}}
+
+    <!--    <select class="custom-select mb-3">
+                {{#period}}
+                    <option {{#active}}selected{{/active}} data-area="filter" data-value="{{value}}">{{name}}</option>
+                {{/period}}
+            </select>
+    -->
+
+        <h2 class="history-requets-title bold mb-0">{{#str}}noissuesactive, local_redmine{{/str}}</h2>
+
+    {{/table_empty}}
+</div>

@@ -1,0 +1,63 @@
+<div id="uploadactivity" class="uploadactivity">
+    <form class="container-fluid" action="" id="sharing_activities_form_{{uniqueid}}" method="post"
+        enctype="multipart/form-data">
+        <input type="hidden" name="activityid" value="{{activity_id}}">
+        <input type="hidden" name="courseid" value="{{course_id}}">
+
+        {{#warning_cmid_present}}
+            <div class="alert alert-danger" role="alert">
+                {{#str}}warning_cmid_present, community_sharewith{{/str}}
+
+                <br><br>
+
+                {{#str}}warning_label_select, community_sharewith{{/str}}
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="warningselect" id="warning_select_option_1_{{uniqueid}}" value="1" checked>
+                    <label class="form-check-label" for="warning_select_option_1_{{uniqueid}}">
+                        {{#str}}warning_select_option_1, community_sharewith{{/str}}
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="warningselect" id="warning_select_option_2_{{uniqueid}}" value="2">
+                    <label class="form-check-label" for="warning_select_option_2_{{uniqueid}}">
+                        {{#str}}warning_select_option_2, community_sharewith{{/str}}
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="warningselect" id="warning_select_option_3_{{uniqueid}}" value="3">
+                    <label class="form-check-label" for="warning_select_option_3_{{uniqueid}}">
+                        {{#str}}warning_select_option_3, community_sharewith{{/str}}
+                    </label>
+                </div>
+
+            </div>
+        {{/warning_cmid_present}}
+
+        <p tabindex="0" role="heading" class="first-paragraph" autofocus>{{#str}}sharing_content_materials_repository, community_sharewith{{/str}}</p>
+
+        {{{uploadhtml}}}
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary uploadactivityclose" type="button" data-handler="goBack">
+                {{#str}}cancel, community_sharewith{{/str}}
+            </button>
+
+            <button type="button" class="btn btn-success submited uploadactivitysubmit">
+                <div class="spinner-border spinner-border-sm modalspinner d-none" role="status"></div>
+                <span>{{#str}}share, community_sharewith{{/str}}</span>
+            </button>
+
+        </div>
+
+    </form>
+</div>
+
+{{#js}}
+    require(['community_sharewith/uploadPopup', 'community_sharewith/uploadPopupActions'], function(sendToCatalog,uploadPopupActions) {
+        sendToCatalog.init('{{uniqueid}}');
+        uploadPopupActions.init('{{uniqueid}}', '{{number_sections}}', '{{{default_section}}}', '{{{default_competencies}}}');
+    });
+{{/js}}

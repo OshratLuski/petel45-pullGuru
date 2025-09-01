@@ -1,0 +1,85 @@
+<div class="card card-body bg-light d-flex">
+    <div class="row">
+        <!-- TODO: is this block needed?
+        <div class="col">
+            <h5 class="col-title">
+                נסיונות בהם קיימים
+            </h5>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" id="customCheck1"
+                    value="משתמשים רשומים שהגישו<">
+                <label class="custom-control-label" for="customCheck1">משתמשים רשומים שהגישו</label>
+            </div>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" id="customCheck2"
+                    value="משתמשים רשומים שלא הגישו">
+                <label class="custom-control-label" for="customCheck2">משתמשים רשומים שלא הגישו</label>
+            </div>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" id="customCheck3"
+                    value="כל המשתמשים הרשומים<">
+                <label class="custom-control-label" for="customCheck3">כל המשתמשים הרשומים</label>
+            </div>
+        </div>
+    -->
+        <div class="col flex-wrap">
+            <h5 class="col-title">
+                {{#str}}scoreranges, quiz_advancedoverview{{/str}}
+            </h5>
+            {{#participants}}
+            {{#score_ranges}}
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" id="{{name}}Checkbox" value="{{name}}" data-type="score_ranges">
+                <label class="custom-control-label" for="{{name}}Checkbox">{{label}}</label>
+            </div>
+            {{/score_ranges}}
+            {{/participants}}
+
+
+        </div>
+        <div class="col">
+            <h5 class="col-title">
+                {{#str}}responseattempts, quiz_advancedoverview{{/str}}
+
+            </h5>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" data-type="attempts_range" id="attempt1" value="1">
+                <label class="custom-control-label" for="attempt1">
+                    {{#str}}attempt1, quiz_advancedoverview{{/str}}
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" data-type="attempts_range" id="attempt2" value="2">
+                <label class="custom-control-label" for="attempt2">
+                    {{#str}}attempt2, quiz_advancedoverview{{/str}}
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" data-type="attempts_range" id="attempt3andmore" value="3+">
+                <label class="custom-control-label" for="attempt3andmore">
+                    {{#str}}attempt3andmore, quiz_advancedoverview{{/str}}
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" data-type="attempts_range" id="lastattempt" value="last">
+                <label class="custom-control-label" for="lastattempt">
+                    {{#str}}lastattempt, quiz_advancedoverview{{/str}}
+                </label>
+            </div>
+        </div>
+        <!-- TODO: is this block needed?
+        <div class="col">
+            <h5 class="col-title">
+                הצגת רק נסיונות מענה
+            </h5>
+            <div class="custom-control custom-checkbox position-relative">
+                <input type="checkbox" class="custom-control-input" id="customCheck14"
+                    value="אשר ניתן להם ציון מחדש או מסומנים כדורשים חישוב ציון מחדש (reGrade)">
+                <label class="custom-control-label" for="customCheck14">אשר ניתן להם ציון מחדש או מסומנים
+                    כדורשים חישוב
+                    ציון מחדש (reGrade)</label>
+            </div>
+        </div>
+    -->
+    </div>
+</div>

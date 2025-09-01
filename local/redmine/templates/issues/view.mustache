@@ -1,0 +1,22 @@
+<div id="local-redmine-messages-main-page">
+    <div class="messages-loading-wrapper position-fixed" style="display: none; ">
+        {{>local_redmine/loading}}
+    </div>
+
+    <div class="row local-redmine-messages-header d-flex justify-content-between align-items-center">
+        <h1 class="col-12 col-md-8 bold">{{#str}}activemyissues, local_redmine{{/str}}</h1>
+        <div class="form-group position-relative col-12 col-md-3 w-100 mb-0">
+            <input type="text" class=" form-control pr-5 pl-3 w-100 main-search-input" value="{{default_search}}"
+                placeholder="{{#str}}searchplaceholder, local_redmine{{/str}}" id="local-redmine-search">
+            <button class="position-absolute border-0 bg-transparent text-primary">
+                <i class="fal fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div class="activeissues-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div id="local-redmine-issues-activeissues" class="w-100"></div>
+    </div>
+    <div class="history-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div id="local-redmine-issues-history" class="w-100"></div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/modal
+
+    Moodle modal template.
+
+    The purpose of this template is to render a modal
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * title A cleaned string (use clean_text()) to display.
+    * body HTML content for the boday
+    * footer HTML content for the footer
+
+    Example context (json):
+    {
+        "title": "Example modal",
+        "body": "Some example content for the body",
+        "footer": "Footer text, right here!"
+    }
+}}
+
+<div class="modal moodle-has-zindex" data-region="modal-container" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="{{uniqid}}-modal-title">
+    <div class="modal-dialog {{$classes}}{{classes}}{{/classes}}" data-region="modal" tabindex="0">
+        <div class="modal-content">
+            <div class="modal-header {{$headerclasses}}{{headerclasses}}{{/headerclasses}}" data-region="header">
+
+                {{$header}}
+                    <h5 id="{{uniqid}}-modal-title" class="modal-title" data-region="title">{{$title}}{{title}}{{/title}}</h5>
+                {{/header}}
+                <button type="button" class="btn-close" data-action="hide" aria-label="{{#cleanstr}}closebuttontitle{{/cleanstr}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 1.25C12.3206 1.25 14.5462 2.17187 16.1872 3.81282C17.8281 5.45376 18.75 7.67936 18.75 10C18.75 12.3206 17.8281 14.5462 16.1872 16.1872C14.5462 17.8281 12.3206 18.75 10 18.75C7.67936 18.75 5.45376 17.8281 3.81282 16.1872C2.17187 14.5462 1.25 12.3206 1.25 10C1.25 7.67936 2.17187 5.45376 3.81282 3.81282C5.45376 2.17187 7.67936 1.25 10 1.25ZM10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM7.05859 7.05859C6.81641 7.30078 6.81641 7.69922 7.05859 7.94141L9.11719 10L7.05859 12.0586C6.81641 12.3008 6.81641 12.6992 7.05859 12.9414C7.30078 13.1836 7.69922 13.1836 7.94141 12.9414L10 10.8828L12.0586 12.9414C12.3008 13.1836 12.6992 13.1836 12.9414 12.9414C13.1836 12.6992 13.1836 12.3008 12.9414 12.0586L10.8828 10L12.9414 7.94141C13.1836 7.69922 13.1836 7.30078 12.9414 7.05859C12.6992 6.81641 12.3008 6.81641 12.0586 7.05859L10 9.11719L7.94141 7.05859C7.69922 6.81641 7.30078 6.81641 7.05859 7.05859Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" data-region="body">
+                {{$body}}
+                    {{{body}}}
+                {{/body}}
+            </div>
+            <div class="modal-footer" data-region="footer">
+                {{$footer}}
+                    {{{footer}}}
+                {{/footer}}
+            </div>
+        </div>
+    </div>
+</div>

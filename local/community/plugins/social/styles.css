@@ -1,0 +1,1563 @@
+.socialwrapper .badgeimage img {
+  height: 100px;
+}
+
+.social-nav {
+  line-height: 32px;
+}
+
+.path-local-social .page-content {
+  padding: 0;
+}
+.path-local-social .container {
+  width: auto;
+  padding: 0;
+}
+.path-local-social .panel {
+  border: none;
+}
+.path-local-social .card,
+.path-local-social .container .panel-body,
+.path-local-social .container .page-header {
+  padding: 0;
+}
+
+#page-local-social-index footer {
+  display: none;
+}
+
+.display_none {
+  display: none !important;
+}
+
+.social .btns-popup {
+  display: flex;
+  padding: 31px 14px;
+  padding-bottom: 9px;
+  justify-content: flex-end;
+}
+.social .btns-popup .btn {
+  padding: 0 24px;
+}
+.social .modal {
+  position: fixed;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  z-index: 10000;
+  width: 561px;
+  left: calc(50% - 280px);
+  top: 20vh;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #7b7b7b;
+  bottom: unset;
+  min-height: 30vh;
+}
+.social .modal-error {
+  background-color: #fff5f6;
+  align-items: center;
+}
+.social .modal-error span {
+  color: #dc3545;
+  display: flex;
+  height: 24vh;
+  align-items: center;
+  justify-content: center;
+}
+.social .modal-error-abs {
+  position: absolute;
+  width: 96%;
+  left: 2%;
+  right: 2%;
+  bottom: -10px;
+  z-index: 100;
+  text-align: center;
+  background-color: rgba(255, 230, 230, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.social .modal-error-abs span {
+  color: #dc3545;
+}
+.social .modal_inner {
+  text-align: center;
+}
+.social .modal_header {
+  display: flex;
+  padding: 0 12px;
+  font-size: 30px;
+  line-height: 50px;
+  font-family: inherit;
+  color: #fff;
+}
+.social .modal_head {
+  margin: 0;
+  margin-right: auto;
+}
+.social .modal_close {
+  margin-left: auto;
+}
+.social .modal_close {
+  cursor: pointer;
+  position: absolute;
+  right: 7px;
+  top: 9px;
+  width: 33px;
+  height: 33px;
+  transition: 0.5s;
+}
+.social .modal_close:hover {
+  transform: rotate(180deg);
+}
+.social .modal_close:before,
+.social .modal_close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 32px;
+  width: 2px;
+  background-color: #fff;
+}
+.social .modal_close:before {
+  transform: rotate(45deg);
+}
+.social .modal_close:after {
+  transform: rotate(-45deg);
+}
+.social .warning_wrap {
+  height: 13vh;
+  padding-top: 36px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-size: 26px;
+  line-height: 40px;
+  font-family: inherit;
+}
+.social a:hover {
+  text-decoration: none;
+}
+.social .comments {
+  display: none;
+}
+.social .user-nav {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+.social .subj {
+  position: relative;
+  margin-bottom: 68px;
+  display: flex;
+  border-radius: 6px;
+  background: #fff;
+  padding: 0.5rem;
+}
+.social .simul-block__img {
+  border-radius: 8px;
+  width: 241px;
+  vertical-align: middle;
+  height: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.social .simul-block__img img {
+  width: 100%;
+  height: auto;
+}
+.social .simul-block__content {
+  flex-grow: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.social .simul-block__content > span {
+  display: block;
+}
+.social .simul-block__content p {
+  font-size: 18px;
+  line-height: 26px;
+  font-family: inherit;
+}
+.social .simul-block__header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.social .simul-block__title {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  color: #8d8d8d;
+}
+.social .simul-block__title::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url([[pix:community_oercatalog|show-screen]]) 50% 50% no-repeat;
+  background-size: contain;
+}
+.social .simul-block__wrap {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.social .simul-block__right {
+  display: flex;
+  flex-direction: column;
+  max-width: 50vw;
+}
+.social .simul-block__left {
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.social .simul-block__left--square {
+  padding: 0 10px;
+}
+.social .simul-block__note {
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 5px;
+  padding-left: 30px;
+}
+.social .simul-block__note--calendar:before,
+.social .simul-block__note--download:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url([[pix:community_oercatalog|download]]) 50% 50% no-repeat;
+  background-size: contain;
+}
+.social .simul-block__note--calendar:before {
+  background: url([[pix:community_oercatalog|calendar]]) 50% 50% no-repeat;
+  background-size: contain;
+}
+.social .simul-block__desc a {
+  font-size: 22px;
+  line-height: 22px;
+  font-family: inherit;
+}
+.social .simul-block__text {
+  margin-bottom: 2px;
+  font-size: 18px;
+  line-height: 26px;
+  font-family: inherit;
+  word-wrap: break-word;
+}
+.social .simul-block__text p {
+  margin: 0;
+}
+.social .simul-block__text br {
+  display: none;
+}
+.social .simul-block__footer {
+  display: flex;
+  padding: 5px;
+  padding-top: 14px;
+  margin-top: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.social .simul-block__avatar {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.social .simul-block__user-wrap {
+  margin-right: auto;
+  display: flex;
+}
+.social .simul-block__user {
+  display: flex;
+}
+.social .simul-block__user-name {
+  align-self: flex-end;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: inherit;
+}
+.social .simul-block__avatar img {
+  width: 100%;
+  height: auto;
+}
+.social .simul-block__message {
+  margin-left: 1.5rem;
+  background: #d7d7d7;
+}
+.social .simul-block__icon {
+  width: 36px;
+  height: 46px;
+  padding: 5px;
+  border-left: 1px solid #ddd;
+}
+.social .simul-block__image {
+  position: relative;
+  padding-left: 24px;
+  padding-right: 10px;
+  font-size: 18px;
+  font-family: inherit;
+  text-decoration: underline;
+}
+.social .simul-block__pict {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+}
+.social .simul-block__mkran,
+.social .simul-block__levelactivity,
+.social .simul-block__desktop-mobile,
+.social .simul-block__without-computer,
+.social .simul-block__desktop,
+.social .simul-block__time,
+.social .simul-block__diagn {
+  font-size: 18px;
+  font-family: inherit;
+  position: relative;
+  padding-left: 40px;
+  margin-right: 2rem;
+}
+.social .simul-block__mkran::before,
+.social .simul-block__levelactivity::before,
+.social .simul-block__desktop-mobile::before,
+.social .simul-block__without-computer::before,
+.social .simul-block__desktop::before,
+.social .simul-block__time::before,
+.social .simul-block__diagn::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+}
+.social .simul-block__levelactivity::before {
+  background-image: url([[pix:community_oercatalog|levelactivity]]);
+}
+.social .simul-block__mkran::before {
+  background-image: url([[pix:community_oercatalog|mikran]]);
+}
+.social .simul-block__desktop::before {
+  background-image: url([[pix:community_oercatalog|desktop]]);
+}
+.social .simul-block__desktop-mobile::before {
+  background-image: url([[pix:community_oercatalog|mob-desktop]]);
+}
+.social .simul-block__without-computer::before {
+  background-image: url([[pix:community_oercatalog|without-computer]]);
+}
+.social .simul-block__time::before {
+  background-image: url([[pix:community_oercatalog|clock]]);
+}
+.social .simul-block__diagn::before {
+  background-image: url([[pix:community_oercatalog|diagn]]);
+}
+.social .simul-block--phone {
+  background: url([[pix:community_oercatalog|smartphone-call]]) 50% 50% no-repeat;
+}
+.social .tc-tag {
+  border-radius: 5px;
+  color: #fff;
+  padding: 0 15px 3px;
+  margin-left: auto;
+}
+.social .tc-main {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  margin-top: 8px;
+}
+.social .tc-coursewrap {
+  width: 86%;
+  padding: 10px;
+}
+.social .tc-courseimage {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.social .tc-course {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+.social .tc-course span {
+  padding: 1rem;
+  flex-shrink: 0;
+}
+.social .tc-course:hover {
+  transform: translate(2px, -2px);
+  box-shadow: -3px 3px 2px 0 #d1d1d1;
+}
+.social .tc-circlebtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.4s;
+  opacity: 0;
+}
+.social .tc-circlebtn::before, .social .tc-circlebtn::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
+.social .tc-circlebtn:after {
+  top: 3px;
+}
+.social .tc-circlebtn.tc-rotate {
+  transform: rotate(180deg);
+}
+.social .tc-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.social .tc-text-bold {
+  color: #4B4B4B;
+}
+.social .tc-footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.social .tc-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0 10px;
+  padding-bottom: 2px;
+  background-color: #fff;
+  margin-left: 7px;
+}
+.social .activity-popup {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: -15px;
+  top: 55px;
+  background: #fff;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  border: 1px solid #bcbec0;
+  padding-bottom: 5px;
+  max-width: 500px;
+  min-width: 250px;
+  overflow: hidden;
+}
+.social .activity-popup a {
+  color: #000;
+}
+.social .activity-popup a:hover {
+  text-decoration: none;
+}
+.social .activity-popup ul,
+.social .activity-popup li {
+  list-style-type: none;
+}
+.social .user-course__legend {
+  padding: 0 4%;
+  display: block;
+  font-size: 29px;
+  line-break: inherit;
+  background-color: #3f1c7a;
+  color: #fff;
+  padding-right: 40px;
+}
+.social .user-course_wrap {
+  min-height: 200px;
+}
+.social .user-course__close {
+  cursor: pointer;
+  position: absolute;
+  right: 7px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+}
+.social .user-course__close:before,
+.social .user-course__close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 26px;
+  width: 2px;
+  background-color: #fff;
+}
+.social .user-course__close:after {
+  transform: rotate(-45deg);
+}
+.social .user-course__close:before {
+  transform: rotate(45deg);
+}
+.social .user-course__item {
+  color: #000;
+  font-weight: 300;
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 8px 8px 45px;
+}
+.social .work_block {
+  z-index: 1201;
+  position: absolute;
+  flex-direction: column;
+  top: 55px;
+  right: 7px;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: inherit;
+  border: 1px solid #bcbec0;
+  padding-bottom: 5px;
+  max-height: 600px;
+  min-width: 250px;
+  overflow: hidden;
+}
+.social .work_block ul,
+.social .work_block li {
+  list-style-type: none;
+}
+.social .work_block a {
+  color: inherit;
+}
+.social .work_block a:hover {
+  text-decoration: none;
+}
+.social .work_block .user-course__item {
+  padding-left: 44px;
+}
+.social .inverse {
+  color: #3f1c7a;
+  background: #fff;
+  border-color: #3f1c7a;
+}
+.social .inverse::before {
+  background: url([[pix:community_oercatalog|copy-inverse]]) 50% 50% no-repeat;
+  background-size: contain;
+}
+
+.socila_disable {
+  padding: 10px;
+  text-align: left;
+}
+.socila_disable ul {
+  margin: 0;
+}
+.socila_disable li {
+  margin: 0;
+}
+.socila_disable .text {
+  font-size: 18px;
+  line-height: 22px;
+  font-family: inherit;
+}
+.socila_disable .text-bold {
+  margin-top: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: inherit;
+}
+
+.social__wrapper {
+  display: flex;
+}
+.social__wrapper .badge__image img {
+  height: 100px;
+}
+
+.path-local-community-plugins-social #page-header {
+  display: none;
+}
+.path-local-community-plugins-social #page-content.py-3 {
+  padding: 0 !important;
+  height: 100%;
+}
+.path-local-community-plugins-social div.main {
+  width: 100%;
+}
+.path-local-community-plugins-social #page-content,
+.path-local-community-plugins-social #region-main-box,
+.path-local-community-plugins-social #region-main,
+.path-local-community-plugins-social div[role=main],
+.path-local-community-plugins-social .social,
+.path-local-community-plugins-social .social__wrapper {
+  height: 100%;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page {
+  background: url([[pix:community_social|bg]]) center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page::before, .path-local-community-plugins-social#page-local-community-plugins-social-index #page::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 7.5rem;
+  height: 16.4375rem;
+  background-size: cover;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page::before {
+  background: url([[pix:community_social|half_logo_petel_left]]) center no-repeat;
+  right: 0;
+  top: 1.5rem;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page::after {
+  background: url([[pix:community_social|half_logo_petel_right]]) center no-repeat;
+  left: 0;
+  bottom: 1.5rem;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page-wrapper #page-footer,
+.path-local-community-plugins-social#page-local-community-plugins-social-index #topofscroll {
+  z-index: 3;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #topofscroll {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+.path-local-community-plugins-social#page-local-community-plugins-social-index #page.drawers .main-inner,
+.path-local-community-plugins-social#page-local-community-plugins-social-index #region-main {
+  background-color: transparent;
+}
+.path-local-community-plugins-social #page.drawers {
+  padding-right: 0;
+  padding-left: 0;
+}
+.path-local-community-plugins-social #page.drawers div[role=main] {
+  padding-left: 0;
+  padding-right: 0;
+}
+.path-local-community-plugins-social #page.drawers .main-inner {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.path-local-community-plugins-social .social-title {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+}
+.path-local-community-plugins-social .intro {
+  color: #2B2B2B;
+  padding-top: 3.31rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.path-local-community-plugins-social .intro .social-title {
+  margin-bottom: 4rem;
+}
+.path-local-community-plugins-social .intro .intro_head {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 3.75rem;
+}
+.path-local-community-plugins-social .intro .intro_par {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  max-width: 75%;
+  line-height: normal;
+}
+.path-local-community-plugins-social .intro .intro-title {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.path-local-community-plugins-social .intro .intro-content {
+  border-radius: 0.5rem;
+}
+.path-local-community-plugins-social .intro .intro-content-item-text {
+  padding: 0 1.5rem;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .intro .intro-content-item-icon {
+  background-size: cover;
+  height: 5.6875rem;
+  width: 5.6875rem;
+}
+.path-local-community-plugins-social .intro .exposure .intro-content-item-icon {
+  background: url([[pix:community_social|exposure]]) center no-repeat;
+}
+.path-local-community-plugins-social .intro .colleagues .intro-content-item-icon {
+  background: url([[pix:community_social|colleagues]]) center no-repeat;
+}
+.path-local-community-plugins-social .intro .teachers .intro-content-item-icon {
+  width: 5.73244rem;
+  background: url([[pix:community_social|teachers]]) center no-repeat;
+}
+.path-local-community-plugins-social .intro .comminities .intro-content-item-icon {
+  width: 7.41606rem;
+  background: url([[pix:community_social|comminities]]) center no-repeat;
+}
+.path-local-community-plugins-social .intro .intro_btn {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 2.3125rem;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  box-shadow: 0px 6px 4px 0px rgba(108, 117, 125, 0.15);
+}
+.path-local-community-plugins-social .social__wrapper {
+  display: flex;
+}
+.path-local-community-plugins-social .social__wrapper .aside {
+  width: 22.3rem;
+  background-color: #F5F2F7;
+}
+.path-local-community-plugins-social .social__wrapper .aside-inner {
+  position: sticky;
+  top: 2rem;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .teacher_search-label,
+.path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-label,
+.path-local-community-plugins-social .social__wrapper .profile_search .teacher_search-label,
+.path-local-community-plugins-social .social__wrapper .profile_search .profile_search-label {
+  position: relative;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .teacher_search-input,
+.path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-input,
+.path-local-community-plugins-social .social__wrapper .profile_search .teacher_search-input,
+.path-local-community-plugins-social .social__wrapper .profile_search .profile_search-input {
+  height: 2.375rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #E2E1E1;
+  padding-right: 2.875rem;
+  padding-left: 0.5rem;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .teacher_search-input::-moz-placeholder, .path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-input::-moz-placeholder, .path-local-community-plugins-social .social__wrapper .profile_search .teacher_search-input::-moz-placeholder, .path-local-community-plugins-social .social__wrapper .profile_search .profile_search-input::-moz-placeholder {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .teacher_search-input::placeholder,
+.path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-input::placeholder,
+.path-local-community-plugins-social .social__wrapper .profile_search .teacher_search-input::placeholder,
+.path-local-community-plugins-social .social__wrapper .profile_search .profile_search-input::placeholder {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-input,
+.path-local-community-plugins-social .social__wrapper .profile_search .profile_search-input {
+  width: 100%;
+}
+.path-local-community-plugins-social .social__wrapper .teacher_search .teacher_search-icon,
+.path-local-community-plugins-social .social__wrapper .teacher_search .profile_search-icon,
+.path-local-community-plugins-social .social__wrapper .profile_search .teacher_search-icon,
+.path-local-community-plugins-social .social__wrapper .profile_search .profile_search-icon {
+  width: 2.375rem;
+  height: 2.375rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block {
+  padding-left: 1.18rem;
+  padding-right: 1.76rem;
+  padding-top: 2rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .social-title {
+  margin-bottom: 1.75rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teachlist-text {
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-tabs {
+  height: 2.5rem;
+  border-radius: 6.25rem;
+  overflow: hidden;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-tabs .teachlist-item {
+  border-radius: 6.25rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-tabs .teachlist-item span {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-tabs .teachlist-item.active span {
+  font-weight: 500;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards-head {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher_search .teacher_search-input {
+  width: 18.99213rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 1rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc {
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #F5F2F7;
+  background: #fff;
+  box-shadow: 0rem 0.25rem 0.5rem 0rem rgba(52, 58, 64, 0.15);
+  display: flex;
+  padding: 1rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc:hover .tc-name {
+  text-decoration: underline;
+  font-weight: 500;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-label {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-image img {
+  width: 100%;
+  height: 100%;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-inner {
+  padding-left: 2rem;
+  width: 100%;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-header {
+  margin-bottom: 1rem;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-name {
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-count {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-text-bold {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-main-pic {
+  width: 5.51838rem;
+  height: 4.9165rem;
+  flex-shrink: 0;
+  background: url([[pix:community_social|emptystate]]) center no-repeat;
+  background-size: contain;
+}
+.path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-main-text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .aside {
+  padding-top: 2rem;
+}
+.path-local-community-plugins-social .aside .btn-settings {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.path-local-community-plugins-social .aside .user {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.path-local-community-plugins-social .aside .user .user__link {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*  margin-bottom: 2rem; */
+}
+.path-local-community-plugins-social .aside .user .user__link .user__image {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 100%;
+  border: 0.1875rem solid #554283;
+  margin: 0 auto;
+  margin-bottom: 1.12rem;
+}
+.path-local-community-plugins-social .aside .user .user__link .user__name {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .aside .user .user__link .block-title {
+  margin-bottom: 1.75rem;
+}
+.path-local-community-plugins-social .aside .user .collegue-link {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0.44rem;
+}
+.path-local-community-plugins-social .aside .user .collegue-link svg {
+  width: 1.25rem;
+  height: 1rem;
+}
+.path-local-community-plugins-social .aside .user .btns-wrapper .btn {
+  height: 2rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.5rem;
+  box-shadow: 0px 6px 4px 0px rgba(108, 117, 125, 0.15);
+}
+.path-local-community-plugins-social .aside .user .user__mail {
+  margin-left: 0.75rem;
+}
+.path-local-community-plugins-social .aside .user .block-title {
+  padding-top: 2rem;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+  align-self: start;
+}
+.path-local-community-plugins-social .aside .user .usertext {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.path-local-community-plugins-social .aside .user .usernum {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+}
+.path-local-community-plugins-social .aside .user .user__preview {
+  display: flex;
+  align-items: center;
+}
+.path-local-community-plugins-social .aside .user .user__preview .school .icon {
+  display: inline-block;
+  width: 1.125rem;
+  height: 0.9rem;
+  background: url([[pix:community_social|house]]) center no-repeat;
+  background-size: contain;
+}
+.path-local-community-plugins-social .aside .user .user__preview .usernum {
+  min-width: 1.75rem;
+}
+.path-local-community-plugins-social .aside .user .divider {
+  height: 0.0625rem;
+  width: 100%;
+}
+.path-local-community-plugins-social .aside .public-course {
+  margin-bottom: 16.56rem;
+}
+.path-local-community-plugins-social .aside .public-course .public-course__head {
+  display: flex;
+  align-items: center;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.path-local-community-plugins-social .aside .public-course .public-course__head span {
+  background-color: #008ECD;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-left: 0.5rem;
+  background: url([[pix:community_social|info]]) center no-repeat;
+  background-size: contain;
+}
+.path-local-community-plugins-social .aside .public-course:has(.public-course__item) {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.5rem 1.5rem 8px;
+  margin-bottom: 1.5rem;
+}
+.path-local-community-plugins-social .aside .about-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  height: 2.25rem;
+  margin-bottom: 3.69rem;
+}
+.path-local-community-plugins-social .aside .about-icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: url([[pix:community_social|circleinfo]]) center no-repeat;
+  background-size: contain;
+}
+.path-local-community-plugins-social .aside .public-course__items {
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
+  max-height: 9.5rem;
+  overflow: auto;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #E1DBF2;
+}
+.path-local-community-plugins-social .aside .public-course__items .public-course__item {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  list-style-type: none;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.path-local-community-plugins-social .aside .public-course__items .public-course__item::after {
+  content: "";
+  width: 0.25rem;
+  height: 0.25rem;
+  display: block;
+  background-color: #2B2B2B;
+  border-radius: 100%;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.625rem;
+}
+.path-local-community-plugins-social .aside .public-course__items:has(.public-course__item) {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0;
+}
+.path-local-community-plugins-social .aside .public-course__items:not(:has(.public-course__item)) {
+  padding: 0;
+  margin: 0;
+}
+.path-local-community-plugins-social .activity-info-block i {
+  font-size: 1.1875rem;
+}
+.path-local-community-plugins-social #page-footer {
+  margin: 0;
+  z-index: 5;
+}
+.path-local-community-plugins-social .courses_oer__wrapper,
+.path-local-community-plugins-social .activities_oer__wrapper {
+  padding-left: 1.25rem;
+}
+.path-local-community-plugins-social .courses_oer__wrapper .activity-item.mx-3,
+.path-local-community-plugins-social .activities_oer__wrapper .activity-item.mx-3 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 1rem;
+  box-shadow: 0px 6px 12px 4px rgba(108, 117, 125, 0.2);
+  min-height: 12rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.path-local-community-plugins-social .courses_oer__wrapper .activity-main,
+.path-local-community-plugins-social .activities_oer__wrapper .activity-main {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.path-local-community-plugins-social .courses_oer__wrapper {
+  padding-left: 0;
+}
+.path-local-community-plugins-social #raspberryLoadingIcon .raspberry-shadow,
+.path-local-community-plugins-social #raspberryLoadingIcon .raspberry-symbol-use-group {
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 0, 1, 1);
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+.path-local-community-plugins-social .copy-activity-btn,
+.path-local-community-plugins-social .copy-course-btn,
+.path-local-community-plugins-social .copy-course-pombim-btn {
+  font-size: 1.125rem;
+}
+.path-local-community-plugins-social .copy-activity-btn span,
+.path-local-community-plugins-social .copy-course-btn span,
+.path-local-community-plugins-social .copy-course-pombim-btn span {
+  font-size: 1.125rem;
+}
+.path-local-community-plugins-social .copy-activity-btn i,
+.path-local-community-plugins-social .copy-course-btn i,
+.path-local-community-plugins-social .copy-course-pombim-btn i {
+  font-size: 1.125rem;
+}
+
+.courses__wrapper,
+.main_header,
+.breadcrumb-wrapper {
+  padding-left: 1.25rem;
+}
+
+#page-local-community-plugins-social-profile .btn.disabled:hover, #page-local-community-plugins-social-profile .btn.disabled:focus,
+#page-local-community-plugins-social-profile .btn:disabled:hover,
+#page-local-community-plugins-social-profile .btn:disabled:focus,
+#page-local-community-plugins-social-teachers .btn.disabled:hover,
+#page-local-community-plugins-social-teachers .btn.disabled:focus,
+#page-local-community-plugins-social-teachers .btn:disabled:hover,
+#page-local-community-plugins-social-teachers .btn:disabled:focus {
+  background-color: #e2e1e1;
+  border-color: #e2e1e1;
+  color: #2b2b2b;
+  box-shadow: none !important;
+  opacity: 1;
+}
+#page-local-community-plugins-social-profile #topofscroll,
+#page-local-community-plugins-social-teachers #topofscroll {
+  padding-right: 1.37rem;
+}
+#page-local-community-plugins-social-profile .main_header .main_head,
+#page-local-community-plugins-social-teachers .main_header .main_head {
+  margin-bottom: 1.125rem;
+}
+#page-local-community-plugins-social-profile .main_header .main_head a,
+#page-local-community-plugins-social-teachers .main_header .main_head a {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+}
+#page-local-community-plugins-social-profile .subj__header,
+#page-local-community-plugins-social-profile .course__count,
+#page-local-community-plugins-social-teachers .subj__header,
+#page-local-community-plugins-social-teachers .course__count {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+}
+#page-local-community-plugins-social-profile .courses_pombim__wrapper .teacher-block-info,
+#page-local-community-plugins-social-profile .courses_pombim__wrapper .teacher-block-date,
+#page-local-community-plugins-social-teachers .courses_pombim__wrapper .teacher-block-info,
+#page-local-community-plugins-social-teachers .courses_pombim__wrapper .teacher-block-date {
+  cursor: text;
+}
+#page-local-community-plugins-social-profile .courses_pombim__wrapper .course-info-tooltip,
+#page-local-community-plugins-social-teachers .courses_pombim__wrapper .course-info-tooltip {
+  cursor: pointer;
+}
+#page-local-community-plugins-social-profile .course__filed .course,
+#page-local-community-plugins-social-teachers .course__filed .course {
+  margin-bottom: 1rem;
+  box-shadow: 0px 6px 12px 4px rgba(108, 117, 125, 0.2);
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  display: flex;
+}
+#page-local-community-plugins-social-profile .course__filed .course .course-img-wrapper,
+#page-local-community-plugins-social-teachers .course__filed .course .course-img-wrapper {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 14rem;
+  height: 9rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  display: block;
+  margin-right: 1rem;
+}
+#page-local-community-plugins-social-profile .course__filed .course .course__img,
+#page-local-community-plugins-social-teachers .course__filed .course .course__img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#page-local-community-plugins-social-profile .course__filed .course .course__name,
+#page-local-community-plugins-social-teachers .course__filed .course .course__name {
+  font-size: 1.125rem;
+  overflow-wrap: break-word;
+  max-width: 70%;
+  line-height: 1.25;
+}
+#page-local-community-plugins-social-profile .course__filed .course .teacher-block,
+#page-local-community-plugins-social-teachers .course__filed .course .teacher-block {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-local-community-plugins-social-profile .course__filed .course .teacher-img,
+#page-local-community-plugins-social-teachers .course__filed .course .teacher-img {
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 0.875rem;
+}
+#page-local-community-plugins-social-profile .modal-dialog,
+#page-local-community-plugins-social-teachers .modal-dialog {
+  max-width: 35.5rem;
+}
+#page-local-community-plugins-social-profile .modal .modal-content,
+#page-local-community-plugins-social-teachers .modal .modal-content {
+  border-radius: 0.5rem;
+}
+#page-local-community-plugins-social-profile .modal .modal-header,
+#page-local-community-plugins-social-teachers .modal .modal-header {
+  padding: 0 1.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+#page-local-community-plugins-social-profile .modal .modal-header .close,
+#page-local-community-plugins-social-teachers .modal .modal-header .close {
+  padding: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-size: contain;
+  margin: 0;
+}
+#page-local-community-plugins-social-profile .modal .modal-header .close span,
+#page-local-community-plugins-social-teachers .modal .modal-header .close span {
+  display: none;
+}
+#page-local-community-plugins-social-profile .modal .shool-name,
+#page-local-community-plugins-social-profile .modal .pc-form,
+#page-local-community-plugins-social-teachers .modal .shool-name,
+#page-local-community-plugins-social-teachers .modal .pc-form {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+}
+#page-local-community-plugins-social-profile .modal input[type=text],
+#page-local-community-plugins-social-teachers .modal input[type=text] {
+  height: 2.125rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #E2E1E1;
+  background: #FFF;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #2B2B2B;
+}
+#page-local-community-plugins-social-profile .modal select,
+#page-local-community-plugins-social-teachers .modal select {
+  height: 2.125rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #E2E1E1;
+}
+#page-local-community-plugins-social-profile .modal .modal-footer,
+#page-local-community-plugins-social-teachers .modal .modal-footer {
+  border-top: none;
+}
+#page-local-community-plugins-social-profile .modal .modal-footer .btn,
+#page-local-community-plugins-social-teachers .modal .modal-footer .btn {
+  height: 2rem;
+  padding: 0 1rem;
+}
+#page-local-community-plugins-social-profile .modal .custom-control-label::after, #page-local-community-plugins-social-profile .modal .custom-control-label::before,
+#page-local-community-plugins-social-teachers .modal .custom-control-label::after,
+#page-local-community-plugins-social-teachers .modal .custom-control-label::before {
+  border-radius: 0.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+#page-local-community-plugins-social-profile .modal .custom-control-label.ifcopy-label::after, #page-local-community-plugins-social-profile .modal .custom-control-label.ifcopy-label::before,
+#page-local-community-plugins-social-teachers .modal .custom-control-label.ifcopy-label::after,
+#page-local-community-plugins-social-teachers .modal .custom-control-label.ifcopy-label::before {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+#page-local-community-plugins-social-profile .modal .pc-form .pc-form_courses,
+#page-local-community-plugins-social-profile .modal .pc-form .pc-form_course-item,
+#page-local-community-plugins-social-teachers .modal .pc-form .pc-form_courses,
+#page-local-community-plugins-social-teachers .modal .pc-form .pc-form_course-item {
+  border-radius: 0.5rem;
+  padding-left: 2.5rem;
+}
+#page-local-community-plugins-social-profile .modal .pc-form .pc-form_course-items,
+#page-local-community-plugins-social-teachers .modal .pc-form .pc-form_course-items {
+  max-height: 14.625rem;
+  overflow: auto;
+}
+#page-local-community-plugins-social-profile .modal .ifcopy-wrapper,
+#page-local-community-plugins-social-teachers .modal .ifcopy-wrapper {
+  padding-left: 1.5rem;
+}
+#page-local-community-plugins-social-profile .modal .colegues-wrapper,
+#page-local-community-plugins-social-profile .modal .followers-wrapper,
+#page-local-community-plugins-social-teachers .modal .colegues-wrapper,
+#page-local-community-plugins-social-teachers .modal .followers-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 7.8rem);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  max-height: 27.75rem;
+  overflow: auto;
+  margin: 0 auto;
+}
+#page-local-community-plugins-social-profile .modal .col-card,
+#page-local-community-plugins-social-teachers .modal .col-card {
+  width: 7.8125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+#page-local-community-plugins-social-profile .modal .col-card:hover,
+#page-local-community-plugins-social-teachers .modal .col-card:hover {
+  text-decoration: none;
+}
+#page-local-community-plugins-social-profile .modal .col-card .col-card-img,
+#page-local-community-plugins-social-teachers .modal .col-card .col-card-img {
+  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border-width: 0.125rem !important;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#page-local-community-plugins-social-profile .modal .col-card .col-card-name,
+#page-local-community-plugins-social-teachers .modal .col-card .col-card-name {
+  font-size: 1rem;
+}
+#page-local-community-plugins-social-profile .empty-inner,
+#page-local-community-plugins-social-teachers .empty-inner {
+  padding-top: 5.47rem;
+}
+#page-local-community-plugins-social-profile .empty-inner .empty-image,
+#page-local-community-plugins-social-teachers .empty-inner .empty-image {
+  margin-bottom: 2rem;
+}
+#page-local-community-plugins-social-profile .empty-inner .empty-text,
+#page-local-community-plugins-social-teachers .empty-inner .empty-text {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+}
+#page-local-community-plugins-social-profile .breadcrumb,
+#page-local-community-plugins-social-teachers .breadcrumb {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-local-community-plugins-social-profile .social-tooltip,
+#page-local-community-plugins-social-teachers .social-tooltip {
+  display: none;
+  min-width: 11.875rem;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #E2E1E1;
+  z-index: 10;
+}
+#page-local-community-plugins-social-profile .social-tooltip::after,
+#page-local-community-plugins-social-teachers .social-tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.3125rem 0.3125rem 0.3125rem;
+  border-color: transparent transparent #E2E1E1 transparent !important;
+}
+#page-local-community-plugins-social-profile .social-tooltip::before,
+#page-local-community-plugins-social-teachers .social-tooltip::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.3125rem 0.3125rem 0.3125rem;
+  border-color: transparent transparent #fff transparent !important;
+  margin-top: 0.0625rem;
+  z-index: 5;
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-position=top],
+#page-local-community-plugins-social-teachers .social-tooltip[data-position=top] {
+  left: 0;
+  bottom: calc(100% + 0.5rem);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-position=top-right],
+#page-local-community-plugins-social-teachers .social-tooltip[data-position=top-right] {
+  left: 0;
+  bottom: calc(100% + 0.5rem);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-position=top-left],
+#page-local-community-plugins-social-teachers .social-tooltip[data-position=top-left] {
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-position=bottom],
+#page-local-community-plugins-social-teachers .social-tooltip[data-position=bottom] {
+  left: 0;
+  top: calc(100% + 0.5rem);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-position=bottom-left],
+#page-local-community-plugins-social-teachers .social-tooltip[data-position=bottom-left] {
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=bottom-left]::before,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=bottom-left]::before {
+  bottom: -0.3125rem;
+  left: 0.5rem;
+  transform: rotate(-180deg);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=bottom-left]::after,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=bottom-left]::after {
+  bottom: -0.375rem;
+  left: 0.5rem;
+  z-index: -1;
+  transform: rotate(-180deg);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=bottom-right]::before,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=bottom-right]::before {
+  bottom: -0.3125rem;
+  right: 0.5rem;
+  transform: rotate(-180deg);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=bottom-right]::after,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=bottom-right]::after {
+  bottom: -0.375rem;
+  right: 0.5rem;
+  z-index: -1;
+  transform: rotate(-180deg);
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=top-left]::before,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=top-left]::before {
+  top: -0.3125rem;
+  left: 0.5rem;
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=top-left]::after,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=top-left]::after {
+  top: -0.375rem;
+  left: 0.5rem;
+  z-index: -1;
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=top-right]::before,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=top-right]::before {
+  top: -0.3125rem;
+  right: 0.5rem;
+}
+#page-local-community-plugins-social-profile .social-tooltip[data-carret-position=top-right]::after,
+#page-local-community-plugins-social-teachers .social-tooltip[data-carret-position=top-right]::after {
+  top: -0.375rem;
+  right: 0.5rem;
+  z-index: -1;
+}
+#page-local-community-plugins-social-profile .btn-settings:hover .social-tooltip,
+#page-local-community-plugins-social-profile .btn-change-course:hover .social-tooltip,
+#page-local-community-plugins-social-teachers .btn-settings:hover .social-tooltip,
+#page-local-community-plugins-social-teachers .btn-change-course:hover .social-tooltip {
+  display: block;
+}
+
+@media (max-width: 1919px) {
+  .path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1rem;
+  }
+}
+@media (max-width: 1439px) {
+  .path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1rem;
+  }
+  .path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards .tc .tc-image {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+@media (max-width: 992px) {
+  .path-local-community-plugins-social .social__wrapper #teachers_card_block .teacher-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1rem;
+  }
+}/*# sourceMappingURL=styles.css.map */

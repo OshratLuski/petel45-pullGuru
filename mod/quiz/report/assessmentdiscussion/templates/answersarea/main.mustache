@@ -1,0 +1,15 @@
+{{#ansersareaenable}}
+
+    {{> quiz_assessmentdiscussion/answersarea/info }}
+
+    <div class="attepts-area-wrapper">
+        {{> quiz_assessmentdiscussion/answersarea/attempts }}
+    </div>
+
+{{/ansersareaenable}}
+
+{{^ansersareaenable}}
+    <div class="question-head py-3 px-2 mb-4">
+        {{#str}}emptyanswersarea, quiz_assessmentdiscussion{{/str}}
+    </div>
+{{/ansersareaenable}}

@@ -1,0 +1,36 @@
+<div class="form-group mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    <div class="custom-control custom-radio mb-1">
+        <input type="radio" id="no_copyright_{{unique}}" name="question_activity" value="false" class="custom-control-input no_copyright" >
+        <label class="custom-control-label" for="no_copyright_{{unique}}">
+            {{#str}}no_copyright_of_activity_is_mine_only, community_sharequestion{{/str}}
+        </label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="based_on_another_activity_{{unique}}" name="question_activity" value="true" class="custom-control-input based_on_another_activity">
+        <label class="custom-control-label" for="based_on_another_activity_{{unique}}">
+            {{#str}}yes_i_processed_activity_based_on_another_activity, community_sharequestion{{/str}}
+        </label>
+    </div>
+
+    <div class="custom-control p-0 question-activity-url-wrapper" style="display: none;">
+        <p class=" mb-1 mt-3">{{#str}}register_resource, community_sharequestion{{/str}}</p>
+        <textarea class="form-control" name="question_activity_url" placeholder="http://www"></textarea>
+    </div>
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharequestion{{/str}} {{{title}}}
+    </div>
+
+</div>

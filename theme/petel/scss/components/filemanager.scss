@@ -1,0 +1,37 @@
+.filepicker-filelist .filepicker-container, .filemanager.fm-noitems .fm-empty-container {
+    border: .1875rem dashed $gray-300;
+    top: .5rem;
+    left: .5rem;
+    bottom: .5rem;
+    right: .5rem;
+ /*    padding-top: 2rem; */
+}
+/* .filepicker-filelist,  */.filemanager-container {
+    min-height: 5.125rem;
+}
+.filemanager {
+    .dndupload-message {
+        font-size: 1rem;
+        color: $body-color;
+    }
+    .dndupload-arrow {
+        height: 2rem;
+        i {
+            color: #000;
+        }
+    }
+    .fp-pathbar {
+        display: none; /* TODO: check it! */
+    }
+    .filemanager-toolbar {
+        padding: .5rem .75rem;
+    }
+    .fp-viewbar:not(.disabled) a {
+        color: $body-color;
+    }
+    .fp-viewbar:not(.disabled) a.checked {
+        background-color: $secondary;
+        color: $white;
+        border-color: $secondary;
+    }
+}

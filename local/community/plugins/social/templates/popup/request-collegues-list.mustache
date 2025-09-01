@@ -1,0 +1,13 @@
+<form class="pc-form" id="request_followed_courses">
+    <div class="colegues-wrapper">
+        {{#data}}
+        <a href="{{{profile_url}}}" target="_blank" class="col-card border border-secondary p-2">
+            <div class="col-card-img border border-secondary mb-2" style="background-image: url('{{{image_url}}}');"></div>
+            <div class="col-card-name text-body">{{firstname}} {{lastname}}</div>
+            {{#active_collegue}}
+            <!--<span class = "col-card-tag">{{#str}}colleague, community_social{{/str}}</span>-->
+            {{/active_collegue}}
+        </a>
+        {{/data}}
+    </div>
+</form>

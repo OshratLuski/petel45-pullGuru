@@ -1,0 +1,32 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="d-flex align-items-center diagnosticstats_report-toggle anonymousmode mb-3 justify-content-end"
+    data-textoff="{{#str}}anonymousmodeoff, quiz_diagnosticstats{{/str}}"
+    data-texton="{{#str}}anonymousmodeon, quiz_diagnosticstats{{/str}}">
+    <input type="checkbox" id="anonymousmodeToggler1" class="toggle-btn ">
+    <label for="anonymousmodeToggler1" class="mb-0 anonymousmodeToggler"></label>
+    <span class="link-btn-text ml-2">
+        {{#str}}anonymousmodeoff, quiz_diagnosticstats{{/str}}
+    </span>
+</div>
+
+{{#js}}
+        require(['jquery', 'quiz_diagnosticstats/anonymousmode'], function($, anonymousmode) {
+            anonymousmode.initdiagnosticquestionstable();
+        });
+{{/js}}

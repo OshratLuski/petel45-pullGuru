@@ -1,0 +1,47 @@
+<div class="row py-3">
+    <div class="col-12 d-flex justify-content-between flex-wrap">
+        <div class="card border-0 py-2 py-md-3" id="charts_average">
+            <div class="d-flex justify-content-center h-100">
+                <div class="averagescore-info-wrapper">
+                    <p class="card-title">{{#str}}averagegrade, quiz_advancedoverview{{/str}}</p>
+                    <p class="card-text mb-2">
+                        <span class="text-primary d-inline-block mr-1">{{charts_average_maxgrade}}</span>
+                        {{#str}}highestscore, quiz_advancedoverview{{/str}}
+                    </p>
+                    <p class="card-text">
+                        <span class="text-primary d-inline-block mr-1">{{charts_average_mingrade}}</span>
+                        {{#str}}lowestscore, quiz_advancedoverview{{/str}}
+                    </p>
+                </div>
+                <div class="averagescore-title-wrapper h-100 d-flex align-items-center">
+                    <p class="averagescore-title bold mb-0">
+                        {{charts_average_averagegrade}}
+                    </p>
+                </div>
+            </div>
+        </div>
+         <div class="card border-0 py-2 py-md-3" id="charts_state">
+            <div class="inner d-flex justify-content-center h-100">
+                <div class="donut-сhart-legend">
+                    <p class="card-title mb-0">{{#str}}classstatus, quiz_advancedoverview{{/str}}</p>
+                    <div class="donut-сhart-legend-title"></div>
+                    <div class="donut-сhart-legend-inner"></div>
+                <!--   <a href="#" class="send-message-link">{{#str}}sendingmassage, quiz_advancedoverview{{/str}}</a>-->
+                </div>
+                <div class="donut-сhart position-relative h-100 d-flex align-items-center">
+                </div>
+            </div>
+        </div>
+        <div class="card border-0 d-flex flex-column pt-3 pb-1" id="charts_grade">
+            <p class="card-title">{{#str}}scoredistribution, quiz_advancedoverview{{/str}}</p>
+            <div class="bar-сhart position-relative d-flex justify-content-center"></div>
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery', 'quiz_advancedoverview/charts'], function($, Charts) {
+        Charts.initcharts('{{{charts}}}');
+    });
+{{/js}}

@@ -1,0 +1,25 @@
+//
+// VARIABLES FILE
+//
+
+// SASS Map containing plugin's colours
+$colors: (
+    black:                  #000,
+    red:                    #f00,
+    red--dark:              #730000,
+    green--dark:            #060,
+
+    // Utility
+    required:               rgba(175, 30, 30, 1),
+    required_background:    rgba(255, 0, 0, 0.075),
+
+    // New design colors
+    alert-orange:           #f59331,
+    alert-orange-light:     #fde9d5,
+    success-green:          #287d28,
+    success-green-light:    #e9f2e9,
+    danger-red:             #ce0e0f,
+    danger-red-light:       #fae6e6,
+    system-blue:            #008ecd,
+    system-blue-light:      #d9eef8,
+);

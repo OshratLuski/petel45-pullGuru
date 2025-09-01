@@ -1,0 +1,101 @@
+<div class="messaging-block d-flex flex-column">
+    <h2 class="block-title bold mb-0">
+        {{#str}}chatmessages, local_redmine{{/str}}
+    </h2>
+
+    {{#problem_note_enable}}
+        <div class="messaging-block-top-content p-2 px-3">
+            <p class="pb-3 mb-0">
+                {{{problem_note}}}
+            </p>
+        </div>
+    {{/problem_note_enable}}
+
+    <div class="messaging-block-inner border-top">
+        {{#messages}}
+            <div class="date-divider d-flex align-items-center flex-nowrap">
+                <span class="date pr-1">{{date}}</span>
+                <div class="line"></div>
+            </div>
+
+            {{#data}}
+                {{#my_message}}
+                <div class="message-wrapper d-flex mb-2">
+                    <div class="outcomming-message d-inline-flex align-items-end flex-column ml-auto">
+                        <div class="message-header mb-1 text-right">
+                            <span class="time">{{time}}</span>
+                            <span class="title pl-4">{{username}}</span>
+                        </div>
+                        <div class="message-body bg-white ">
+                            {{{message}}}
+                        </div>
+
+                        {{#files}}
+                            <a href="{{{url}}}" class="file-link">{{filename}}</a>
+                        {{/files}}
+                    </div>
+                </div>
+                {{/my_message}}
+
+                {{^my_message}}
+                <div class="message-wrapper d-flex mb-2">
+                    <div class="incomming-message d-flex fd-inline-flex align-items-start flex-column mr-auto">
+                        <div class="message-header mb-1 text-left">
+                            <span class="time">{{time}}</span>
+                            <span class="title pr-4">{{username}}</span>
+                        </div>
+                        <div class="message-body bg-white">
+                            {{{message}}}
+                        </div>
+
+                        {{#files}}
+                            <a href="{{{url}}}" class="file-link">{{filename}}</a>
+                        {{/files}}
+                    </div>
+                </div>
+                {{/my_message}}
+            {{/data}}
+        {{/messages}}
+
+    </div>
+    
+    <form class="messaging-form form-inline w-100" enctype="multipart/form-data">
+        <div class="form-group file-btn-wrapper position-relative">
+            <input type="file" class="form-control-file" id="local_redmine_outcomming_file" data-added-file="false">
+            <i class="fal fa-paperclip" type="button" aria-hidden="true" title="{{#str}}addfile, local_redmine{{/str}}"></i>
+            <i class="fal fa-paperclip text-success" type="button" aria-hidden="true" title="{{#str}}filealreadyadded, local_redmine{{/str}}" style="display: none;"></i>
+        </div>
+        <div class="form-group flex-grow-1">
+            <textarea  type="text" class="form-control w-100" id="local_redmine_outcomming_message"
+                    placeholder="{{#str}}chatplaceholder, local_redmine{{/str}}" ></textarea>
+        </div>
+        
+        <button id="local_redmine_message_submit" type="submit" class="btn btn-primary">{{#str}}send, local_redmine{{/str}}</button>
+        
+        <div id="added-file-block" class="mb-0 pt-1 w-100" style=" display: none;">
+            <div class="mb-0 pt-1 w-100 d-flex align-items-center justify-content-start">
+                <button type="button" class="close text-danger mx-2" aria-label="{{#str}}deletefile, local_redmine{{/str}}"
+                    id="delete-file-btn">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p id="loaded-file-name" class="text-primary m-0" style="font-size: 85%; word-break: break-all;">
+                </p>
+            </div>
+        </div>
+        <p id="error-imgformat-message" class="text-danger mb-0 pt-1 w-100 bold" style="font-size: 85%; display: none;">
+            {{#str}}wrongfileformat, local_redmine{{/str}}
+        </p>
+        <p id="error-message" class="text-danger mb-0 pt-1 w-100 bold" style="font-size: 85%; display: none;">
+            {{#str}}textneeded, local_redmine{{/str}}
+        </p>
+    </form>
+    
+</div>
+
+{{#js}}
+    require(['jquery', 'local_redmine/chat'], function ($, Chat) {
+        $(document).ready(function(){
+            Chat.chatPageActions();
+        })
+    });
+{{/js}}

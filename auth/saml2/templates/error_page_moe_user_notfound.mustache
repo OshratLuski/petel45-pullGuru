@@ -1,0 +1,73 @@
+<div class="container-fluid error-page-moe-wrapper">
+    <div class="row justify-content-md-center pl-md-2">
+        <div class="col-12 col-md-8">
+            <h1>{{#str}}error_page_moe_user_title, auth_saml2{{/str}}</h1>
+            <span class="error-text">{{#str}}error_page_moe_user_label, auth_saml2{{/str}}</span>
+            <form id="saml2courseform" action="{{config.wwwroot}}/login/signup.php" method="POST" accept-charset="utf-8"
+                class="mform pt-3">
+                <div style="display: none;">
+                    <input name="firstname" type="hidden" value="{{firstname}}">
+                    <input name="profile_field_moe_exidentifier" type="hidden"
+                        value="{{profile_field_moe_exidentifier}}">
+                    <input name="lastname" type="hidden" value="{{lastname}}">
+                    <input name="idnumber" type="hidden" value="{{idnumber}}">
+                    <input name="username" type="hidden" value="{{username}}">
+                    <input name="source" type="hidden" value="saml2">
+                </div>
+                <div id="fitem_id_authkey" class="form-group row fitem femptylabel">
+                    <div class="position-relative">
+                        <div class="col form-inline felement pr-3" data-fieldtype="text">
+                            <input type="text" class="form-control" name="key" id="id_key" value="" dir="auto"
+                                placeholder="{{#str}}entertheregistrationkey, auth_saml2{{/str}}">
+                            <div role="button" id="togglePassVisibility" class="d-none">
+                                <i id="eyeIcon" class="fa-sharp fa-regular fa-eye-slash"></i>
+                            </div>
+                        </div>
+
+                        {{#error}}
+                            <div class="col form-inline felement mt-2" data-fieldtype="text">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{error}}</strong>
+                                </div>
+                            </div>
+                        {{/error}}
+
+                    </div>
+                </div>
+                <div id="fitem_id_signupbutton" class="form-group row  fitem femptylabel">
+                    <div class="col form-inline felement" data-fieldtype="submit">
+                        <input type="submit" class="btn btn-success" name="signupbutton" id="id_signupbutton"
+                            value="{{#str}}approve, auth_saml2{{/str}}">
+                    </div>
+                </div>
+            </form>
+            <span class="error-text">{{#str}}error_page_moe_user_text, auth_saml2{{/str}}</span>
+
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
+            <img src="{{config.wwwroot}}/auth/saml2/pix/petel.svg">
+        </div>
+    </div>
+</div>
+
+{{#js}}
+require([], function() {
+    const passwordInput = document.getElementById('id_key');
+    const visibilityToggle = document.getElementById('togglePassVisibility');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    visibilityToggle.onclick = function() {
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+        visibilityToggle.classList.add('active');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+            visibilityToggle.classList.remove('active');
+        }
+    };
+});
+{{/js}}

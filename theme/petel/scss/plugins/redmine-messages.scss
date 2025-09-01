@@ -1,0 +1,154 @@
+#local-redmine-issues-page {
+    font-family: $primary-font, serif;
+
+    #local-redmine-messages-main-page {
+        .local-redmine-messages-header {
+            .form-group {
+                max-width: 21.5rem;
+
+                .main-search-input {
+                    border: solid 0.0625rem $secondarymedium;
+                    background-color: $light;
+                    color: $body-color;
+
+                    &::-webkit-input-placeholder,
+                    &::-moz-placeholder,
+                    &::placeholder {
+                        color: $body-color;
+                    }
+                }
+
+                button {
+                    top: 0;
+                    right: 1rem;
+                    font-size: 1.5rem;
+
+                    i {
+                        color: $secondary;
+                    }
+                }
+            }
+
+            h1 {
+                color: $body-color;
+            }
+        }
+
+        .activeissues-wrapper {
+            background-color: $secondarylight;
+        }
+
+        .history-requets-title,
+        .active-appeals-title,
+        .showed-rows-info {
+            color: $body-color;
+        }
+
+        .appeals-history-table {
+            color: $body-color;
+
+            .appeals-history-table-header {
+                background-color: $secondary;
+
+                [data-column-type="*"] {
+                    border-left-color: $secondarymedium;
+                }
+            }
+
+            .appeals-table-text {
+                font-family: $primary-font;
+            }
+
+            .appeals-history-table-row {
+                border-radius: 0.25rem;
+                box-shadow: 0 0.1875rem 0.1875rem 0 #{$body-color}40;
+                border-color: solid 0.0625rem $secondarylight !important;
+
+                &:hover {
+
+                    border: solid .0625rem $secondarylight !important;
+                    background-color: $light;
+                }
+            }
+        }
+
+        .select-wrapper {
+            i {
+                color: $secondary;
+            }
+
+            select {
+                border-color: $secondary !important;
+                color: $petel-primary;
+            }
+        }
+    }
+
+    .attention-info-block {
+        background-color: $yellow;
+    }
+
+    #local-redmine-messages-page {
+
+        h1,
+        .block-title,
+        .attention-info-text {
+            color: $body-color;
+        }
+
+        .back-btn {
+            color: $secondary;
+        }
+
+        .info-block {
+            background-color: $gray-300;
+        }
+
+        .messaging-block {
+
+            .block-title,
+            .messaging-block-inner,
+            .messaging-form,
+            .messaging-block-top-content {
+                background-color: $light;
+            }
+
+            .messaging-block-inner {
+                border-top-color: $secondarylight !important;
+            }
+
+            .date-divider {
+                .date {
+                    color: $body-color;
+                }
+
+                .line {
+                    background-color: $secondarymedium;
+                }
+            }
+
+            .incomming-message,
+            .outcomming-message {
+                .message-body {
+                    border: solid .0625rem $secondarylight !important;
+                    color: $body-color;
+                }
+            }
+
+            .messaging-form {
+                button[type="submit"] {
+                    box-shadow: 0 .375rem .75rem #{$body-color}40;
+                    background-color: $secondary;
+                }
+
+                i.fal.fa-paperclip {
+                    color: $secondary;
+                }
+
+                #local_redmine_outcomming_message {
+                    border: solid .0625rem $secondarylight;
+                }
+            }
+        }
+    }
+}

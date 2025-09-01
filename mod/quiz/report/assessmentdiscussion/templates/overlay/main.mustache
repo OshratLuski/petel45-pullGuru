@@ -1,0 +1,118 @@
+<div class="answeroverlay bg-white">
+    <div class="answeroverlay-header d-flex align-items-center bg-secondarylight">
+
+        <a href="javascript:void(0);" class="answerOverlayBackBtn mr-4 back-btn">
+            <svg class="arrow mr-2" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
+                fill="none">
+                <path
+                    d="M0.740234 9.87548V7.92548C0.740234 7.83069 0.771484 7.75283 0.833984 7.69189C0.896484 7.63095 0.976345 7.60048 1.07357 7.60048H14.0736V5.32548C14.0736 5.18329 14.1395 5.08512 14.2715 5.03095C14.4034 4.97678 14.525 4.99371 14.6361 5.08173L18.6361 8.63642C18.7055 8.70413 18.7402 8.78199 18.7402 8.87001C18.7402 8.96481 18.7055 9.04606 18.6361 9.11376L14.6361 12.7091C14.525 12.8039 14.4034 12.8242 14.2715 12.77C14.1395 12.7091 14.0736 12.6109 14.0736 12.4755V10.2005H1.07357C0.976345 10.2005 0.896484 10.17 0.833984 10.1091C0.771484 10.0481 0.740234 9.97027 0.740234 9.87548Z"
+                    fill="#23164F" />
+            </svg>
+            <span class="text-primary">
+                {{#str}}return, quiz_assessmentdiscussion{{/str}}
+            </span>
+        </a>
+
+        <h3 class="answeroverlay-head-title text-primary bold mr-auto mb-0">
+            {{#str}}classdiscussion, quiz_assessmentdiscussion{{/str}}
+        </h3>
+
+        <div class="d-flex align-items-center assessmentdiscussion_report-toggle"
+            data-textoff="{{#str}}anonymousmodeisoff, quiz_assessmentdiscussion{{/str}}"
+            data-texton="{{#str}}anonymousmodeison, quiz_assessmentdiscussion{{/str}}">
+
+            <input type="checkbox" id="anonymousmodeToggler{{unique}}" class="toggle-btn"
+                {{#anonymous_mode}}checked onclick="return false;"{{/anonymous_mode}} data-handler="overlay_anonymous">
+            <label for="anonymousmodeToggler{{unique}}" class="mb-0 mr-2 anonymousmodeToggler"> </label>
+            <span class="link-btn-text">{{#str}}anonymousmodeisoff, quiz_assessmentdiscussion{{/str}}</span>
+        </div>
+    </div>
+    <div class="answeroverlay-body">
+        <div class="answeroverlay-head">
+
+            <div class="answeroverlay-head-dropdown dropdown w-50">
+                <button id="answeroverlayHeadDropdown{{unique}}"
+                    class="answeroverlay-head-dropdown-btn border-bottom border-secondarymedium position-relative text-primary bold w-100"
+                    type="button" data-toggle="dropdown" aria-expanded="false" data-reference="parent">
+
+                    {{qdropdown.currentname}}
+
+                    <svg class="carret position-absolute" xmlns="http://www.w3.org/2000/svg" width="13" height="9"
+                        viewBox="0 0 13 9" fill="none">
+                        <path
+                            d="M7.5122 7.75038C7.06194 8.23816 6.27399 8.23816 5.82374 7.75038L1.021 2.94764C0.683303 2.60994 0.570738 2.08464 0.758345 1.63439C0.945953 1.18413 1.35869 0.883957 1.84647 0.883957L11.4519 0.883957C11.9397 0.883957 12.39 1.18413 12.5776 1.63439C12.7652 2.08464 12.6526 2.60994 12.3149 2.94764L7.5122 7.75038Z"
+                            fill="black" />
+                    </svg>
+                </button>
+
+                <div class="dropdown-menu w-100" aria-labelledby="answeroverlayHeadDropdown{{unique}}">
+                    {{#qdropdown.questions}}
+                    <a class="dropdown-item" href="javascript:void(0);" data-handler="overlay_change_question"
+                        data-qid="{{value}}">{{name}}</a>
+                    {{/qdropdown.questions}}
+                </div>
+            </div>
+        </div>
+
+        {{#iframeenable}}
+            <div class="answeroverlay-head-text text-body py-2 clamp-line clamp-line-3">
+                {{{questiondescription}}}
+            </div>
+        {{/iframeenable}}
+
+        {{^iframeenable}}
+            <div class="answeroverlay-head-text text-body py-2 clamp-line-advanced">
+                {{{preview_question}}}
+            </div>
+        {{/iframeenable}}
+
+        <div class="answeroverlay_collapsed_block  py-3 mx-3">
+
+            <div class="collapse preview-question-block" id="fullviewCollapsedBlock{{unique}}">
+                {{#iframeenable}}
+                    <iframe scrolling="yes" style="width:100%; height:300px;" src="{{{preview_question_link}}}"></iframe>
+                {{/iframeenable}}
+
+                {{^iframeenable}}
+                    {{{preview_question}}}
+                {{/iframeenable}}
+            </div>
+
+            <div class="toggle-fullview collapse-btn text-secondary" data-toggle="collapse" href="#fullviewCollapsedBlock{{unique}}"
+                role="button" aria-expanded="false" aria-controls="fullviewCollapsedBlock{{unique}}">
+                {{#str}}fullcontentdisplay, quiz_assessmentdiscussion{{/str}}
+                <svg class="arrow ml-2" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path id="&#239;&#131;&#153;{{unique}}"
+                        d="M6.84423 7.25038C6.39397 7.73816 5.60602 7.73816 5.15577 7.25038L0.353027 2.44764C0.0153339 2.10994 -0.0972304 1.58464 0.0903767 1.13439C0.277984 0.684129 0.690719 0.383957 1.1785 0.383957L10.784 0.383957C11.2718 0.383957 11.722 0.684129 11.9096 1.13439C12.0972 1.58464 11.9847 2.10994 11.647 2.44764L6.84423 7.25038Z"
+                        fill="#23164F" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="answeroverlay-content {{^showanswers}} blured position-relative {{/showanswers}}" data-bluredtext="{{#str}}torevealtheanswerspleaseuse, quiz_assessmentdiscussion{{/str}}">
+
+            <div class="answeroverlay-menu-wrapper d-flex align-items-center justify-content-between">
+                {{> quiz_assessmentdiscussion/overlay/tabs }}
+
+                {{> quiz_assessmentdiscussion/overlay/buttons }}
+            </div>
+
+            <div class="answeroverlay-inner blured-area">
+                {{> quiz_assessmentdiscussion/overlay/answers }}
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{{#js}}
+require(['jquery', 'quiz_assessmentdiscussion/overlay', 'quiz_assessmentdiscussion/preview'], function($, overlay, preview) {
+
+    preview.inview();
+
+    overlay.scriptsForPage();
+
+});
+{{/js}}

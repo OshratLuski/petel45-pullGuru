@@ -1,0 +1,79 @@
+.social {
+  .activity-popup {
+      z-index: 1;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      right: -15px;
+      top: 55px;
+      background: #fff;
+      border-radius: 5px;
+      font-weight: 400;
+      font-size: 18px;
+      border: 1px solid #bcbec0;
+      padding-bottom: 5px;
+      max-width: 500px;
+      min-width: 250px;
+      overflow: hidden;
+      & a {
+        color: #000;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      ul, li {
+        list-style-type: none;
+      }
+  }
+
+  .user-course__legend {
+      padding: 0 4%;
+      display: block;
+      font-weight: $font-weight-normal;
+      font-size: 29px;
+      line-break: inherit;
+      background-color: #3f1c7a;
+      color: #fff;
+      padding-right: 40px;
+  }
+
+  .user-course_wrap {
+    min-height: 200px;
+  }
+
+  .user-course__close {
+      cursor: pointer;
+      position: absolute;
+      right: 7px;
+      top: 12px;
+      width: 32px;
+      height: 32px;
+  }
+
+
+  .user-course__close:before,
+  .user-course__close:after {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 26px;
+      width: 2px;
+      background-color: #fff;
+  }
+
+  .user-course__close:after {
+    transform: rotate(-45deg);
+  }
+  .user-course__close:before {
+      transform: rotate(45deg);
+  }
+
+  .user-course__item {
+      color: #000;
+      font-weight: 300;
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 8px 8px 45px;
+  }
+}

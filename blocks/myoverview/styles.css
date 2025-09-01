@@ -1,0 +1,332 @@
+/* Hide the first dropdown-divider if no filter option element is listed before it.
+   This can happen for some subset configurations of the block_myoverview course filter. */
+.block_myoverview button#groupingdropdown + .dropdown-menu li:first-of-type.dropdown-divider:first-of-type {
+    display: none;
+}
+.block_myoverview .whitebutton .btn-secondary {
+    background: white;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.page-mycourses .block_myoverview .block-controls {
+    display: none;
+}
+
+/* CUSTOM FOR PETEL */
+.block-myoverview .block-myoverview-listitem {
+/*     max-height: 20rem; */
+    padding: .75em;
+    list-style: none;
+}
+
+.block-myoverview-listitem-content {
+    border: none;
+    box-shadow: 3px 3px 6px 0 rgba(43, 43, 43, 0.20);
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.block-myoverview-listitem-content .dropdown-menu.show {
+    width: fit-content;
+}
+
+.block-myoverview-listitem .activity-lines {
+    overflow-y: auto;
+}
+.block-myoverview .block-myoverview-listitem .quickaccessbar {
+    background-color: #fced25;
+    color: #000;
+}
+
+.myoverview-listitem-header {
+    height: 2.5rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+}
+
+.block-myoverview .block-myoverview-list-group {
+    padding: 0;
+    margin: 0;
+    margin-top: -.75em;
+}
+
+.block-myoverview .block-myoverview-list-group .myoverview-listitem-header a.coursename {
+    width: calc(100% - 36px);
+    color: #fff;
+    padding-left: .69rem;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.block-myoverview .block-myoverview-list-group .myoverview-listitem-header a.coursename .coursename-name {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.block-myoverview .block-myoverview-list-group .myoverview-listitem-header a.coursename .coursename-tooltip {
+    visibility: hidden;
+    display: inline-block;
+    width: auto;
+    white-space: nowrap;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: .5rem;
+    font-size: 1rem;
+    line-height: 1rem;
+
+    top: -1rem;
+    right: 35%;
+    position: absolute;
+    z-index: 1;
+}
+
+.block-myoverview .block-myoverview-list-group .myoverview-listitem-header a.coursename:hover .coursename-tooltip {
+    visibility: visible;
+}
+
+.myoverview-listitem-header .ml-auto.dropdown {
+    width: 36px;
+    display: flex;
+    align-items: center;
+}
+.myoverview-listitem-header .ml-auto.dropdown .coursemenubtn:hover,
+.myoverview-listitem-header .ml-auto.dropdown .coursemenubtn:active {
+    background-color: transparent;
+}
+.myoverview-listitem-header .ml-auto.dropdown button i {
+    color: #fff;
+}
+
+.card-img {
+    width: 100%;
+    height: 7rem;
+    border-radius: 0;
+}
+
+.course-action-menu-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    height: 2rem;
+    bottom: .5rem;
+}
+.toggle-course-action-menu-btn:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+}
+.toggle-course-action-menu-btn[aria-expanded="false"] + .course-action-menu{
+    display: none;
+}
+.toggle-course-action-menu-btn[aria-expanded="false"]:hover {
+    width: 2rem;
+    padding-left: 0.4rem;
+    transition: all ease-out .25s;
+}
+.toggle-course-action-menu-btn[aria-expanded="true"] {
+    box-shadow: none;
+}
+.toggle-course-action-menu-btn[aria-expanded="false"] .close-icon {
+    display: none;
+}
+.toggle-course-action-menu-btn[aria-expanded="true"] .open-icon {
+    display: none;
+}
+.toggle-course-action-menu-btn {
+    width: 1.6rem;
+    height: 2rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:  0rem 3.125rem 3.125rem 0rem;
+    box-shadow: 0rem .125rem .1875rem 0rem rgba(0, 0, 0, 0.18);
+    outline: none;
+    border: none;
+    transition: all ease-out .25s;
+    color: #fff;
+}
+.course-action-menu {
+    display: flex;
+    align-items: center;
+    background: rgba(52, 58, 64, 0.85);
+    background-blend-mode: multiply;
+    padding-left: 1.62rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-right: 1.24rem;
+}
+.course-action-menu.show {
+    width: auto;
+    opacity: 1;
+    transition: all 0.5s ease-out;
+    visibility: visible;
+}
+.course-action-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.course-action-menu-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.course-action-menu-btn:hover {
+    background-color: white;
+}
+.course-action-menu-btn .icon:hover {
+    color: black;
+}
+.course-action-menu-btn:first-of-type {
+    margin-left: 0;
+}
+.course-action-menu-btn {
+   margin-left: 1.5rem;
+}
+.course-action-menu-btn i {
+    color: #fff;
+    font-size: 1.15rem;
+}
+.course-action-menu-btn .icon {
+    width: auto;
+    height: auto;
+}
+
+.course-grouping-nav .grouping-nav-item-link {
+    background-color: #fff;
+    font-size: 2rem;
+    border-bottom: 1px solid rgba(85, 67, 116, 0.7);
+    position: relative;
+}
+.course-grouping-nav .grouping-nav-item-link:hover {
+    text-decoration: none;
+}
+.course-grouping-nav .grouping-nav-item-link.active {
+    background-color: #fff;
+    font-weight: bold;
+}
+.course-grouping-nav .grouping-nav-item-link.active::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: #220f44;
+    left: 0;
+    bottom: -1.5px;
+}
+
+.add-btn {
+    cursor: pointer;
+    margin-left: 15%;
+}
+.add-btn .add-btn-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: #2b2b2b;
+}
+.add-btn .plus-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #554374 0% 0% no-repeat padding-box;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.add-btn .plus-circle::after,
+.add-btn .plus-circle::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1rem;
+    height: 0.15rem;
+    background-color: #fff;
+}
+.add-btn .plus-circle::after {
+    transform: rotate(90deg);
+}
+
+.myoverview-courseaction-menu .coursemenubtn {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myoverview-courseaction-menu .white-circle {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    background-color: #fff;
+    margin-right: 0.3125rem;
+    border-radius: 100%;
+}
+.myoverview-courseaction-menu .white-circle:last-of-type {
+    margin-right: 0;
+}
+
+.myoverview-events {
+    overflow: auto;
+    height: 10rem;
+}
+
+.myoverview-events .no-events p{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+.myoverview-events .no-events-img {
+    width: 11.02288rem;
+    height: 6.04188rem;
+    background-image: url([[pix:block_myoverview|noevents]]);
+    background-repeat:no-repeat;
+    background-position:center left;
+    margin: 0 auto;
+}
+.myoverview-events .event-name-container {
+    text-decoration: underline;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.block-myoverview .dashboard-card-img {
+    background-position: center;
+    background-size: cover;
+}
+
+.block-myoverview #sortingdropdown i,
+.block-myoverview #displaydropdown i {
+    font-size: 1rem;
+}
+
+#page-my-index #page.drawers.show-drawer-right {
+    margin-right: 365px;
+}
+#page-my-index .drawer.drawer-right {
+    width: 365px;
+    max-width: 365px;
+}

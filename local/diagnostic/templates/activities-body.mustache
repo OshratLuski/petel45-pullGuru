@@ -1,0 +1,21 @@
+{{#data.templatedata}}
+<div class="activities-diagnostic">
+    <div class="activities-diagnostic-title">{{#str}}activitiestoptitle, local_diagnostic{{/str}} <b>{{clusterName}}</b></div>
+    <div id="question_list_sections">
+        {{#sections}}
+        <ul>
+            <li>
+                <input class="parent" type="checkbox" id="name_{{name}}" name="name_{{name}}">
+                <label for="name_{{name}}">{{name}}</label>
+            </li>
+            {{#quizzes}}
+            <li>
+                <input class="child" data-id="{{cmid}}" type="checkbox" id="name_{{cmid}}" name="name_{{cmid}}">
+                <label for="name_{{cmid}}">{{name}}</label>
+            </li>
+            {{/quizzes}}
+        </ul>
+        {{/sections}}
+    </div>
+</div>
+{{/data.templatedata}}

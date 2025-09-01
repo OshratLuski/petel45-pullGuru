@@ -1,0 +1,32 @@
+<div class = "p-3">
+
+    <div class = "mb-4">
+        {{#courses_enable}}
+            <div class = "form-group d-flex flex-column position-relative">
+                <label for="selectteacher" class="mb-0 alert-secondary border rounded-top p-1">{{#str}}communityselection, community_sharewith{{/str}}</label>
+
+                <div class="select-wrapper">
+                    <select id="community_courses" class = "form-control mb-0 border-top-0 w-100 smartselect2">
+                        {{#courses}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/courses}}
+                    </select>
+                </div>
+            </div>
+
+            <div class = "form-group">
+                <textarea id="message_for_teacher" class = "form-control" placeholder="{{#str}}comment_to_teacher, community_sharewith{{/str}}"></textarea>
+            </div>
+        {{/courses_enable}}
+
+        {{^courses_enable}}
+            {{#str}}no_courses_for_send, community_sharewith{{/str}}
+        {{/courses_enable}}
+
+    </div>
+
+    <div id="error_share_to_community" class="alert alert-danger" style="display:none;" role="alert">
+        {{#str}}error_share_to_community, community_sharewith{{/str}}
+    </div>
+
+</div>

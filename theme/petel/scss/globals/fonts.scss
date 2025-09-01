@@ -1,0 +1,79 @@
+/*
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-black.ttf]]) format('ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-bold.ttf]]) format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-extrabold.ttf]]) format('ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-light.ttf]]) format('ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-medium.ttf]]) format('ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-regular.ttf]]) format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url([[font:theme_petel|heebo-thin.ttf]]) format('ttf');
+    font-weight: 100;
+    font-style: normal;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// PTL-4140 Arabic font
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+
+// MONO Hebrew font
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap');
+// Font Alef
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
+
+@import "font_awesome_6";
+
+@font-face {
+  font-family: 'Font Awesome 6 Duotone';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("https://petel.stweizmann.org.il/resources/fonts/fontawesome-pro-6.2.1-web/webfonts/fa-duotone-900.woff2") format("woff2"), url("https://petel.stweizmann.org.il/resources/fonts/fontawesome-pro-6.2.1-web/webfonts/fa-duotone-900.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  font-style: normal;
+  src: url("https://petel.stweizmann.org.il/resources/fonts/mathlive/KaTeX_Main-Regular.woff2") format("woff2");
+}
+
+body.lang-ar {
+  font-family: Almarai, $primary-font, "Helvetica Neue", Alef, Ariel, sans-serif;
+}

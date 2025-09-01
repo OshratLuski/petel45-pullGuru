@@ -1,0 +1,230 @@
+<div class="mt-3">
+    <button id="toggle-correct-answer-{{questionid}}" data-questionid="{{questionid}}" class="btn btn-primary">
+        {{#str}}showcorrectanswer, qtype_diagnosticadv {{/str}}
+    </button>
+</div>
+<div class="collapsible-summary">
+    <!-- Response Statistics Section -->
+    <div class="position-relative d-flex ftoggler align-items-center position-relative mr-1 mt-5">
+        <a role="button" data-toggle="collapse" href="#collapseStatistics_{{id}}" aria-expanded="false"
+           aria-controls="collapseStatistics_{{id}}"
+           class="btn btn-icon mr-1 icons-collapse-expand stretched-link fheader collapsed">
+            <span class="expanded-icon icon-no-margin p-2" title="{{#str}} collapse, moodle {{/str}}">
+                <i class="icon fa fa-chevron-down fa-fw" aria-hidden="true"></i>
+            </span>
+            <span class="collapsed-icon icon-no-margin p-2" title="{{#str}} expand, moodle {{/str}}">
+                <i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+            </span>
+            <span class="sr-only">{{#str}} showhide, qtype_diagnosticadv {{/str}}</span>
+        </a>
+        <h3 class="d-flex align-self-stretch align-items-center mb-0" aria-hidden="true">
+            {{#str}}showhide, qtype_diagnosticadv {{/str}}
+        </h3>
+    </div>
+    <div class="collapse mt-2" id="collapseStatistics_{{id}}">
+        <!-- Content for response statistics -->
+        {{#hassummary}}
+            <table class="table generaltable">
+                <tr>
+                    <th class="col-3">{{#str}}tablehdranswer, qtype_diagnosticadv{{/str}}</th>
+                    <th class="col-3">{{#str}}tablehdranswernum, qtype_diagnosticadv{{/str}}</th>
+                    {{#showsecurity}}
+                        <th class="col-3">{{#str}}tablehdranswersured, qtype_diagnosticadv{{/str}}</th>
+                    {{/showsecurity}}
+                </tr>
+                {{#summary}}
+                    <tr>
+                        <td>{{{answer}}}</td>
+                        <td>
+                            {{answernum}} ({{answernumprc}}%)
+                            <div class="diagnosticadvprogress w-75">
+                                <div class="diagnosticadvbar" style="width:{{{answernumprc}}}%;"></div>
+                            </div>
+                        </td>
+                        {{#showsecurity}}
+                            <td>{{answersured}} ({{answersuredprc}}%)</td>
+                        {{/showsecurity}}
+                    </tr>
+                {{/summary}}
+
+                <tr style="background-color:lightgrey;" class="diagnosticadvtotal">
+                    <td><b>{{#str}}totalnotanswered, qtype_diagnosticadv{{/str}}</b></td>
+                    <td>{{notanswernumtotal}} ({{notanswerprc}}%)
+                        <div class="diagnosticadvprogress w-75">
+                            <div class="diagnosticadvbar" style="width:{{{notanswerprc}}}%;"></div>
+                        </div>
+                    </td>
+                    {{#showsecurity}}
+                        <td></td>
+                    {{/showsecurity}}
+                </tr>
+            </table>
+        {{/hassummary}}
+    </div>
+
+    <!-- Answer Explanations Section -->
+    <div class="position-relative d-flex ftoggler align-items-center position-relative mr-1 mt-4">
+        <a role="button" data-toggle="collapse" href="#collapseComments_{{id}}" aria-expanded="false"
+           aria-controls="collapseComments_{{id}}"
+           class="btn btn-icon mr-1 icons-collapse-expand stretched-link fheader collapsed">
+            <span class="expanded-icon icon-no-margin p-2" title="{{#str}} collapse, moodle {{/str}}">
+                <i class="icon fa fa-chevron-down fa-fw" aria-hidden="true"></i>
+            </span>
+            <span class="collapsed-icon icon-no-margin p-2" title="{{#str}} expand, moodle {{/str}}">
+                <i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+            </span>
+            <span class="sr-only">{{#str}} showhide, qtype_diagnosticadv {{/str}}</span>
+        </a>
+        <h3 class="d-flex align-self-stretch align-items-center mb-0" aria-hidden="true">
+            {{#str}}commentsandsecurityhdr, qtype_diagnosticadv {{/str}}
+        </h3>
+    </div>
+
+    <div class="collapse mt-2" id="collapseComments_{{id}}">
+        <!-- Answer Options Rationale Table -->
+        {{#summary}}
+            <h4>{{{answer}}}</h4>
+            <table class="table generaltable mt-1 table-border">
+                <tr>
+                    <th class="col-3">{{#str}}tablehdruser, qtype_diagnosticadv{{/str}}</th>
+                    <th class="col-3">{{#str}}reasonforanswer, qtype_diagnosticadv{{/str}}</th>
+                    {{#showsecurity}}
+                        <th class="col-3">{{#str}}explanationuncertainty, qtype_diagnosticadv{{/str}}</th>
+                    {{/showsecurity}}
+                </tr>
+                {{#comments}}
+                    <tr>
+                        <td id="student-{{user_id}}" class="student-name">{{{user_link}}}</td>
+                        <td>{{#commenttext}}{{{commenttext}}}{{/commenttext}}</td>
+                        {{#showsecurity}}
+                            <td>{{#certaintytext}}{{{certaintytext}}}{{/certaintytext}}</td>
+                        {{/showsecurity}}
+                    </tr>
+                {{/comments}}
+                {{^comments}}
+                    <tr>
+                        <td colspan="{{#showsecurity}}3{{/showsecurity}}{{^showsecurity}}2{{/showsecurity}}">
+                            {{#str}}noanswerselected, qtype_diagnosticadv{{/str}}
+                        </td>
+                    </tr>
+                {{/comments}}
+            </table>
+        {{/summary}}
+    </div>
+
+    {{#showaianalytics}}
+        {{#aianalytics}}
+            <div class="position-relative d-flex ftoggler align-items-center position-relative mr-1 mt-4">
+                <a role="button" data-toggle="collapse" href="#collapseAI_{{id}}" aria-expanded="false"
+                   aria-controls="collapseAI_{{id}}"
+                   class="btn btn-icon mr-1 icons-collapse-expand stretched-link fheader collapsed">
+            <span class="expanded-icon icon-no-margin p-2" title="{{#str}} collapse, moodle {{/str}}">
+                <i class="icon fa fa-chevron-down fa-fw" aria-hidden="true"></i>
+            </span>
+                    <span class="collapsed-icon icon-no-margin p-2" title="{{#str}} expand, moodle {{/str}}">
+                <i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+            </span>
+                </a>
+                <h3 class="d-flex align-self-stretch align-items-center mb-0" aria-hidden="true">
+                    {{#str}}showanalitcistitle, qtype_diagnosticadv {{/str}}
+                </h3>
+            </div>
+
+            <div class="position-relative d-flex ftoggler align-items-center position-relative mr-1">
+                <span class="mr-1 placekeaper">
+                </span>
+                <span style="color: red;">{{#str}}analiticsalert, qtype_diagnosticadv {{/str}}</span>
+            </div>
+
+
+            <div class="collapse mt-2" id="collapseAI_{{id}}">
+                <div class="position-relative row px-3 ftoggler align-items-center position-relative mt-5">
+                    <div class="col-12 mb-5">
+                        {{#aipromt}}
+                            <span class="btn_have_results_{{id}}">
+                            <a type="button" class="btn btn-primary" href="{{pdfurl}}">{{#str}}exportpdf, qtype_diagnosticadv {{/str}}</a>
+                        </span>
+                        {{/aipromt}}
+                        {{^aipromt}}
+                            <span class="btn_no_results_{{id}}">
+                            <button type="button" class="btn btn-primary btn_aianalytics mr-3" data-id="{{id}}" data-qid="{{qid}}" data-cmid="{{cmid}}"
+                                    data-slot="{{slot}}">{{#str}}
+                                analyse, qtype_diagnosticadv {{/str}}</button>
+                            <i class="fas fa-spinner fa-pulse btn_aianalytics_spinner" style="display:none;"></i>
+                        </span>
+                            <span class="btn_have_results_{{id}} hidden">
+                            <a type="button" class="btn btn-primary" href="{{pdfurl}}">{{#str}}exportpdf, qtype_diagnosticadv {{/str}}</a>
+                        </span>
+                        {{/aipromt}}
+                    </div>
+                    <div class="col-12 mb-5">
+                        <div id="aianalyticsresult_{{id}}">
+                            {{#airesult}}
+                                {{{airesult}}}
+                            {{/airesult}}
+                        </div>
+                        <span class="d-flex mr-auto justify-content-end timecreated_{{id}}">{{timecreated}}</span>
+                        <span class="d-flex mr-auto justify-content-end disclaimer_{{id}}" {{^aipromt}}style="display:none !important;" {{/aipromt}}>{{disclaimer}}</span>
+                    </div>
+                    <div class="col-12">
+                        {{#aipromt}}
+                            <span class="btn_have_results_{{id}}">
+                            <a type="button" class="btn btn-primary" href="{{pdfurl}}">{{#str}}exportpdf, qtype_diagnosticadv {{/str}}</a>
+                            <button type="button" class="btn btn-primary btn_aianalytics mr-3" data-id="{{id}}" data-qid="{{qid}}" data-cmid="{{cmid}}"
+                                    data-slot="{{slot}}">{{#str}}
+                                analyse, qtype_diagnosticadv {{/str}}</button>
+                            <i class="fas fa-spinner fa-pulse btn_aianalytics_spinner" style="display:none;"></i>
+                        </span>
+                        {{/aipromt}}
+                        {{^aipromt}}
+                            <span class="btn_have_results_{{id}} hidden">
+                            <a type="button" class="btn btn-primary" href="{{pdfurl}}">{{#str}}exportpdf, qtype_diagnosticadv {{/str}}</a>
+                            <button type="button" class="btn btn-primary btn_aianalytics mr-3" data-id="{{id}}" data-qid="{{qid}}" data-cmid="{{cmid}}"
+                                    data-slot="{{slot}}">{{#str}}
+                                analyseother, qtype_diagnosticadv {{/str}}</button>
+                            <i class="fas fa-spinner fa-pulse btn_aianalytics_spinner" style="display:none;"></i>
+                        </span>
+                        {{/aipromt}}
+                    </div>
+                </div>
+            </div>
+        {{/aianalytics}}
+    {{/showaianalytics}}
+</div>
+{{#js}}
+    require(['jquery', 'core/ajax'], function ($, ajax) {
+    $(document).on('click', '.btn_aianalytics', function (event) {
+    event.preventDefault();
+    let button = $(this);
+    let id = button.attr('data-id');
+    let qid = button.attr('data-qid');
+    let cmid = button.attr('data-cmid');
+    let slot = button.attr('data-slot');
+
+    $('.btn_aianalytics_spinner').show();
+    $('#aianalyticsresult_' + id).html('');
+    $('.disclaimer_' + id).hide();
+    $('.timecreated_' + id).html('');
+    $('.btn_aianalytics').prop('disabled', true);
+    ajax.call([{
+    methodname: 'qtype_diagnosticadv_analytics_processor', // Adjust to the Moodle Web Service method
+    args: {
+    qid: qid,
+    cmid: cmid,
+    slot: slot,
+    }
+    }])[0].done(function (response) {
+    $('.btn_aianalytics_spinner').hide();
+
+    $('#aianalyticsresult_' + id).html(response.result);
+    $('.timecreated_' + id).html(response.timecreated);
+    $('.btn_no_results_' + id).hide();
+    $('.btn_have_results_' + id).show();
+    $('.disclaimer_' + id).show();
+    $('.btn_aianalytics').prop('disabled', false);
+    }).fail(function (error) {
+
+    });
+    });
+    });
+{{/ js }}

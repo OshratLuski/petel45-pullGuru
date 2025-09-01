@@ -1,0 +1,31 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#content_empty}}
+    <div data-region="paged-content-page" data-page="1" class="">
+        <div class="text-xs-center text-center mt-3" data-region="empty-message">
+            <img class="empty-placeholder-image-lg mt-1" style="width: 10%;" src="{{{pix_no_courses}}}" alt="No courses" role="presentation">
+            <p class="text-muted mt-3">{{#str}} nocourses, block_sharedwithme {{/str}}</p>
+        </div>
+    </div>
+{{/content_empty}}
+
+{{^content_empty}}
+
+        {{{content}}}
+
+{{/content_empty}}

@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{#str}}give_feedback, community_oer {{/str}}</h5>
+    <button id="confirmClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+
+
+<div class="modal-body">
+
+    {{! Modal body }}
+
+    <i class="fa fa-comment-o" aria-hidden="true"></i>
+    {{{body}}}
+{{#showprogress}}
+    {{#limiteduser}}
+    <div class="petel-progressbar-wrapper d-flex align-items-center mt-2 mb-2">
+        {{#progressitems}}
+        <div class="petel-progressbar-item {{class}} d-flex align-items-start flex-grow-1">
+            <div class="d-flex flex-column align-items-center pin-circle-wrapper">
+                <div class="pin-circle rounded-circle d-flex align-items-center justify-content-center">
+                    <span>{{step}}</span>
+                </div>
+<!--                <div class="underpin-line"></div>-->
+<!--                <div class="underpin-text"></div>-->
+            </div>
+            <div class="petel-progressbar-progressline bg-primary"></div>
+        </div>
+        {{/progressitems}}
+    </div>
+    <p class = "mb-1">{{#str}} feedbacks_count, community_oer,
+        { "sofar":  {{#quote}}{{ reviewsnumber }}{{/quote}}, "left": {{#quote}}{{ reviewsnumberleft }}{{/quote}} } {{/str}}</p>
+    {{/limiteduser}}
+{{/showprogress}}
+</div>
+
+{{! Modal footer }}
+<div class="modal-footer" style="min-height: 69px;">
+    {{#rejectReview}}
+    <button data-handler="rejectReview" type="button" class="btn btn-outline-primary btn-sm align-self-baseline"
+        data-requestid="{{requestId}}" data-dismiss="modal">
+        {{#str}}dont_wont_comment_activity, community_oer {{/str}}
+    </button>
+    {{/rejectReview}}
+    <button data-handler="openSendReview" data-activityid="{{activityId}}" data-requestid="{{requestId}}"
+        data-activityimg="{{activityImg}}" data-activityname="{{activityName}}" data-activityurl="{{activityUrl}}"
+        type="button" class="btn btn-primary btn-sm align-self-baseline">
+        {{#str}}to_write_comment, community_oer {{/str}}
+    </button>
+    <button data-dismiss="modal" data-activityid="{{activityId}}" data-requestid="{{requestId}}"
+        data-handler="sendReviewLater" type="button" class="btn btn-outline-primary btn-sm align-self-baseline">
+        {{#str}}remind_me_later, community_oer {{/str}}
+    </button>
+</div>

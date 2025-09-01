@@ -1,0 +1,31 @@
+<form class="grade-area-block">
+    <input type="hidden" name="attemptid" value="{{gradearea.attemptid}}">
+    <input type="hidden" name="slot" value="{{gradearea.slot}}">
+    <input type="hidden" name="sesskey" value="{{gradearea.sesskey}}">
+    <input type="hidden" name="maxmark" value="{{gradearea.maxmark}}">
+    <input type="hidden" name="minfraction" value="{{gradearea.minfraction}}">
+    <input type="hidden" name="maxfraction" value="{{gradearea.maxfraction}}">
+    <input type="hidden" name="uniqueid" value="{{gradearea.uniqueid}}">
+
+    <textarea class="w-100 mb-3" rows="6" name="comment" id="{{gradearea.uniqueid}}">{{{gradearea.comment}}}</textarea>
+
+    <div class="d-flex justify-content-between mt-3">
+        <div class="score-wrapper d-flex align-items-center">
+            <span class="score mr-2">{{#str}}score, quiz_assessmentdiscussion{{/str}}</span>
+            <input class="mr-2" type="text" name="grade" value="{{gradearea.mark}}">
+            <span class="score-text">{{#str}}outof, quiz_assessmentdiscussion{{/str}} {{gradearea.maxmark}}</span>
+        </div>
+
+        <button class="btn btn-secondary" type="button" aria-pressed="false" data-handler="submit_grade">
+            {{#str}}saveandupdatethestudent, quiz_assessmentdiscussion{{/str}}
+        </button>
+    </div>
+</form>
+
+{{#js}}
+    require(['jquery'], function($) {
+        window.tinyMCE.init({
+            selector: `#{{gradearea.uniqueid}}`,
+        });
+    });
+{{/js}}

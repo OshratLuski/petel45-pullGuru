@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{#str}}review_activity_remind, community_oer {{/str}} {{activityName}}</h5>
+    <button id="confirmClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <p class="modal-body-title">
+        <span class="badge badge-danger d-none" id="activityremindtexterror"></span>
+        <div class="form-control" id="activityremindtext" contenteditable="true" style="height: 200px;">{{{remindText}}}</div>
+    </p>
+</div>
+
+<div class="modal-footer" style="min-height: 69px;">
+    <button data-handler="saveRemind" type="button" class="btn btn-outline-primary btn-sm align-self-baseline"
+            data-activityid="{{activityId}}" >
+        {{#str}}review_activity_remind_submit_save, community_oer {{/str}}
+    </button>
+    <button data-handler="sendRemind" type="button" class="btn btn-outline-primary btn-sm align-self-baseline"
+            data-activityid="{{activityId}}" >
+        {{#str}}review_activity_remind_submit, community_oer {{/str}}
+    </button>
+    <button data-dismiss="modal" type="button" class="btn btn-primary btn-sm align-self-baseline">
+        {{#str}}cancel{{/str}}
+    </button>
+</div>

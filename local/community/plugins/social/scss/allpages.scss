@@ -1,0 +1,41 @@
+// errase old styles
+.socialwrapper .badgeimage img{
+  height:100px;
+}
+.social-nav {
+  line-height: 32px;
+}
+.path-local-social {
+  .page-content {
+    padding: 0;
+  }
+  .container {
+    width: auto;
+    padding: 0;
+  }
+  .panel {
+    border: none;
+  }
+  .card,
+  .container .panel-body,
+  .container .page-header {
+    padding: 0;
+  }
+}
+
+#page-local-social-index footer {
+  display: none;
+}
+
+#page-local-social-index {
+  // overflow: hidden;
+}
+
+.display_none {
+  display: none !important;
+}
+#page-local-community-plugins-social-teachers {
+  #region-main-box {
+    padding-top: 15px;
+  }
+}

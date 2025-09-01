@@ -1,0 +1,67 @@
+<div class="inner" data-simplebar data-simplebar-auto-hide="false">
+
+        {{#courses}}
+
+            <div class="course-wrapper-name {{^course_show}}collapsed{{/course_show}} d-flex align-items-center px-2 mb-1"
+                 type="button" data-toggle="collapse" data-target="#course_wrapp__{{uniqueid}}_{{courseid}}"
+                 aria-expanded="{{#course_show}}true{{/course_show}} {{^course_show}}false{{/course_show}}"
+                 aria-controls="course_wrapp__{{uniqueid}}_{{courseid}}">
+
+                <i class="fa fa-caret-down text-primary" aria-hidden="true"></i>
+                <span class="px-2 bold"> {{#str}}course_name, community_sharequestion{{/str}} {{coursename}} </span>
+            </div>
+
+
+            <div class="course-wrapper-name-collapse collapse {{#course_show}}show{{/course_show}}" id="course_wrapp__{{uniqueid}}_{{courseid}}">
+
+                <div class="all-course-categories-wrapper">
+                    <div class="all-course-categories-wrapper-name d-inline-flex align-items-center collapsed pl-4 pr-2 ml-1 mb-1"
+                         type="button" data-toggle="collapse"
+                         data-target="#all_categories_wrapp__{{uniqueid}}_{{courseid}}" aria-expanded="false"
+                         aria-controls="all_categories_wrapp__{{uniqueid}}_{{courseid}}">
+
+                        <i class="fa fa-caret-down text-primary mx-2" aria-hidden="true"></i>
+                        <span class="ml-1">  {{#str}}course_categories, community_sharequestion{{/str}}  </span>
+                    </div>
+
+                    <div class="all-course-categories-wrapper-collapse collapse" id="all_categories_wrapp__{{uniqueid}}_{{courseid}}"
+                         data-courseid="{{courseid}}">
+
+                    </div>
+                </div>
+
+                <div class="all-bank-categories-wrapper mb-1">
+                    <div class="all-bank-categories-wrapper-name d-flex align-items-center collapsed d-inline-flex align-items-center pl-4 pr-2 ml-1"
+                         type="button" data-toggle="collapse"
+                         data-target="#all_bank_categories_wrapp___{{uniqueid}}_{{courseid}}" aria-expanded="false"
+                         aria-controls="all_bank_categories_wrapp___{{uniqueid}}_{{courseid}}">
+
+                        <i class="fa fa-caret-down text-primary px-2" aria-hidden="true"></i>
+                        <span class="ml-1">{{#str}}bank_questions, community_sharequestion{{/str}} </span>
+                    </div>
+
+                    <div class="all-bank-categories-wrapper-collapse collapse px-2 py-2" id="all_bank_categories_wrapp___{{uniqueid}}_{{courseid}}"
+                         data-courseid="{{courseid}}">
+
+                    </div>
+                </div>
+
+            </div>
+
+        {{/courses}}
+
+        {{^courses}}
+            <h3>{{#str}}noresult, community_sharequestion{{/str}}</h3>
+        {{/courses}}
+    </div>
+
+{{#js}}
+    require(['community_sharequestion/copyFromMyCourses', 'jquery'], function(copyFromMyCourses, $) {
+        copyFromMyCourses.actionsCategories();
+        copyFromMyCourses.actionsBankCategories();
+
+        $('.inner').on('click', '.course-wrapper-name, .bank-categories-wrapper-name, .all-course-categories-wrapper-name, .all-bank-categories-wrapper-name, .cat-wrapper-name', function () {
+            $(this).next().find('.collapse.show').collapse('hide');
+        })
+    });
+{{/js}}

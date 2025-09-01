@@ -1,0 +1,104 @@
+<div class="container-fluid p-0 block_advancedoverview_report">
+    <div class="row border-bottom pt-2 border-bottom top-block">
+<!--        <h1 class="advancedoverview_report-title col-12">-->
+<!--            {{title}}-->
+<!--        </h1>-->
+        <div class="advancedoverview_report-action d-flex align-items-center col-12 col-md-6 mb-2 mb-md-0 ">
+            <div class="course-group-wrapper d-flex align-items-center">
+                <span class="mr-3">{{#str}}separategroups, quiz_advancedoverview{{/str}}</span>
+                <div class="dropdown">
+                    <button class="btn btn-link-secondary {{#groupsselectenable}}dropdown-toggle{{/groupsselectenable}} advancedoverview_report-dropdown-btn" type="button"
+                            id="advancedoverview_groupid"
+                            data-value="{{#groups}}{{#selected}}{{groupid}}{{/selected}}{{/groups}}"
+                            data-name="{{#groups}}{{#selected}}{{groupname}}{{/selected}}{{/groups}}"
+                            {{#groupsselectenable}}data-toggle="dropdown"{{/groupsselectenable}} aria-haspopup="true" aria-expanded="false">
+                            <span class="advancedoverview_report-dropdown-btn-title">
+                                {{#groups}}{{#selected}}{{groupname}}{{/selected}}{{/groups}}
+                            </span>
+                    </button>
+
+                    <div class="dropdown-menu {{#dir_rtl}} dropdown-menu-right {{/dir_rtl}}" aria-labelledby="advancedoverview_groupid">
+                        {{#groups}}
+                        <a class="dropdown-item {{#selected}}selected{{/selected}}" href="javascript:void(0)"
+                            data-value="{{groupid}}" data-name="{{groupname}}">
+                            <span>{{groupname}}</span>
+                        </a>
+                        {{/groups}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <!-- TODO: temporary hidden.
+            <div class="advancedoverview_report-btn link-btn d-flex align-items-center">
+                <span class="link-btn-icon mr-2"></span>
+                <span class="link-btn-text">
+                    {{#str}}classview, quiz_advancedoverview{{/str}}
+                </span>
+            </div>
+            -->
+            <!-- 3 TODO -->
+            <div class="d-flex align-items-center advancedoverview_report-toggle anonymousmode ml-4"
+                data-textoff="{{#str}}anonymousmodeoff, quiz_advancedoverview{{/str}}"
+                data-texton="{{#str}}anonymousmodeon, quiz_advancedoverview{{/str}}">
+                <input type="checkbox" id="anonymousmodeToggler1" class="toggle-btn ">
+                <label for="anonymousmodeToggler1" class="mb-0 anonymousmodeToggler"></label>
+                <span class="link-btn-text ml-2">
+                    {{#str}}anonymousmodeoff, quiz_advancedoverview{{/str}}
+                </span>
+            </div>
+            {{#isrepository}}
+                <a href="{{{href_edit_question}}}" target="__blank" class="btn advancedoverview_report-btn ml-4" role="button" id="edit_questions_btn">
+                        <i class="icon fa-light fa-pencil"></i>
+                        <span class="title">
+                            {{#str}}editingquestions, quiz_advancedoverview{{/str}}
+                        </span>
+                </a>
+            {{/isrepository}}
+            <a href="{{{href_preview_question}}}" target="__blank" class="btn advancedoverview_report-btn ml-4" id="preview_btn">
+                <i class="icon fa-light fa-magnifying-glass-plus"></i>
+                <span class="title">
+                    {{#str}}preview, quiz_advancedoverview{{/str}}
+                </span>
+            </a>
+
+            <!-- TODO: temporary hidden
+            <div class="course-group-wrapper d-flex align-items-center ml-md-4">
+                <div class="dropdown">
+                    <button class="btn btn-link-secondary dropdown-toggle" type="button" id="courseGroupBtn"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{#str}}moreactions, quiz_advancedoverview{{/str}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="courseGroupBtn">
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <span>{{#str}}preview{{/str}}</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-pause" aria-hidden="true"></i>
+                            <span>{{#str}}stopresponse, quiz_advancedoverview{{/str}}</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                            <span>{{#str}}reportregrade, quiz_advancedoverview{{/str}}</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <span>{{#str}}editingtask, quiz_advancedoverview{{/str}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <div class="dynamic-block">
+        {{> quiz_advancedoverview/dynamic_block}}
+    </div>
+
+</div>
+
+

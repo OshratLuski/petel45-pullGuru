@@ -1,0 +1,33 @@
+.que.opensheet textarea.qtype_opensheet_response {
+    width: 100%;
+}
+
+.que.opensheet textarea.qtype_opensheet_response.qtype_opensheet_plain {
+    white-space: pre-wrap;
+    font: inherit;
+}
+
+.que.opensheet textarea.qtype_opensheet_response.qtype_opensheet_monospaced {
+    white-space: pre;
+    font-family: Andale Mono, Monaco, Courier New, DejaVu Sans Mono, monospace;
+}
+
+.que.opensheet .qtype_opensheet_response {
+    min-height: 3em;
+}
+
+.que.opensheet .qtype_opensheet_response.readonly {
+    background-color: white;
+}
+
+.que.opensheet div.qtype_opensheet_response textarea {
+    width: 100%;
+}
+.que.opensheet .answer {
+    padding: 0.3em;
+    width: auto;
+    display: inline;
+}
+.que.opensheet .answer input {
+    width: 80%;
+}

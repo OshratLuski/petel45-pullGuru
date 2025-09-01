@@ -1,0 +1,11 @@
+.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
+    z-index: 2000 !important;
+}
+
+.modal.moodle-has-zindex.show .modal-content.nooverflow {
+    overflow: visible;
+}
+
+.modal.moodle-has-zindex.show .modal-content.nooverflow .modal-body{
+    overflow: visible;
+}

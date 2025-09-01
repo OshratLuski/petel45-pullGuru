@@ -1,0 +1,79 @@
+<div id="{{blockid}}" class="btn-group inner d-flex mr-2" role="group" aria-label="">
+    {{#startrow}}
+    {{#startrowitems}}
+    <button data-page="{{page}}" type="button"
+            class="btn {{blockid}}-action-page pagebutton {{#current}}active{{/current}} element">
+        {{title}}
+    </button>
+    {{/startrowitems}}
+    {{/startrow}}
+
+    {{#middlelist}}
+    <div class="btn-group" role="group">
+        <button id="{{blockid}}middle1" type="button" class="btn" data-toggle="dropdown" aria-expanded="false">
+            <div class="dots h-100 pb-1">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+        </button>
+        <div class="dropdown-menu" aria-labelledby="{{blockid}}middle1">
+            {{#middlelistitems}}
+            <a data-page="{{page}}" class="dropdown-item {{blockid}}-action-page pagebutton " href="#">{{title}}</a>
+            {{/middlelistitems}}
+        </div>
+    </div>
+    {{/middlelist}}
+
+    {{#middlerow}}
+    {{#middlerowitems}}
+    <button data-page="{{page}}" type="button"
+            class="btn {{blockid}}-action-page pagebutton {{#current}}active{{/current}} element">
+        {{title}}
+    </button>
+    {{/middlerowitems}}
+    {{/middlerow}}
+
+    {{#middle2list}}
+    <div class="btn-group" role="group">
+        <button id="{{blockid}}middle2" type="button" class="btn px-0 pb-2" data-toggle="dropdown" aria-expanded="false">
+            <div class="dots h-100 pb-1">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="{{blockid}}middle2">
+            {{#middle2listitems}}
+            <a data-page="{{page}}" class="dropdown-item {{blockid}}-action-page pagebutton " href="#">{{title}}</a>
+            {{/middle2listitems}}
+        </div>
+    </div>
+    {{/middle2list}}
+
+    {{#endrow}}
+    {{#endrowitems}}
+    <button data-page="{{page}}" type="button"
+            class="btn {{blockid}}-action-page pagebutton {{#current}}active{{/current}} element">
+        {{title}}
+    </button>
+    {{/endrowitems}}
+    {{/endrow}}
+</div>
+
+{{#js}}
+require(['jquery'], function ($) {
+    $(document).ready(function () {
+        var pagebutton = $('.pagebutton');
+        pagebutton.on('click', function (e) {
+            e.preventDefault();
+            let page = e.target.dataset.page;
+            var thispage = $('input[name=thispage]');
+            thispage.val(page);
+
+            $('.mod_quiz-virtual-nav').click();
+        });
+    });
+});
+{{/js}}

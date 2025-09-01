@@ -1,0 +1,44 @@
+<div class="preloading-wrapper align-items-center justify-content-center" style="display: flex;" role="status">
+    {{> community_oer/loading }}
+</div>
+<div class=" bg-primary text-white d-flex align-items-center justify-content-between px-2 drodpdown-menu-top"
+    data-text="הקורסים של">
+    <button type="button" class="back text-white border-0 bg-transparent mr-2" aria-label="Back"
+        style="display: none;"></button>
+    <span class="drodpdown-menu-top-text">{{#str}}mycourses, community_oer{{/str}}</span>
+    <button type="button" class="close p-2 text-white" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="copy-sequence-dropdown-inner" data-simplebar>
+    {{#courses}}
+    <div class="dropdown-item course-item px-0" role="button" style="display: block;" id="courseid-{{courseid}}"
+        data-id="{{courseid}}">
+        <span class="px-3 d-flex align-items-center justify-content-between">
+            {{coursename}}
+            <i class="fa fa-check text-body" aria-hidden="true"></i>
+        </span>
+       
+    </div>
+    {{/courses}}
+    {{#courses}}
+<!--    {{#sections}}
+    <div class="dropdown-item section-item px-2" role="button" style="display: none;" data-courseid={{courseid}}
+        data-sectionid="{{sectionid}}">
+        <div class="section-item-inner d-flex align-items-center">
+            <span class="section-item-name text-body pr-3 pl-4 mr-auto">
+                {{sectionname}}
+            </span>
+            <i class="fa fa-check text-body" aria-hidden="true"></i>
+        </div>
+    </div>
+    {{/sections}} -->
+    {{/courses}}
+
+</div>
+<div class="dropdown-item py-0 px-2" role="button" style="display: none;" id="submitBtn-{{courseid}}"
+    data-id="{{courseid}}">
+    <button type="button" class="submit-btn p-2 btn btn-primary rounded w-100" aria-label="Submit">
+        {{#str}}submitcopy, community_oer{{/str}}
+    </button>
+</div>

@@ -1,0 +1,85 @@
+.block_oer_reviews .intro {
+    margin-bottom: 1rem;
+}
+
+@-webkit-keyframes yellow-fade {
+    from {
+        background: #f96;
+    }
+    to {
+        background: #fff;
+    }
+}
+@-moz-keyframes yellow-fade {
+    from {
+        background: #f96;
+    }
+    to {
+        background: #fff;
+    }
+}
+@keyframes yellow-fade {
+    from {
+        background: #f96;
+    }
+    to {
+        background: #fff;
+    }
+}
+.block_oer_reviews {
+    -webkit-animation: yellow-fade 1s ease-in-out 0s;
+    -moz-animation: yellow-fade 1s ease-in-out 0s;
+    -o-animation: yellow-fade 1s ease-in-out 0s;
+    animation: yellow-fade 1s ease-in-out 0s;
+}
+.block_oer_reviews .userinfo-wrapper .dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+.block_oer_reviews .userinfo-wrapper .dropdown-toggle img.userpicture {
+    margin: 0;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+}
+.block_oer_reviews .userinfo-wrapper .dropdown-toggle .defaultuserpic {
+    font-size: 2rem;
+}
+
+.block_oer_reviews .card-text .p-3 {
+    height: 30em;
+    overflow-y: scroll;
+}
+
+.block_oer_reviews .intro {
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.block_oer_reviews .userinfo-wrapper .action-menu-trigger {
+    height: 2rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.block_oer_reviews .userinfo-wrapper .dropdown-toggle .aabtn i {
+    font-size: 1.5rem;
+}
+
+.block_oer_reviews .reviewer .oer_reviews-link {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.block_oer_reviews .reviewer .oer_reviews-link i {
+    font-size: 1.125rem;
+}
+.block_oer_reviews .reviewer .dropdown-toggle::after {
+    content: "";
+    width: 0.625rem;
+    height: 0.54688rem;
+    background-image: url([[pix:block_oer_reviews|chevron]]);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

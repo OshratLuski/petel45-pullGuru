@@ -1,0 +1,32 @@
+<div class="form-group d-flex align-items-center justify-content-start flex-wrap mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    {{#data_formated}}
+        <div class="custom-control
+            {{#format_checkbox}} custom-checkbox {{/format_checkbox}}
+            {{#format_radio}} custom-radio {{/format_radio}}
+            mr-3
+            ">
+            <input type="radio" id="{{metadata_id}}" class="custom-control-input customized-radiobtn" name="{{shortname}}"
+                   value="{{metadata_value}}" {{#metadata_checked}}checked{{/metadata_checked}}>
+            <label class="custom-control-label d-flex align-items-center" for="{{metadata_id}}">
+                <span>{{metadata_name}}</span>
+            </label>
+        </div>
+    {{/data_formated}}
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharewith{{/str}} "{{{title}}}"
+    </div>
+
+</div>

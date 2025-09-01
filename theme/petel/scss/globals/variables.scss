@@ -1,0 +1,139 @@
+// Default Petel41 colors
+// $petel-primary:           #23164F !default;
+// $petel-secondary:         #554283 !default;
+// $petel-secondarymedium:   #8E7BB8 !default;
+// $petel-secondarylight:    #E1DBF2 !default;
+// $petel-light:             #F5F2F7 !default;
+$petel-red-light:         #FAE6E6 !default;
+$petel-green-light:       #E9F2E9 !default;
+$petel-orange-light:      #FDE9D5 !default;
+$petel-activity-ltblue:   #399BE2 !default;
+$petel-activity-orange:   #F7634D !default;
+$petel-activity-green:    #11A676 !default;
+$petel-activity-pink:     #EB66A2 !default;
+$petel-activity-prurple:  #5D63F6 !default;
+$petel-activity-ltpurple: #7B61FF !default;
+$body-color:              #2b2b2b !default;
+
+// FIXME: bottom colors - used in ../plugins/***.scss. Delete if it will be needed!
+$petel-gray: #777777 !default;
+
+// Override BS with PeteL41 new design
+$white:    #fff !default;
+$gray-100: #F9F9F9 !default;
+$gray-200: #F8F9FA !default;
+$gray-300: #E2E1E1 !default;
+$gray-400: #CED4DA !default;
+$gray-500: #B2B2B2 !default;
+$gray-600: #707070 !default;
+$gray-700: #495057 !default;
+$gray-800: #343A40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #008ECD !default;
+$indigo:  #6610f2 !default;
+$purple:  #6F42C1 !default;
+$pink:    #C91E4A !default;
+$red:     #CE0E0F !default;
+$orange:  #F59331 !default;
+$yellow:  #FCF15C !default;
+$green:   #287D28 !default;
+$teal:    #20C997 !default;
+$cyan:    #17A2B8 !default;
+$rust:    #b53f0c !default;
+
+// Additional colors.
+$warning-light:     #FDE9D5;
+$success-light:     #E9F2E9;
+$danger-light:      #FAE6E6;
+$info-light:        #D9EEF8;
+$newlinkcolor:      #0075A9;
+$primary:           $petel-primary !default;
+$secondary:         $petel-secondary !default;
+$success:           $green !default;
+$info:              $newlinkcolor !default;
+$warning:           $yellow !default;
+$warningnotification: $rust !default;
+$danger:            $red !default;
+$light:             $petel-light !default;
+$dark:              $gray-800 !default;
+$gray:              $gray-600 !default;
+$secondarymedium:   $petel-secondarymedium !default;
+$secondarylight:    $petel-secondarylight !default;
+$redlight:          $petel-red-light !default;
+$greenlight:        $petel-green-light !default;
+$orangelight:       $petel-orange-light !default;
+$activityltblue:    $petel-activity-ltblue !default;
+$activityorange:    $petel-activity-orange !default;
+$activitygreen:     $petel-activity-green !default;
+$activitypink:      $petel-activity-pink !default;
+$activityprurple:   $petel-activity-prurple !default;
+$activityltpurple:  $petel-activity-ltpurple !default;
+$linkcolor:         $newlinkcolor !default;
+$linkhover:         $petel-secondarymedium !default;
+
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":          $primary,
+    "secondary":        $secondary,
+    "success":          $success,
+    "info":             $info,
+    "warning":          $warning,
+    "warningnotification": $warningnotification,
+    "danger":           $danger,
+    "light":            $light,
+    "dark":             $dark,
+    "gray":             $gray,
+    "orange":           $orange,
+    "secondarymedium":  $secondarymedium,
+    "secondarylight":   $secondarylight,
+    "redlight":         $redlight,
+    "greenlight":       $greenlight,
+    "orangelight":      $orangelight,
+    "activityltblue":   $activityltblue,
+    "activityorange":   $activityorange,
+    "activitygreen":    $activitygreen,
+    "activitypink":     $activitypink,
+    "activityprurple":  $activityprurple,
+    "activityltpurple": $activityltpurple,
+    "linkcolor":        $linkcolor,
+    "linkhover":        $linkhover,
+  ),
+  $theme-colors
+);
+
+// Fonts
+$primary-font: 'Heebo';
+$font-family-sans-serif:      $primary-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// TODO: Check is it needed
+// Breadcrumbs
+ $breadcrumb-padding-y: .25rem !default;
+ $breadcrumb-padding-x: 0 !default;
+ $breadcrumb-item-padding: .5rem !default;
+ $breadcrumb-margin-bottom: 0 !default;
+ $breadcrumb-bg: transparent !default;
+ $breadcrumb-divider: "/" !default;
+ $breadcrumb-divider-rtl: "/" !default;
+
+// $h1-font-size: $font-size-base * 2.5 !default;    // Edna UI KIT style guide = 40px = 2.5rem
+// $h2-font-size: $font-size-base * 2 !default; // Edna UI KIT style guide = 32px = 2rem
+// $h3-font-size: $font-size-base * 1.75 !default;  // Edna UI KIT style guide = 28px = 1.75rem
+// $h4-font-size: $font-size-base * 1.5 !default; // Edna UI KIT style guide = 24px = 1.5rem
+// $h5-font-size: $font-size-base * 1.25 !default;    // Edna UI KIT style guide = 20px = 1.25rem
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $primary-font;
+}
+
+$alert-bg-level:                    -10 !default;
+$alert-border-level:                -10 !default;
+$alert-color-level:                 0 !default;
+
+$yiq-text-dark:             $body-color !default;

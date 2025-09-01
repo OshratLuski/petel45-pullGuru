@@ -1,0 +1,11 @@
+<form class="pc-form" id="request_followed_courses">
+    <div class="followers-wrapper">
+        {{#data}}
+        <a href="{{{profile_url}}}" target="_blank" class="col-card border border-secondary p-2">
+            <div class="col-card-img border border-secondary" style="background-image: url('{{{image_url}}}');">
+            </div>
+            <div class="col-card-name text-body">{{firstname}} {{lastname}}</div>
+        </a>
+        {{/data}}
+    </div>
+</form>

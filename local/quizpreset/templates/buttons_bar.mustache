@@ -1,0 +1,11 @@
+<div class="quiz-top-bar">
+    {{#links}}
+        {{^disable}}
+            <a class="btn btn-primary" href="{{url}}">{{title}}</a>
+        {{/disable}}
+
+        {{#disable}}
+            <a class="btn btn-primary disabled" href="javascript:void(0)">{{title}}</a>
+        {{/disable}}
+    {{/links}}
+</div>

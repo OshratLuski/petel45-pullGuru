@@ -1,0 +1,120 @@
+#page-auth-saml2-selectidp .mform .fitem div.fitemtitle {
+    width: 0;
+}
+
+#page-auth-saml2-selectidp .mform .fitem .felement {
+    margin-left: 0;
+}
+
+#page-auth-saml2-selectidp .idpbtn {
+    margin-bottom: 10px;
+}
+
+#page-auth-saml2-availableidps .femptylabel .fitemtitle {
+    display: none;
+}
+
+#page-auth-saml2-availableidps .femptylabel .felement {
+    margin-left: 10px;
+}
+
+#page-auth-saml2-error #topofscroll {
+    margin-top: 4.5rem;
+}
+
+#page-auth-saml2-error #page-header {
+    padding-left: 2.5rem;
+}
+
+#page-auth-saml2-error h1 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+#page-auth-saml2-error .error-text {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+#page-auth-saml2-error .error-text a {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: underline;
+}
+
+#page-auth-saml2-error .form-control {
+    display: flex;
+    width: 18.9375rem;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: .0625rem solid #E2E1E1;
+    background: #ffffff;
+}
+
+#page-auth-saml2-error #fitem_id_authkey {
+    margin-bottom: 1.37rem;
+}
+
+#page-auth-saml2-error #id_signupbutton {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    height: 1.68rem;
+    width: 4.5625rem;
+}
+#page-auth-saml2-error #id_key {
+    padding-right: 2rem;
+    text-align: left;
+    min-width: 19rem;
+}
+#page-auth-saml2-error #togglePassVisibility {
+    color: #707070;
+    font-size: 1.125rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+}
+@media screen and (max-width: 640px)  {
+    #page-auth-saml2-error .error-page-moe-wrapper #saml2courseform {
+        padding: 0 !important;
+    }
+    #page-auth-saml2-error #page-content {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    #page-auth-saml2-error #page {
+        min-height: calc(100vh - 3rem);
+    }
+    #page-auth-saml2-error #page-header {
+        padding-left: 1rem;
+    }
+    #page-auth-saml2-error #topofscroll {
+        margin-top: 0;
+    }
+    #page-auth-saml2-error h1 {
+        margin-bottom: 0;
+    }
+    #page-auth-saml2-error .error-page-moe-wrapper h1 {
+        margin-bottom: 3rem;
+    }
+    #page-auth-saml2-error .error-page-moe-wrapper #fitem_id_signupbutton {
+        margin-bottom: 3rem;
+    }
+    #page-auth-saml2-error .error-page-moe-wrapper img {
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+        width: 14.0625rem;
+        height: 15.8035rem;
+    }
+}

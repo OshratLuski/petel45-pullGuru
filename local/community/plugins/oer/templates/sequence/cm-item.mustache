@@ -1,0 +1,42 @@
+<div class="activity-img-wrapper overflow-hidden position-relative col-3">
+    <a class="activity-img d-block border border-secondary-light position-relative"
+        {{#urlactivity}} href="{{{urlactivity}}}" target="_blank" {{/urlactivity}}
+        title="{{modname}}" style="background-image: url('{{{imageactivity}}}');">
+
+        <div class="certificate_stamp-wrapper d-flex align-items-center justify-content-center position-absolute">
+
+        </div>
+    </a>
+</div>
+
+<div class="activity-main col-9">
+    <div class="teacher-block d-flex align-items-center flex-wrap mb-1">
+
+        {{#users}}
+            <a href="{{{urltosocialprofile}}}" {{#urltosocialtarget}} target="_blank" {{/urltosocialtarget}}>
+                <div class="teacher-img rounded-circle ml-1" style="background-image: url('{{{user_image}}}');" role="presentation"></div>
+            </a>
+
+            <a href="{{{urltosocialprofile}}}" {{#urltosocialtarget}} target="_blank" {{/urltosocialtarget}}>
+                <span class="teacher-info text-body border-right border-primary">{{user_fname}} {{user_lname}}</span>
+            </a>
+        {{/users}}
+
+        <span class="teacher-info text-body border-right border-primary">{{{modicon}}}
+            {{modname}}</span>
+        <!--                <span class="teacher-info text-body border-right border-primary">תכנים דיאגנוסטיים</span>-->
+        <span class="teacher-info text-body ">{{cm_created_format}}</span>
+    </div>
+
+    <a {{#urlactivity}} href="{{{urlactivity}}}" target="_blank" {{/urlactivity}}
+        class="activity-title bold text-body d-flex justify-content-start">
+
+        <h2 class="font-weight-bold mb-0 mr-2">{{{mod_name}}}</h2>
+        <div class="font-weight-normal activity-title-info d-inline-flex align-items-center">{{info_metadata}}</div>
+    </a>
+    <p class="activity-text text-body mb-0">{{{metadata_teacherremarks}}}</p>
+</div>
+<div class="activity-info ml-auto">
+    <div class="activity-info-blocks d-flex align-items-start justify-content-end">
+    </div>
+</div>

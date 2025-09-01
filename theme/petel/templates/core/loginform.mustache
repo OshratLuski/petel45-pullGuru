@@ -1,0 +1,347 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/loginform
+
+    Moodle template for the login page.
+
+    Context variables required for this template:
+    * autofocusform: Auto focus on form ?,
+    * canloginasguest - Is guest login allowed?,
+    * canloginbyemail - Is login by email allowed?,
+    * cansignup - Signup allowed?,
+    * cookieshelpicon - cookies help icon details
+    * error - Any errors in the form?,
+    * forgotpasswordurl - Forgot password url,
+    * hasidentityproviders - Flag, set to true to hide identity providers,
+    * hasinstructions - Flag, set to true to show instructions,
+    * identityproviders - List of identiy providers,
+    * instructions - Instructions,
+    * instructionsformat - Format of instructions,
+    * loginurl - Login url,
+    * rememberusername - Remeber username?,
+    * signupurl - Signup url,
+    * cookieshelpiconformatted - Formatted html of cookies help icon,
+    * errorformatted - Formatted error,
+    * logourl - Flag, logo url,
+    * sitename - Name of site.
+    * logintoken - Random token to protect login request.
+
+    Example context (json):
+    {
+        "autofocusform": false,
+        "canloginasguest": "1",
+        "canloginbyemail": false,
+        "cansignup": true,
+        "cookieshelpicon": {
+            "heading": "Cookies must be enabled in your browser",
+            "text": "<div class=\"no-overflow\">Two cookies are used on this site. Both died..</div>",
+            "icon": {
+                "attributes": [
+                    {
+                        "name": "class",
+                        "value": "iconhelp"
+                    },
+                    {
+                        "name": "alt",
+                        "value": "Help with Cookies must be enabled in your browser"
+                    },
+                    {
+                        "name": "title",
+                        "value": "Help with Cookies must be enabled in your browser"
+                    },
+                    {
+                        "name": "src",
+                        "value": "http://localhost/stable_master/theme/image.php?theme=boost&component=core&image=help"
+                    }
+                ]
+            },
+            "linktext": null,
+            "title": "Help with Cookies must be enabled in your browser",
+            "url": "http://localhost/stable_master/help.php?component=core&identifier=cookiesenabled&lang=en",
+            "ltr": true
+        },
+        "error": "",
+        "forgotpasswordurl": "http://localhost/stable_master/login/forgot_password.php",
+        "hasidentityproviders": false,
+        "hasinstructions": true,
+        "identityproviders": [],
+        "instructions": "For full access to this site, you first need to create an account.",
+        "instructionsformat": "1",
+        "loginurl": "http://localhost/stable_master/login/index.php",
+        "rememberusername": true,
+        "signupurl": "http://localhost/stable_master/login/signup.php",
+        "cookieshelpiconformatted": "",
+        "errorformatted": "",
+        "logourl": false,
+        "sitename": "Beer & Chips",
+        "logintoken": "randomstring"
+    }
+}}
+
+
+<div class="d-flex justify-content-end h-100 position-relative">
+    {{#ministry_statement_title}}
+        <div id="ministry_statement" tabindex="-1">
+            <span id="statement">
+                <span id="statement_title">{{ministry_statement_title}}</span><br>
+                {{{ministry_statement_text}}}
+            </span>
+        </div>
+    {{/ministry_statement_title}}
+    <div class="card h-100">
+        <div class="card-block h-100">
+            <div class="card-body align-items-stretch p-0 d-flex flex-column h-100">
+                {{#error}}
+                    <div class="loginerrors mt-3">
+                        <a href="#" id="loginerrormessage" class="accesshide">{{error}}</a>
+                        <div class="alert alert-danger" role="alert" aria-atomic="true" data-aria-autofocus="true">{{error}}</div>
+                    </div>
+                {{/error}}
+                <div class="brand hidden-md-up text-center">
+                    {{# loginpage_context }}
+                        {{# isiconsitename }}
+                            <h3 class="font-size-24">
+                                <i class="fa fa-{{siteicon}}"></i> {{{ sitename }}}
+                            </h3>
+                        {{/ isiconsitename }}
+                        {{# islogo }}
+                            <img src="{{logourl}}" class="brand-img" title="{{sitename}}" alt="{{sitename}}"/>
+                        {{/ islogo }}
+                    {{/ loginpage_context }}
+                </div>
+
+                <div class="lang d-flex align-items-center">
+                    <i class="fa-light fa-globe ml-3 mr-1 text-primary"></i>
+                    <ul class="m-0 p-0">
+                        {{{langmenu}}}
+                    </ul>
+                </div>
+
+                <div class="justify-content-md-center mb-auto">
+                    <div class="col-12">
+                        {{#is_petel}}
+                            <h1 class="form-title" role="heading">
+                                {{#str}} logintitle_petel, theme_petel, {{instancename}} {{/str}}
+                            </h1>
+                        {{/is_petel}}
+
+                        {{#is_wiz}}
+                            <h1 class="form-title" role="heading">
+                                {{#str}} logintitle_wiz, theme_petel, {{instancename}} {{/str}}
+                            </h1>
+                        {{/is_wiz}}
+                        <form class="mt-3" action="{{loginurl}}" method="post" id="login">
+                            <input id="anchor" type="hidden" name="anchor" value=""/>
+                            <script>document.getElementById('anchor').value = location.hash;</script>
+                            <input type="hidden" name="logintoken" value="{{logintoken}}"/>
+                            <div class="form-group">
+                                <label for="username" class="sr-only">
+                                    {{^canloginbyemail}}
+                                        {{#str}} username {{/str}}
+                                    {{/canloginbyemail}}
+                                    {{#canloginbyemail}}
+                                        {{#str}} usernameemail {{/str}}
+                                    {{/canloginbyemail}}
+                                </label>
+                                <input type="text" name="username" id="username"
+                                       class="form-control"
+                                       value="{{username}}"
+                                       placeholder={{^canloginbyemail}}{{#str}}username{{/str}}{{/canloginbyemail}}{{#canloginbyemail}}{{#str}}usernameemail{{/str}}{{/canloginbyemail}}
+                                       autocomplete="username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
+                                <input type="password" name="password" id="password" value=""
+                                       class="form-control"
+                                       placeholder={{#str}}password{{/str}}
+                                       autocomplete="current-password"/>
+                                <i id="passeye" class="fa fa-eye passeye" aria-hidden="true" onclick="showPassword()"></i>
+                                <style>
+                                    .passeye {
+                                        margin-left: 80%;
+                                        margin-top: -25px;
+                                        position: absolute;
+                                        z-index: 2;
+                                    }
+                                    .dir-rtl .passeye {
+                                        margin-right: 80%;
+                                        margin-left: auto;
+                                    }
+                                </style>
+                                <script>
+                                    function showPassword() {
+                                        let passelm = document.getElementById("password");
+                                        let passeye = document.getElementById("passeye");
+                                        if (passelm.type === "password") {
+                                            passelm.type = "text";
+                                            passeye.classList.remove('fa-eye');
+                                            passeye.classList.add('fa-eye-slash');
+                                        } else {
+                                            passelm.type = "password";
+                                            passeye.classList.remove('fa-eye-slash');
+                                            passeye.classList.add('fa-eye');
+                                        }
+                                    }
+                                </script>
+                            </div>
+
+                            {{#sitekeycaptchav2}}
+                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                <div class="g-recaptcha" data-sitekey={{sitekeycaptchav2}}></div>
+                            {{/sitekeycaptchav2}}
+
+
+                                        <div class="d-flex justify-content-between pass-btns-wrapper">
+                                {{#rememberusername}}
+                                    <div class="rememberpass">
+                                        <input type="checkbox" name="rememberusername" id="rememberusername" value="1" {{#username}} checked="checked" {{/username}}/>
+                                        <label for="rememberusername">{{#str}} rememberusername, admin {{/str}}</label>
+                                    </div>
+                                {{/rememberusername}}
+                                <a class="forgetpass" href="{{forgotpasswordurl}}">{{#str}}forgotten, theme_petel{{/str}}</a>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary btn-block" id="loginbtn">{{#str}}login{{/str}}</button>
+                        </form>
+                        {{#hasinstructions}}
+                            {{#cansignup}}
+                                <a id="signupbtn" href="{{signupurl}}" class="btn btn-sm btn-outline-primary btn-block mt-3">{{#str}}startsignup{{/str}}</a>
+                            {{/cansignup}}
+                        {{/hasinstructions}}
+                        {{#canloginasguest}}
+                            <div class="mt-3 mb-5 form-group clearfix">
+                                <form action="{{loginurl}}" method="post" id="guestlogin" class="m-0">
+                                    <input type="hidden" name="username" value="guest" />
+                                    <input type="hidden" name="password" value="guest" />
+                                    <button class="btn btn-sm btn-secondary btn-block" type="submit">{{#str}}loginguest{{/str}}</button>
+                                </form>
+                            </div>
+                        {{/canloginasguest}}
+                        <hr class="custom-line my-4">
+                    </div>
+                    <div class="col-12">
+                        {{#hasidentityproviders}}
+                            <div class="potentialidplist">
+                                {{#identityproviders}}
+                                    <div>
+                                        <a href="{{url}}" class="btn btn-sm btn-outline-primary btn-block">
+                                            <img src="{{login_icon}}" alt="" width="24" height="24"/>
+                                            {{name}}
+                                        </a>
+                                    </div>
+                                {{/identityproviders}}
+                            </div>
+                        {{/hasidentityproviders}}
+                    </div>
+
+                    <!-- <div id="termsandconditions" class="d-flex justify-content-start">
+                        {{#privacy_link}}
+                        <a href="{{privacy_link}}" rel="nofollow" target="_blank" class="mr-3">{{# str }} privacy, theme_petel {{/ str }}</a>
+                        {{/privacy_link}}
+                        {{#terms_link}}
+                        <a href="{{terms_link}}" rel="nofollow" target="_blank" >{{# str }} terms, theme_petel {{/ str }}</a>
+                        {{/terms_link}}
+                    </div> -->
+                </div>
+                <div class="col-12 d-flex flex-column justify-content-end flex-shrink-1">
+                    <img class="petel-logo mb-3" src="{{{petellogo}}}" role="presentation" alt="{{#str}}logo_department_of_science_teaching, theme_petel{{/str}}">
+                    {{#ministry_statement_title}}
+                        <div id="ministry_statement_mobile">
+                        <span id="statement">
+                            <span id="statement_title">{{ministry_statement_title}}</span><br>
+                            {{{ministry_statement_text}}}
+                        </span>
+                        </div>
+                    {{/ministry_statement_title}}
+                    <div class="d-flex justify-content-center align-items-center flex-nowrap policies">
+                        {{#policies}}
+                            <a href="{{url}}" rel="nofollow" target="_blank" class="d-inline-flex align-items-center mx-2 text-nowrap">{{name}}</a>
+                            <div class="policies-divider flex-shrink-0"></div>
+                        {{/policies}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        {{#hasinstructions}}
+            <div class="card p-0 mx-3">
+                <div class="card-body p-4">
+                    <div class="card-title">
+                        <h2>{{#str}}firsttime{{/str}}</h2>
+                    </div>
+                <div>
+                {{{instructions}}}
+            {{#cansignup}}
+                <form class="mt-3" action="{{signupurl}}" method="get" id="signup">
+                    <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
+                </form>
+                {{/cansignup}}
+            </div>
+        {{/hasinstructions}}
+        -->
+        <div class="page-copyright">
+            {{# loginsocial_context }}
+                {{# social }}
+                    <p>{{# str }} followus, theme_petel {{/ str }}</p>
+                    <div class="social">
+                        {{# facebook }}
+                            <a href="{{ facebook }}" class="btn btn-icon btn-round social-facebook m-5"><i class="icon fa-facebook" aria-hidden="true"></i></a>
+                        {{/ facebook }}
+                        {{# twitter }}
+                            <a href="{{ twitter }}" class="btn btn-icon btn-round social-twitter m-5"><i class="icon fa-twitter" aria-hidden="true"></i></a>
+                        {{/ twitter }}
+                        {{# linkedin }}
+                            <a href="{{ linkedin }}" class="btn btn-icon btn-round social-linkedin m-5"><i class="icon fa-linkedin" aria-hidden="true"></i></a>
+                        {{/ linkedin }}
+                        {{# gplus }}
+                            <a href="{{ gplus }}" class="btn btn-icon btn-round social-google-plus m-5"><i class="icon fa-google-plus" aria-hidden="true"></i></a>
+                        {{/ gplus }}
+                        {{# instagram }}
+                            <a href="{{ instagram }}" class="btn btn-icon btn-round social-instagram m-5"><i class="icon fa-instagram" aria-hidden="true"></i></a>
+                        {{/ instagram }}
+                        {{# youtube }}
+                            <a href="{{ youtube }}" class="btn btn-icon btn-round social-youtube m-5"><i class="icon fa-youtube" aria-hidden="true"></i></a>
+                        {{/ youtube }}
+                        {{# pinterest }}
+                            <a href="{{ pinterest }}" class="btn btn-icon btn-round social-pinterest m-5"><i class="icon fa-pinterest" aria-hidden="true"></i></a>
+                        {{/ pinterest }}
+                    </div>
+                {{/ social }}
+            {{/ loginsocial_context }}
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+    {{#error}}
+        require(['jquery'], function($) {
+        $('#loginerrormessage').focus();
+        });
+    {{/error}}
+    {{^error}}
+        {{#autofocusform}}
+            require(['jquery'], function($) {
+            if ($('#username').val()) {
+            $('#password').focus();
+            } else {
+            $('#username').focus();
+            }
+            });
+        {{/autofocusform}}
+    {{/error}}
+{{/js}}

@@ -1,0 +1,20 @@
+<div class="mt-3">
+    <p>{{{questiontext}}}</p>
+</div>
+<div class="p-3 chat-container">
+    <p><b>{{#str}}quizdetails, qtype_diagnosticadvdesc {{/str}}</b></p>
+    <p>{{{questiondetails}}} </p>
+    <br>
+    {{#rows}}
+        <p>{{#str}}answerof, qtype_diagnosticadvdesc {{/str}} <b>{{{fullname}}}</b>:</p>
+        <p>
+            {{#customanswer}}
+                <b>{{{answer}}}:</b> <b> {{{customanswer}}} </b>
+            {{/customanswer}}
+            {{^customanswer}}
+                <b>{{answer}}</b>
+            {{/customanswer}},
+            {{#str}}comment, qtype_diagnosticadvdesc {{/str}}: {{{comment}}}
+        </p>
+    {{/rows}}
+</div>

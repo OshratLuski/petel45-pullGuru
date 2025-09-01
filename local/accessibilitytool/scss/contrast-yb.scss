@@ -1,0 +1,107 @@
+/* stylelint-disable declaration-no-important */
+
+body {
+    &.at-contrast {
+        &.at-contrast-yb * {
+            &:not(.activityiconcontainer, .activityicon, .icon) {
+                background-color: $black !important;
+                color: $yellow !important;
+                border-color: $yellow !important;
+            }
+            .moodle-dialogue-wrap * {
+                background-color: lighten($black, 10%) !important;
+            }
+            .form-control {
+                &::placeholder {
+                    color: lighten($yellow, 10%);
+                }
+            }
+            .mediaplugin :not(.vjs-control-bar) {
+                background-color: rgba(0, 0, 0, 0) !important;
+                .vjs-control-bar,
+                .vjs-big-play-button {
+                    background-color: rgba(0, 0, 0, .50) !important;
+                    &:hover,
+                    &:focus {
+                        background-color: rgba(0, 0, 0, .25) !important;
+                    }
+                }
+                .vjs-play-progress {
+                    background-color: $yellow !important;
+                }
+            }
+            /** This is required to reverse .icon used above **/
+            .editor_atto_toolbar * {
+                background-color: $black !important;
+                color: $yellow !important;
+                border-color: $yellow !important;
+            }
+            .maincalendar .calendarmonth td.today .day-number-circle * {
+                background-color: $yellow !important;
+                color: $black !important;
+                border-radius: 50% !important;
+            }
+            a,
+            .btn {
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    &:not(.fp-file, .card) {
+                        * {
+                            background-color: $yellow !important;
+                            color: $black !important;
+                        }
+                        background-color: $yellow !important;
+                        color: $black !important;
+                    }
+                }
+            }
+            .dropdown-item, .form-autocomplete-suggestions li {
+                &:active,
+                &:focus,
+                &:focus-within,
+                &:hover {
+                    background-color: $yellow !important;
+                    color: $black !important;
+                    a,
+                    a i {
+                        background-color: $yellow !important;
+                        color: $black !important;
+                    }
+                }
+            }
+            .initialbar .active * {
+                background-color: $yellow !important;
+                color: $black !important;
+            }
+            #region-main {
+                a {
+                    &:not(.dropdown-item) {
+                        border-bottom: solid 1px $yellow;
+                    }
+                }
+            }
+            .navbar {
+                border-bottom: solid 1px $yellow;
+            }
+            #gridshadebox_overlay {
+                background-color: $grey !important;
+            }
+            #gridshadebox_content {
+                .gridshadebox_area * {
+                    background-color: $grey !important;
+                }
+            }
+            .block {
+                .minicalendar {
+                    td {
+                        &.weekend {
+                            color: $yellow !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

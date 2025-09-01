@@ -1,0 +1,43 @@
+.path-grade {
+
+    .tertiary-navigation,
+    .user-heading,
+    .reportbuilder-report {
+        .btn {
+            box-shadow: none;
+        }
+    }
+
+    /*     .gradeparent {
+        overflow: auto;
+    }
+    .gradeparent th.header {
+        position: relative;
+        left: 0px !important;
+    } */
+
+}
+
+#page-mod-assign-grading {
+    .table-striped {
+        thead tr:nth-child(1) {
+            th:nth-child(1) {
+                padding-left: 25px;
+            }
+        }
+    }
+
+    /*     .dataTables_scrollBody {
+        overflow: hidden !important;
+        height: auto !important;
+    } */
+}
+
+#page-mod-assign-grader {
+    background: #FFF !important;
+}
+
+.path-grade-report-grader .gradeparent th.header {
+    position: sticky;
+    left: 0;
+}

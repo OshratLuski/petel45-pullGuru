@@ -1,0 +1,22 @@
+<form class="pc-form" id="request_followed_courses">
+    <div class="pc-form_wrap">
+        <div class="pc-form_text">{{#str}} choosecourses, community_social{{/str}}</div>
+        <div class="pc-form_head">{{#str}} mycourses, community_social{{/str}}</div>
+
+        <div class="pc-form_courses">
+
+            {{#data}}
+                <input id="{{counter}}" type="checkbox" {{checked}} name="{{counter}}" value="{{id}}">
+                <label for="{{counter}}" class="pc-form_course">
+                    <div class="pc-forum_course-img" style="background-image: url('{{{imageurl}}}')"></div>
+                    <div class="pc-forum_course-text">
+                        <div class="pc-form_course-name">{{fullname}}</div>
+                        <span class="pc-form_course-desc">{{{summary}}}</span>
+                    </div>
+                </label>
+            {{/data}}
+
+        </div>
+    </div>
+
+</form>

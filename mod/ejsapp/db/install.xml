@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/ejsapp/db" VERSION="20120606" COMMENT="XMLDB file for Moodle mod/ejsapp"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+        >
+    <TABLES>
+        <TABLE NAME="ejsapp" COMMENT="Defines the Easy Java/Javascript Simulations Applications instances in Moodle"
+               NEXT="ejsapp_personal_vars">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+                <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"
+                       COMMENT="Course ejsapp activity belongs to" PREVIOUS="id" NEXT="name"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"
+                       COMMENT="name field for moodle instances" PREVIOUS="course" NEXT="intro"/>
+                <FIELD NAME="intro" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="General introduction of the ejsapp activity" PREVIOUS="name" NEXT="introformat"/>
+                <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0"
+                       SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)" PREVIOUS="intro"
+                       NEXT="appwording"/>
+                <FIELD NAME="appwording" TYPE="text" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="Wording associated to the EJS applet" PREVIOUS="introformat" NEXT="appwordingformat"/>
+                <FIELD NAME="appwordingformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"
+                       COMMENT="Format of the appwording field (MOODLE, HTML, MARKDOWN...)" PREVIOUS="appwording"
+                       NEXT="css"/>
+                <FIELD NAME="css" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="CSS styles for javascript apps" PREVIOUS="appwordingformat" NEXT="timecreated"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"
+                       PREVIOUS="css" NEXT="timemodified"/>
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0"
+                       SEQUENCE="false" PREVIOUS="timecreated" NEXT="main_file"/>
+                <FIELD NAME="main_file" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="Name of the main file that implements the lab"
+                       PREVIOUS="timemodified" NEXT="is_rem_lab"/>
+                <FIELD NAME="is_rem_lab" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" DEFAULT="0"
+                       PREVIOUS="main_file" NEXT="personalvars"/>
+                <FIELD NAME="personalvars" TYPE="int" LENGTH="1" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"
+                       PREVIOUS="is_rem_lab" NEXT="blockly_conf"/>
+                <FIELD NAME="blockly_conf" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="Blockly configuration parameters encoded in json" PREVIOUS="personalvars"
+                       NEXT="record"/>
+                <FIELD NAME="record" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" DEFAULT="0"
+                       COMMENT="Whether to record the users interactions or not" PREVIOUS="blockly_conf"
+                       NEXT="mouseevents"/>
+                <FIELD NAME="mouseevents" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" DEFAULT="0"
+                       COMMENT="Whether to record mouse events or not" PREVIOUS="record"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+            </INDEXES>
+        </TABLE>
+        <TABLE NAME="ejsapp_personal_vars" COMMENT="Contains information for generating personalized values for EJS variables"
+               PREVIOUS="ejsapp" NEXT="ejsapp_records">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ejsappid"/>
+                <FIELD NAME="ejsappid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id"
+                       NEXT="name"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"
+                       PREVIOUS="ejsappid" NEXT="type"/>
+                <FIELD NAME="type" TYPE="char" LENGTH="8" NOTNULL="true" SEQUENCE="false"
+                       PREVIOUS="name" NEXT="minval"/>
+                <FIELD NAME="minval" TYPE="float" LENGTH="10" DECIMALS ="6" NOTNULL="false" SEQUENCE="false"
+                       PREVIOUS="type" NEXT="maxval"/>
+                <FIELD NAME="maxval" TYPE="float" LENGTH="10" DECIMALS ="6" NOTNULL="false" SEQUENCE="false"
+                       PREVIOUS="minval"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="ejsappid" TYPE="foreign" FIELDS="ejsappid" REFTABLE="ejsapp" REFFIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="ejsappid" UNIQUE="false" FIELDS="ejsappid"/>
+            </INDEXES>
+        </TABLE>
+        <TABLE NAME="ejsapp_records" COMMENT="Contains users interactions with the EjsS applications"
+               PREVIOUS="ejsapp_personal_vars">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="time"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id"
+                       NEXT="userid"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"
+                       PREVIOUS="time" NEXT="ejsappid"/>
+                <FIELD NAME="ejsappid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
+                       PREVIOUS="userid" NEXT="sessionid"/>
+                <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
+                       PREVIOUS="ejsappid" NEXT="actions"/>
+                <FIELD NAME="actions" TYPE="text" LENGTH="400000" NOTNULL="true" SEQUENCE="false"
+                       PREVIOUS="sessionid"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="ejsappid" TYPE="foreign" FIELDS="ejsappid" REFTABLE="ejsapp" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB> 

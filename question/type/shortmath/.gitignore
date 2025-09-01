@@ -1,0 +1,7 @@
+# JetBrains IDEs: IntelliJ
+.idea/
+out/
+docs/
+node_modules/
+vendor/
+.history/

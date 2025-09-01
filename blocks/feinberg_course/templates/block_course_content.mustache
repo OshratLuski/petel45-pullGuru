@@ -1,0 +1,51 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see .
+}}
+
+{{!
+    @template block_superiframe/frame
+
+    This template renders a url in an iframe of given size.
+
+    Example context (json):
+    {
+        "heading": "My superframe",
+        "url": "http://www.moodlebites.com",
+        "height": "400",
+        "width": "600"
+    }
+}}
+
+<div class="container-fluid">
+    <button id="Website" class="mr-1 ml-1 btn  btn-success"
+            onclick="window.open('{{courseinfourl}}', '_blank');" type="button">
+        <span>
+            {{courseinfourl_feild}}
+        </span>
+    </button>
+
+    <div class="feinberg_course_field">{{academic_year_feild}}</div>
+    <div class="feinberg_course_data_short">{{{academic_year}}}</div>
+
+    <div class="feinberg_course_field">{{semester_feild}}</div>
+    <div class="feinberg_course_data_short">{{{semester}}}</div>
+
+    <div class="feinberg_course_field">{{grade_type_feild}}</div>
+    <div class="feinberg_course_data_short">{{{grade_type}}}</div>
+
+    <div class="feinberg_course_field">{{evaluation_type_feild}}</div>
+    <div class="feinberg_course_data_short">{{{evaluation_type}}}</div>
+</div>

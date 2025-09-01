@@ -1,0 +1,96 @@
+.social {
+
+  .public-course__header {
+    display: flex;
+    flex-direction: column;
+  }
+  .public-course {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    padding-top: 40px;
+    background-color: #FAFAFA;
+  }
+  .profile-user {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    padding-top: 40px;
+    background-color: #FAFAFA;
+    &__item {
+      color: $purple;
+      font-weight: $font-weight-light;
+      font-size: 18px;
+      line-height: 40px;
+      font-family: inherit;
+    }
+  }
+  .btn-settings{
+    //margin-left: auto;
+    margin-left: 5px;
+    white-space: nowrap;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 33px;
+    font-family: inherit;
+    color: $purple;
+    &--abs {
+      position: absolute;
+      top: -5px;
+      right: -114px;
+    }
+  }
+  .btn-settings::before {
+/*     content: '\f013';
+    font-family: "FontAwesome";
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    display: inline-block;
+    padding-right: 5px; */
+  }
+
+  .public-course__head {
+    color: #000;
+    font-weight: $font-weight-semibold;
+    font-size: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    margin-bottom: 10px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .public-course__head span{
+    color: #fff;
+    display: flex;
+    background-color: #aeaeae;
+    text-align: center;
+    align-items: center;
+    width: 27px;
+    justify-content: center;
+    height: 27px;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    font-weight: 800;
+    margin-left: 5px;
+  }
+
+  .public-course__item {
+    color: $purple;
+    font-weight: $font-weight-light;
+    font-size: 24px;
+    line-height: 40px;
+    font-family: inherit;
+  }
+
+  .public-course__message {
+    margin-top: 20px;
+    text-align: center;
+  }
+}

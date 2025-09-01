@@ -1,0 +1,39 @@
+<div class="csvupload-step-indicator" aria-label="Step 2 of 3">Step 2 of 3: {{#str}}csvprecheckstep, qtype_mlnlpessay{{/str}}</div>
+<h3>{{#str}}categories, qtype_mlnlpessay{{/str}}</h3>
+<div class="csvupload-rowcount">{{#str}}csvrowcount, qtype_mlnlpessay{{/str}}: {{rowcount}}</div>
+{{#skippedrows}}
+<div class="alert alert-warning" role="alert">
+    {{#str}}csvskippedrows, qtype_mlnlpessay{{/str}}: {{skippedrows}}
+</div>
+{{/skippedrows}}
+<table class="generaltable">
+    <tr>
+        <th>{{#str}}categoryname, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}modelid, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}modelname, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}categorytag, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}descriptioncategory, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}catlang, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}cattopic, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}catsubtopic, qtype_mlnlpessay{{/str}}</th>
+    </tr>
+    {{#rows}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{modelid}}</td>
+            <td>{{modelname}}</td>
+            <td>{{tag}}</td>
+            <td>{{description}}</td>
+            <td>{{lang}}</td>
+            <td>{{topics}}</td>
+            <td>{{subtopics}}</td>
+        </tr>
+    {{/rows}}
+    {{^rows}}
+        <tr>
+            <td colspan="8">{{#str}}nodata, qtype_mlnlpessay{{/str}}</td>
+        </tr>
+    {{/rows}}
+</table>
+<button class="btn btn-secondary qtype-mlnlpessay-csvback mt-1 mb-1">{{#str}}back, core{{/str}}</button>
+<button class="qtype-mlnlpessay-csvprocess btn btn-primary mt-1 mb-1" aria-label="{{#str}}csvprocess, qtype_mlnlpessay{{/str}}">{{#str}}csvprocess, qtype_mlnlpessay{{/str}}</button>

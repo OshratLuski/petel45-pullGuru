@@ -1,0 +1,98 @@
+//question popup
+.import-questions-modal {
+    .modal-header {
+        box-shadow: 0 0.1875rem 0.1875rem 0 rgba($petel-body-text, 0.25);
+        .modal-title {
+            font-family: $font-family-headers;
+        }
+    }
+}
+// popup question item
+.copy-from-my-courses {
+    font-family: $font-family-text, sans-serif;
+    .modal-inner {
+        .question-search-label {
+            color: $body-color;
+            font-family: $font-family-headers;
+        }
+        .question-search-input {
+            border: solid 0.0625rem $petel-secondarymedium;
+            background-color: $petel-light;
+            color: $petel-primary;
+            &::placeholder {
+                color: $petel-primary;
+            }
+        }
+        .question-search-icon,
+        .question-search-close-icon {
+            color: $petel-primary;
+        }
+    }
+    .checked-question-counter {
+        color: $petel-primary;
+        font-family: $font-family-headers;
+    }
+    .question-item-wrapper {
+        background: $white;
+        box-shadow: 0 0.1875rem 0.1875rem 0 rgba($petel-body-text, 0.25);
+        &:hover {
+            background: $petel-light;
+            box-shadow: 0 0.375rem 0.75rem 0 rgba($petel-body-text, 0.25);
+
+            .question-item-cell {
+                color: $petel-primary;
+            }
+        }
+        &.active {
+            .question-item {
+                background-color: $petel-secondarylight;
+            }
+        }
+        .fa-caret-down {
+            color: $petel-secondary !important;
+        }
+    }
+    .hide-questions-label {
+        i.fa {
+            color: $petel-secondary !important;
+        }
+    }
+    .question-item {
+        i {
+            color: $petel-secondary !important;
+        }
+    }
+    .course-wrapper-name {
+        font-family: $font-family-headers;
+        color: $body-color;
+    }
+    .bank-categories-wrapper-name,
+    .all-bank-categories-wrapper-name,
+    .all-course-categories-wrapper-name {
+        font-family: $font-family-text;
+        color: $body-color;
+        font-weight: 500;
+    }
+    .cat-wrapper-name,
+    .categories-wrapper-name {
+        font-family: $font-family-text;
+        color: $body-color;
+        font-weight: 400;
+    }
+    .course-wrapper-name,
+    .collapse-question-btn {
+        i {
+            color: $petel-secondary !important;
+        }
+    }
+
+    .cat-wrapper-name,
+    .categories-wrapper-name,
+    .bank-categories-wrapper-name,
+    .all-bank-categories-wrapper-name,
+    .all-course-categories-wrapper-name {
+        i {
+            color: $petel-secondarymedium !important;
+        }
+    }
+}

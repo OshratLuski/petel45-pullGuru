@@ -1,0 +1,423 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template message_petel/notification_area_content_area_content
+
+    This template will render the content for the content area in the
+    notification area on the notifications page.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * fullmessagehtml The notification in HTML format
+    * fullmessage     The notification in plain text (if no HTML)
+
+    Example context (json):
+    {
+    }
+
+}}
+<!-- Original -->
+{{^custom}}
+    {{#fullmessagehtml}}{{{.}}}{{/fullmessagehtml}}
+    {{^fullmessagehtml}}<pre>{{fullmessage}}</pre>{{/fullmessagehtml}}
+{{/custom}}
+
+<!-- New custom block -->
+
+{{#custom_html_only}}
+    {{#fullmessagehtml}}{{{.}}}{{/fullmessagehtml}}
+    {{^fullmessagehtml}}<pre>{{fullmessage}}</pre>{{/fullmessagehtml}}
+{{/custom_html_only}}
+
+{{#social_request}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{#str}}requestbecollegue, community_social{{/str}} {{coursename}}
+                </div>
+                <div class="mb-1">
+                    <a target="_blank" href="{{{courseurl}}}" class="text-muted">{{{courseurl}}}</a>
+                </div>
+            </div>
+            <div class="card-buttons d-flex align-items-center justify-content-between">
+                <a data-handler = "approve_social_message" data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-primary pull-left">
+                    <i class="icon fa fa-archive"></i>
+                    {{#str}}requestapprove, community_social{{/str}}
+                </a>
+                <a data-handler = "decline_social_message" data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-danger pull-right">
+                    <i class="icon fa fa-arrow-left"></i>
+                    {{#str}}requestdecline, community_social{{/str}}
+                </a>
+            </div>
+        </div>
+    </div>
+{{/social_request}}
+
+{{#social_decline}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{#str}}requestdeclinecompletetocourse, community_social{{/str}} {{coursename}}
+                </div>
+                <div class="mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/social_decline}}
+
+{{#social_decline_complete}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{content}} {{coursename}}
+                </div>
+                <div class="mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/social_decline_complete}}
+
+{{#social_approve}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{#str}}requestapprovecompletetocourse, community_social{{/str}}
+                    <a target="_blank" href="{{{courseurl}}}">{{coursename}}</a>
+                </div>
+                <div class="mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/social_approve}}
+
+{{#social_approve_complete}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{content}} <a target="_blank" href="{{{courseurl}}}">{{coursename}}</a>
+                </div>
+                <div class="mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/social_approve_complete}}
+
+{{#social_folowers}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{#str}}userhasbecomefollower, community_social{{/str}}
+                </div>
+                <div class="mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/social_folowers}}
+
+{{#copy_to_teacher}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{{content}}}
+                </div>
+                <div class="mb-1">
+                    <a target="_blank" href="{{{activityurl}}}" class="text-muted">{{{activityurl}}}</a>
+                </div>
+                <div class="mb-1 text-align-justify">
+                    {{{message}}}
+                </div>
+            </div>
+            <div class="card-buttons d-flex align-items-center justify-content-between">
+                <a data-handler="selectCourseForNotification" data-activitysharing="{{activityid}}" data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-primary pull-left">
+                    <i class="icon fa fa-archive"></i>
+                    {{#str}}eventdublicatetoteacher, community_sharewith{{/str}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+{{/copy_to_teacher}}
+
+{{#copy_question_to_teacher}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{{content}}}
+                </div>
+                <div class="mb-1">
+                    {{#questions}}
+                        <p>"{{questionname}}"</p>
+                    {{/questions}}
+                </div>
+                <div class="mb-1 text-align-justify">
+                    {{{message}}}
+                </div>
+            </div>
+            <div class="card-buttons d-flex align-items-center justify-content-between">
+                <a data-handler="copyQuestionsFromMessage" data-questionids="{{questionids}}" data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-primary pull-left">
+                    <i class="icon fa fa-archive"></i>
+                    {{#str}}eventdublicatetoteacher, community_sharequestion{{/str}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+{{/copy_question_to_teacher}}
+
+{{#copy_course_to_teacher}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{{content}}}
+                </div>
+                <div class="mb-1">
+                    <a href="{{{course_url}}}" target = _blank>{{course_name}}</a>
+                </div>
+                <div class="mb-1 text-align-justify">
+                    {{{message}}}
+                </div>
+            </div>
+            <div class="card-buttons d-flex align-items-center justify-content-between">
+                <a data-handler="copyCourseFromMessage" data-courseid="{{courseid}}" data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-primary pull-left">
+                    <i class="icon fa fa-archive"></i>
+                    {{#str}}eventdublicatetoteacher, community_sharecourse{{/str}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+{{/copy_course_to_teacher}}
+
+{{#copy_to_teacher_sequence}}
+    <div class="card petel-notification mb-3 border border-primary rounded" data-id="{{id}}">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 text-white bg-primary">
+            <h6 class="h5 mb-0" role="heading" tabindex="0">{{#str}}correspondence, message_petel{{/str}}</h6>
+            <a type="button" class="close btn p-0 text-white" aria-label="Close" rel="{{id}}">
+                <span class="h3 mb-0" aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="px-3 py-2 text-primary">
+            <div class="card-author d-flex align-items-center mb-2">
+                <div class="border border-primary rounded-circle mr-2 d-flex justify-content-center avatar">
+                    <img src="{{{teacher_image}}}" alt="{{#str}}notificationimage, message{{/str}}" />
+                </div>
+                <a href="#" class="text-justify h5 mb-0 font-weight-normal">
+                    {{firstname}} {{lastname}}
+                </a>
+            </div>
+            <div class="card-content border rounded p-2 pb-3 mb-3 text-align-justify">
+                <div class="mb-1 text-muted">{{dateformat}} | {{timeformat}}</div>
+                <div class="mb-1 text-align-justify">
+                    {{{content}}}
+                </div>
+                <div class="mb-1">
+                    <a target="_blank" href="{{{activityurl}}}" class="text-muted">{{{activityurl}}}</a>
+                </div>
+                <div class="mb-1 text-align-justify">
+                    {{{message}}}
+                </div>
+            </div>
+            <div class="card-buttons d-flex align-items-center justify-content-between">
+                <a data-handler="openDialog" data-cmid="{{activityid}}" data-activitysharing="{{activityid}}" data-sequence=true data-message_id="{{id}}" href="javascript:void(0);" class="btn btn-primary pull-left">
+                    <i class="icon fa fa-archive"></i>
+                    {{#str}}eventdublicatetoteacher, community_sharewith{{/str}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+{{/copy_to_teacher_sequence}}
+
+{{#js}}
+    require(['jquery', 'message_petel/close_notification'], function($, Close) {
+        Close.init(function(messageid) {
+            $('.petel-notification').each(function() {
+                var num = $( this ).attr('data-id');
+                if(num == messageid){
+                    var url = window.location.href;
+                    $(location).attr("href", url);
+                }
+            });
+        });
+    });
+
+    require(['jquery', 'message_petel/handlers'], function($, Handler) {
+        Handler.init(function(messageid){
+            $('.petel-notification').each(function() {
+                var num = $( this ).attr('data-id');
+                if(num == messageid){
+                    var url = window.location.href;
+                    $(location).attr("href", url);
+                }
+            });
+        });
+    });
+{{/js}}

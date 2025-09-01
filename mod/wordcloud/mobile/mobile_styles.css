@@ -1,0 +1,33 @@
+.w1 {
+    font-size: 1.5em;
+}
+
+.w2 {
+    font-size: 2em;
+}
+
+.w3 {
+    font-size: 2.5em;
+}
+
+.w4 {
+    font-size: 3em;
+}
+
+.w5 {
+    font-size: 3.5em;
+}
+
+.w6 {
+    font-size: 4em;
+}
+
+.word {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}

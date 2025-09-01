@@ -1,0 +1,67 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_boost/footer
+
+    Page footer.
+
+    Example context (json):
+    {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>
+            <span class="footer-link-divider mb-3"></dispan,
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
+    }
+}}
+
+<footer id="page-footer" class="bg-primary {{^footerdisabled}}d-flex{{/footerdisabled}} text-white pt-3 px-3 {{#footerdisabled}} d-none {{/footerdisabled}}">
+    <div class="footer-inner d-flex align-items-center justify-content-center flex-wrap" data-region="footer-content-popover">
+        <div class="logo-wrapper mb-3"></div>
+        <div class="d-block mx-auto mx-lg-0">
+            <p class="copyright mb-2">
+                <i class="fa-light fa-copyright mr-2"></i>
+                {{#str}}all_rights_reserved, theme_petel {{/str}}
+            </p>
+            <div class="footer-links align-items-center justify-content-center justify-content-lg-start d-flex  flex-wrap">
+                {{{ output.standard_footer_html }}}
+            </div>
+        </div>
+    </div>
+    <div class="footer-content-debugging footer-dark text-light d-block">
+        <div class="container-fluid footer-dark-inner">
+            {{{ output.debug_footer_html }}}
+        </div>
+    </div>
+      {{{ output.standard_end_of_body_html }}}
+
+      {{{ output.footer_ip_html }}}
+</footer>
+
+{{#uicontentgender}}
+    {{#js}}
+        require(['theme_petel/ivrita'], function(ivrita) {
+            if ('{{uicontentgender}}' != 'OFF') {
+                var petel_ivrita = new ivrita(document.querySelector('#region-main'), ivrita.{{uicontentgender}} );
+            }
+        });
+    {{/js}}
+{{/uicontentgender}}

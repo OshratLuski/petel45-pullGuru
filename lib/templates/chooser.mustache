@@ -1,0 +1,162 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/chooser
+
+    Chooser.
+
+    Example context (json):
+    {
+        "title": "Chooser title",
+        "method": "post",
+        "actionurl": "http://example.org/test",
+        "instructions": "Choose one:",
+        "paramname": "param",
+        "sections": [{
+            "id": "section-1",
+            "label": "Section one",
+            "items": [{
+                "label": "item one",
+                "description": "description one"
+            }]
+        }]
+    }
+}}
+<div class="hd choosertitle">
+    {{title}}
+</div>
+
+<div class="chooserdialoguebody">
+    <div class="choosercontainer">
+        <div id="chooseform">
+            <form action="{{actionurl}}" id="chooserform" method="{{method}}">
+                <div id="typeformdiv">
+                    {{#params}}
+                        <input type="hidden" id="{{id}}" name="{{name}}" value="{{value}}">
+                    {{/params}}
+                    <input type="hidden" name="sesskey" value="{{sesskey}}">
+                </div>
+
+                <div data-region="chooser-container" class="chooser-container">
+                    <div class="nav nav-tabs flex-shrink-0 z-index-1" id="activities-{{uniqid}}" role="tablist">
+                        <a class="nav-item nav-link"
+                           id="favourites-tab-{{uniqid}}"
+                           data-toggle="tab"
+                           data-region="favourite-tab-nav"
+                           href="#favourites-{{uniqid}}"
+                           role="tab"
+                           aria-label="{{#str}} aria:favouritestab, core_course {{/str}}"
+                           aria-controls="favourites-{{uniqid}}"
+                           aria-selected="{{#favouritesFirst}}true{{/favouritesFirst}}{{^favouritesFirst}}false{{/favouritesFirst}}"
+                           tabindex="{{#favouritesFirst}}0{{/favouritesFirst}}{{^favouritesFirst}}-1{{/favouritesFirst}}"
+                        >
+                            {{#str}} favourites, core {{/str}}
+                        </a>
+                        <a class="nav-item nav-link"
+                           id="recommend-tab-{{uniqid}}"
+                           data-toggle="tab"
+                           data-region="recommend-tab-nav"
+                           href="#recommend-{{uniqid}}"
+                           role="tab"
+                           aria-label="{{#str}} aria:recommendedtab, core_course {{/str}}"
+                           aria-controls="recommend-{{uniqid}}"
+                           aria-selected="false"
+                           tabindex="-1"
+                        >
+                            {{#str}} recommended, core {{/str}}
+                        </a>
+                        <a class="nav-item nav-link {{^showAll}}active{{/showAll}}"
+                           id="all-tab-{{uniqid}}"
+                           data-toggle="tab"
+                           data-region="default-tab-nav"
+                           href="#all-{{uniqid}}"
+                           role="tab"
+                           aria-label="{{#str}} aria:defaulttab, core_course {{/str}}"
+                           aria-controls="all-{{uniqid}}"
+                           aria-selected="{{#fallback}}true{{/fallback}}{{^fallback}}false{{/fallback}}"
+                           tabindex="{{#fallback}}0{{/fallback}}{{^fallback}}-1{{/fallback}}"
+                        >
+                            {{#str}} all, core {{/str}}
+                        </a>
+                    </div>
+                    <div class="tab-content flex-fill border-left border-right border-bottom bg-light" id="tabbed-activities-{{uniqid}}">
+                        <div class="tab-pane all-tab active" id="all-{{uniqid}}" data-region="default" role="tabpanel" aria-labelledby="all-tab-{{uniqid}}">
+                            <div class="options">
+                                <div class="instruction">
+                                    {{instructions}}
+                                </div>
+                                <div class="alloptions">
+                                    {{#sections}}
+                                        <fieldset>
+                                            {{#items}}
+                                                {{>core/chooser_item}}
+                                            {{/items}}
+                                        </fieldset>
+                                    {{/sections}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane favorite-tab" id="favourites-{{uniqid}}" data-region="favourites" role="tabpanel" aria-labelledby="favourites-tab-{{uniqid}}">
+                            <div class="options">
+                                <div class="instruction">
+                                    {{instructions}}
+                                </div>
+                                <div class="alloptions" style="max-height: 504px; min-height: 240px;">
+                                    {{#sections}}
+                                        <fieldset>
+                                            {{#items}}
+                                                {{>local_question_chooser/chooser_item_favorite}}
+                                            {{/items}}
+                                        </fieldset>
+                                    {{/sections}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane recommend-tab" id="recommend-{{uniqid}}" data-region="recommend" role="tabpanel" aria-labelledby="recommend-tab-{{uniqid}}">
+                            <div class="options">
+                                <div class="instruction">
+                                    {{instructions}}
+                                </div>
+                                <div class="alloptions" style="max-height: 504px; min-height: 240px;">
+                                    {{#sections}}
+                                        <fieldset>
+                                            {{#items}}
+                                                {{>local_question_chooser/chooser_item_recommend}}
+                                            {{/items}}
+                                        </fieldset>
+                                    {{/sections}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submitbuttons">
+                    <input type="submit" name="submitbutton" class="submitbutton btn btn-primary" value="{{#cleanstr}}add{{/cleanstr}}">
+                    <input type="submit" name="addcancel" class="addcancel btn btn-secondary" value="{{#cleanstr}}cancel{{/cleanstr}}">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+    require(['local_question_chooser/question_chooser'], function(Chooser) {
+        Chooser.init();
+    });
+{{/js}}

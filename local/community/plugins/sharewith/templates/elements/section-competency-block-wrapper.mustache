@@ -1,0 +1,27 @@
+{{#ifavailability}}
+    <div class="form-group custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="ifavailability" value="1" id="availability">
+        <label class="custom-control-label" for="availability">{{#str}}availability_describe,
+            community_sharewith{{/str}}</label>
+    </div>
+{{/ifavailability}}
+
+{{#ifglossary}}
+    <div class="form-group custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="ifglossary" value="1" id="glossary">
+        <label class="custom-control-label" for="glossary">{{#str}}glossary_describe,
+            community_sharewith{{/str}}</label>
+    </div>
+{{/ifglossary}}
+
+{{#ifdatabase}}
+    <div class="form-group custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="ifdatabase" value="1" id="database">
+        <label class="custom-control-label" for="database">{{#str}}database_describe,
+            community_sharewith{{/str}}</label>
+    </div>
+{{/ifdatabase}}
+
+<div class="section-competency-block-wrapper">
+  {{>community_sharewith/elements/section-competency-block}}
+</div>

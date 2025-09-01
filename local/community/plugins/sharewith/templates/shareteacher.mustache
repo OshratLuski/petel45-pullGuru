@@ -1,0 +1,121 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template community_sharewith/select_teacher
+
+    Example context (json):
+    {
+        "activityid": "11",
+        "activityname": "Quiz 1",
+        "courseid": "2",
+        "config": "",
+        "teachers": [
+            {
+                "teacher_name": "Adam Smith",
+                "teacher_url": "",
+                "date": "01.01.1970",
+                "time": "23:59"
+            }
+        ]
+    }
+}}
+<div class="modal-header bg-secondary p-1 text-white">
+    <h5 class="modal-title">{{#str}}selectteacher, community_sharewith{{/str}}</h5>
+    <button type="button" data-ref="close" class="close text-white d-flex align-items-center justify-content-center m-0" data-dismiss="modal" aria-label="Close" id="yui_3_17_2_1_1569598769750_3060">
+        <i class="fa-light fa-circle-xmark"></i>
+    </button>
+</div>
+
+<div class = "p-3">
+    <div class = "tag-wrapper d-flex mb-2">
+      <div class = "btn btn-outline-primary mr-2 d-none example" data-handler = "removeTag">
+        <i class="icon fa fa-times"></i>
+      </div>
+    </div>
+    <div class = "mb-4">
+        <div class = "form-group d-flex flex-column position-relative">
+            <label for="selectteacher" class="mb-0 alert-secondary border rounded-top p-1">{{#str}}share_with_teacher, community_sharewith{{/str}}</label>
+            <input
+                class = "form-control mb-0 border-top-0 w-100"
+                type = "text"
+                data-handler = "selectTeacher"
+                data-placement = "top"
+                data-trigger="manual"
+                data-content = "{{#str}}enter_teacher_here, community_sharewith{{/str}}"
+                placeholder="{{#str}}enter_teacher_here, community_sharewith{{/str}}">
+            <ul class = "result-block d-none"></ul>
+        </div>
+
+        <div class = "form-group">
+            <textarea id="message_for_teacher" class = "form-control" placeholder="{{#str}}comment_to_teacher, community_sharewith{{/str}}"></textarea>
+        </div>
+    </div>
+
+    <div id="error_share_to_teacher" class="alert alert-danger" style="display:none;" role="alert">
+        {{#str}}error_share_to_teacher, community_sharewith{{/str}}
+    </div>
+
+    <div class = "form-group d-flex flex-column border rounded-top">
+        <p class = "mb-0 alert-secondary border-bottom rounded-top p-1 px-2">{{#str}}teachers_youve_sent, community_sharewith{{/str}}</p>
+        <div class="d-flex">
+            {{#teachers}}
+            <div class = "d-flex border border-secondary m-1 p-2">
+                <div class = "sw-img">
+                    <img src="{{#teacher_url}}{{teacher_url}}{{/teacher_url}}{{^teacher_url}}/theme/image.php/boost/core/1559478333/u/f2{{/teacher_url}}" alt="{{#str}}user_foto, community_sharewith{{/str}}">
+                </div>
+                <span class = "pl-2">{{teacher_name}}</span>
+            </div>
+            {{/teachers}}
+            {{^teachers}}
+            <div class = "mb-0 d-flex align-items-center p-2">{{#str}}nosharing, community_sharewith{{/str}}</div>
+            {{/teachers}}
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-secondary" type="button" data-handler = "goBack">{{#str}}back, community_sharewith{{/str}}</button>
+  <button
+      class = "btn btn-success"
+      data-handler = "sendLinkToTeachers"
+      type = "button"
+      >
+      <div id ="modalspinner" class="spinner-border spinner-border-sm d-none" role="status">
+<!--          <span class = "sr-only">loading...</span>-->
+      </div>
+<!--      <span class = "spinner-loading">{{#str}}loading, community_sharewith{{/str}}</span>-->
+      <span>{{#str}}send, community_sharewith{{/str}}</span>
+    </button>
+</div>
+
+{{#js}}
+    require(['jquery', 'core/str'], function ($, Str) {
+        Str.get_strings([
+            {key: 'enter_course_here', component: 'community_sharewith'},
+        ]).done(function (strings) {
+
+            $(".smartselect2").select2({
+                dropdownAutoWidth: true,
+                placeholder: "   " + strings[0] + "   ",
+            });
+
+            // Event on select.
+            $('.smartselect2').on('select2:select', function (e) {
+            });
+        })
+    })
+{{/js}}

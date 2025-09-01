@@ -1,0 +1,19 @@
+{{#celltransform}}
+    {{#link}}
+        <a href={{link}} target=popup class=cellqlink><div class={{questionstateclass}} state><div class=sr-only>{{questionstate}}</div><div class=numerical_value>{{grade}}</div></div></a>
+    {{/link}}
+
+    {{^link}}
+        <div class=cellqlink><div class={{questionstateclass}} state><div class=sr-only>{{questionstate}}</div><div class=numerical_value>{{grade}}</div></div></div>
+    {{/link}}
+{{/celltransform}}
+
+{{^celltransform}}
+    {{#link}}
+        <a href={{link}} target=popup class=cellqlink><div class= state><div>{{questionstate}}</div></div></a>
+    {{/link}}
+
+    {{^link}}
+        <div class=cellqlink><div class= state><div>{{questionstate}}</div></div></div>
+    {{/link}}
+{{/celltransform}}

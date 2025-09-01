@@ -1,0 +1,91 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_coursecopy/main
+
+    Display block data
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Example context (json):
+    {
+    }
+}}
+<div id="question_list_original" class="question-list-parent">
+    <div class="question-list-block">
+        <div class="question-list-button">
+            <div class="question-button-body">
+                <!-- <img class="img-ico" src="icons/gr.jpg" /> -->
+                <i class="far fa-analytics img-ico"></i>
+                {{! <i class="far fa-chart-bar img-ico"></i> }}
+            </div>
+            <div class="q-lright-icon"><i class="fa fa-angle-left"></i>
+            </div>
+        </div>
+        <div class="question-list">
+        </div>
+    </div>
+</div>
+<form method="post" class="diagnostic">
+    <input type="hidden" name="courseid" value="{{courseid}}">
+    <div class="row no-gutters">
+        <div class="form-group daterange-select">
+            <label for="daterange" class="daterange-label">
+                <i class="fas fa-caret-down"></i>
+            </label>
+            <input type="text" class="form-control daterange btn btn-primary" id="daterange" value="{{daterange}}" placeholder="MM/DD/YYYY"></input>
+        </div>
+        <div class="form-group required">
+            <select name="cmids" class="form-control cmids">
+                <option value="" selected class="d-none"></option>
+            {{#sections}}
+                <optgroup label="{{name}}">
+                    {{#quizzes}}
+                        <option value="{{cmid}}" class="{{type}}">{{name}}</option>
+                    {{/quizzes}}
+                </optgroup>
+            {{/sections}}
+            </select><br />
+        </div>
+        <!--<div class="ufo col-12 text-center"><img src="{{imageurl}}" /></div>
+        <div class="tip col-12 text-center">{{#str}}popuptip, local_diagnostic{{/str}}</div>-->
+        <div class="col-12 text-center">
+            <div class="svgСharts">
+
+                <div class="ufo-image-block">
+                    <svg>
+                        <filter id="ufo-filter" color-interpolation-filters="sRGB"
+                                x="0" y="0" height="100%" width="100%">
+                        <feColorMatrix type="matrix"
+                            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                        </filter>
+                    </svg>
+                    <img class="nlo" src="{{imageContent}}">
+                    <img src="{{imageTop}}" class="profile-pic ufo-image-top" style="color:{{secondarycolor}};">
+                </div>
+                <p class="bottom-start-text">{{#str}}popuptip, local_diagnostic{{/str}}</p>
+            </div>
+            <div class="hidden loading-icon-container" data-region="loading-icon-container">
+                    {{> core/loading }}
+            </div>
+        </div>
+    </div>
+</form>

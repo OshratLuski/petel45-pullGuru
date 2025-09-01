@@ -1,0 +1,44 @@
+{{#competencyenabled}}
+<div class="bg-white" id="competenciestable">
+    <div class="">
+        <h2 role="button" data-toggle="collapse" data-target="#competencies-table-collapse" aria-expanded="true"
+            aria-controls="competencies-table-collapse">
+            {{#str}}competencies_title, quiz_advancedoverview{{/str}}
+        </h2>
+        <div class="collapse show" id="competencies-table-collapse">
+            <div class="row mb-3">
+                <div class="col-7">
+                    <div class="competencies-table-subtitle">
+                         {{#str}} listoftopics, quiz_advancedoverview {{/str}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="competencies-table-subtitle">
+                        {{#str}} classsuccess, quiz_competencyoverview{{/str}}
+                    </div>
+                </div>
+            </div>
+            {{#skills}}
+            <div class="row">
+                <div class="col-7">
+                    <div class="competencies-table-text mb-3">
+                        {{ name }} ( {{ numquestions }} {{#str}} questions, quiz_advancedoverview {{/str}})
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3 w-100 d-flex align-items-center">
+                        <div class="rate-text">{{ rate }}%</div>
+                        <div class="skillsbar-wrapper d-flex">
+                            <div class="skillsbar {{ colorclass }}" style="width: {{ rate }}%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/skills}}
+            <div class="mt-2">
+                {{{ competencybutton }}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/competencyenabled}}

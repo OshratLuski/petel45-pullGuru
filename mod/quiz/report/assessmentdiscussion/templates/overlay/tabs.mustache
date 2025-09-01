@@ -1,0 +1,13 @@
+<nav class="moremenu navigation observed mb-0 px-0">
+    <ul id="" role="menubar" class="nav more-nav nav-tabs border-0">
+        {{#tabs}}
+            <li data-key="modulepage" class="nav-item" role="none" data-forceintomoremenu="false">
+                <button role="button" class="nav-link text-secondary {{#active}}active{{/active}} {{#disable}}disabled{{/disable}}" {{#clickable}} data-handler="overlay_tab" {{/clickable}}
+                        aria-current="true" href="javascript:void(0)" tabindex="-1" data-id="{{id}}" {{#disable}}disabled{{/disable}}>
+                    {{{icon}}}
+                    {{name}} <span class="ml-1">({{count}})</span>
+                </button>
+            </li>
+        {{/tabs}}
+    </ul>
+</nav>

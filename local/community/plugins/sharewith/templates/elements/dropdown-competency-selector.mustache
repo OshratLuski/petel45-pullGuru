@@ -1,0 +1,11 @@
+<div class="competency-auotocmplete-wrapper sticky-top px-3 py-2 bg-white">
+    <input type="text" class="form-control w-100" id="competency-auotocmplete"/>
+</div>
+<div class="competencies-wrapper px-3 pb-3">
+    {{#competencies}}
+    <div class="dropdown-item competency-dropdown-item custom-control custom-checkbox pr-2" data-comp_id="{{{competency_id}}}" data-comp_name="{{{competency_name}}}">
+        <input type="checkbox" class="custom-control-input" id="competencyCheck-{{{competency_id}}}-{{{unique}}}">
+        <label class="custom-control-label w-100" for="competencyCheck-{{{competency_id}}}-{{{unique}}}">{{{competency_name}}}</label>
+    </div>
+    {{/competencies}}
+</div>

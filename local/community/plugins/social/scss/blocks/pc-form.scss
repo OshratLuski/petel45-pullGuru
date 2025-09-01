@@ -1,0 +1,107 @@
+.social {
+
+  .pc-from {
+
+  }
+  .pc-form_wrap {
+    padding: 15px 40px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+  .pc-form_text {
+    text-align: left;
+    margin: 0;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: inherit;
+  }
+
+  .pc-form_head {
+    text-align: left;
+    margin: 0;
+    margin-top: 30px;
+    font-weight: $font-weight-semibold;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: inherit;
+  }
+
+  .pc-form_courses {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 60vh;
+    & input {
+      display: none;
+    }
+  }
+
+  .pc-form_course {
+    width: 95%;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    margin-bottom: 21px;
+    height: 83px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: .3s;
+    &:hover {
+      box-shadow: -3px 4px 4px 1px #c2c2c2;
+    }
+  }
+
+  .pc-forum_course-img {
+    width: 100px;
+    height: 100%;
+    flex-shrink: 0;
+    background-position: top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ddd;
+  }
+
+  .pc-forum_course-text {
+    display: flex;
+    flex-direction: column;
+    padding: 7px 11px;
+  }
+  .pc-form_course-desc {
+    text-align: left;
+    margin: 0;
+    max-height: 26px;
+    overflow: hidden;
+  }
+
+  .pc-form_courses input:checked + label {
+    background-color: #ded2f1;
+  }
+
+  .pc-form_course-name {
+    margin-bottom: 6px;
+    color: $purple;
+    font-weight: $font-weight-extrabold;
+    font-size: 30px;
+    line-height: 30px;
+    font-family: inherit;
+  }
+
+  // .pc-form_buttons {
+  //   display: flex;
+  //   padding: 31px 14px;
+  //   padding-bottom: 9px;
+  //   justify-content: flex-end;
+  //   & .btn {
+  //     padding: 0 24px;
+  //     font-weight: $font-weight-normal;
+  //   }
+  // }
+
+
+
+}

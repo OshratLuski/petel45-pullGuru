@@ -1,0 +1,109 @@
+#page-footer {
+    .logo-wrapper {
+        width: 13.86513rem;
+        height: 2.08556rem;
+        background-image: url([[pix:theme_petel|petel_footer_logo]]);
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 4.25rem;
+    }
+
+    .footer-inner {
+        margin: 0 auto;
+    }
+
+    .copyright {
+        font-size: 1rem;
+    }
+
+    .footer-link {
+        font-size: 1rem;
+        font-family: $primary-font;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        text-decoration: underline;
+        white-space: nowrap;
+        height: 1.5rem;
+        &:active {
+            text-shadow: 0 0 .0344rem currentColor,
+                        0 0 .0344rem currentColor,
+                        0 0 .0344rem currentColor,
+                        0 0 .0344rem currentColor;
+            transition: all ease .25s;
+        }
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            text-shadow: 0 0 .0344rem currentColor, 0 0 .0344rem currentColor;
+            text-decoration: underline;
+            transition: all ease .25s;
+            &:active {
+                text-shadow: 0 0 .0344rem currentColor,
+                             0 0 .0344rem currentColor,
+                             0 0 .0344rem currentColor,
+                             0 0 .0344rem currentColor;
+
+            }
+        }
+    }
+
+    .footer-link-divider {
+        display: inline-flex;
+        height: 1.5rem;
+        width: .0625rem;
+        background-color: $white;
+        margin: 0 1rem;
+    }
+    margin-left: -3rem;
+    margin-right: -3rem;
+}
+
+@include media-breakpoint-down(lg) {
+    #page-footer {
+        .logo-wrapper {
+            margin: 0 1rem;
+        }
+
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #page-footer {
+        .copyright {
+            text-align: center;
+        }
+        .logo-wrapper {
+            margin: 0 auto;
+        }
+    }
+
+    .footer-inner {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px){
+
+    #page.drawers {
+        margin-left: 0;
+        margin-right: 0;
+        overflow-y: auto;
+    }
+    #page-footer {
+        margin-right: 0;
+        margin-left: 0;
+      }
+}
+
+
+
+  @media (min-width: 992px) {
+    #page.show-drawer-right,
+    #page.drawers.show-drawer-left.show-drawer-right {
+      #page-footer {
+        margin-right: -1rem;
+      }
+    }
+  }

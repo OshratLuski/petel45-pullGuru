@@ -1,0 +1,51 @@
+<div class="quizpreset-selector-block">
+
+    <input type="hidden" id="defaulttype_for_save" name="" value="{{details.type}}">
+    <input type="hidden" id="viewall_for_save" name="" value="{{details.viewall}}">
+
+    {{#selector.items_enable}}
+        <ul class="types-selector">
+        {{#selector.items}}
+            {{> local_quizpreset/selector_item}}
+        {{/selector.items}}
+        </ul>
+    {{/selector.items_enable}}
+
+    <input id="presetId" type="hidden" value="{{selector.activeDbId}}">
+    <input id="cmcontextid" type="hidden" value="{{selector.cmcontextid}}">
+
+    {{#selector.activeDescribeEnable}}
+        <div class="selector-type-description">{{selector.activeDescribe}}</div>
+    {{/selector.activeDescribeEnable}}
+
+    {{#details.enablegardes}}
+
+        {{#details.userexposure}}
+            <div class="mdl-align">
+                <a id="quiz-grade-button" href="javascript:void(0);" class="btn btn-secondary">
+                    {{# str }} buttondisablegrades, local_quizpreset {{/ str }}
+                </a>
+                <input id="quiz-grade" type="hidden" name="userexposure" value="1">
+            </div>
+        {{/details.userexposure}}
+
+        {{^details.userexposure}}
+            <div class="mdl-align">
+                <a id="quiz-grade-button" href="javascript:void(0);" class="btn btn-primary">
+                    {{# str }} buttonenablegrades, local_quizpreset {{/ str }}
+                </a>
+                <input id="quiz-grade" type="hidden" name="userexposure" value="0">
+            </div>
+        {{/details.userexposure}}
+
+    {{/details.enablegardes}}
+
+</div>
+
+{{#js}}
+    require(['jquery', 'local_quizpreset/preset'], function ($, Preset) {
+        if(!$('#save-my-preset').length){
+            Preset.configureSaveMyPreset();
+        }
+    });
+{{/js}}

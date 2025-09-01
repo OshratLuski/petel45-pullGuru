@@ -1,0 +1,262 @@
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) {
+
+    .nav-link svg.mr-2 path,
+    .carret path,
+    #viewtypeCarousel svg path {
+        fill: $primary;
+    }
+
+    #questionsTabs {
+        .nav.nav-tabs {
+            background-color: $light;
+
+            .nav-item {
+                .nav-link {
+                    color: $body-color;
+                    background-color: $light;
+
+                    svg.mr-2 path {
+                        fill: $primary;
+                    }
+
+                    &.active {
+                        background-color: $secondarymedium;
+                        border-color: $secondarymedium;
+
+                        p {
+                            color: $white;
+                        }
+
+                        &:hover {
+                            background-color: $secondary;
+                            border-color: $secondary;
+
+                            p {
+                                color: $white;
+                            }
+                        }
+
+                        //  &:focus {
+                        //      color: $body-color;
+                        //      background-color: $petel-secondarylight;
+                        //      border-color: $petel-secondary;
+                        //      box-shadow: none;
+                        //      p{
+                        //          color: $body-color;
+                        //      }
+                        //  }
+                    }
+
+                    &:hover {
+                        color: $body-color;
+                        background-color: $secondarylight;
+                        border-color: $secondarylight;
+
+                        p {
+                            color: $body-color;
+                        }
+                    }
+
+                    &:focus {
+                        color: $body-color;
+                        background-color: $secondarylight;
+                        border-color: $secondarymedium;
+                        box-shadow: none;
+
+                        p {
+                            color: $body-color;
+                        }
+                    }
+
+                    &.disabled {
+                        background-color: $gray-300;
+                        border-color: $gray-300;
+                    }
+                }
+            }
+        }
+    }
+
+    .assessmentdiscussion_report-toggle {
+        label {
+            background-color: $white;
+            outline-color: $secondarymedium;
+
+            &::after {
+                background-color: $secondary;
+            }
+        }
+
+        .link-btn-text {
+            color: $body-color;
+        }
+
+        input:checked+label {
+            background: $warning;
+        }
+    }
+
+    .assessmentdiscussion_report-dropdown-btn {
+        border: .0625rem solid $secondary;
+        background: #fff;
+        color: $secondary;
+    }
+
+    .assessmentdiscussion_report-dropdown-btn-title {
+        color: $secondary;
+    }
+
+    .question-block-item {
+        .question-block-title-icon {
+            path {
+                fill: $primary;
+            }
+        }
+
+        .openquestion {
+            color: $gray-700;
+        }
+
+        &.active {
+            border: .0625rem solid $secondarymedium;
+            background-color: $light;
+        }
+
+        &:hover {
+            border: .0625rem solid $secondarymedium;
+        }
+    }
+
+    .answer-block-wrapper {
+        .question-head {
+            .btn {
+                svg path {
+                    fill: $secondary;
+                }
+            }
+        }
+
+        .toggle-secription {
+            svg path {
+                fill: $secondary;
+            }
+        }
+        .answer-item-head-icon {
+            svg path {
+                fill: $secondary;
+            }
+        }
+    }
+
+    .discussion-state-btn {
+        path {
+            fill: $secondary;
+        }
+
+        .hover {
+            display: none;
+        }
+
+        &:hover,
+        &:active,
+        &:focus,
+        &.active {
+            outline: none;
+            box-shadow: none;
+
+            path {
+                fill: $secondary;
+            }
+
+            .default {
+                display: none;
+            }
+
+            .hover {
+                display: block;
+            }
+        }
+
+        &:active,
+        &.active {
+            background-color: $petel-light;
+            border: .0625rem solid $primary;
+        }
+    }
+
+    .sticky-stripe {
+        color: $body-color;
+
+        .advancedoverview_report-toggle input:checked+label {
+            background-color: $body-color;
+        }
+    }
+
+    .arrow,
+    #viewtypeList {
+        path {
+            fill: $primary;
+        }
+    }
+
+    .answeroverlay {
+
+        .moremenu.navigation,
+        .arrow {
+            svg path {
+                fill: $primary;
+            }
+        }
+
+        .answeroverlay-menu-wrapper {
+            .moremenu button.nav-link.active {
+                border-bottom-color: $secondary;
+            }
+        }
+
+        .viewtype-btn {
+
+            &:hover,
+            &:active,
+            &.active {
+                border: .0625rem solid $primary;
+                background: $petel-light;
+
+                path {
+                    fill: $primary;
+                }
+            }
+        }
+
+        .answeroverlay-carousel {
+            .answeroverlay-carousel-control {
+
+                &-inner {
+                    path {
+                        fill: $secondary;
+                    }
+                }
+            }
+
+            &:has(.answeroverlay-carousel-item:first-child.active) {
+                .answeroverlay-carousel-control-prev {
+                    cursor: default;
+
+                    path {
+                        fill: $gray-400;
+                    }
+                }
+            }
+
+            &:has(.answeroverlay-carousel-item:last-child.active) {
+                .answeroverlay-carousel-control-next {
+                    cursor: default;
+
+                    path {
+                        fill: $gray-400;
+                    }
+                }
+            }
+        }
+    }
+}

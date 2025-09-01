@@ -1,0 +1,92 @@
+#splitpanel {
+    position: relative;
+    height: 75vh !important;
+
+    .vsplitter {
+        background-color: $gray-300;
+        cursor: col-resize;
+        z-index: 9900;
+        width: .625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hsplitter {
+        background-color: $gray-600;
+        cursor: row-resize;
+        z-index: 800;
+        height: .4375rem;
+    }
+
+    .vsplitter::before {
+        font-family: "FontAwesome";
+        content: "\f142";
+        color: $gray-700;
+        font-size: x-large;
+    }
+
+    .vsplitter.splitter-invisible,
+    .hsplitter.splitter-invisible {
+        background: none;
+    }
+
+    .vsplitter,
+    .left_panel,
+    .right_panel,
+    .hsplitter,
+    .top_panel,
+    .bottom_panel,
+    .horizontal_panel,
+    .vertical_panel {
+        position: absolute;
+        overflow: auto;
+    }
+
+    .vsplitter,
+    .left_panel,
+    .right_panel,
+    .vertical_panel {
+        height: 100%;
+    }
+
+    .hsplitter,
+    .top_panel,
+    .bottom_panel,
+    .horizontal_panel {
+        width: 100%;
+    }
+
+    .top_panel,
+    .left_panel,
+    .vsplitter,
+    .vertical_panel {
+        top: 0;
+    }
+
+    .top_panel,
+    .bottom_panel,
+    .left_panel,
+    .hsplitter,
+    .horizontal_panel {
+        left: 0;
+    }
+
+    .bottom_panel {
+        bottom: 0;
+    }
+
+    .right_panel {
+        right: 0;
+    }
+
+    .splitterMask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+    }
+
+}

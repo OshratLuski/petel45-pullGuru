@@ -1,0 +1,17 @@
+<h3 class="support_modal_inner-title question">{{# str }} do_you_have_question_to_teacher, local_redmine {{/ str }}</h3>
+<p class="support_modal_inner-text">{{# str }} here_you_can_ask_your_teacher, local_redmine {{/ str }}</p>
+
+<h3 class="support_modal_inner-title tell_more">{{# str }} my_question, local_redmine {{/ str }}</h3>
+<textarea id="more_info" class="w-100 mb-3" rows="4"></textarea>
+
+<div class="more_info_error alert alert-danger" style="display: none;" role="alert">
+    {{# str }} more_info_error, local_redmine {{/ str }}
+</div>
+
+<h3 class="support_modal_inner-title almost_done" style="display:none">{{# str }} were_almost_done, local_redmine {{/ str }}</h3>
+<textarea id="upload_info" class="w-100 mb-3" rows="4" style="display:none;"></textarea>
+
+<h3 class="support_modal_inner-title tell_more">{{# str }} screenshot_question, local_redmine {{/ str }}</h3>
+<div class="w-100 image-preview-scroll mb-3">
+    <img id="support-student-sreenshot" src="{{{screenshot}}}" alt="" class="img-responsive">
+</div>

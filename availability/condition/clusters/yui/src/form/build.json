@@ -1,0 +1,10 @@
+{
+  "name": "moodle-availability_clusters-form",
+  "builds": {
+    "moodle-availability_clusters-form": {
+      "jsfiles": [
+        "form.js"
+      ]
+    }
+  }
+}

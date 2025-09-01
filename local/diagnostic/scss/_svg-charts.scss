@@ -1,0 +1,295 @@
+/**************************************SVGCHARTS**************************/
+.svgСharts {
+  position: relative;
+  margin-top: -56px;
+}
+
+.svgСharts .bottom-block {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.svgСharts .bottom-container {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.svgСharts .tooltip-block,
+.svgСharts .tooltip-block-n {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: #514571;
+  border-radius: 5px;
+}
+
+
+.svgСharts .tooltip-block .icon-info {
+  position: relative;
+  top: 5px;
+  font-size: 18px;
+}
+
+.svgСharts .tooltip-block .fa-file-excel {
+  position: relative;
+  cursor: pointer;
+  top: 4px;
+  font-size: 18px;
+}
+
+.svgСharts .tooltip-block-n {
+  cursor: pointer;
+}
+
+.svgСharts .tooltip-block .icon-cub,
+.svgСharts .tooltip-block-n .icon-cub {
+  position: relative;
+  top: 5px;
+  font-size: 18px;
+}
+
+.svgСharts .svgСharts-tooltip {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 5px 10px;
+  position: absolute;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.svgСharts .svgСharts-tooltip::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  bottom: -6px;
+  margin-left: -5px;
+  border-width: 1px;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  transform: rotate(45deg);
+  border-color: #000;
+  border-left: 0;
+  border-top: 0;
+  background: #fff;
+}
+
+.svgСharts .image[data-select="select"] {
+  text-shadow: 0 0 3px #000;
+  color: #fff !important;
+}
+
+.svgСharts .small-user-title {
+  position: relative;
+  font-size: 7px;
+  text-align: center;
+  visibility: hidden;
+  line-height: 7.4px;
+}
+
+.svgСharts .nlo {
+  margin-top: 80px;
+  margin-bottom: 14px;
+  max-width: 503px;
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-black{
+  background: #220f44;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-black a{
+  color: #ffffff;
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-black::after {
+  background: #220f44;
+}
+
+.svgСharts div.claster-name{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.svgСharts .tooltip-list-title{
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.svgСharts .tooltip-list{
+  font-size: 12px;
+}
+
+.svgСharts .two-buttons{
+  flex: auto;
+  display: none;//flex;
+  justify-content: space-evenly;
+  padding-top: 6px;
+}
+
+.svgСharts .two-buttons .two-buttons-p-center{
+  background: #ffffff;
+  height: 11px;
+  width: 18px;
+}
+
+.svgСharts .two-buttons .two-buttons-list i{
+  transform: scale(-1, 1);
+  font-size: 17px;
+}
+
+.svgСharts .two-buttons .two-buttons-p-center i{
+  position: relative;
+  top: -4px;
+  font-size: 19px;
+  transform: scale(-1, 1);
+}
+
+.svgСharts .two-buttons-list{
+  position: relative;
+}
+
+.svgСharts .two-buttons-list .line1{
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  background: #ffffff;
+  width: 12.5px;
+  height: 2.7px;
+}
+
+.svgСharts .two-buttons-list .line2{
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  background: #ffffff;
+  width: 12.5px;
+  height: 2.7px;
+}
+
+.svgСharts .two-buttons-list .line3{
+  position: absolute;
+  left: 4px;
+  top: 16px;
+  background: #ffffff;
+  width: 12.5px;
+  height: 2.7px;
+}
+
+.svgСharts .two-buttons-list-b,
+.svgСharts .two-buttons-picture-b{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.svgСharts .two-buttons-list,
+.svgСharts .two-buttons-picture{
+  background: #A7A2B9;
+  color: #23164F;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.svgСharts .common-block-parent{
+  display: flex;
+  justify-content: space-between;
+}
+
+.svgСharts .circle-first-button{
+  display: inline-flex;
+  width: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+  vertical-align: top;
+}
+
+.svgСharts .circle-first-button i:first-child{
+  font-size: 24px;
+}
+
+.svgСharts .circle-first-button i:lest-child{
+  font-size: 24px;
+}
+
+.svgСharts .claster0-text-inside{
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  margin-right: 6px;
+}
+
+.svgСharts .bottom-block.bottom-block-rect{
+  display: inline;
+  text-align: center;
+}
+
+.svgСharts .bottom-block.bottom-block-rect i{
+  position: relative;
+  top: 2px;
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-list-rect::after{
+  display: none;
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-list-rect::before{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: -6.5px;
+  margin-left: -5px;
+  border-width: 1px;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  transform: rotate(45deg);
+  border-color: #000;
+  border-right: 0;
+  border-bottom: 0;
+  background: #fff;
+}
+
+.svgСharts .claster-name .bottom-block .tooltip-block{
+  display: initial;
+  width: initial;
+  height: initial;
+  background-color: initial;
+  color: revert;
+}
+
+.svgСharts .text-under-claster-chosen.tooltip-block{
+  width: initial;
+  height: initial;
+  background-color: initial;
+}
+
+.svgСharts .text-under-claster,
+.svgСharts .text-under-claster-repo,
+.svgСharts .text-under-claster-recom,
+.svgСharts .text-under-claster-chosen{
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 4px;
+  color: #28a745 !important;
+}
+
+.svgСharts .description-cluster{
+  max-height: 76px;
+  overflow-y: auto;
+  padding: 2px;
+}

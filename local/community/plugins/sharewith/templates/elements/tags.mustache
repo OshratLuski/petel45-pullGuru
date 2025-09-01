@@ -1,0 +1,20 @@
+<div class="form-group d-flex align-items-center justify-content-start flex-wrap mb-4 involve__tags {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    <input data-descr="addtag" class="form-control" type="text" name="" value="" placeholder="{{#str}}write_tags_here, community_sharewith{{/str}}">
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharewith{{/str}} "{{{title}}}"
+    </div>
+
+</div>

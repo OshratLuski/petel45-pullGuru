@@ -1,0 +1,196 @@
+<div class="pb-3 bg-white">
+    <h2 class="" role="button" data-toggle="collapse" data-target="#students-table-collapse"
+        aria-expanded="true" aria-controls="students-table-collapse">
+        {{#str}}numofstudents, quiz_advancedoverview{{/str}}
+        ({{count_according_students}})</h2>
+</div>
+<div class="collapse show" id="students-table-collapse">
+    <div class="row bg-white" id="studentsActionsBlock">
+        <div class="col-12 col-md-5 mb-3 d-flex align-items-center justify-content-start">
+            <div
+                class="advancedoverview_report-search-input-wrapper form-group d-flex align-items-center position-relative mb-0 mr-3">
+                <input type="text" class="form-control search advancedoverview_report-search-input" id="searchinput"
+                    placeholder="{{#str}}searchstudent, quiz_advancedoverview{{/str}}">
+                <i class="fa fa-search position-absolute" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-12 col-md-7 mb-3 d-flex align-items-center justify-content-lg-end">
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center advancedoverview_report-toggle anonymousmode mr-2"
+                    data-textoff="{{#str}}anonymousmodeoff, quiz_advancedoverview{{/str}}"
+                    data-texton="{{#str}}anonymousmodeon, quiz_advancedoverview{{/str}}">
+                    <input type="checkbox" id="anonymousmodeToggler2" class="toggle-btn">
+                    <label for="anonymousmodeToggler2" class="mb-0 mr-2 anonymousmodeToggler"> </label>
+                    <span class="link-btn-text mr-2">
+                        {{#str}}anonymousmodeoff, quiz_advancedoverview{{/str}}
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center advancedoverview_report-toggle mr-2">
+                    <input type="checkbox" id="scoreDisplayToggler" class="toggle-btn" checked="true">
+                    <label for="scoreDisplayToggler" class="link-btn-text mb-0"> </label>
+                </div>
+                <span class="link-btn-text mr-2">
+                    {{#str}}scoredisplay, quiz_advancedoverview{{/str}}
+                </span>
+                <div class="partiallycorrect-icon"></div>
+            </div>
+            <div class="d-flex align-items-center ml-md-4">
+                <div class="d-flex align-items-center advancedoverview_report-toggle mr-2">
+                    <input type="checkbox" id="extendedViewToggler" class="toggle-btn">
+                    <label for="extendedViewToggler" class="link-btn-text mb-0">
+                    </label>
+                </div>
+                <span class="link-btn-text mr-2">
+                    {{#str}}extendedview, quiz_advancedoverview{{/str}}
+                </span>
+            </div>
+            <div href="#" class="ml-md-4" role="button" id="downloadXlsTable"></div>
+        </div>
+        <div class="col-12 d-flex mb-3">
+            <div id="studentstableNavFilter">
+                <ul class="nav nav-tabs mr-md-3 pr-0">
+                    {{#data_table_according_students_options}}
+                    {{#participants}}
+                    {{#states}}
+                    <li class="nav-item">
+                        <button class="nav-link d-flex align-items-center justify-content-center" type="button"
+                            aria-pressed="false" data-name="{{name}}" data-value="{{value}}" data-label="{{label}}">
+                            <p class=" mb-0 ml-1">
+                                {{label}} <span>({{value}})</span>
+                            </p>
+                        </button>
+                    </li>
+                    {{/states}}
+                    {{/participants}}
+                    {{/data_table_according_students_options}}
+                </ul>
+            </div>
+            <div class="d-flex flex-column flex-grow-1 align-items-start students-actions-collapse-wrapper">
+                <button class="btn advancedoverview_report-dropdown-btn dropdown-toggle mb-3" type="button"
+                    data-toggle="collapse" data-target="#studentsActionsCollapse" aria-expanded="false"
+                    aria-controls="studentsActionsCollapse">
+                    <i class="filter-pic fal fa-filter"></i>
+                    <span>{{#str}}filter, quiz_advancedoverview{{/str}}</span>
+                </button>
+                <div class="collapse" id="studentsActionsCollapse">
+                    <div class="card card-body bg-light d-flex flex-row">
+                        <div class="col">
+                            <h5 class="col-title text-nowrap">
+                                {{#str}}scoreranges, quiz_advancedoverview{{/str}}
+                            </h5>
+                            {{#data_table_according_students_options}}
+                            {{#participants}}
+                            {{#score_ranges}}
+                            <div class="custom-control custom-checkbox position-relative">
+                                <input type="checkbox" class="custom-control-input" id="{{name}}Checkbox"
+                                    value="{{name}}" data-type="score_ranges" data-label="{{label}}">
+                                <label class="custom-control-label text-nowrap" for="{{name}}Checkbox">{{label}}</label>
+                            </div>
+                            {{/score_ranges}}
+                            {{/participants}}
+                            {{/data_table_according_students_options}}
+
+                        </div>
+                        <div class="col">
+                            <h5 class="col-title text-nowrap">
+                                {{#str}}responseattempts, quiz_advancedoverview{{/str}}
+
+                            </h5>
+                            <div class="custom-control custom-checkbox position-relative">
+                                <input type="checkbox" class="custom-control-input" data-type="attempts_range"
+                                    id="attempt1" value="1"
+                                    data-label="{{#str}}attempt1, quiz_advancedoverview{{/str}}">
+                                <label class="custom-control-label text-nowrap" for="attempt1">
+                                    {{#str}}attempt1, quiz_advancedoverview{{/str}}
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox position-relative">
+                                <input type="checkbox" class="custom-control-input" data-type="attempts_range"
+                                    id="attempt2" value="2"
+                                    data-label="{{#str}}attempt2, quiz_advancedoverview{{/str}}">
+                                <label class="custom-control-label text-nowrap" for="attempt2">
+                                    {{#str}}attempt2, quiz_advancedoverview{{/str}}
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox position-relative">
+                                <input type="checkbox" class="custom-control-input" data-type="attempts_range"
+                                    id="attempt3andmore" value="3+"
+                                    data-label="{{#str}}attempt3andmore, quiz_advancedoverview{{/str}}">
+                                <label class="custom-control-label text-nowrap" for="attempt3andmore">
+                                    {{#str}}attempt3andmore, quiz_advancedoverview{{/str}}
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox position-relative">
+                                <input type="checkbox" class="custom-control-input" data-type="attempts_range"
+                                    id="lastattempt" value="last"
+                                    data-label="{{#str}}lastattempt, quiz_advancedoverview{{/str}}">
+                                <label class="custom-control-label text-nowrap" for="lastattempt">
+                                    {{#str}}lastattempt, quiz_advancedoverview{{/str}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto d-flex align-items-start">
+                <div class="students-actions-wrapper d-flex align-items-center">
+                    <p id="selectedStudents" class="mb-0 mr-3">
+                        <span id="zerostr">
+                            {{#str}}selectedstudents, quiz_advancedoverview, 0{{/str}}
+                        </span>
+                        <span id="counterstr"></span>
+                    </p>
+                    <div class="dropdown">
+                        <button class="btn advancedoverview_report-dropdown-btn dropdown-toggle" type="button"
+                            id="studentsActionsBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            disabled>
+                            <span>{{#str}}selectanaction, quiz_advancedoverview{{/str}}</span>
+
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="studentsActionsBtn">
+                            <a class="dropdown-item" href="#" id="sendMessage">
+                                <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                                <span>{{#str}}sendingmessage, quiz_advancedoverview{{/str}}</span>
+                            </a>
+                            <a class="dropdown-item" href="#" id="recalculateGrades">
+                                <i class="fa-regular fa-rotate-right" aria-hidden="true"></i>
+                                <span>{{#str}}recalculategrades, quiz_advancedoverview{{/str}}</span>
+                            </a>
+                            <a class="dropdown-item" href="#" id="deleteAttemtps">
+                                <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
+                                <span>{{#str}}deletingattempts, quiz_advancedoverview{{/str}}</span>
+                            </a>
+                            <a class="dropdown-item" href="#" id="closingResponseAttempts">
+                                <i class="fa-regular fa-rectangle-xmark" aria-hidden="true"></i>
+                                <span>{{#str}}closingresponseattempts, quiz_advancedoverview{{/str}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 hidden py-2" id="pillsArea">
+            <a href="#" class="btn btn-link mr-3 hidden" id="clearPillsArea" role="button" tabindex="0"
+                aria-pressed="false">
+                {{#str}}cleareverything, quiz_advancedoverview{{/str}}
+            </a>
+            <div id="pillsAreaInner">
+            </div>
+        </div>
+    </div>
+
+    <div class="row py-3 bg-white">
+        <div class="col-12">
+            <div id="students-table"></div>
+        </div>
+    </div>
+</div>
+{{#js}}
+require(['jquery', 'quiz_advancedoverview/tables', 'quiz_advancedoverview/studentsTableActions'],
+    function ($, Tables, StudentsTableActions) {
+        Tables.initstudentstable('{{{data_table_according_students}}}','{{{data_table_students_summary}}}', '{{anonymous_mode}}');
+    });
+{{/js}}

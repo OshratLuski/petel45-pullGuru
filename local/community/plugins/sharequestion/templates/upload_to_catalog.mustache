@@ -1,0 +1,37 @@
+<div id="uploadactivity" class="uploadactivity">
+    <form class="container-fluid" action="" id="sharing_activities_form_{{uniqueid}}" method="post"
+        enctype="multipart/form-data">
+        <input type="hidden" name="courseid" value="{{courseid}}">
+        <input type="hidden" name="selected_questions" value="{{selected_questions}}">
+
+        {{#warning_qid_present}}
+            <div class="alert alert-danger" role="alert">
+                {{#str}}warning_qid_present, community_sharequestion{{/str}}
+            </div>
+        {{/warning_qid_present}}
+
+        <p tabindex="0" role="heading" class="first-paragraph" autofocus>{{#str}}sharing_content_materials_repository, community_sharequestion{{/str}}</p>
+
+        {{{uploadhtml}}}
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary uploadactivityclose" type="button" data-handler="goBack">
+                {{#str}}cancel, community_sharequestion{{/str}}
+            </button>
+
+            <button type="button" class="btn btn-success submited uploadactivitysubmit">
+                <div class="spinner-border spinner-border-sm modalspinner d-none" role="status"></div>
+                <span>{{#str}}share, community_sharequestion{{/str}}</span>
+            </button>
+
+        </div>
+
+    </form>
+</div>
+
+{{#js}}
+    require(['community_sharequestion/uploadPopup', 'community_sharequestion/uploadPopupActions'], function(uploadPopup, uploadPopupActions) {
+        uploadPopup.init('{{uniqueid}}');
+        uploadPopupActions.init('{{uniqueid}}', '{{number_sections}}');
+    });
+{{/js}}

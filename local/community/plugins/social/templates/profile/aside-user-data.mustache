@@ -1,0 +1,157 @@
+<a class="user__link" href="{{{profile_url}}}">
+    <img class="user__image" src="{{image_url}}" alt="">
+    <span class="user__name d-block">{{firstname}} {{lastname}}</span>
+</a>
+
+<!-- Badges -->
+<!--{{#badges}}-->
+<!--<div class="user__badges mx-auto mt-3">-->
+<!--    <div class="badge__image">-->
+<!--        <a href="{{badge.url}}"><img src="{{badge.image}}" alt="{{badge.name}}"></a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{{/badges}}-->
+
+{{#if_colleagues}}
+<a href="javascript:void(0)" class="collegue-link text-secondary mx-auto">
+    <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="handshake-light (1) 1" clip-path="url(#clip0_762_4337)">
+        <path id="Vector" d="M8.91484 2.5C7.85547 2.5 6.83047 2.875 6.02109 3.55312L5.16797 4.27187V5.49375C5.25234 5.47813 5.33359 5.44063 5.39922 5.38438L6.66484 4.32188C7.08047 3.97188 7.56797 3.72812 8.08672 3.6L9.18672 2.5H8.91484ZM4.16797 11.5156C4.42109 11.5562 4.65859 11.6719 4.84297 11.8531L6.28359 13.2469L7.04297 14.0063C7.82734 14.7906 9.08672 14.825 9.91172 14.0875C9.93672 14.0656 9.96172 14.0437 9.98359 14.0188C10.8055 14.6844 12.0242 14.6 12.7461 13.7906C12.9336 13.5812 13.068 13.3406 13.1523 13.0875C13.7523 13.2125 14.4023 13.0625 14.893 12.625C15.2461 12.3094 15.4617 11.9 15.5367 11.4688H17.168V12.0063C17.168 12.8344 17.8398 13.5063 18.668 13.5063H19.168C19.9961 13.5063 20.668 12.8344 20.668 12.0063V5.50625C20.668 4.95312 20.2211 4.50625 19.668 4.50625H18.168H17.168V5.50625V10.4688H15.4523C15.3555 10.1969 15.1992 9.9375 14.9805 9.71875L12.3055 7.04375L12.5586 6.80937C12.7617 6.62187 12.7742 6.30625 12.5867 6.10313C12.3992 5.9 12.0836 5.8875 11.8805 6.075L9.50234 8.26875C9.08984 8.65 8.45234 8.65625 8.03359 8.28125C7.55234 7.85313 7.54297 7.10938 8.00859 6.66875L10.4898 4.325C11.0492 3.79375 11.7867 3.5 12.5555 3.5C13.2648 3.5 13.9492 3.75 14.4898 4.20625L15.8898 5.38438C15.968 5.45 16.0648 5.49062 16.1648 5.5V4.30938L15.1336 3.44062C14.4117 2.83125 13.4992 2.5 12.5555 2.5C11.5305 2.5 10.5461 2.89062 9.80234 3.59375L7.32109 5.9375C6.42734 6.78125 6.44922 8.20937 7.36797 9.025C8.17422 9.74062 9.38984 9.72813 10.1805 9L11.5711 7.71875L14.2742 10.4219C14.6805 10.8281 14.6617 11.4937 14.2305 11.875C13.8898 12.1781 13.3961 12.2063 13.0242 11.9688C12.868 11.8656 12.668 11.8625 12.5055 11.9531C12.343 12.0437 12.2461 12.2219 12.2555 12.4094C12.268 12.6625 12.1836 12.9187 12.0023 13.125C11.618 13.5594 10.9461 13.5781 10.5367 13.1687L10.2836 12.9156C10.1711 12.8031 10.0117 12.75 9.85547 12.775C9.69922 12.8 9.56172 12.8969 9.48672 13.0375C9.42734 13.15 9.34922 13.2531 9.24922 13.3438C8.81797 13.7281 8.16172 13.7094 7.75547 13.3031L6.50859 12.0594L6.49922 12.0688L5.53984 11.1406C5.16797 10.7812 4.68359 10.5625 4.17109 10.5156L4.16797 5.5V4.5H3.16797H1.66797C1.11484 4.5 0.667969 4.94688 0.667969 5.5V12C0.667969 12.8281 1.33984 13.5 2.16797 13.5H2.66797C3.49609 13.5 4.16797 12.8281 4.16797 12V11.5156ZM3.16797 5.5V12C3.16797 12.275 2.94297 12.5 2.66797 12.5H2.16797C1.89297 12.5 1.66797 12.275 1.66797 12V5.5H3.16797ZM19.668 5.5V12C19.668 12.275 19.443 12.5 19.168 12.5H18.668C18.393 12.5 18.168 12.275 18.168 12V5.5H19.668Z" fill="#554283"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_762_4337">
+        <rect width="20" height="16" fill="white" transform="translate(0.667969 0.5)"/>
+        </clipPath>
+        </defs>
+    </svg>
+    {{#str}}colleagueteacher, community_social{{/str}}
+</a>
+{{/if_colleagues}}
+
+{{^editable}}
+<div class="d-flex btns-wrapper w-100 align-items-center justify-content-center">
+    <a href="javascript:void(0)" data-handler="follow" data-follow_enable="1" {{#if_followers}}
+        class="btn btn--wave btn-outline-secondary">
+        {{#str}}followme, community_social{{/str}}
+        {{/if_followers}}
+
+        {{^if_followers}}
+        class = "btn btn--gray btn-outline-secondary"
+        >
+        <svg class="mr-2" width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="eyes-light 1" clip-path="url(#clip0_762_4332)">
+            <path id="Vector" d="M10.4189 8.70001C10.4189 10.4375 9.89082 11.9719 9.08145 13.05C8.27207 14.1281 7.23457 14.7 6.16895 14.7C5.10332 14.7 4.06582 14.1281 3.25645 13.05C3.0377 12.7594 2.84082 12.4375 2.66895 12.0875C2.90645 12.1625 3.15645 12.2031 3.41895 12.2031C4.8002 12.2031 5.91895 11.0844 5.91895 9.70314C5.91895 8.32189 4.8002 7.20314 3.41895 7.20314C2.88457 7.20314 2.39082 7.37189 1.98457 7.65626C2.1502 6.35314 2.61582 5.20939 3.25645 4.35314C4.06582 3.27189 5.10332 2.70001 6.16895 2.70001C7.23457 2.70001 8.27207 3.27189 9.08145 4.35001C9.89082 5.42814 10.4189 6.96251 10.4189 8.70001ZM10.9189 5.71564C10.0783 3.34064 8.26895 1.70001 6.16895 1.70001C3.26895 1.70001 0.918945 4.83439 0.918945 8.70001C0.918945 12.5656 3.26895 15.7 6.16895 15.7C8.26895 15.7 10.0783 14.0594 10.9189 11.6844C11.7596 14.0594 13.5689 15.7 15.6689 15.7C18.5689 15.7 20.9189 12.5656 20.9189 8.70001C20.9189 4.83439 18.5689 1.70001 15.6689 1.70001C13.5689 1.70001 11.7596 3.34064 10.9189 5.71564ZM12.7564 13.05C12.5377 12.7594 12.3408 12.4375 12.1689 12.0875C12.4064 12.1625 12.6564 12.2031 12.9189 12.2031C14.3002 12.2031 15.4189 11.0844 15.4189 9.70314C15.4189 8.32189 14.3002 7.20314 12.9189 7.20314C12.3846 7.20314 11.8908 7.37189 11.4846 7.65626C11.6502 6.35314 12.1158 5.20939 12.7564 4.35314C13.5658 3.27189 14.6033 2.70001 15.6689 2.70001C16.7346 2.70001 17.7721 3.27189 18.5814 4.35001C19.3908 5.42814 19.9189 6.96251 19.9189 8.70001C19.9189 10.4375 19.3908 11.9719 18.5814 13.05C17.7721 14.1281 16.7346 14.7 15.6689 14.7C14.6033 14.7 13.5658 14.1281 12.7564 13.05ZM1.91895 9.70001C1.91895 9.30219 2.07698 8.92066 2.35829 8.63935C2.63959 8.35805 3.02112 8.20001 3.41895 8.20001C3.81677 8.20001 4.1983 8.35805 4.47961 8.63935C4.76091 8.92066 4.91895 9.30219 4.91895 9.70001C4.91895 10.0978 4.76091 10.4794 4.47961 10.7607C4.1983 11.042 3.81677 11.2 3.41895 11.2C3.02112 11.2 2.63959 11.042 2.35829 10.7607C2.07698 10.4794 1.91895 10.0978 1.91895 9.70001ZM12.9189 8.20001C13.3168 8.20001 13.6983 8.35805 13.9796 8.63935C14.2609 8.92066 14.4189 9.30219 14.4189 9.70001C14.4189 10.0978 14.2609 10.4794 13.9796 10.7607C13.6983 11.042 13.3168 11.2 12.9189 11.2C12.5211 11.2 12.1396 11.042 11.8583 10.7607C11.577 10.4794 11.4189 10.0978 11.4189 9.70001C11.4189 9.30219 11.577 8.92066 11.8583 8.63935C12.1396 8.35805 12.5211 8.20001 12.9189 8.20001Z" fill="#23164F"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_762_4332">
+            <rect width="20" height="16" fill="white" transform="translate(0.918945 0.700012)"/>
+            </clipPath>
+            </defs>
+        </svg>
+
+        {{#str}}blockuserbefollowed, community_social{{/str}}
+        {{/if_followers}}
+    </a>
+    {{^editable}}
+    <a href="{{{url_to_message}}}" class="user__mail btn btn-outline-secondary" target="_blank">
+        <svg class="mr-2" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="envelope-light (3) 1" clip-path="url(#clip0_624_3483)">
+            <path id="Vector" d="M2.71484 3.75C2.02344 3.75 1.46484 4.30859 1.46484 5V6.55859L9.10547 12.1602C9.76562 12.6445 10.6641 12.6445 11.3242 12.1602L18.9648 6.55859V5C18.9648 4.30859 18.4062 3.75 17.7148 3.75H2.71484ZM1.46484 8.10938V15C1.46484 15.6914 2.02344 16.25 2.71484 16.25H17.7148C18.4062 16.25 18.9648 15.6914 18.9648 15V8.10938L12.0625 13.168C10.9609 13.9727 9.46484 13.9727 8.36719 13.168L1.46484 8.10938ZM0.214844 5C0.214844 3.62109 1.33594 2.5 2.71484 2.5H17.7148C19.0938 2.5 20.2148 3.62109 20.2148 5V15C20.2148 16.3789 19.0938 17.5 17.7148 17.5H2.71484C1.33594 17.5 0.214844 16.3789 0.214844 15V5Z" fill="#554283"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_624_3483">
+            <rect width="20" height="20" fill="white" transform="translate(0.214844)"/>
+            </clipPath>
+            </defs>
+        </svg>
+        {{#str}}message, community_social{{/str}}
+    </a>
+    {{/editable}}
+</div>
+{{/editable}}
+
+<h4 class="block-title text-secondary mb-4">
+    {{#str}}personalinformation, community_social{{/str}}
+</h4>
+
+<div class="user__preview mb-4">
+    {{#school}}
+    <p class="school mb-0 d-flex align-items-center">
+        <span class="icon m-0"></span><span class="usertext pl-2">{{school}}</span>
+    </p>
+    {{/school}}
+    {{#editable}}
+    {{^school}}
+    <p class="school mb-0 d-flex align-items-center">
+        <span class="icon m-0"></span>
+        <span class="usertext pl-2"> {{#str}}entertheschoolname, community_social{{/str}}</span>
+    </p>
+    {{/school}}
+    {{/editable}}
+
+    {{#editable}}
+    <a data-handler="school-settings" href="javascript:void(0)"
+        class="btn-settings btn btn-outline-secondary ml-2 position-relative"
+        aria-label="{{#str}}settings, community_social{{/str}}">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        <div class="social-tooltip p-2 position-absolute text-body" data-position="top-right"
+            data-carret-position="bottom-left">
+            {{#str}}editschoolname, community_social{{/str}}
+        </div>
+    </a>
+    {{/editable}}
+</div>
+
+{{#editable}}
+<div class="user__count-p usertext" role="button"><span
+        class="usernum text-secondary">{{users_used_my_oercatalog_count}}</span> {{#str}}timeshavebeenusedyou,
+    community_social{{/str}} </div>
+{{/editable}}
+{{^editable}}
+<div class="user__count-p usertext"><span
+        class="usernum text-secondary">{{users_used_my_oercatalog_count}}</span> {{#str}}timeshavebeenusedfor,
+    community_social{{/str}} {{firstname}} </div>
+{{/editable}}
+
+<div class="divider bg-secondary my-2"></div>
+
+<div class="user__follows">
+    <div class="user__follow-item mb-2" {{#editable}} data-handler="user-collegues-list" role="button"{{/editable}}>
+        <span class="user__follow-dig usernum text-secondary">{{colleagues_count}}</span>
+
+        {{#editable}}
+            <span class="user__follow-head usertext">{{#str}} blockusercolleaguesmy, community_social{{/str}}</span>
+        {{/editable}}
+
+        {{^editable}}
+            <span class="user__follow-head usertext">{{#str}} blockusercolleagues, community_social{{/str}}</span>
+        {{/editable}}
+
+
+    </div>
+
+    <div class="user__follow-item mb-2" {{#editable}} data-handler="user-follower-list" role="button"{{/editable}}>
+        <span class="user__follow-dig usernum text-secondary">{{followers_count}}</span>
+
+        {{#editable}}
+            <span class="user__follow-head usertext">{{#str}}blockuserfollows, community_social{{/str}}</span>
+        {{/editable}}
+
+        {{^editable}}
+            <span class="user__follow-head usertext">{{#str}}follows, community_social{{/str}}</span>
+        {{/editable}}
+
+    </div>
+
+    <!--
+      <div class = "user__follow-item">
+        <span class = "user__follow-head">{{#str}}blockuserfollows, community_social{{/str}}</span>
+        <span class = "user__follow-dig">{{followed_count}}</span>
+      </div>
+      -->
+
+    <a href="{{#editable}} {{{profile_url}}} {{/editable}} {{^editable}} javascript:void(0); {{/editable}}" class="user__follow-item" {{^editable}} style="cursor: text;"{{/editable}}>
+        <span class="user__follow-dig usernum text-secondary">{{shared_items_count}}</span>
+        <span class="user__follow-head usertext">{{#str}}blockusersubjects, community_social{{/str}}</span>
+    </a>
+</div>

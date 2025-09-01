@@ -1,0 +1,156 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_myoverview/nav-grouping-selector
+
+    This template renders grouping dropdown.
+
+    Example context (json):
+    {
+        "allincludinghidden": false,
+        "all": true,
+        "inprogress": false,
+        "future": false,
+        "past": false,
+        "favourites": false,
+        "hidden": false,
+        "displaygroupingallincludinghidden": false,
+        "displaygroupingall": true,
+        "displaygroupinginprogress": true,
+        "displaygroupingfuture": true,
+        "displaygroupingpast": true,
+        "displaygroupingfavourites": true,
+        "displaygroupinghidden": true,
+        "displaygroupingselector": true
+    }
+}}
+{{#displaygroupingselector}}
+<div class="dropdown mr-2 mb-3">
+    <button id="groupingdropdown" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="{{#str}} aria:groupingdropdown, block_myoverview {{/str}}">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M0 2.79297C0 1.94141 0.691406 1.25 1.54297 1.25H18.457C19.3086 1.25 20 1.94141 20 2.79297C20 3.15234 19.875 3.5 19.6445 3.77734L12.5 12.4141V17.4258C12.5 18.1562 11.9062 18.75 11.1758 18.75C10.8828 18.75 10.5977 18.6523 10.3633 18.4727L7.98047 16.6211C7.67578 16.3828 7.49609 16.0195 7.49609 15.6328V12.4141L0.355469 3.77734C0.125 3.5 0 3.15234 0 2.79297ZM1.54297 2.5C1.37891 2.5 1.25 2.63281 1.25 2.79297C1.25 2.86328 1.27344 2.92578 1.31641 2.98047L8.60547 11.7891C8.69922 11.9023 8.75 12.043 8.75 12.1875V15.6328L11.1328 17.4844C11.1445 17.4961 11.1602 17.5 11.1758 17.5C11.2148 17.5 11.25 17.4688 11.25 17.4258V12.1875C11.25 12.043 11.3008 11.9023 11.3945 11.7891L18.6836 2.98047C18.7266 2.92969 18.75 2.86328 18.75 2.79297C18.75 2.62891 18.6172 2.5 18.457 2.5H1.54297Z" fill="#554283"/>
+        </svg>
+        <span data-active-item-text>
+            {{#allincludinghidden}}{{#str}} allincludinghidden, block_myoverview {{/str}}{{/allincludinghidden}}
+            {{#all}}{{#str}} all, block_myoverview {{/str}}{{/all}}
+<!--            {{#inprogress}}{{#str}} inprogress, block_myoverview {{/str}}{{/inprogress}}-->
+<!--            {{#future}}{{#str}} future, block_myoverview {{/str}}{{/future}}-->
+<!--            {{#past}}{{#str}} past, block_myoverview {{/str}}{{/past}}-->
+            {{#favourites}}{{#str}} favourites, block_myoverview {{/str}}{{/favourites}}
+            {{#hidden}}{{#str}} hiddencourses, block_myoverview {{/str}}{{/hidden}}
+            {{selectedcustomfield}}
+        </span>
+        <svg class="carret" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M10.8219 13.5477C10.7727 13.5934 10.6988 13.625 10.625 13.625C10.5512 13.625 10.4773 13.5969 10.4281 13.5477L6.20234 9.55742C6.15313 9.51172 6.125 9.44492 6.125 9.37461C6.125 9.2375 6.2375 9.125 6.37461 9.125H14.8719C15.009 9.125 15.1215 9.2375 15.1215 9.37461C15.1215 9.44492 15.0934 9.5082 15.0441 9.55742L10.8219 13.5477ZM11.5953 14.3668L15.8176 10.3766C16.0918 10.1164 16.25 9.7543 16.25 9.37812C16.25 8.61875 15.6348 8.00352 14.8754 8.00352L6.37461 8C5.61523 8 5 8.61523 5 9.37461C5 9.7543 5.15469 10.1164 5.43242 10.373L9.65469 14.3668C9.91484 14.6129 10.2629 14.75 10.625 14.75C10.9871 14.75 11.3316 14.6129 11.5953 14.3668Z" fill="#554283"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu" role="menu" data-show-active-item data-skip-active-class="true" data-active-item-text aria-labelledby="groupingdropdown">
+        {{#displaygroupingallincludinghidden}}
+        <li>
+            <a class="dropdown-item" href="#" data-filter="grouping" data-value="allincludinghidden" data-pref="allincludinghidden" aria-label="{{#str}} aria:allcoursesincludinghidden, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}" role="menuitem" {{#allincludinghidden}}aria-current="true"{{/allincludinghidden}}>
+                {{#str}} allincludinghidden, block_myoverview {{/str}}
+            </a>
+        </li>
+        {{/displaygroupingallincludinghidden}}
+        {{#displaygroupingall}}
+        <li class="dropdown-divider" role="presentation">
+            <span class="filler">&nbsp;</span>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" data-filter="grouping" data-value="all" data-pref="all" aria-label="{{#str}} aria:allcourses, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}" role="menuitem" {{#all}}aria-current="true"{{/all}}>
+                {{#str}} all, block_myoverview {{/str}}
+            </a>
+        </li>
+        {{/displaygroupingall}}
+<!--        {{#displaygroupinginprogress}}-->
+<!--        <li class="dropdown-divider" role="presentation">-->
+<!--            <span class="filler">&nbsp;</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a class="dropdown-item {{#inprogress}}active{{/inprogress}}" href="#" data-filter="grouping" data-value="inprogress" data-pref="inprogress" aria-label="{{#str}} aria:inprogress, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}">-->
+<!--                {{#str}} inprogress, block_myoverview {{/str}}-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        {{/displaygroupinginprogress}}-->
+<!--        {{#displaygroupingfuture}}-->
+<!--            {{^displaygroupinginprogress}}-->
+<!--            <li class="dropdown-divider" role="presentation">-->
+<!--                <span class="filler">&nbsp;</span>-->
+<!--            </li>-->
+<!--            {{/displaygroupinginprogress}}-->
+<!--        <li>-->
+<!--            <a class="dropdown-item {{#future}}active{{/future}}" href="#" data-filter="grouping" data-value="future" data-pref="future" aria-label="{{#str}} aria:future, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}">-->
+<!--                {{#str}} future, block_myoverview {{/str}}-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        {{/displaygroupingfuture}}-->
+<!--        {{#displaygroupingpast}}-->
+<!--            {{^displaygroupinginprogress}}-->
+<!--                {{^displaygroupingfuture}}-->
+<!--                <li class="dropdown-divider" role="presentation">-->
+<!--                    <span class="filler">&nbsp;</span>-->
+<!--                </li>-->
+<!--                {{/displaygroupingfuture}}-->
+<!--            {{/displaygroupinginprogress}}-->
+<!--        <li>-->
+<!--            <a class="dropdown-item {{#past}}active{{/past}}" href="#" data-filter="grouping" data-value="past" data-pref="past" aria-label="{{#str}} aria:past, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}">-->
+<!--                {{#str}} past, block_myoverview {{/str}}-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        {{/displaygroupingpast}}-->
+        {{#displaygroupingcustomfield}}
+            <li class="dropdown-divider" role="presentation">
+                <span class="filler">&nbsp;</span>
+            </li>
+            {{#customfieldvalues}}
+                <li>
+                    <a class="dropdown-item" href="#" data-filter="grouping"
+                       data-value="customfield" data-pref="customfield" data-customfieldvalue="{{value}}"
+                       aria-label="{{#str}}aria:customfield, block_myoverview, {{name}}{{/str}}"
+                       aria-controls="courses-view-{{uniqid}}" role="menuitem" {{#active}}aria-current="true"{{/active}}>
+                        {{name}}
+                    </a>
+                </li>
+            {{/customfieldvalues}}
+        {{/displaygroupingcustomfield}}
+        {{#displaygroupingfavourites}}
+        <li class="dropdown-divider" role="presentation">
+            <span class="filler">&nbsp;</span>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" data-filter="grouping" data-value="favourites"  data-pref="favourites" aria-label="{{#str}} aria:favourites, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}" role="menuitem" {{#favourites}}aria-current="true"{{/favourites}}>
+                {{#str}} favourites, block_myoverview {{/str}}
+            </a>
+        {{/displaygroupingfavourites}}
+        {{#displaygroupinghidden}}
+        <li class="dropdown-divider" role="presentation">
+            <span class="filler">&nbsp;</span>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" data-filter="grouping" data-value="hidden"  data-pref="hidden" aria-label="{{#str}} aria:hiddencourses, block_myoverview {{/str}}" aria-controls="courses-view-{{uniqid}}" role="menuitem" {{#hidden}}aria-current="true"{{/hidden}}>
+                {{#str}} hiddencourses, block_myoverview {{/str}}
+            </a>
+        </li>
+        {{/displaygroupinghidden}}
+    </ul>
+</div>
+{{/displaygroupingselector}}
+{{^displaygroupingselector}}
+<div class="mb-1 me-auto">
+    <span class="filler">&nbsp;</span>
+</div>
+{{/displaygroupingselector}}

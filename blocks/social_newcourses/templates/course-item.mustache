@@ -1,0 +1,43 @@
+<div class="social_newcourses-item">
+        <div class="img_wrapper">
+            <a target="_blank" href="{{{courseurl}}}" class="simul_block-body-img">
+                <div class="img-background" style="background-image: url('{{{imageurl}}}')">
+                <img src="{{{imageurl}}}"/>
+                </div>
+            </a>
+        </div>
+        <div class="social_newcourses-content">
+            <h3 class="title">
+                <a class="" target="_blank" href="{{{courseurl}}}">
+                    {{fullname}}
+                </a>
+            </h3>
+            <h5 class="subtitle">{{{summary}}}</h5>
+            <div class="content">
+                <div class="user-info">
+                    <div class="user-img">                        
+                        <img src="{{{userimageurl}}}"/>
+                    </div>                    
+                    <div class="user-name">{{username}}</div>
+                </div>                
+                <div class="course-info">{{#str}}teachersoncourse, block_social_newcourses{{/str}} <span>{{countcollegues}}</span></div>
+            </div>
+        </div>
+        
+
+        {{#button_wait_for_answer}}
+            <button class="social_newcourses-btn">{{#str}}button_wait_for_answer, community_social{{/str}}</button>
+        {{/button_wait_for_answer}}
+
+        {{#button_request_decline}}
+            <button class="social_newcourses-btn">{{#str}}button_request_decline, community_social{{/str}}</button>
+        {{/button_request_decline}}
+
+        {{#button_send_request}}
+            <button data-handler = "send_followed_single_course" data-courseid = "{{id}}" data-page_userid = "{{userid}}"
+                    data-current_userid = "{{currentuserid}}" class="social_newcourses-btn">
+                {{#str}}requestaccess, community_social{{/str}}
+            </button>
+        {{/button_send_request}}
+
+</div>

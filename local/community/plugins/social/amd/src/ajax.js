@@ -1,0 +1,61 @@
+define([
+    'jquery',
+    'core/yui',
+    'community_social/loadingSpinner',
+    'core/ajax',
+    'core/notification'
+], function ($, Y, loading, Ajax, Notification) {
+    `use strict`;
+
+    let ajax = {
+
+        data: {},
+
+        run: function (callback) {
+
+            var method = this.data.metod;
+            delete this.data.metod;
+
+            Ajax.call([{
+                methodname: method,
+                args: this.data,
+                done: function (response) {
+                    callback(response);
+                },
+                fail: function (response) {
+                    Notification.exception(response);
+                },
+            }]);
+
+        },
+
+        setHTML: function (callback) {
+
+            loading.show();
+            const targetBlock = document.querySelector(this.data.target_block);
+
+            var method = this.data.metod;
+            delete this.data.metod;
+            delete this.data.target_block;
+
+            Ajax.call([{
+                methodname: method,
+                args: this.data,
+                done: function (response) {
+                    targetBlock.innerHTML = response.content;
+                    loading.remove();
+                    callback(response);
+                },
+                fail: function (response) {
+                    loading.remove();
+                    Notification.exception(response);
+                },
+            }]);
+
+
+        },
+    };
+
+    return ajax;
+
+});

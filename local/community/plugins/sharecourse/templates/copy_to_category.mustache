@@ -1,0 +1,29 @@
+<div class="modal-body">
+    {{#showAllCategories}}
+        <p class="mb-2">{{#str}}selectioncategories, community_sharecourse{{/str}}</p>
+        <div class="select-wrapper">
+            <select class="categories form-control mb-4 smartselect2" tabindex="0">
+                {{#categories}}
+                <option data-categoryid="{{id}}">{{name}}</option>
+                {{/categories}}
+            </select>
+        </div>
+    {{/showAllCategories}}
+
+    {{^showAllCategories}}
+        <p class="mb-2">{{#str}}sure_duplicate_course_without_students, community_sharecourse{{/str}}</p>
+        <div class="select-wrapper">
+            <select class="categories form-control mb-4 sr-only">
+                <option data-categoryid="{{teachercatid}}" selected></option>
+            </select>
+        </div>
+    {{/showAllCategories}}
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary close-button" type="button" >{{#str}}close, community_sharecourse{{/str}}</button>
+
+    <button class="btn btn-success success-button" type="button">
+        <span> {{#str}}copy, community_sharecourse{{/str}} </span>
+    </button>
+</div>

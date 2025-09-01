@@ -1,0 +1,26 @@
+<div class="row py-3 bg-white">
+    <div class="col-12">
+        <h2 role="button" data-toggle="collapse" data-target="#questions-table-collapse" aria-expanded="true" aria-controls="questions-table-collapse">
+            {{#str}}numofquestions, quiz_advancedoverview{{/str}}
+            ({{count_according_questions}})
+        </h2>
+        <div class="collapse show" id="questions-table-collapse">
+            {{#enable_table_according_questions}}
+                <div id="questions-table"></div>
+            {{/enable_table_according_questions}}
+
+            {{^enable_table_according_questions}}
+                {{#str}}empty, quiz_advancedoverview{{/str}}
+            {{/enable_table_according_questions}}
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+    {{#enable_table_according_questions}}
+        require(['jquery', 'quiz_advancedoverview/tables'], function($, Tables) {
+            Tables.initquestionstable('{{{data_table_according_questions}}}', {{{questionTexts}}});
+        });
+    {{/enable_table_according_questions}}
+{{/js}}

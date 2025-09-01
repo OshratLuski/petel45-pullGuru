@@ -1,0 +1,68 @@
+.block-myoverview {
+    .block-myoverview-listitem  {
+        .quickaccessbar {
+            background-color: $warning;
+            color: $body-color;
+        }
+    }
+    .myoverview-listitem-header {
+        background-color: $primary;
+    }
+    .course-grouping-nav{
+
+        .grouping-nav-item-link.active::before {
+            background-color: $primary;
+            
+        }
+    }
+    .add-btn .plus-circle {
+        background-color: $secondary;
+    }
+    .dropdown-menu.show[aria-labelledby="groupingdropdown"] {
+        width: fit-content;
+    }
+
+    // PTL-13217
+    #groupingdropdown {
+        &::after {
+            display: none;
+        }
+        &[aria-expanded="true"] {
+            .carret {
+                transform: scaleY(-1);
+            }
+        }
+    }
+    .toggle-course-action-menu-btn {
+        background-color: $secondarymedium;
+    }
+    .myoverview-events {
+        .event-name-container {
+            text-decoration: underline;
+        }
+    }
+    .course-action-menu-btn {
+        .tree_item {
+            &:hover {
+               color: $petel-secondary;
+            }
+        }
+        a:hover,
+        &:hover {
+            text-decoration: none;
+            i {
+                color: $primary;
+            }
+        }
+    }
+    .btn.btn-link.btn-icon.coursemenubtn {
+        transform: rotate(90deg);
+        width: 1.5rem;
+        height: 1.5rem ;
+        &:hover, &:focus {
+            svg path {
+                fill: $primary;
+            }
+        }
+    }
+}

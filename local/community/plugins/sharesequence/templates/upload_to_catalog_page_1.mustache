@@ -1,0 +1,53 @@
+<div id="uploadsequence" class="uploadsequence">
+    <div class="petel-progressbar-wrapper d-flex align-center position-relative">
+        <div class="petel-progressbar-item active">
+            <div class="d-flex flex-column align-items-center position-relative pin-circle-wrapper ">
+                <div class="pin-circle rounded-circle d-flex align-items-center justify-content-center">
+                    <span>1</span>
+                </div>
+                <div class="underpin-line"></div>
+                <div class="underpin-text">{{#str}} sequence_description, community_sharesequence {{/str}}</div>
+            </div>
+        </div>
+        <div class="petel-progressbar-item">
+            <div class="d-flex flex-column align-items-center position-relative pin-circle-wrapper ">
+                <div class="pin-circle rounded-circle d-flex align-items-center justify-content-center">
+                    <span>2</span>
+                </div>
+                <div class="underpin-line"></div>
+                <div class="underpin-text">{{#str}} selection_of_sequence_units, community_sharesequence {{/str}}</div>
+            </div>
+        </div>
+    </div>
+    <form class="container-fluid px-0" action="" id="sharing_sequence_form_{{uniqueid}}" method="post"
+        enctype="multipart/form-data">
+
+        <input type="hidden" name="courseid" value="{{courseid}}">
+        <input type="hidden" name="coursecontext" value="{{coursecontext}}">
+
+        <p tabindex="0" role="heading" class="first-paragraph" autofocus>{{#str}}sharing_content_materials_repository, community_sharesequence{{/str}}</p>
+
+        {{{uploadhtml}}}
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary uploadsequenceclose" type="button" data-handler="goBack">
+                {{#str}}cancel, community_sharesequence{{/str}}
+            </button>
+
+            <button type="button" class="btn btn-secondary submited uploadsequencesubmit">
+                <div class="spinner-border spinner-border-sm modalspinner d-none" role="status"></div>
+                <span>{{#str}}share_page1, community_sharesequence{{/str}}</span>
+            </button>
+
+        </div>
+
+    </form>
+</div>
+
+{{#js}}
+    require(['community_sharesequence/uploadPopupPage1', 'community_sharesequence/uploadPopupActionsPage1'], function(uploadPopupPage1, uploadPopupActionsPage1) {
+        uploadPopupPage1.init('{{uniqueid}}');
+        uploadPopupActionsPage1.init('{{uniqueid}}', '{{number_sections}}');
+        uploadPopupActionsPage1.createDefaultSelectedSection('{{uniqueid}}', '{{number_sections}}', '{{{selected_sections}}}');
+    });
+{{/js}}

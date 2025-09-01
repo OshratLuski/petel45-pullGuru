@@ -1,0 +1,118 @@
+.modal-header h5 {
+  font-size: 32px;
+}
+
+.modal-content {
+  border: 0;
+}
+
+.modal-header {
+  padding: 8px 20px;
+  border: 0;
+  opacity: 1;
+}
+
+.modal-content .modal-header .close {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  opacity: 1;
+}
+
+.modal-content .modal-header .close span {
+  display: inline-block;
+  font-weight: 300;
+  border: 1.5px solid;
+  border-radius: 50%;
+  width: 24px;
+  text-shadow: none;
+  font-size: 21px;
+}
+
+.modal-content .modal-header{
+  border: 0;
+}
+
+.bottom-start-text {
+  font-size: 24px;
+  line-height: 1.21;
+  max-width: 794px;
+  margin: 0 auto;
+}
+
+.modal-body {
+  padding: 46px 20px 16px;
+  min-height: 580px;
+}
+
+.loading-icon-container{
+  padding-top: 60px;
+}
+
+.form-group{
+  z-index: 1;
+}
+
+&.modal-dialog{
+  max-width: 80%;
+}
+
+@media screen and (max-width: 1440px) {
+  &.modal-dialog{
+      max-width: 95%;
+  }
+}
+
+/* ufo image */
+.ufo-image-block svg{
+  position: absolute;
+}
+
+.ufo-image-block{
+  display: inline-block;
+  position: relative;
+}
+
+.ufo-image-block .ufo-image-top{
+  width: 181px;
+  position: absolute;
+  top: 79px;
+  left: 196px;
+}
+
+.profile-pic {
+  -webkit-filter: url(#ufo-filter);
+  filter:  url(#ufo-filter);
+}
+
+div.shared-button-block{
+  text-align: right;
+}
+
+div.shared-button-block button{
+  outline: none;
+  box-shadow: none;
+}
+
+div.svgСharts-tooltip-select{
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  color: #ffffff;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 100;
+  visibility: hidden;
+  text-align: left;
+}
+
+div.svgСharts-tooltip-select div{
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+div.svgСharts-tooltip-select div:hover{
+  background: #ffffff;
+}

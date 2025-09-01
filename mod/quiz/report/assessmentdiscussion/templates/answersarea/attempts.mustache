@@ -1,0 +1,23 @@
+<div class="answers-tabs-wrapper answer-nav secondary-navigation d-print-none">
+    {{> quiz_assessmentdiscussion/answersarea/tabs }}
+</div>
+
+<!--{{> quiz_assessmentdiscussion/answersarea/statistics }}-->
+
+{{> quiz_assessmentdiscussion/answersarea/sort }}
+
+<div class="answers-inner">
+    {{#usersdata}}
+        {{> quiz_assessmentdiscussion/answersarea/answer }}
+    {{/usersdata}}
+
+    {{^usersdata}}
+        {{#str}}noanswers, quiz_assessmentdiscussion{{/str}}
+    {{/usersdata}}
+</div>
+
+{{#js}}
+    require(['jquery', 'quiz_assessmentdiscussion/preview'], function($, preview) {
+        preview.inview();
+    });
+{{/js}}

@@ -1,0 +1,14 @@
+{
+    "name": "moodle-editor_ousupsub-editor",
+    "builds": {
+        "moodle-editor_ousupsub-editor": {
+            "jsfiles": [
+                "editor.js",
+                "clean.js",
+                "selection.js",
+                "editor-plugin.js",
+                "manager.js"
+            ]
+        }
+    }
+}

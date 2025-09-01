@@ -1,0 +1,65 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_mindmaap/view_page
+
+    Example context (json):
+    {
+        "link": "b1",
+        "url": "s2",
+        "sesionurl": "s3"
+        "intro": "s4"
+    }
+}}
+
+<div class="col-12">
+    <div class="row">
+        <div class="col-12">
+            {{{intro}}}
+        </div>
+    </div>
+    <div class="row">
+        <iframe id="mindmapsessioniframe" src="{{{sessionurl}}}" style="width:0px;border:0px;height: 0px;"></iframe>
+        {{#iframe}}
+            <iframe id="mindmapiframe" src=""></iframe>
+            {{#js}}
+                require(['mod_mindmaap/iframe'], function(Main) {
+                    Main.init('{{{url}}}');
+                });
+            {{/js}}
+        {{/iframe}}
+        {{#popup}}
+            {{#js}}
+                require(['mod_mindmaap/popup'], function(Main) {
+                    Main.init('{{{url}}}', '{{{name}}}');
+                });
+            {{/js}}
+            <a href="#" id="mindmaapopen" class="btn btn-primary mindmaapbutton" rel="noopener noreferrer">
+                {{#str}}openpopup, mod_mindmaap{{/str}}
+            </a>
+
+        {{/popup}}
+        {{#window}}
+            <a href="{{{url}}}" id="mindmaapopen" class="btn btn-primary mindmaapbutton" target="_blank" rel="noopener noreferrer">
+                {{#str}}newwindow, mod_mindmaap{{/str}}
+            </a>
+        {{/window}}
+        {{#link}}
+            <script> window.setInterval(function(){ window.location.href="{{{url}}}"},2000); </script>
+        {{/link}}
+    </div>
+</div>

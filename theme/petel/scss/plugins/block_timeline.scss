@@ -1,0 +1,15 @@
+.block_timeline {
+    .dropdown-toggle {
+        svg path {
+            color: $petel-secondary;
+        }
+        &::after {
+            display: none;
+        }
+        &[aria-expanded="true"] {
+            .carret {
+                transform: scaleY(-1);
+            }
+        }
+    }
+}

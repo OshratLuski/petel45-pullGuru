@@ -1,0 +1,17 @@
+html[dir=rtl] div[data-fieldtype="duration"] fieldset > div {
+    flex-flow: row-reverse;
+    justify-content: flex-end;
+}
+html[dir=rtl] #fitem_id_penalty .col-form-label,
+html[dir=rtl] #fitem_id_newbehaviour .col-form-label,
+html[dir=rtl] #fitem_id_behaviourduration .col-form-label,
+html[dir=rtl] #fitem_id_behaviourtime .col-form-label {
+    background: #eee;
+    border-left: 1px solid black;
+    margin-bottom: 0;
+}
+html[dir=rtl] #fitem_id_newbehaviour ,
+html[dir=rtl] #fitem_id_behaviourduration ,
+html[dir=rtl] #fitem_id_behaviourtime  {
+    margin-bottom: 0;
+}

@@ -1,0 +1,111 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="d-flex">
+
+    <select id="selectLanguage" class="btn border-secondary align-self-start mr-2 mt-1">
+        {{#langoptions}}
+            <option {{#active}} selected {{/active}} value="{{key}}">{{name}}</option>
+        {{/langoptions}}
+    </select>
+
+{{#has_select_menu}}
+    <div class="d-flex align-items-center block-oer-items-inview" id="selectCourse">
+        <div class="dropdown align-self-start mt-1">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" aria-label="{{#str}} aria:sortingdropdown, block_myoverview {{/str}}">
+                {{#pix}} i/course {{/pix}}
+                <span class="d-sm-inline-block">
+                    {{#str}} selectcourse, block_oer_items {{/str}}
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                {{#courses}}
+                    <li>
+                        <a
+                            class="dropdown-item {{#active}}active{{/active}}"
+                            data-courseid = "{{courseid}}"
+                            data-name = "{{name}}"
+                            data-handler = "setCourse"
+                            href="javascript:void(0);"
+                            >
+                            {{name}}
+                        </a>
+                    </li>
+                {{/courses}}
+            </ul>
+        </div>
+        <div class="spinner-border ml-2" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class = "ml-3" id = "selectedCourse">
+            <button
+                type="button"
+                data-handler = "removeCourse"
+                class="btn btn-outline-primary example d-none mr-3 my-1"
+                title = "{{#str}} removecourse, block_oer_items {{/str}}"
+                >
+                <i class="icon fa fa-times"></i>
+                <span></span>
+            </button>
+            {{#courses}}
+                {{#active}}
+                <button
+                    type="button"
+                    data-handler = "removeCourse"
+                    data-courseid = "{{courseid}}"
+                    class="btn btn-outline-primary mr-3 my-1"
+                    title = "{{#str}} removecourse, block_oer_items {{/str}}"
+                    >
+                    <i class="icon fa fa-times"></i>
+                    <span>{{name}}</span>
+                </button>
+                {{/active}}
+            {{/courses}}
+        </div>
+    </div>
+{{/has_select_menu}}
+</div>
+<!-- remove from m37 -->
+<div id = "hidden_inputs_filter">
+    <input id="activity_id" type="hidden" name="copy_from_activity_id" value="">
+    <input id="course_id" type="hidden" name="copy_to_course_id" value="">
+    <input id="section_id" type="hidden" name="copy_to_section_id" value="">
+    <input id="sesskey_user" type="hidden" value="">
+</div>
+
+<div class="content-oer-activities"></div>
+
+{{#js}}
+    var blockoerflag = false;
+    document.addEventListener('loadmyoverview', function (e) {
+        if(blockoerflag === false){
+            blockoerflag = true;
+            require(['block_oer_items/main'], function(main) {
+                main.init();
+            });
+        }
+    }, false);
+
+    setTimeout(function() {
+        if(blockoerflag === false){
+            blockoerflag = true;
+            require(['block_oer_items/main'], function(main) {
+                main.init();
+            });
+        }
+    }, 4000);
+{{/js}}

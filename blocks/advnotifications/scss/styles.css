@@ -1,0 +1,316 @@
+/**
+ * Advanced Notifications SCSS
+ *
+ * @package   block_advnotifications
+ * @copyright 2016 LearningWorks Ltd
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+body #advnotifications_table_wrapper td > form,
+body #advnotifications_restore_table_wrapper td > form {
+  display: inline;
+}
+body #advnotifications_table_wrapper td > form button,
+body #advnotifications_restore_table_wrapper td > form button {
+  border: none;
+  background: none;
+  transform: scale(1.1);
+  transition: 100ms;
+}
+body #advnotifications_table_wrapper td > form button[class*=restore], body #advnotifications_table_wrapper td > form button[class*=edit],
+body #advnotifications_restore_table_wrapper td > form button[class*=restore],
+body #advnotifications_restore_table_wrapper td > form button[class*=edit] {
+  color: #060; /* stylelint-disable-line csstree/validator */
+}
+body #advnotifications_table_wrapper td > form button[class*=delete],
+body #advnotifications_restore_table_wrapper td > form button[class*=delete] {
+  color: #730000; /* stylelint-disable-line csstree/validator */
+}
+body #advnotifications_table_wrapper td > form button:hover, body #advnotifications_table_wrapper td > form button:focus,
+body #advnotifications_restore_table_wrapper td > form button:hover,
+body #advnotifications_restore_table_wrapper td > form button:focus {
+  outline: none;
+  transform: scale(1.25);
+  transition: 100ms;
+}
+body #add_notification_wrapper_id {
+  margin-top: 1.5em;
+}
+body #add_notification_wrapper_id .alert.preview-alert {
+  position: relative;
+  padding-right: 14px;
+}
+body #add_notification_wrapper_id .alert.preview-alert.aicon {
+  padding-left: 3em;
+}
+body #add_notification_wrapper_id .alert.preview-alert.dismissible {
+  padding-right: 2em;
+}
+body #add_notification_wrapper_id .alert.preview-alert > * {
+  display: inline;
+}
+body #add_notification_wrapper_id .alert.preview-alert > .preview-aicon {
+  display: block;
+}
+body #add_notification_wrapper_id .alert.preview-alert > .preview-aicon img {
+  height: 1.5em;
+  position: absolute;
+  top: calc(50% - 0.75em);
+  margin-left: -2em;
+  opacity: 0.5;
+}
+body #add_notification_wrapper_id .alert.preview-alert > .preview-alert-dismissible {
+  position: absolute;
+  font-size: 1em;
+  line-height: 1em;
+  top: calc(50% - 0.5em);
+  right: 1em;
+}
+body #add_notification_wrapper_id .alert.preview-alert > .preview-alert-dismissible > * {
+  cursor: pointer;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form .text-muted {
+  width: 100%;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_title {
+  margin-top: 1.5em;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_message {
+  width: 100%;
+  margin-bottom: 1.5em;
+  resize: both;
+  min-width: 50px;
+  min-height: 1.5em;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form .requiredfield {
+  background-color: rgba(255, 0, 0, 0.075); /* stylelint-disable-line csstree/validator */
+  border: 1px solid #f00; /* stylelint-disable-line csstree/validator */
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form strong.requiredfield {
+  padding: 0.25em;
+  border-color: transparent;
+  border-radius: 5px;
+  color: rgb(175, 30, 30); /* stylelint-disable-line csstree/validator */
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form strong.required {
+  color: rgb(175, 30, 30); /* stylelint-disable-line csstree/validator */
+  font-size: 1.25em;
+  padding: 0 5px;
+  vertical-align: top;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form input[type=date] {
+  width: 58.3333333333%;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form .btn {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_status {
+  display: none;
+  position: relative;
+  margin-top: 10px;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_status .signal {
+  border: 5px solid #333;
+  border-radius: 30px;
+  height: 30px;
+  left: 10px;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_status .saving {
+  padding-top: 5px;
+  margin-left: 40px;
+}
+body #add_notification_wrapper_id .add_notification_form_wrapper #add_notification_form #add_notification_status .done {
+  display: none;
+  padding-top: 5px;
+  margin-left: 40px;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+#advnotifications_manage .btn.instance {
+  margin-right: 0.5rem;
+}
+
+body .block.block_advnotifications .content,
+#page-blocks-advnotifications-pages-notifications .content {
+  margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+body .block.block_advnotifications .notification-block-wrapper,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper {
+  /* General style for ALL alerts*/
+  margin-bottom: 0;
+  position: relative;
+  box-shadow: 0 0.1875rem 0.375rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+body .block.block_advnotifications .notification-block-wrapper .alert-colorblock,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper .alert-colorblock {
+  width: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  margin-top: -0.0625rem;
+  margin-left: -0.0625rem;
+  margin-bottom: -0.0625rem;
+}
+body .block.block_advnotifications .notification-block-wrapper .alert-inner,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper .alert-inner {
+  width: calc(100% - 1rem);
+  padding: 0.5rem 0.75rem 0.5rem 0.625rem;
+}
+body .block.block_advnotifications .notification-block-wrapper .alert-text,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper .alert-text {
+  font-family: "Heebo", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #000;
+}
+body .block.block_advnotifications .notification-block-wrapper.dismissible .notification-block-close i,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.dismissible .notification-block-close i {
+  transition: 250ms;
+  color: #000;
+  font-size: 1.5rem;
+  margin-left: 0.75rem;
+  cursor: pointer;
+}
+body .block.block_advnotifications .notification-block-wrapper.dismissible .notification-block-close i:hover,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.dismissible .notification-block-close i:hover {
+  color: #000; /* stylelint-disable-line csstree/validator */
+  transition: 250ms;
+}
+body .block.block_advnotifications .notification-block-wrapper.aicon i:not(.fa-times-circle),
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.aicon i:not(.fa-times-circle) {
+  font-size: 1.375rem;
+  margin-right: 0.75rem;
+  color: #000;
+  transition: 250ms;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-warning,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-warning {
+  font-weight: 400;
+  background-color: #fde9d5;
+  border-color: #fde9d5;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-warning .alert-colorblock,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-warning .alert-colorblock {
+  background-color: #f59331;
+  border: 0.0625rem solid #f59331;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-success,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-success {
+  font-weight: 400;
+  background-color: #e9f2e9;
+  border-color: #e9f2e9;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-success .alert-colorblock,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-success .alert-colorblock {
+  background-color: #287d28;
+  border: 0.0625rem solid #287d28;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-success .notification-block-close i,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-success .notification-block-close i {
+  color: #287d28;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-success .fal.fa-check-circle,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-success .fal.fa-check-circle {
+  color: #287d28;
+  font-size: 1.5rem;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-danger,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-danger {
+  font-weight: 400;
+  background-color: #fae6e6;
+  border-color: #fae6e6;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-danger .alert-colorblock,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-danger .alert-colorblock {
+  background-color: #ce0e0f;
+  border: 0.0625rem solid #ce0e0f;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-danger .notification-block-close i,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-danger .notification-block-close i {
+  color: #ce0e0f;
+  transition: 250ms;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-danger .fal.fa-exclamation-circle,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-danger .fal.fa-exclamation-circle {
+  color: #ce0e0f;
+  font-size: 1.5rem;
+  transition: 250ms;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-info,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-info {
+  font-weight: 400;
+  background-color: #d9eef8;
+  border-color: #d9eef8;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-info .alert-colorblock,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-info .alert-colorblock {
+  background-color: #008ecd;
+  border: 0.0625rem solid #008ecd;
+}
+body .block.block_advnotifications .notification-block-wrapper.alert-info .fal.fa-exclamation-circle,
+#page-blocks-advnotifications-pages-notifications .notification-block-wrapper.alert-info .fal.fa-exclamation-circle {
+  font-size: 1.5rem;
+  transition: 250ms;
+}
+
+body .block.block_advnotifications:not(.editing) .block.block_advnotifications {
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
+  padding: 0;
+  min-height: 0;
+}
+body .block.block_advnotifications:not(.editing) .block.block_advnotifications .card-body {
+  padding: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+body .block.block_advnotifications:not(.editing) .block.block_advnotifications .header {
+  display: none;
+}
+body .block.block_advnotifications:not(.editing) .block.block_advnotifications .content {
+  padding: 0;
+  background-color: transparent;
+}
+
+html[dir=rtl] .block_advnotifications .carousel-control-prev-icon,
+html[dir=rtl] .block_advnotifications .carousel-control-next-icon {
+  transform: scaleX(-1);
+}
+
+body .block.block_advnotifications .carousel-control-prev,
+body .block.block_advnotifications .carousel-control-next {
+  width: 3.5rem;
+  padding: 1rem;
+}
+body .block.block_advnotifications .carousel-control-prev span,
+body .block.block_advnotifications .carousel-control-next span {
+  background-size: contain;
+}/*# sourceMappingURL=styles.css.map */

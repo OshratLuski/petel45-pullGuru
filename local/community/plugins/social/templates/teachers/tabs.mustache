@@ -1,0 +1,14 @@
+<div class="teachlist-wrap d-flex flex-wrap align-items-center">
+  <span class="teachlist-text text-primary mb-2 mb-xl-0 mr-4">{{#str}} choosecircles, community_social{{/str}}</span>
+  <div class="teacher-tabs d-flex align-items-center">
+    {{#teachers_tabs}}
+    <div data-handler="teacher_tab" data-tab_id="{{tab_id}}" class="teachlist-item {{tab_active}}" role="button" tabindex="0">
+      <span>{{tab_name}}
+        {{#tab_count_active}}
+        ({{tab_count}})
+        {{/tab_count_active}}
+      </span>
+    </div>
+    {{/teachers_tabs}}
+  </div>
+</div>

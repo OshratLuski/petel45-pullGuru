@@ -1,0 +1,109 @@
+#local_diagnostic_description_modal{
+    z-index: 3000;
+
+    .modal-content{
+        border: 2px solid gray;
+        border-radius: 5px;
+        top: 70px;
+    }
+
+    .description-footer{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        padding: .75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(.3rem - 1px);
+        border-bottom-left-radius: calc(.3rem - 1px);
+    }
+
+    .modal-body-description{
+        padding: 20px;
+        font-weight: 400;
+    }
+
+    .modal-dialog{
+        pointer-events:initial;
+    }
+
+    .modal-title{
+        font-size: 32px;
+    }
+
+    .modal-header{
+        border: 0;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .close{
+        position: relative;
+        top: 10px;
+        color: #fff;
+        padding: 1rem 1rem;
+        margin: -1rem -1rem -1rem auto;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        float: right;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        text-shadow: 0 1px 0 #fff;
+    }
+}
+
+#local_diagnostic_description_repo_modal{
+    z-index: 3000;
+
+    .modal-content{
+        border: 2px solid gray;
+        border-radius: 5px;
+        top: 70px;
+    }
+
+    .description-footer-repo{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        padding: .75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(.3rem - 1px);
+        border-bottom-left-radius: calc(.3rem - 1px);
+    }
+
+    .modal-body-description-repo{
+        padding: 20px;
+        font-weight: 400;
+    }
+
+    .modal-dialog{
+        pointer-events:initial;
+    }
+
+    .modal-title{
+        font-size: 32px;
+    }
+
+    .modal-header{
+        border: 0;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .close{
+        position: relative;
+        top: 10px;
+        color: #fff;
+        padding: 1rem 1rem;
+        margin: -1rem -1rem -1rem auto;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        float: right;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        text-shadow: 0 1px 0 #fff;
+    }
+}

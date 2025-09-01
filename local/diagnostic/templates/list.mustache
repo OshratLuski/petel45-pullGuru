@@ -1,0 +1,92 @@
+<div class="general-question-scroll">
+<div class="question-list-title">{{#str}}globalview, local_diagnostic{{/str}}</div>
+{{#tabledata}}
+    <div data-id="{{name}}" class="question-list-title">
+        {{#repocmid}}
+            <a target="_blank" href="{{globals.config.wwwroot}}/local/community/plugins/oer/activityshare.php?id={{mid}}">{{name}}</a>
+        {{/repocmid}}
+        {{^repocmid}}
+            {{name}}
+        {{/repocmid}}
+        {{#midurl}}
+            <br/><a target="_blank" href="{{midurl}}">{{#str}}custommidlink, local_diagnostic{{/str}}</a>
+        {{/midurl}}
+        {{^midurl}}
+            {{#midfilename}}
+                {{#mid}}
+                    <br/><a target="_blank" href="{{globals.config.wwwroot}}/local/diagnostic/midfile.php?mid={{mid}}">{{#str}}custommidlink, local_diagnostic{{/str}}</a>
+                {{/mid}}
+            {{/midfilename}}
+        {{/midurl}}
+    </div>
+    <div data-select="{{name}}" class="question-scroll-table">
+        {{#hasimportant}}
+            <div class="important-shifter" style="background-color:{{{light}}}">
+                <div class="important-shifter-obj selected allquestions" style="background-color:{{{secondary}}}">
+                    {{#str}}allquestions, local_diagnostic{{/str}}
+                </div>
+                <div class="important-shifter-obj">
+                    {{#str}}requiredquestions, local_diagnostic{{/str}}
+                </div>
+            </div>
+        {{/hasimportant}}
+        <table class="question-table w-100">
+            <tr>
+                <th>
+                    {{#str}}questionstitle, local_diagnostic{{/str}}
+                </th>
+                {{#clusters}}
+                    <th
+                            class="list-table-p-tooltip"
+                            data-placement="top"
+                            data-selector="true"
+                            title="{{#str}}avggrade, local_diagnostic, {{prc}}{{/str}}">
+                        {{name}}<br/>{{prc}}%
+                    </th>
+                {{/clusters}}
+            </tr>
+            {{#rows}}
+                <tr>
+                    <td
+                            class="list-table-p-tooltip{{#important}} importanthdr{{/important}}"
+                            data-placement="top"
+                            data-selector="true"
+                            title="{{qname}}">
+                        {{#slot}}
+                            <a target="_blank"
+                               href="{{globals.config.wwwroot}}/local/diagnostic/questionpreview.php?slot={{slot}}&repocmid={{repocmid}}&mid={{mid}}&qid={{qid}}">{{#str}}question, local_diagnostic, {{number}}{{/str}}</a>
+                        {{/slot}}
+                        {{^slot}}
+                            <a target="_blank"
+                               href="{{globals.config.wwwroot}}/local/diagnostic/questionpreview.php?slot={{slot}}
+                            &repocmid={{repocmid}}&mid={{mid}}&qid={{qid}}">{{question}}</a>
+                        {{/slot}}
+                    </td>
+                    {{#value}}
+                        <td class="{{color}} list-table-p-val{{#important}} importantval{{/important}}">
+                            {{prc}}
+                        </td>
+                    {{/value}}
+                </tr>
+            {{/rows}}
+        </table>
+    </div>
+{{/tabledata}}
+</div>
+<div class="question-desc-border">
+    <div class="question-desc-title">{{#str}}average_percent_of_success, local_diagnostic{{/str}}</div>
+    <div class="question-description">
+        <div class="question-desc-block">
+            <div>0-{{#averagePercent}}{{mediumlevel}}{{/averagePercent}}%</div>
+            <div class="label red"></div>
+        </div>
+        <div class="question-desc-block">
+            <div>{{#averagePercent}}{{mediumlevel}}{{/averagePercent}}-{{#averagePercent}}{{hightlevel}}{{/averagePercent}}%</div>
+            <div class="label yellow"></div>
+        </div>
+        <div class="question-desc-block">
+            <div>{{#averagePercent}}{{hightlevel}}{{/averagePercent}}-100%</div>
+            <div class="label green"></div>
+        </div>
+    </div>
+</div>

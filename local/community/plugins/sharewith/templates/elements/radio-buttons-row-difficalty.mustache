@@ -1,0 +1,63 @@
+<div class="form-group d-flex align-items-center justify-content-start flex-wrap mb-4 {{#required}}required{{/required}}">
+    {{#title}}
+        <label class="text-primary input-title w-100 font-weight-bold mb-2">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+
+        </label>
+    {{/title}}
+
+    {{#element_0}}
+    <div class="custom-control custom-radio mr-3">
+        <input type="radio" id="{{element_0.metadata_id}}" name="{{shortname}}" value="{{element_0.metadata_value}}"
+               class="custom-control-input" {{#element_0.metadata_checked}}checked{{/element_0.metadata_checked}}>
+        <label class="custom-control-label d-flex align-items-center" for="{{element_0.metadata_id}}">
+            <div class="activity-level-icon border border-primary rounded d-flex flex-column mr-1">
+                <div class="activity-level-icon-bar border border-primary"></div>
+                <div class="activity-level-icon-bar border border-primary"></div>
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+            </div>
+            <span>{{element_0.metadata_name}}</span>
+        </label>
+    </div>
+    {{/element_0}}
+
+    {{#element_1}}
+    <div class="custom-control custom-radio mr-3">
+        <input type="radio" id="{{element_1.metadata_id}}" name="{{shortname}}" value="{{element_1.metadata_value}}"
+               class="custom-control-input" {{#element_1.metadata_checked}}checked{{/element_1.metadata_checked}}>
+        <label class="custom-control-label d-flex align-items-center" for="{{element_1.metadata_id}}">
+            <div class="activity-level-icon border border-primary rounded d-flex flex-column mr-1">
+                <div class="activity-level-icon-bar border border-primary"></div>
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+            </div>
+            <span>{{element_1.metadata_name}}</span>
+        </label>
+    </div>
+    {{/element_1}}
+
+    {{#element_2}}
+    <div class="custom-control custom-radio">
+        <input type="radio" id="{{element_2.metadata_id}}" name="{{shortname}}" value="{{element_2.metadata_value}}"
+               class="custom-control-input" {{#element_2.metadata_checked}}checked{{/element_2.metadata_checked}}>
+        <label class="custom-control-label d-flex align-items-center" for="{{element_2.metadata_id}}">
+            <div class="activity-level-icon border border-primary rounded d-flex flex-column mr-1">
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+                <div class="activity-level-icon-bar border border-primary bg-primary"></div>
+            </div>
+            <span>{{element_2.metadata_name}}</span>
+        </label>
+    </div>
+    {{/element_2}}
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharewith{{/str}} "{{{title}}}"
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="support_modal_inner-text mb-2">{{# str }} asq_questions_and_report_everything, local_redmine {{/ str }}</div>
+
+<h3 class="support_modal_inner-title help">{{# str }} how_can_we_help_you, local_redmine {{/ str }}</h3>
+<div role="radiogroup" aria-labelledby="support_question" id="rg1" class="mb-3">
+    <div class="radio_block mb-2">
+        <label class="ask_a_question mb-0">
+            <input type="radio" name="questionType" value="question" id="question" {{#default_question}}checked{{/default_question}}/>
+            {{# str }} i_want_to_ask_a_question, local_redmine {{/ str }}
+        </label>
+    </div>
+    <div class="radio_block mb-2">
+        <label class="pedagogical_help mb-0">
+            <input type="radio" name="questionType" value="pedagogical_help" id="pedagogical_help" {{#default_pedagogical_help}}checked{{/default_pedagogical_help}}/>
+            {{# str }} i_want_to_get_pedagogical_help, local_redmine {{/ str }}
+        </label>
+    </div>
+    <div class="radio_block mb-2">
+        <label class="ask_a_question mb-0">
+            <input type="radio" name="questionType" value="suggest_improvement" id="suggest_improvement" {{#default_suggest_improvement}}checked{{/default_suggest_improvement}}/>
+            {{# str }} i_want_to_suggest_improvement, local_redmine {{/ str }}</label>
+    </div>
+    <div class="radio_block mb-2">
+        <label class="contenterror_report mb-0">
+            <input type="radio" name="questionType" value="contenterror" id="contenterror_report" {{#default_contenterror_report}}checked{{/default_contenterror_report}}/>
+            {{# str }} i_want_to_report_a_contentbug, local_redmine {{/ str }}</label>
+    </div>
+    <div class="radio_block mb-2">
+        <label class="error_report mb-0">
+            <input type="radio" name="questionType" value="error" id="error_report" {{#default_error_report}}checked{{/default_error_report}}/>
+            {{# str }} i_want_to_report_a_bug, local_redmine {{/ str }}
+        </label>
+    </div>
+</div>
+
+<div class="question_type_error alert alert-danger" style="display: none;" role="alert">
+    {{# str }} question_type_error, local_redmine {{/ str }}
+</div>
+
+<h3 class="support_modal_inner-title tell_more">{{# str }} can_you_tell_more, local_redmine {{/ str }}</h3>
+<p class="support_modal_inner-text mb-2" style="font-size: 14px;">{{# str }} can_you_tell_more_desc, local_redmine {{/ str }}</p>
+<textarea class="w-100 mb-3" name="more_info" id="more_info" rows="4"></textarea>
+
+<h3 id="support_activities_title" style="display: none;" class="support_modal_inner-title help">{{# str }} we_have_found_something, local_redmine {{/ str }}</h3>
+<div id="support_activities" class="text-left list-group list-group-flush"></div>
+<div class="more_info_error alert alert-danger" style="display: none;" role="alert">
+    {{# str }} more_info_error, local_redmine {{/ str }}
+</div>
+
+<h3 class="support_modal_inner-title almost_done" style="display:none">{{# str }} were_almost_done, local_redmine {{/ str }}</h3>
+<textarea class="w-100 mb-3" name="upload_info" id="upload_info"  rows="4" style="display:none;"></textarea>

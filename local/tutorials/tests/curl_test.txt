@@ -1,0 +1,17 @@
+curl --noproxy '*' -X POST https://ibwwsdmzv01.weizmann.ac.il:7443/GW2/rest/GC_INSERT_PASSED_MDL_TEST_HR \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Basic bW9vZGxlOm1vb2RsZSE=' \
+   -d '{
+            "esbOpsIn": {
+                "serviceName": "GC_INSERT_PASSED_MDL_TEST_HR",
+                "reqOrigin": "MOODLE",
+                "reqOriginator": "TEST",
+                "reqOriginApp": "Sexual harassment"
+            },
+            "inputParameters": {
+                "primaryUserId": "janka",
+                "courseId": "244",
+                "testDate": "2022-11-23"
+            }
+        }'

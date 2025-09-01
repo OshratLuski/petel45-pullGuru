@@ -1,0 +1,38 @@
+<form class="grade-area-block">
+    <input type="hidden" name="attemptid" value="{{gradearea.attemptid}}">
+    <input type="hidden" name="slot" value="{{gradearea.slot}}">
+    <input type="hidden" name="sesskey" value="{{gradearea.sesskey}}">
+    <input type="hidden" name="maxmark" value="{{gradearea.maxmark}}">
+    <input type="hidden" name="minfraction" value="{{gradearea.minfraction}}">
+    <input type="hidden" name="maxfraction" value="{{gradearea.maxfraction}}">
+
+    <iframe id="iframe_{{gradearea.attemptid}}"  src="{{{gradearea.link}}}" height="500px" style="width:100%;"></iframe>
+
+</form>
+
+{{#js}}
+    require(['jquery', 'quiz_assessmentdiscussion/render', 'quiz_assessmentdiscussion/main', 'quiz_assessmentdiscussion/loading'], function($, Render, Main, Loading) {
+
+        $('#iframe_{{gradearea.attemptid}}').on("load", function() {
+            $("#iframe_{{gradearea.attemptid}}").contents().find('#id_submitbutton').click(function(){
+
+                let gradeInput = $("#iframe_{{gradearea.attemptid}}").contents().find('[name="{{gradearea.prefix}}-mark"]');
+                let grade = parseFloat(gradeInput.val());
+
+                if (isNaN(grade) || grade > {{gradearea.maxmark}} || grade < 0) {
+                    Main.createAlert();
+                } else {
+                    Loading.show();
+
+                    Render.dashboard_tabs(function() {
+                        Render.answers_tabs(function() {
+                            Render.attempts_area(function() {
+                                Loading.remove();
+                            });
+                        });
+                    });
+                }
+            })
+        });
+    });
+{{/js}}

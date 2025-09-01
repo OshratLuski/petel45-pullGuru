@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center">
+    <div class="mr-1">{{#str}}fixlabel, theme_petel{{/str}}</div>
+    <button type="button" class="btn btn-primary mybutton" data-toggle="modal" data-target="#fixpopup{{questionid}}"
+        data-url="{{url}}" data-questionid="{{questionid}}">
+        {{#str}}fixbuttonlabel, theme_petel{{/str}}
+    </button>
+
+    <div class="modal fade" id="fixpopup{{questionid}}" tabindex="-1" role="dialog" aria-labelledby="fixpopuplabel{{questionid}}"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fixpopuplabel{{questionid}}">{{#str}}fixpopuplabel, theme_petel{{/str}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#str}}fixpopupmessage, theme_petel{{/str}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}cancel,
+                        theme_petel{{/str}}</button>
+                    <a type="button" class="btn btn-primary" href="{{url}}">{{#str}}confirm, theme_petel{{/str}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

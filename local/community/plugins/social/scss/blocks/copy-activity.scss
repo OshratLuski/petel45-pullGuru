@@ -1,0 +1,47 @@
+.social {
+
+  .work_block {
+    z-index: 1201;
+    position: absolute;
+    flex-direction: column;
+    top: 55px;
+    right: 7px;
+    background: #fff;
+    border-radius: 5px;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    font-family:  inherit;
+    border: 1px solid #bcbec0;
+    padding-bottom: 5px;
+    max-height: 600px;
+    min-width: 250px;
+    overflow: hidden;
+
+    ul, li {
+      list-style-type: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .user-course__item {
+      padding-left: 44px;
+    }
+  }
+
+  .inverse {
+    color: #3f1c7a;
+    background: #fff;
+    border-color: #3f1c7a;
+  }
+  .inverse::before {
+    background: url([[pix:community_oercatalog|copy-inverse]]) 50% 50% no-repeat;
+    background-size: contain;
+  }
+
+}

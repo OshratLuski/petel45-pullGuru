@@ -1,0 +1,64 @@
+
+// Get BOOST SCSS
+// Import FontAwesome.
+@import "../../boost/scss/fontawesome";
+//MUST BE before bootstrap (adding globals to use for block_advnotification (#7528))
+$carousel-control-color: $petel-primary !default;
+// Import All of Bootstrap
+@import "../../boost/scss/bootstrap";
+// Import Core moodle CSS
+@import "../../boost/scss/moodle";
+// Uncomment the following, to debug SCSS using CLI sassc compiler
+// $ sassc theme/petel/scss/main.scss petel_preview.css
+
+@import 'globals/fonts';
+@import 'globals/text';
+@import "components/btns";
+@import "components/aside";
+@import "components/header";
+@import "components/footer";
+@import "components/tooltip";
+@import "components/navtabs";
+@import "components/filemanager";
+@import "components/dropdown";
+@import "components/progressbar";
+@import "components/splitter";
+@import "components/sharemodal";
+@import "components/forms";
+@import "components/alert";
+@import "components/modal";
+@import "components/search";
+@import "pages/course_page";
+@import "pages/userpage";
+@import "pages/useredit";
+@import "pages/login";
+@import "pages/signup";
+@import "pages/grading";
+@import "pages/saml2auth";
+@import "mods/vplformsedit";
+@import "question/ddmatch";
+@import "question/question";
+
+@import 'plugins/redmine-messages';
+// @import 'plugins/sharequestion';
+// @import 'plugins/oer';
+@import 'plugins/diagnostic';
+// @import 'plugins/sharesequence';
+// @import 'plugins/local_quizpresets';
+@import 'plugins/block_enrolkey';
+@import 'plugins/block_timeline';
+@import "mods/quiz";
+@import 'plugins/sharewith';
+@import 'plugins/oer';
+@import 'plugins/social';
+@import 'plugins/local_teamwork';
+@import 'plugins/quizanalytics';
+@import 'mods/advancedoverview';
+@import 'mods/assessmentdiscussion';
+@import 'mods/myoverview';
+@import 'mods/questionnaire';
+@import 'mods/url';
+@import 'mods/assign';
+@import 'globals/petel_patches';
+@import 'courseformats/flexsections';
+@import 'plugins/mod_evoting';

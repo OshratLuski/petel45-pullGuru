@@ -1,0 +1,372 @@
+nav.navbar.petel-navbar {
+    .navbar-brand {
+
+        //TODO: add logo styles
+        .logo {
+            max-height: 2.5rem;
+        }
+    }
+
+    .count-container {
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: $warning;
+        color: $body-color;
+        border-radius: 100%;
+        line-height: 1rem;
+        text-align: center;
+        font-size: .75rem;
+        top: .5rem;
+        right: unset;
+        left: 0;
+    }
+
+    [data-region="popover-region-messages"] {
+        .count-container {
+            top: 0;
+        }
+    }
+
+    .navigation {
+        font-family: $primary-font;
+
+        .nav-link {
+            color: $white;
+            border: none;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: $white;
+            padding: .5rem 1rem;
+            transition: all ease .125s;
+
+            &:active,
+            &.active,
+            &:focus {
+                text-decoration: none;
+                text-shadow: 0 0 .06rem currentColor,
+                    0 0 .06rem currentColor,
+                    0 0 .06rem currentColor,
+                    0 0 .06rem currentColor;
+                transition: all ease .125s;
+                &:hover, &:focus {
+                    text-decoration: underline;
+                    text-shadow: 0 0 .04rem currentColor,
+                        0 0 .04rem currentColor,
+                        0 0 .04rem currentColor,
+                        0 0 .04rem currentColor;
+                    transition: all ease .125s;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                text-shadow: 0 0 .04rem currentColor,
+                    0 0 .04rem currentColor,
+                    0 0 .04rem currentColor,
+                    0 0 .04rem currentColor;
+                text-decoration: underline;
+                transition: all ease .125s;
+            }
+
+/*             &:focus {
+                text-decoration: none;
+                text-shadow: 0 0 .06rem currentColor,
+                    0 0 .06rem currentColor,
+                    0 0 .06rem currentColor,
+                    0 0 .06rem currentColor;
+                transition: all ease .125s;
+            } */
+
+        }
+    }
+
+    #usernavigation {
+        .nav-link {
+            font-size: 2rem;
+            color: $white;
+            // FIXME:
+            // width: 3rem;
+            height: 3rem;
+            border: .06rem solid transparent;
+            transition: all ease .125s;
+
+            &:hover {
+                background-color: transparent;
+                text-shadow: 0 0 .04rem currentColor,
+                    0 0 .04rem currentColor,
+                    0 0 .04rem currentColor;
+                transition: all ease .125s;
+            }
+
+            &:active {
+                border-color: $petel-secondarylight;
+                color: $petel-secondarylight;
+                transition: all ease .125s;
+
+            }
+        }
+
+        [data-region="popover-region-messages"],
+        #nav-notification-popover-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .usermenu {
+            #user-menu-toggle {
+                padding: 0;
+                color: $white;
+
+                &::after {
+                    margin-left: .5rem;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .userbutton {
+                height: 2.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+
+                .userpicture {
+                    border-radius: 100%;
+                }
+
+                i.defaultuserpic {
+                    font-size: 2.25rem;
+                }
+
+
+            }
+        }
+    }
+
+    .editmode-switch-divider {
+        height: 2.5rem;
+    }
+
+    .editmode-switch-form {
+        .input-group {
+            align-items: center;
+
+            label {
+                color: $white;
+                font-family: $primary-font;
+                font-style: normal;
+                font-weight: 400;
+                font-size: .75rem;
+                line-height: 1.125rem;
+            }
+        }
+
+        .custom-switch {
+            width: 2.125rem;
+            height: 1.125rem;
+            min-height: unset;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            input {
+                width: 100%;
+                height: 100%;
+            }
+
+            .custom-control-label {
+                position: absolute;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+
+                &::before {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    background-color: $white;
+                    border: .06rem solid $secondary;
+                    border-radius: 1.125rem;
+                }
+
+                &::after {
+                    position: absolute;
+                    width: .875rem;
+                    height: .875rem;
+                    left: 1.25rem;
+                    top: .125rem;
+                    border-radius: 100%;
+                    background-color: $secondary;
+                }
+            }
+
+            .custom-control-input:checked~.custom-control-label {
+                &::after {
+                    transform: translateX($custom-switch-width - $custom-control-indicator-size - .35rem);
+                }
+            }
+        }
+
+        &.editmode-active {
+            .custom-switch {
+                .custom-control-label {
+                    &::before {
+                        background: none;
+                        background-color: $warning;
+                    }
+
+                    &::after {
+                        left: unset;
+                        right: .875rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .support-btn {
+        &::after {
+            display: none;
+        }
+
+        .count-container {
+            right: .75rem;
+        }
+    }
+}
+
+.periodictable {
+    .ui-dialog-titlebar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    button.ui-dialog-titlebar-close {
+        margin-left: auto !important;
+        position: relative;
+        right: unset;
+        top: unset;
+        width: auto;
+        height: auto;
+        padding-left: .25rem;
+        padding-right: .25rem;
+        margin: 0;
+        box-shadow: none !important;
+    }
+}
+
+.userloggedinas {
+    nav.navbar #usernavigation .usermenu .userbutton .avatars .avatar.current {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        background-color: $primary;
+
+        i.defaultuserpic {
+            font-size: 1rem;
+        }
+    }
+}
+
+//FIXME: move to correct place
+.popover {
+    max-width: 75vw;
+
+    .oer-popup {
+        padding: .5rem 1.25rem 0rem 1.25rem;
+    }
+
+    .oer-popup-list-title {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .oer-popup-list-item {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}
+
+html[dir="ltr"] {
+
+    nav.navbar.petel-navbar .editmode-switch-form .custom-switch .custom-control-label::after {
+        left: unset;
+        right: 1.25rem;
+    }
+
+    nav.navbar.petel-navbar .editmode-switch-form .custom-switch .custom-control-input:checked~.custom-control-label {
+        &::after {
+            transform: translateX($custom-switch-width - $custom-control-indicator-size + .35rem);
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    nav.navbar.petel-navbar {
+        &.fixed-top {
+            height: 3rem;
+            z-index: 1055;
+            .divider {
+                height: 1.75rem;
+            }
+        }
+
+        .count-container {
+            width: 1rem;
+            height: 1rem;
+            line-height: 1;
+        }
+
+        #usernavigation {
+
+            .nav-link {
+                font-size: 1.125rem;
+                padding: 0 0.25rem;
+            }
+
+            .usermenu {
+                #user-menu-toggle {
+                    padding: 0;
+                    color: $white;
+                }
+
+                .userbutton {
+                    height: 1.125rem;
+
+                    i.defaultuserpic {
+                        font-size: 1.125rem;
+                    }
+
+                    .avatar.current {
+                        display: flex;
+                    }
+
+                    .userpicture {
+                        height: 1.125rem;
+                        width: 1.125rem;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+
+#page-header {
+    margin: unset;
+}

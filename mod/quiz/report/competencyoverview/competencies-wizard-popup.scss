@@ -1,0 +1,180 @@
+
+@import './variables';
+.competencies_wizard {
+    #aa_bk {
+        font: Medium 16px/32px Heebo;
+        letter-spacing: 0;
+        color: #554374;
+        width: 600px;
+    }
+
+    .modal-dialog {
+        max-width: 1200px;
+        height: 720px;
+    }
+
+    .modal-backdrop {
+        background-color: $very-dark-purple;
+    }
+
+    .modal-content {
+        width: 100%;
+        box-shadow: 0px 4px 6px #220f4459;
+        border-radius: 8px;
+    }
+
+    .modal-header {
+        background-color: $very-dark-purple;
+        box-shadow: 0px 3px 4px $very-dark-purple;
+        border-radius: 4px 4px 0px 0px;
+        padding: 13px 16px;
+
+        h4 {
+            color: #fff;
+            margin: 0;
+            font: Regular 32px/38px OE Meoded Pashut Pro;
+        }
+
+        button.close {
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 1;
+                color: #fff;
+            }
+        }
+    }
+
+    .modal-body {
+        background-image: url([[pix:quiz_competencyoverview|Petel_Logo]]);
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: 30%;
+        background-position-x: -50px;
+    }
+
+    .modal-footer {
+        padding: 0;
+    }
+
+    .progress-bar-wrapper {
+        position: relative;
+        width: 348px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .progress-bar {
+        width: 340px;
+        height: 6px;
+        background-color: $light-purple;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .progress-bar-item {
+        position: relative;
+        color: $very-dark-purple;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        background-color: #fff;
+        border: 1px solid $dark-purple;
+
+        &.active {
+            color: #ffffff;
+            background: transparent radial-gradient(closest-side at 50% 50%, #7a58b2 0%, #220f44 100%) 0% 0% no-repeat padding-box;
+
+            // &::after {
+            //     content: '';
+            //     display: block;
+            //     position: absolute;
+            //     width: 2px;
+            //     height: 10px;
+            //     background-color: #c1bbcc;
+            //     top: 32px;
+            //     left: 15px;
+            // }
+        }
+
+        z-index: 10;
+    }
+
+    .select_source.btn-block {
+        width: 240px;
+        height: 56px;
+        border: 1px solid $very-dark-purple;
+        border-radius: 4px;
+        background-color: #fff;
+        text-align: center;
+        font: Regular 18px/32px Heebo;
+        color: $very-dark-purple;
+        margin: 0;
+    }
+
+    #aa_bk {
+        span {
+            font: Medium 18px/32px Heebo;
+            letter-spacing: 0;
+            color: $very-dark-purple;
+        }
+
+    }
+
+    #aa_st_list {
+        &>div {
+            font: Regular 24px/29px OE Meoded Pashut Pro;
+            letter-spacing: 0;
+            color: $very-dark-purple;
+        }
+
+        ul {
+            align-items: flex-start;
+        }
+
+        li {
+            border-top: 1px solid #c1bbcc;
+            background-color: transparent;
+            min-width: 200px;
+
+            &:last-of-type {
+                border-bottom: 1px solid #c1bbcc;
+            }
+        }
+    }
+
+    .cardgroup_title {
+        height: 48px;
+        background: #f2f1f3 0% 0% no-repeat padding-box;
+        box-shadow: 0px 5px 4px 0px #c6bdd6;
+        // border-radius: 4px;
+        text-align: left;
+        // font: Regular 24px/29px OE Meoded Pashut Pro;
+        letter-spacing: 0;
+        color: #220f44;
+        padding: 10px;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card_wrapper {
+        display: none;
+    }
+
+}

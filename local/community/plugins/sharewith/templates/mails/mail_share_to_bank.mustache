@@ -1,0 +1,32 @@
+<p>
+    בתאריך:
+    {{date}}
+    <br>
+    בשעה:
+    {{time}}
+    <br>
+    נוספה למאגר המשותף הפעילות:
+    <a href="{{{url_new_activity}}}">"{{activity_name}}"</a><br>
+    על ידי מורה:
+    {{activity_user_fname}} {{activity_user_lname}}
+    <br>
+    דואל:
+    {{activity_user_email}}
+    <br><br>
+    <a href="{{{url_original_activity}}}">קישור לפעילות המקורית</a> בקורס של המורה
+    <br>
+    <br>
+
+    {{#mid_present_oer}}
+        הפעילות אשר שותפה כעת למאגר מתבססת על פעילות מקורית אשר כבר נמצא במאגר
+        <br> <a href="{{{url_activity_mid}}}">קישור לפעילות המקורית במאגר</a> <br>
+
+        המשתמש(ים) ששיתפו את הפעילות המקורית למאגר:
+        <br>
+
+        {{#users}}
+            <a href="{{{urlprofile}}}">{{name}}</a> <br>
+        {{/users}}
+
+    {{/mid_present_oer}}
+</p>

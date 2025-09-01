@@ -1,0 +1,14 @@
+{{^isavaible}}
+    <div id="viewWrapper">
+        <h3 class='mb-4'>{{#str}}programminglangview, codescore {{/str}} {{lang}}</h3>  
+        <h3> {{#str}} taskview, codescore {{/str}}</h3>
+        <p class="task" style="white-space: pre-wrap;">{{{task}}}</p>
+        <h6> {{#str}} submissionstatus, codescore {{/str}} {{submission}}</h6>
+        {{^issubmitted}}
+            <a href='startattempt.php?cmid={{cmid}}' class="btn btn-primary mt-3">{{#str}} startattempt, codescore {{/str}}</a>
+        {{/issubmitted}}
+    </div>
+{{/isavaible}}
+{{#isavaible}}
+    <p>{{#str}} unavaibleactivity, codescore {{/str}}</p>
+{{/isavaible}}

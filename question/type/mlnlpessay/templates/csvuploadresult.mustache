@@ -1,0 +1,33 @@
+<div class="csvupload-step-indicator" aria-label="Step 3 of 3">Step 3 of 3: {{#str}}csvresultstep, qtype_mlnlpessay{{/str}}</div>
+<h3>{{#str}}csvuploadresult, qtype_mlnlpessay{{/str}}</h3>
+<ul>
+    <li>{{#str}}csvcreated, qtype_mlnlpessay{{/str}}: {{created}}</li>
+    <li>{{#str}}csvupdated, qtype_mlnlpessay{{/str}}: {{updated}}</li>
+</ul>
+{{#importid}}
+<button class="btn btn-warning qtype-mlnlpessay-csvundo mt-1 mb-1" data-importid="{{importid}}">{{#str}}csvundo, qtype_mlnlpessay{{/str}}</button>
+{{/importid}}
+<h4>{{#str}}csvimportdetails, qtype_mlnlpessay{{/str}}</h4>
+<table class="generaltable">
+    <tr>
+        <th>{{#str}}row, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}action, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}name, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}modelname, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}modelid, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}tag, qtype_mlnlpessay{{/str}}</th>
+        <th>{{#str}}reason, qtype_mlnlpessay{{/str}}</th>
+    </tr>
+    {{#perrow}}
+    <tr>
+        <td>{{row}}</td>
+        <td>{{action}}</td>
+        <td>{{name}}</td>
+        <td>{{model}}</td>
+        <td>{{modelid}}</td>
+        <td>{{tag}}</td>
+        <td>{{reason}}</td>
+    </tr>
+    {{/perrow}}
+</table>
+<button class="btn btn-secondary qtype-mlnlpessay-csvback mt-1 mb-1">{{#str}}back, core{{/str}}</button>

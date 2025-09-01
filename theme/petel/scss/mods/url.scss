@@ -1,0 +1,17 @@
+#page-mod-url-view #region-main a,
+.enrolkeydialog a {
+    color: $linkcolor;
+    /*font-size: 1.125rem;*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &:hover {
+        text-decoration: underline;
+        color: $linkcolor;
+    }
+
+    &:visited {
+        color: $petel-secondary;
+    }
+}

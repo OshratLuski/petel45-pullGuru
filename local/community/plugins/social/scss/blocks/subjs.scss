@@ -1,0 +1,286 @@
+.social {
+
+/*   .subj__wrap {
+    margin-top: 58px;
+  } */
+  .subj__header {
+    color: #000;
+    font-weight: $font-weight-semibold;
+    font-size: 28px;
+    line-height: 28px;
+    font-family: inherit;
+    margin-bottom: 1rem;
+  }
+  .course__count {
+    margin-bottom: 1rem;
+  }
+  .subj__count {
+    color: $purple;
+    margin-top: 7px;
+    font-weight: $font-weight-normal;
+    font-size: 30px;
+    line-height: 30px;
+    font-family: inherit;
+  }
+  // .simul-block {
+  .subj {
+    position: relative;
+    margin-bottom: 68px;
+    display: flex;
+    border-radius: 6px;
+    border: 1px solid $border_gray;
+    background: #fff;
+    padding: .5rem;
+  }
+  .simul-block__img {
+    border: 1px solid $border_gray;
+    border-radius: 8px;
+    width: 241px;
+    vertical-align: middle;
+    //height: 152px;
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .simul-block__img img {
+      width: 100%;
+      height: auto;
+  }
+  .simul-block__content {
+      flex-grow: 1;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+  }
+  .simul-block__content > span {
+    display: block;
+  }
+  .simul-block__content p {
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 26px;
+    font-family: inherit;
+    color: $text_black;
+  }
+  .simul-block__header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .simul-block__title {
+      display: block;
+      position: relative;
+      padding-left: 28px;
+      color: #8d8d8d
+  }
+  .simul-block__title::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: url([[pix:community_oercatalog|show-screen]]) 50% 50% no-repeat;
+      background-size: contain;
+  }
+
+  .simul-block__wrap {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .simul-block__right {
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+  }
+  .simul-block__left {
+    padding: 10px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+  .simul-block__left--square {
+    padding: 0 10px;
+  }
+  .simul-block__note {
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 5px;
+    padding-left: 30px;
+  }
+  .simul-block__note--calendar:before,
+  .simul-block__note--download:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url([[pix:community_oercatalog|download]]) 50% 50% no-repeat;
+    background-size: contain;
+  }
+  .simul-block__note--calendar:before {
+    background: url([[pix:community_oercatalog|calendar]]) 50% 50% no-repeat;
+    background-size: contain;
+  }
+  .simul-block__desc a{
+    font-weight: $font-weight-semibold;
+    font-size: 22px;
+    line-height: 22px;
+    font-family: inherit;
+    color: $text_black;
+  }
+  .simul-block__text {
+    margin-bottom: 2px;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 26px;
+    font-family: inherit;
+    color: $text_black;
+    word-wrap: break-word;
+  }
+  .simul-block__text p {
+    margin: 0;
+  }
+  .simul-block__text br {
+    display: none;
+  }
+
+  .simul-block__footer {
+      display: flex;
+      padding: 5px;
+      padding-top: 14px;
+      margin-top: auto;
+      justify-content: space-between;
+      align-items: center;
+
+  }
+  .simul-block__avatar {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      border-radius: 50%;
+  }
+  .simul-block__user-wrap {
+    margin-right: auto;
+    display: flex;
+  }
+  .simul-block__user {
+      display: flex;
+  }
+  .simul-block__user-name {
+      align-self: flex-end;
+      margin-left: 10px;
+      text-decoration: none;
+      font-weight: $font-weight-normal;
+      font-size: 18px;
+      font-family: inherit;
+      color: $text_black;
+  }
+  .simul-block__avatar img {
+      width: 100%;
+      height: auto;
+  }
+  .simul-block__message {
+    margin-left: 1.5rem;
+    background: #d7d7d7;
+  }
+  .simul-block__icon {
+      width: 36px;
+      height: 46px;
+      padding: 5px;
+      border-left: 1px solid #ddd;
+  }
+  .simul-block__image {
+    position: relative;
+    padding-left: 24px;
+    padding-right: 10px;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    font-family: inherit;
+    color: $purple;
+    text-decoration: underline;
+  }
+  .simul-block__pict {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+  }
+
+  .simul-block__mkran,
+  .simul-block__levelactivity,
+  .simul-block__desktop-mobile,
+  .simul-block__without-computer,
+  .simul-block__desktop,
+  .simul-block__time,
+  .simul-block__diagn {
+      font-weight: $font-weight-normal;
+      font-size: 18px;
+      font-family: inherit;
+      color: $text_black;
+      position: relative;
+      padding-left: 40px;
+      margin-right: 2rem;
+  }
+  .simul-block__mkran::before,
+  .simul-block__levelactivity::before,
+  .simul-block__desktop-mobile::before,
+  .simul-block__without-computer::before,
+  .simul-block__desktop::before,
+  .simul-block__time::before,
+  .simul-block__diagn::before {
+      content: '';
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+  }
+
+  .simul-block__levelactivity::before {
+     // background-image: url("/local/oercatalog/img/levelactivity.png"); }
+     background-image: url([[pix:community_oercatalog|levelactivity]]); }
+  .simul-block__mkran::before {
+      // background-image: url('/local/oercatalog/img/mikran.png');
+      background-image: url([[pix:community_oercatalog|mikran]]);
+  }
+  .simul-block__desktop::before {
+      // background-image: url('/local/oercatalog/img/desktop.png');
+      background-image: url([[pix:community_oercatalog|desktop]]);
+  }
+  .simul-block__desktop-mobile::before {
+      // background-image: url('/local/oercatalog/img/mob-desktop.png');
+      background-image: url([[pix:community_oercatalog|mob-desktop]]);
+  }
+  .simul-block__without-computer::before {
+      // background-image: url('/local/oercatalog/img/mob-desktop.png');
+      background-image: url([[pix:community_oercatalog|without-computer]]);
+  }
+  .simul-block__time::before {
+      // background-image: url('/local/oercatalog/img/clock.png');
+      background-image: url([[pix:community_oercatalog|clock]]);
+  }
+  .simul-block__diagn::before {
+      // background-image: url('/local/oercatalog/img/diagn.png');
+      background-image: url([[pix:community_oercatalog|diagn]]);
+  }
+
+  .simul-block--phone {
+      // background: url('/local/oercatalog/img/smartphone-call.png') 50% 50% no-repeat;
+      background: url([[pix:community_oercatalog|smartphone-call]]) 50% 50% no-repeat;
+  }
+}

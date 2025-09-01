@@ -1,0 +1,94 @@
+.form-control.main-search-input {
+    min-width: 18.9375rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: .0625rem solid $gray-300;
+    background: $white;
+    text-align: left;
+    padding-right: .5rem;
+    padding-left: 2.875rem;
+    color: $gray-600;
+    font-size: 1.125rem;
+    font-weight: normal;
+    font-family: $primary-font;
+}
+
+.petel-search-btn {
+    left: 0;
+    display: flex;
+    width: 2.375rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    color: $secondary;
+    background-color: $secondarylight;
+}
+
+#id_competenciessectioncontainer {
+
+    .form-autocomplete-suggestions {
+        position: absolute;
+        inset: unset !important;
+        left: unset !important;
+        transform: none !important;
+        max-width: 50vw;
+        background-color: $gray-100;
+        border: .0625rem solid $gray-300;
+        padding: 0.5rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 .125rem .125rem 0 rgba(43, 43, 43, 0.10);
+
+        li {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.125rem;
+            background-color: transparent;
+            outline: .0625rem solid transparent;
+
+            .competency-heading {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+            }
+
+            h4 {
+                font-size: 1.125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.125rem;
+                color: $body-color;
+            }
+
+            &:hover {
+                background: $secondarylight;
+                outline: .0625rem solid $secondarylight;
+                color: $body-color;
+
+            }
+
+            &:focus {
+                background: $secondarylight;
+                outline: .0625rem solid $secondary;
+            }
+
+            &:active,
+            &[aria-selected="true"] {
+                background: $secondary;
+                outline: .0625rem solid $secondary;
+
+                h4 {
+                    color: $white;
+                }
+
+            }
+
+            &::before {
+                height: 1.125rem;
+            }
+
+        }
+    }
+}

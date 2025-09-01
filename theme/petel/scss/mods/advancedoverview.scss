@@ -1,0 +1,420 @@
+#page-mod-quiz-report .block_advancedoverview_report {
+    max-width: 102rem;
+    h2 {
+        font-family: $primary-font;
+        color: $primary;
+    }
+    .advancedoverview_report-title {
+        color: $primary;
+    }
+
+    .course-group-wrapper {
+        color: $body-color;
+    }
+
+    .advancedoverview_report-toggle {
+        label {
+            background-color: $white;
+            outline-color: $secondarymedium;
+            &::after {
+                background-color: $secondary;
+            }
+        }
+        .link-btn-text {
+            color: $body-color;
+        }
+
+        input:checked+label {
+            background: $yellow;
+        }
+    }
+
+    .top-block {
+        border-color: $secondary;
+    }
+
+    .averagescore-title {
+        // background-color: $secondary;
+        color: $white;
+        font-family: $primary-font;
+    }
+
+    .advancedoverview_report-dropdown-btn {
+        border: .0625rem solid $secondary;
+        background: $white;
+        span {
+            font-family: $primary-font;
+        }
+        
+     
+        &:not(:disabled):not(.disabled):hover,
+        &:not(:disabled):not(.disabled):focus {
+            border-color: $secondarymedium;
+            background: $light;
+        }
+       
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            border-color: $primary;
+            background-color: $primary;
+            span {
+                color: $white;
+            }
+        }
+    }
+    .advancedoverview_report-btn,
+    .advancedoverview_report-dropdown-btn-lg {
+        background-color: $white;
+        border: 0.0625rem solid $secondary;
+        color: $secondary;
+
+        .title {}
+
+        // box-shadow: 0 0.1875rem 0.3125rem 0 rgba($petel-body-text, 0.15);
+        &:hover {
+            background-color: $white;
+            border: 0.0125rem solid $primary;
+            // box-shadow: 0 0.375rem 0.75rem 0 rgba($petel-body-text, 0.2);
+            color: $secondary;
+        }
+
+        &:active,
+        &.active {
+            background-color: $light;
+            border: 0.0125rem solid $secondary;
+            // box-shadow: 0 0.1875rem 0.1875rem 0 rgba($petel-body-text, 0.35);
+            color: $secondary;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled,
+        &.disabled,
+        &:disabled:hover,
+        &.disabled:hover {
+            background-color: $gray-300;
+            // box-shadow: none;
+            border: none;
+            color: $body-color;
+        }
+    }
+
+    .advancedoverview_report-dropdown-btn-lg {
+        padding: .9375rem 1.2rem;
+        box-shadow: 0 0.1875rem 0.1875rem 0 rgba(43, 43, 43, 0.25);
+
+        .openquestions-count {
+            border-color: $primary;
+
+        }
+
+        .text {
+            color: $body-color;
+        }
+
+        .link-btn-text {
+            color: $secondary;
+        }
+
+        &:after {
+            color: $primary;
+        }
+
+        &:disabled,
+        &.disabled,
+        &:disabled:hover,
+        &.disabled:hover {
+            background-color: $gray-300;
+            border-color: $gray-600;
+            color: $body-color;
+
+            .openquestions-count {
+                background-color: $gray-500;
+                border-color: $gray-500;
+                color: $dark;
+            }
+            .text {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .openquestions-menu {
+        border-color: $secondary;
+
+        .dropdown-item {
+            &:hover {
+                background-color: $secondarylight;
+            }
+        }
+    }
+
+    .advancedoverview_report-search-input {
+        background-color: $light;
+        color: $body-color;
+        border-color: $primary;
+
+        i {
+            color: $primary;
+        }
+    }
+
+    h3 {
+        color: $primary;
+    }
+
+    .card {
+
+        // .averagescore,
+        // .card-text,
+        // .card-title,
+        // .card-text span {
+        // }
+        .card-text {
+            color: $body-color;
+        }
+
+        .card-title,
+        .card-text span {
+            color: $secondary;
+        }
+    }
+
+    .chart-tooltip {
+        border-color: $primary;
+
+        &::after {
+            border-color: $primary;
+        }
+
+        .chart-tooltip-title {
+            color: $body-color;
+        }
+
+        button i {
+            color: $primary;
+        }
+
+        .tooltip-link {
+            color: $blue !important;
+        }
+
+        .chart-tooltip-body.hascolumns {
+            column-rule-color: $secondarylight;
+        }
+    }
+
+    .filter-pic {
+        color: $secondary;
+    }
+
+    .nav.nav-tabs {
+        background-color: $light;
+
+        .nav-item {
+            .nav-link {
+                color: $body-color;
+                background-color: $light;
+
+                &.active {
+                    background-color: $secondarymedium;
+                    border-color: $secondarymedium;
+                    p{
+                        color: $white;
+                    }
+                     &:hover {
+                         background-color: $secondary;
+                         border-color: $secondary;
+                         p {
+                             color: $white;
+                            }
+                     }
+                    //  &:focus {
+                    //      color: $body-color;
+                    //      background-color: $petel-secondarylight;
+                    //      border-color: $petel-secondary;
+                    //      box-shadow: none;
+                    //      p{
+                    //          color: $body-color;
+                    //      }
+                    //  }
+                }
+
+                &:hover {
+                    color: $body-color;
+                    background-color: $secondarylight;
+                    border-color: $secondarylight;
+                    font-weight: 500;
+                    p {
+                        color: $body-color;
+                    }
+                }
+
+                  &:focus {
+                    color: $body-color;
+                    font-weight: 500;
+
+                    background-color: $secondarylight;
+                    border-color: $secondarymedium;
+                    box-shadow: none;
+                    p{
+                        color: $body-color;
+                    }
+                }
+
+                &.disabled {
+                    background-color: $gray-200;
+                    border-color: $gray-200;
+                }
+            }
+        }
+    }
+
+    .advancedoverview_report-dropdown-btn[data-target="#studentsActionsCollapse"] {
+        font-size: 1.125rem;
+        // span {
+
+        // }
+    }
+
+    #selectedstudents {
+
+        color: $body-color;
+    }
+
+    #charts_state {
+        .donut-сhart-legend-title {
+            color: $secondary;
+
+        }
+
+        .send-message-link {
+            color: $blue;
+        }
+    }
+
+    #studentsActionsBlock #downloadXlsTable {
+        color: $primary;
+    }
+
+    #questions-table,
+    #diagnostic-table,
+    #students-table {
+        color: $body-color;
+
+        &.tabulator {
+            .tabulator-header {
+                background-color: $secondary;
+
+                .tabulator-col {
+                    background-color: $secondary;
+                }
+            }
+
+            .tabulator-row.tabulator-selectable:hover {
+                background-color: $secondarylight;
+            }
+        }
+        .incorrect, .correct,
+		.complete, .partiallycorrect {
+			&:hover {
+				background-color: $gray-200;
+				border: .0625rem solid $secondary;
+			}
+		}
+    }
+    #students-table {
+        .tabulator-footer {
+            background-color: $white;
+            .tabulator-footer-contents {
+                .tabulator-page{
+                    background-color: $white;
+                    color: $gray-600;
+                    border: .0625rem solid transparent;
+                    &:not([data-page="next"]):not([data-page="prev"]).active,
+                    &:not([data-page="next"]):not([data-page="prev"]):active,
+                    &:not([data-page="next"]):not([data-page="prev"]):focus {
+                        background-color: $secondary;
+                        border-color: $secondary;
+                        color: $white;
+                    }
+                    &:not([data-page="next"]):not([data-page="prev"]):hover,
+                    &:not([data-page="next"]):not([data-page="prev"]).active:hover {
+                        border-color: $secondary;
+                        color: $body-color;
+                        background-color: $white;
+                    }
+
+                    &:not([data-page="next"]):not([data-page="prev"]):disabled {
+                        color: $gray-400;
+                    }
+                    &[data-page="next"],
+					&[data-page="prev"] {
+						font-size: 0;
+						&::after {
+							background-color: $gray-600;
+						}
+                        &:not(:disabled):not(.disabled).active::after,
+                        &:not(:disabled):not(.disabled):active::after,
+                        &:not(:disabled):not(.disabled):focus::after {
+                            background-color: $secondary;
+                            border-color: $secondary;
+                        }
+                        &:not(:disabled):not(.disabled):hover::after {
+                            background-color: $white;
+                            border-color: $secondary;
+                            text-stroke: .0625rem $secondary;
+                            -webkit-text-stroke: .0625rem $secondary;
+                        }
+                        &:disabled::after {
+                            background-color: $gray-400;
+                        }
+                 
+					}
+                    &:disabled:not([data-page="next"]):not([data-page="prev"]) {
+                        color: $gray-400;
+                    }
+                }
+                .tabulator-paginator {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+#page-mod-quiz-report {
+
+    .sticky-stripe {
+        color: $body-color;
+
+        .advancedoverview_report-toggle input:checked+label {
+            background-color: $body-color;
+        }
+    }
+    #competenciestable {
+        .competencies-table-subtitle,
+        .competencies-table-text,
+        .rate-text {
+			color: $body-color;
+		}
+        .skillsbar-wrapper {
+			outline: .0625rem solid  $primary;
+        }
+    }
+
+    .table-border{
+        border: 1px solid lightgray;
+    }
+    
+    .que .validationerror {
+        display: none;
+    }
+    
+    .que .show-error .validationerror {
+        display: block;
+    }
+}

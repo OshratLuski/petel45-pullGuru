@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs mr-md-3" >
+    {{#participants}}
+    {{#states}}
+    <li class="nav-item">
+        <button class="nav-link d-flex align-items-center justify-content-center" type="button"
+            aria-pressed="false"
+            data-name="{{name}}"
+            data-value="{{value}}"
+            data-label="{{label}}">
+            <p class=" mb-0 ml-1">
+              {{label}} <span>({{value}})</span>
+            </p>
+        </button>
+    </li>
+    {{/states}}
+    {{/participants}}
+</ul>

@@ -1,0 +1,15 @@
+{{< core_form/element-template }}
+    {{$element}}
+
+        <input type="hidden" name="{{element.name}}" id="{{element.id}}" value="{{element.value}}">
+
+        <div class=""
+            {{#error}}
+             autofocus aria-describedby="{{element.iderror}}"
+            {{/error}}
+        >
+            <div class="treeSelector_{{element.name}}"></div>
+        </div>
+
+    {{/element}}
+{{/ core_form/element-template }}

@@ -1,0 +1,36 @@
+<p>
+    <label for="{{inputid}}" class="mr-2">
+        {{title}}
+    </label>
+
+    <select style="display:none; width: 100%;" id="{{inputid}}" class="custom-select smartselect2" multiple="multiple" tabindex="0"></select>
+
+    <span style="display: none;" class="label text-danger error-block">{{#str}}error {{/str}}</span>
+</p>
+{{#js}}
+
+    require(["jquery", "core/ajax", "core/notification", "core_form/select2"], function($, Ajax, Notification) {
+
+        Ajax.call([{
+            methodname: 'local_petel_{{methodname}}',
+            args: {
+            },
+            done: function(response){
+                let data = JSON.parse(response);
+
+                $.each(data, function( index, value ) {
+                    $('#{{inputid}}').append('<option value="'+ index +'">'+ value +'</option>');
+                });
+
+                $(".smartselect2").select2({
+                    dropdownAutoWidth: true
+                });
+                
+                $('#{{inputid}}').show();
+            },
+            fail: Notification.exeption
+        }]);
+
+    });
+
+{{/js}}

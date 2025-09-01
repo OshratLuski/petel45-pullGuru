@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="question/type/essayrubric/db" VERSION="20231101" COMMENT="XMLDB file for Moodle question/type/essayrubric"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="qtype_essayrubric_options" COMMENT="Extra options for essayrubric questions.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the question table."/>
+        <FIELD NAME="responseformat" TYPE="char" LENGTH="16" NOTNULL="true" DEFAULT="editor" SEQUENCE="false" COMMENT="The type of input area students should be given for their response."/>
+        <FIELD NAME="responserequired" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Nonzero if an online text response is optional"/>
+        <FIELD NAME="responsefieldlines" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="15" SEQUENCE="false" COMMENT="Approximate height, in lines, of the input box the students should be given for their response."/>
+        <FIELD NAME="minwordlimit" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Minimum number of words"/>
+        <FIELD NAME="maxwordlimit" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Maximum number of words"/>
+        <FIELD NAME="attachments" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Whether, and how many, attachments a student is allowed to include with their response. -1 means unlimited."/>
+        <FIELD NAME="attachmentsrequired" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The number of attachments that should be required"/>
+        <FIELD NAME="graderinfo" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Information shown to people with permission to manually grade the question, when they are grading."/>
+        <FIELD NAME="graderinfoformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The text format for graderinfo."/>
+        <FIELD NAME="responsetemplate" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The template to pre-populate student's response field during attempt."/>
+        <FIELD NAME="responsetemplateformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The text format for responsetemplate."/>
+        <FIELD NAME="maxbytes" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Maximum size of attached files in bytes."/>
+        <FIELD NAME="filetypeslist" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="What attachment file type a student is allowed to include with their response. * or empty means unlimited."/>
+        <FIELD NAME="indicators" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Indicators."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="questionid" TYPE="foreign-unique" FIELDS="questionid" REFTABLE="question" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="qtype_essayrubric_ind" COMMENT="qtype_essayrubric_ind">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="indicatorid" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="indicatorid"/>
+        <FIELD NAME="name" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="name"/>
+        <FIELD NAME="model" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="model"/>
+        <FIELD NAME="category" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="category"/>
+        <FIELD NAME="research" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="research"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="visible"/>
+        <FIELD NAME="deleted" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="visible"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="qtype_essayrubric_resp" COMMENT="Response.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the question table."/>
+        <FIELD NAME="questionattemptid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the attempt table."/>
+        <FIELD NAME="quizattemptid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the attempt table."/>
+        <FIELD NAME="question" TYPE="text" NOTNULL="false" COMMENT="Question"/>
+        <FIELD NAME="answer" TYPE="text" NOTNULL="false" COMMENT="Answer"/>
+        <FIELD NAME="grade" TYPE="char" NOTNULL="true" DEFAULT="0" COMMENT="Grade"/>
+        <FIELD NAME="isgradestypescalar" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1"/>
+        <FIELD NAME="weight" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="indicatorid" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="name" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="type" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="qindid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+        <FIELD NAME="checked" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="normalizedweight" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="weightedgrade" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="maxmark" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="minfraction" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="maxfraction" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="usageid" TYPE="char" NOTNULL="false"/>
+        <FIELD NAME="slot" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="questionid" UNIQUE="false" FIELDS="questionid" COMMENT="question id index"/>
+        <INDEX NAME="quizattemptid" UNIQUE="false" FIELDS="quizattemptid" COMMENT="quiz attempt id index"/>
+        <INDEX NAME="qindid" UNIQUE="false" FIELDS="qindid" COMMENT="qindid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

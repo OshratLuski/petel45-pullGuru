@@ -1,0 +1,61 @@
+{{#enable_open_questions}}
+    <div class="row py-3">
+        <div class="col-12 d-flex align-items-center">
+            <div class="dropdown openquestion-wropdown w-100">
+                <div class="btn advancedoverview_report-dropdown-btn-lg dropdown-toggle w-100 d-flex align-items-center justify-content-between"
+                        id="openQuestionsBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 openquestions-count">{{open_questions_count}}</span>
+                        <!--
+                        TODO: decide what to do with this!
+                        <a class="text mr-auto" href="{{config.wwwroot}}/mod/quiz/report.php?id={{cmid}}&mode=grading" target="_blank" onclick="e=>event.stopPropagation()">
+                            {{#str}}openquestionwaiting, quiz_advancedoverview{{/str}}
+                        </a> -->
+                        <span class="text mr-auto">
+                            {{#str}}openquestionwaiting, quiz_advancedoverview{{/str}}
+                        </span>
+                </div>
+
+                <div class="dropdown-menu openquestions-menu w-100" aria-labelledby="openQuestionsBtn">
+                    {{#open_questions}}
+                        <a class="dropdown-item" href="{{link}}" target="_blank">
+                            <span class="name mr-3">
+                                {{#str}}question, quiz_advancedoverview{{/str}} {{qnumber}}
+                            </span>
+                            <span class="count  mr-auto">
+                                {{name}}
+                            </span>
+                            <div class="">
+                                {{count_students}} {{#str}}studentsnograde, quiz_advancedoverview{{/str}}
+                            </div>
+                        </a>
+                    {{/open_questions}}
+                     <a class="dropdown-item" href="{{config.wwwroot}}/mod/quiz/report.php?id={{cmid}}&mode=assessmentdiscussion" target="_blank">
+                        {{#str}}reportgrading, quiz_advancedoverview{{/str}}
+                     </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{{/enable_open_questions}}
+
+{{^enable_open_questions}}
+    <div class="row py-3">
+        <div class="col-12 d-flex align-items-center">
+            <div class="dropdown openquestion-wropdown w-100">
+                <button class="btn advancedoverview_report-dropdown-btn-lg dropdown-toggle w-100 d-flex align-items-center justify-content-between"
+                        type="button" id="openQuestionsBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 openquestions-count">{{open_questions_count}}</span>
+                    <p class="text mr-auto mb-0">
+                        {{#str}}openquestionwaiting, quiz_advancedoverview{{/str}}
+                    </p>
+                </button>
+                  <div class="dropdown-menu openquestions-menu w-100" aria-labelledby="openQuestionsBtn">
+                     <a class="dropdown-item" href="{{config.wwwroot}}/mod/quiz/report.php?id={{cmid}}&mode=assessmentdiscussion" target="_blank">
+                        {{#str}}reportgrading, quiz_advancedoverview{{/str}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/enable_open_questions}}

@@ -1,0 +1,24 @@
+{{< core/modal }}
+{{$title}}{{#str}} widgetsselector, tiny_generico {{/str}}{{/title}}
+    {{$body}}
+<div id="tiny_generico_widgets_selectorpanel" class="tiny_generico_widgets_selectorpanel">
+    <form class="tiny_generico_form" id="{{uniqid}}_tiny_generico_form">
+        <div class="root tab-content">
+          <div>{{#str}} widgetsselector_instructions, tiny_generico {{/str}}</div>
+            <div class="tiny_generico_widget_buttons-wrapper">
+                {{#widgets}}
+                <div id="{{uniqid}}" class="tiny_generico_widget_buttons mdl-align">
+                <button data-templateindex="{{templateindex}}" class="tiny_generico_widgetchoosebutton btn d-block">{{name}}</button>
+                </div>
+                {{/widgets}}
+            </div>
+        </div>
+    </form>
+</div>
+<div id="tiny_generico_widgets_optionspanel" class="tiny_generico_widgets_optionspanel tiny_generico_hidden">
+</div>
+    {{/body}}
+    {{$footer}}
+        <button type="button" class="btn btn-secondary" data-action="cancel">{{#str}} cancel {{/str}}</button>
+    {{/footer}}
+{{/ core/modal }}

@@ -1,0 +1,7 @@
+.hotwords-editor-wrapper .tox-promotion {
+    display: none;
+}
+
+.tiny_hotwords-wrap .tox-mbtn__select-label, .tiny_hotwords-wrap .tox-collection__item-label{
+    font-size: 14px !important;
+}

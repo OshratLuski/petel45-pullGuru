@@ -1,0 +1,109 @@
+/* Custom CSS for Date Extend Report */
+
+#page-report-dateextend-index #region-main h2 {
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+}
+#page-report-dateextend-index .mform {
+    margin-top: 2rem;
+}
+.form-wrapper .col-md-9{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.form-wrapper .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.form-wrapper #id_newbehaviour {
+    width: 55%;
+}
+
+.behaviourtime_relative {
+    padding-bottom: 1.25rem;
+}
+
+#fgroup_id_buttonar{
+    margin-top: 1.875rem;
+}
+
+.choose-activities-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.selectall-label{
+    font-weight: bold;
+}
+
+.line-separation {
+    border-bottom: 1px solid #e2e1e1;
+    margin: 10px 0;
+    width: 66%;
+}
+
+.chooseactivities-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 75%
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.instructions {
+    max-width: 30%;
+}
+
+.quiz-list {
+    max-width: 70%;
+}
+
+.chooseactivities-container .form-group .col-md-3:empty {
+    display: none;
+}
+
+.chooseactivities-container .form-group .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* Styles for mobile view (screen widths 768px and below) */
+@media (max-width: 768px) {
+    #page-report-dateextend-index #fitem_id_behaviourduration .form-group {
+        margin-bottom: 1rem;
+    }
+
+    #page-report-dateextend-index #fitem_id_behaviourduration label {
+        margin-bottom: 0.5rem;
+    }
+ 
+    #page-report-dateextend-index #fitem_id_behaviourduration .col-md-9,
+    #page-report-dateextend-index #fitem_id_newbehaviour .col-md-9,
+    #page-report-dateextend-index #fitem_id_penalty .col-md-9 {
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+    #page-report-dateextend-index .line-separation {
+        width: 100%;
+    }
+
+    .chooseactivities-container {
+        flex-direction: column;
+        max-width: 75%
+    }
+    
+    .instructions {
+        max-width: 100%;
+    }
+    
+    .quiz-list {
+        max-width: 100%;
+    }
+    
+}    

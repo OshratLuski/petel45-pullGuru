@@ -1,0 +1,451 @@
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Class that does all the magic.
+ *
+ * @package   block_multiblock
+ * @copyright 2019 Peter Spicer <peter.spicer@catalyst-eu.net> 2021 James Pearce <jmp201@bath.ac.uk>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+use block_multiblock\helper;
+use block_multiblock\icon_helper;
+use block_multiblock\adddefaultblock;
+
+/**
+ * Block multiblock class definition.
+ *
+ * This block can be added to a variety of places to display multiple blocks in one space.
+ *
+ * @package   block_multiblock
+ * @copyright 2019 Peter Spicer <peter.spicer@catalyst-eu.net>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class block_multiblock extends block_base {
+    /** @var object $output Temporary storage of the injected page renderer so we can pass it to child blocks at render time. */
+    private $output;
+
+    /** @var array $blocks Collection of child blocks handled. */
+    private $blocks;
+
+    /**
+     * Core function used to initialize the block.
+     */
+    public function init() {
+        $this->title = get_string('pluginname', 'block_multiblock');
+    }
+
+    /**
+     * has_config - denotes whether your block wants to present a configuration interface to site admins or not
+     *
+     * @return boolean
+     */
+    public function has_config() {
+        return true;
+    }
+
+    /**
+     * Core function, specifies where the block can be used.
+     *
+     * @return array
+     */
+    public function applicable_formats() {
+        return [
+            'all' => true,
+        ];
+    }
+
+    /**
+     * Sets the block's title for a specific instance based on its configuration.
+     */
+    public function specialization() {
+        $defaulttitle = get_config('block_multiblock', 'title');
+        if (isset($this->config->title)) {
+            $this->title = format_string($this->config->title, true, ['context' => $this->context]);
+        } else if ($defaulttitle) {
+            $this->title = format_string($defaulttitle, true, ['context' => $this->context]);
+        } else {
+            $this->title = get_string('pluginname', 'block_multiblock');
+        }
+    }
+
+    /**
+     * Loads the child blocks of the current multiblock.
+     *
+     * @param int $contextid The multiblock's context instance id.
+     * @return array An array of child blocks.
+     */
+    public function load_multiblocks($contextid) {
+        global $DB;
+        $cleanup = 0;
+
+        // Find all the things that relate to this block.
+        $this->blocks = $DB->get_records('block_instances', ['parentcontextid' => $contextid], 'defaultweight, id');
+        foreach ($this->blocks as $id => $block) {
+            if (block_load_class($block->blockname)) {
+                // Make the proxy class we'll need.
+                $this->blocks[$id]->blockinstance = block_instance($block->blockname, $block);
+                $this->blocks[$id]->blockname = $block->blockname;
+                $this->blocks[$id]->visible = true;
+                $this->blocks[$id]->blockpositionid = 0;
+            }
+            if ($this->blocks[$id]->pagetypepattern == 'admin-tool-custompage' && $cleanup != 1) {
+                $cleanup = 1;
+            }
+        }
+        if ($cleanup == 1) {
+            // Cleanup incorrect parentcontext.
+            $this->cleanup($contextid);
+        }
+
+        return $this->blocks;
+    }
+
+    /**
+     *  Used to add the default blocks to the multiblock.
+     */
+    public function add_default_blocks() {
+        global $DB, $CFG;
+
+        if (empty($this->instance)) {
+            return $this->content;
+        }
+
+        $context = $DB->get_record('context', ['contextlevel' => CONTEXT_BLOCK, 'instanceid' => $this->instance->id]);
+
+        $this->load_multiblocks($context->id);
+
+        $blockid = $this->instance->id;
+        if (empty($this->blocks)) {
+
+            $defaultblocksarray = explode(',', get_config('block_multiblock')->subblock);
+
+            $addblock = new adddefaultblock();
+            $addblock->init($blockid, $defaultblocksarray, $this->instance);
+
+        }
+    }
+
+    /**
+     * Clean up incorrect parentcontextid entered by tool_custompages on page duplication.
+     *
+     * @param int $contextid
+     * @return void
+     */
+    private function cleanup($contextid) {
+        global $DB;
+        $sql = 'SELECT b.subpagepattern FROM {context} c LEFT JOIN {block_instances} b ON b.id = c.instanceid
+        WHERE c.id = :cid';
+        $subpagepattern = $DB->get_field_sql($sql, ['cid' => $contextid]);
+        // Clone page.
+        $blocks = $DB->get_records_sql('SELECT * FROM {block_instances}
+        WHERE subpagepattern LIKE :subpagepattern AND parentcontextid != 1 AND timecreated = timemodified',
+        ['subpagepattern' => $subpagepattern]);
+        foreach ($blocks as $block) {
+            $path = $DB->get_field('context', 'path', ['instanceid' => $block->id]);
+            if ($block->parentcontextid != $contextid) {
+                $newpath = str_replace($block->parentcontextid, $contextid, $path);
+                $DB->execute('UPDATE {block_instances} SET parentcontextid = :cparentcontextid, timemodified = :timemodified
+                WHERE id = :id',
+                    ['cparentcontextid' => $contextid, 'id' => $block->id, 'timemodified' => time()]);
+                $DB->execute('UPDATE {context} SET path = :newpath WHERE instanceid = :instanceid',
+                    ['newpath' => $newpath, 'instanceid' => $block->id]);
+            }
+        }
+        // Original page.
+        $blocks = $DB->get_records_sql('SELECT * FROM {block_instances}
+        WHERE parentcontextid = :contextid',
+        ['contextid' => $contextid]);
+        foreach ($blocks as $block) {
+            if ($block->subpagepattern != $subpagepattern) {
+                $DB->execute('UPDATE {block_instances} SET parentcontextid = -1 WHERE id = :id',
+                    ['id' => $block->id]);
+            }
+        }
+
+    }
+
+    /**
+     * Used to generate the content for the block.
+     *
+     * @return string
+     */
+    public function get_content() {
+        global $DB, $CFG;
+        if ($this->content !== null) {
+            return $this->content;
+        }
+        $this->content = new stdClass;
+        $this->content->text = '';
+        $this->content->footer = '';
+        if (empty($this->instance)) {
+            return $this->content;
+        }
+        $context = $DB->get_record('context', ['contextlevel' => CONTEXT_BLOCK, 'instanceid' => $this->instance->id]);
+
+        $this->load_multiblocks($context->id);
+
+        $multiblock = [];
+        $isodd = true;
+        $blockid = $this->instance->id;
+
+        if (empty($this->blocks)) {
+            $this->add_default_blocks();
+            $this->load_multiblocks($context->id);
+        }
+
+        foreach ($this->blocks as $id => $block) {
+            if (empty($block->blockinstance)) {
+                continue;
+            }
+            $content = $block->blockinstance->get_content_for_output($this->output);
+
+            $available_to_cohort_teachers = false;
+
+            // Make sure user is in "teachers" cohort.
+            $isuserrealteacher = $this->is_user_real_teacher();
+
+            // Some blocks are available only to realteachers (cohort=teachers),
+            // and they have a special method to control it.
+            if (method_exists($block->blockinstance, 'available_to_cohort_teachers')) {
+                $available_to_cohort_teachers = $block->blockinstance->available_to_cohort_teachers();
+            }
+            $displayblock = true;
+            if ($available_to_cohort_teachers && !$isuserrealteacher) {
+                $displayblock = false;
+            }
+            if ($displayblock) {
+                $multiblock[] = [
+                    'id' => $id,
+                    'class' => 'block_' . $block->blockinstance->name(),
+                    'type' => $block->blockinstance->name(),
+                    'is_odd' => $isodd,
+                    'title' => $block->blockinstance->get_title(),
+                    'content' => !empty($content->content) ? $content->content : '',
+                    'footer' => !empty($content->footer) ? $content->footer : '',
+                ];
+                $isodd = !$isodd;
+            }
+        }
+
+        $template = '';
+        $presentations = static::get_valid_presentations();
+        $multiblockpresentationoptions = [];
+        foreach ($presentations as $presentationid => $presentation) {
+            array_push($multiblockpresentationoptions, $presentationid);
+        }
+        $configuredpresentation = get_config('block_multiblock', 'presentation');
+        if (!empty($this->config->presentation)) {
+            $template = $this->config->presentation;
+        } else if (isset($configuredpresentation)) {
+            $template = $multiblockpresentationoptions[$configuredpresentation];
+        } else if (isset($presentations['tabbed-list'])) {
+            $template = 'tabbed-list';
+        }
+
+        $renderable = new \block_multiblock\output\main((int) $this->instance->id, $multiblock, $template);
+        $renderer = $this->page->get_renderer('block_multiblock');
+
+        $this->content = (object) [
+            'text' => $renderer->render($renderable),
+            'footer' => ''
+        ];
+        return $this->content;
+    }
+
+    /**
+     * @param null $userid - userid of real teacher. otherwise use $USER.
+     * @return false|mixed
+     * @throws dml_exception
+     */
+    private function is_user_real_teacher($userid = null) {
+        global $DB, $CFG, $USER;
+
+        // NOTE: legacy method to detect a teacher that has complete
+        // strpos($USER->icq, 'מורה') === false)
+        if (isset($userid)) {
+            $teacheruserid = $userid;
+        } else {
+            $teacheruserid = $USER->id;
+        }
+        $CFG->realteachers_cohort = 'teachers';
+        $sql = "SELECT *
+                    FROM {cohort_members} cm
+                    JOIN {cohort} c ON c.id = cm.cohortid
+                    WHERE c.idnumber=? AND cm.userid=?";
+        $isteacher = $DB->get_records_sql($sql, [$CFG->realteachers_cohort, $teacheruserid]);
+        return $isteacher;
+    }
+
+    /**
+     * Return a block_contents object representing the full contents of this block.
+     *
+     * This internally calls ->get_content(), and then adds the editing controls etc.
+     *
+     * @param object $output The output renderer from the parent context (e.g. page renderer)
+     * @return block_contents a representation of the block, for rendering.
+     */
+    public function get_content_for_output($output) {
+        $this->output = $output;
+        $bc = parent::get_content_for_output($output);
+
+        if (empty($bc->controls)) {
+            return $bc;
+        }
+
+        $str = get_string('managemultiblock', 'block_multiblock', $this->title);
+
+        $newcontrols = [];
+        foreach ($bc->controls as $control) {
+            $newcontrols[] = $control;
+            // Append our new item onto the controls if we're on the correct item.
+            if (strpos($control->attributes['class'], 'editing_edit') !== false) {
+                $newcontrols[] = new action_menu_link_secondary(
+                    new moodle_url('/blocks/multiblock/manage.php', ['id' => $this->instance->id, 'sesskey' => sesskey()]),
+                    icon_helper::preferences($str),
+                    $str,
+                    ['class' => 'editing_manage']
+                );
+            }
+        }
+        // Append a delete+split item on the end.
+        $newcontrols[] = new action_menu_link_secondary(
+            new moodle_url('/blocks/multiblock/manage.php', ['id' => $this->instance->id, 'sesskey' => sesskey(),
+                    'action' => 'splitdelete']),
+            icon_helper::delete($str),
+            get_string('splitanddelete', 'block_multiblock', $this->title),
+            ['class' => 'editing_manage']
+        );
+        $bc->controls = $newcontrols;
+        return $bc;
+    }
+
+    /**
+     * Allows the block to be added multiple times to a single page
+     * @return boolean
+     */
+    public function instance_allow_multiple() {
+        return true;
+    }
+
+    /**
+     * Copy all the children when copying to a new block instance.
+     *
+     * @param int $fromid The id number of the block instance to copy from
+     * @return bool
+     */
+    public function instance_copy($fromid) {
+        global $DB;
+
+        $fromcontext = context_block::instance($fromid);
+
+        $blockinstances = $DB->get_records('block_instances', ['parentcontextid' => $fromcontext->id], 'defaultweight, id');
+
+        // Create all the new block instances.
+        $newblockinstanceids = [];
+        foreach ($blockinstances as $instance) {
+            // Do not add if creation is being initiated by tool_custompage.
+            if ($instance->pagetypepattern == 'admin-tool-custompage') {
+                continue;
+            }
+            $originalid = $instance->id;
+            unset($instance->id);
+            $instance->parentcontextid = $this->context->id;
+            $instance->timecreated = time();
+            $instance->timemodified = $instance->timecreated;
+            $instance->id = $DB->insert_record('block_instances', $instance);
+            $newblockinstanceids[$originalid] = $instance->id;
+            $blockcontext = context_block::instance($instance->id);  // Just creates the context record.
+            $block = block_instance($instance->blockname, $instance);
+            if (!$block->instance_copy($originalid)) {
+                debugging("Unable to copy block-specific data for original block instance: $originalid
+                    to new block instance: $instance->id", DEBUG_DEVELOPER);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Callback for when this block instance is being deleted, to clean up child blocks.
+     *
+     * @return bool
+     */
+    public function instance_delete() {
+        global $DB, $pageid;
+        // Do not delete if deletion is being initiated by tool_custompage.
+        foreach ($DB->get_records('block_instances', ['id' => $this->context->instanceid]) as $block) {
+            if ($block->pagetypepattern == 'admin-tool-custompage' && $pageid != $block->subpagepattern ) {
+                if ($this->instance->id == $block->id) {
+                    $this->instance->id = -1;
+                }
+                return true;
+            }
+        }
+        // Find all the things that relate to this block.
+        foreach ($DB->get_records('block_instances', ['parentcontextid' => $this->context->id]) as $subblock) {
+            blocks_delete_instance($subblock);
+        }
+        return true;
+    }
+
+    /**
+     * Lists all the known presentation types that exist in the block.
+     *
+     * @return array An array of presentations for block rendering.
+     */
+    public static function get_valid_presentations(): array {
+        static $presentations = null;
+
+        if ($presentations === null) {
+
+            foreach (core_component::get_component_classes_in_namespace('block_multiblock', 'layout') as $class => $ns) {
+                if (strpos($class, $ns[0]) === 0) {
+                    // We only care about non-abstract classes here.
+                    $reflection = new ReflectionClass($class);
+                    if ($reflection->isAbstract()) {
+                        continue;
+                    }
+                    $classname = substr($class, strlen($ns[0]));
+
+                    $instance = new $class;
+                    $presentations[$instance->get_layout_id()] = $instance;
+                }
+            }
+        }
+
+        return $presentations;
+    }
+
+    /**
+     * Returns the default presentation for the multiblock.
+     *
+     * @return string The default presentation's identifier.
+     */
+    public static function get_default_presentation(): string {
+        $presentations = static::get_valid_presentations();
+        $multiblockpresentationoptions = [];
+        $configuredpresentation = get_config('block_multiblock', 'presentation');
+        foreach ($presentations as $presentationid => $presentation) {
+            array_push($multiblockpresentationoptions, $presentationid);
+        }
+        if ($configuredpresentation) {
+            return $multiblockpresentationoptions[$configuredpresentation];
+        }
+        // Our expected default is not present, make sure we fall back to something.
+        return array_keys($presentations)[0];
+    }
+}

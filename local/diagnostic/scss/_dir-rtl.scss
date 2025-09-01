@@ -1,0 +1,83 @@
+.daterange-custom{
+    width: 510px!important;
+    right: 29px!important;
+}
+
+input.daterange{
+    text-align: right;
+}
+
+button.multiselect.custom-select{
+    text-align: right!important;
+}
+
+.daterangepicker .drp-selected{
+    direction: rtl;
+}
+
+.form-group.required .control-label{
+    left: -24px!important;
+}
+
+button.multiselect-option .form-check-label:before{
+    left: 26px!important;
+}
+
+.multiselect-option.dropdown-item{
+    padding-right: 20px!important;
+}
+
+.multiselect.dropdown-toggle.custom-select:before {
+    right: inherit;
+    left: 17px;
+}
+
+.daterange-label {
+    right: inherit;
+    left: 17px;
+}
+
+.multiselect-container {
+    right: -208px !important;
+}
+
+.svgСharts .svgСharts-tooltip::after{
+    transform: rotate(-45deg)!important;
+}
+
+.question-list-block .question-list-button .q-lright-icon i{
+    transform: rotate(180deg);
+}
+
+.question-list-block .question-button-body{
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+.question-list-block .question-button-body .question-button-title{
+    margin-left: 0;
+}
+
+.question-list-block .question-button-body .img-ico{
+    margin-left: 10px;
+}
+
+.question-list-block .q-lright-icon i.rotate-0{
+    transform: rotate(0deg);
+}
+
+.svgСharts .svgСharts-tooltip.tooltip-list-rect::before{
+    transform: rotate(-45deg);
+}
+
+.ufo-image-block .ufo-image-top{
+    right: 126px;
+}
+
+div.shared-button-block{
+    text-align: right;
+}
+
+div.svgСharts-tooltip-select{
+    right: initial;
+}

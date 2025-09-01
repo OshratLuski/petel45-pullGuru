@@ -1,0 +1,17 @@
+<div class="modal-header bg-secondary p-1 text-white">
+  <h5 class="modal-title">{{title}}</h5>
+  <button type="button" data-ref="close" class="close text-white d-flex align-items-center justify-content-center m-0" data-dismiss="modal" aria-label="Close">
+    <i class="fa-light fa-circle-xmark"></i>
+  </button>
+</div>
+
+<div class="modal-body">
+    {{text}}
+</div>
+
+<div class="modal-footer">
+  {{^isAmit}}
+    <button class="btn btn-secondary" type="button" data-handler = "goBack">{{#str}}back, community_sharewith{{/str}}</button>
+  {{/isAmit}}
+  <button class="btn btn-warning" type="button" data-dismiss="modal">{{#str}}approve, community_sharewith{{/str}}</button>
+</div>

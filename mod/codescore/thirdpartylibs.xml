@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>amd/codemirrorlib.js</location>
+        <name>CodeMirror</name>
+        <version>6</version>
+        <license>MIT</license>
+        <licenseversion></licenseversion>
+    </library>
+     <library>
+        <location>amd/src/tabulatorlib.js</location>
+        <name>TabulatorJS</name>
+        <version>5.5.2</version>
+        <license>MIT</license>
+        <licenseversion></licenseversion>
+    </library>
+</libraries>

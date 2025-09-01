@@ -1,0 +1,57 @@
+
+<div class="activities-diagnostic recommend-diagnostic">
+    <div class="activities-diagnostic-title">{{#str}}recomandtoptitle, local_diagnostic{{/str}} <b>{{clusterName}}</b></div>
+    <div class="recom-hdr">
+        <div class="recom-hdr-inner">
+            <div class="select bordered">
+                <input class="selectall" type="checkbox" />
+            </div>
+            <div class="fullname bordered">
+                {{#str}}fullname{{/str}}
+            </div>
+            <div class="activity bordered">
+                {{#str}}activityname, local_diagnostic{{/str}}
+            </div>
+            <div class="source bordered">
+                {{#str}}source, local_diagnostic{{/str}}
+            </div>
+            <div class="date bordered">
+                {{#str}}date{{/str}}
+            </div>
+            <div class="toggle">
+            </div>
+        </div>
+    </div>
+    <div class="recom-body">
+        {{#data}}
+            <div class="recom-body-outer">
+                <div class="recom-body-inner">
+                    <div class="select bordered">
+                        <input class="child" data-id="{{cmid}}" type="checkbox" id="name_{{cmid}}" name="name_{{cmid}}">
+                    </div>
+                    <div class="fullname bordered">
+                        <span class="d-inline-block aabtn">
+                            <img src="{{{profileimageurl}}}" class="userpicture" width="25" height="25" />
+                            {{fullname}}
+                        </span>
+                    </div>
+                    <div class="activity bordered openbold">
+                        {{activity}}
+                    </div>
+                    <div class="source bordered openbold">
+                        {{source}}
+                    </div>
+                    <div class="date bordered openbold">
+                        {{date}}
+                    </div>
+                    <div class="toggle">
+                        <i class="fas fa-caret-down toggle-descr"></i>
+                    </div>
+                </div>
+                <div class="recom-body-descr-inner hidden">
+                    {{description}}
+                </div>
+            </div>
+        {{/data}}
+    </div>
+</div>

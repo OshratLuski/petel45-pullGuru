@@ -1,0 +1,29 @@
+<div class="page-aside page-quiz-aside">
+    <div class="page-aside-switch-lg d-flex p-0  {{#blockexpanded}}expanded{{/blockexpanded}}">
+        <div class="arrow-wrapper" role="button">
+            <i class="fal fa-xmark"></i>
+            <i class="fal fa-chevron-right"></i>
+        </div>
+        <div class="text-wrapper d-none">
+            <p class="mb-0 m-0">
+
+                <span id="quiz_progress_label" class="answer-counter"></span>
+
+                <span class="quiz_timecounter_label-answered_from_full"> {{#str}}answered_from_full, theme_petel{{/str}}
+                </span>
+                <span class="quiz_timecounter_label-answered_from"> {{#str}}answered_from, theme_petel{{/str}}
+                </span>
+                <span id="quiz_total_label" class="answer-counter"></span>
+                <br />
+                <span class="quiz_timecounter_label-wrapper hidden">
+                    <span id="quiz_vertical"></span>
+                    <span id="quiz_timecounter_label" class="time-counter">{{#str}}timeisup, theme_petel{{/str}}</span>
+                </span>
+            </p>
+        </div>
+    </div>
+    <section data-region="blocks-column" class="{{^blockexpanded}}d-none{{/blockexpanded}} d-print-none"
+        aria-label="{{#str}}blocks{{/str}}" data-simplebar>
+        {{{ sidepreblocks }}}
+    </section>
+</div>

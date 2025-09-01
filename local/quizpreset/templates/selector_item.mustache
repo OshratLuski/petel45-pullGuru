@@ -1,0 +1,16 @@
+<li class="quiz-type-selector {{#active}}active{{/active}}" id="quiz-type-selector-{{typeId}}" data-quiztype="{{typeId}}">
+    {{typeName}}
+
+    {{^notclickable}}
+        <a href="{{typeUrl}}">
+            <span class="dot" data-toggle="tooltip" data-html="true"  data-placement="bottom" title="{{typeDescribe}}"></span>
+        </a>
+    {{/notclickable}}
+
+    {{#notclickable}}
+        <a href="javascript:void(0);">
+            <span class="dot" data-toggle="tooltip" data-html="true" data-placement="bottom" title="{{typeDescribe}}"></span>
+        </a>
+    {{/notclickable}}
+
+</li>

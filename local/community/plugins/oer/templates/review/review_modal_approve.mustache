@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{#str}}give_feedback, community_oer {{/str}}</h5>
+    <button id="confirmClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+
+<div class="modal-body text-center">
+    <i class="fa fa-3x fa-check-circle-o approved_icon" aria-hidden="true"></i>
+    <p class="modal-body-title text-center">{{#str}}your_review_submitted, community_oer {{/str}}</p>
+</div>
+
+<div class="modal-footer justify-content-center" style="min-height: 69px;">
+    <button data-dismiss="modal" type="button" class="btn btn-success">
+    {{#str}}close, community_oer {{/str}}
+    </button>
+</div>
+
+{{#js}}
+    setTimeout(function(){
+    $('#confirmClose').trigger('click');
+    }, 10000);
+{{/js}}

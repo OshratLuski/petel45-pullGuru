@@ -1,0 +1,218 @@
+#page-login-forgot_password {
+  background-color: $white !important;
+  background-image: none;
+}
+
+#page-login-forgot_password .login a,
+#page-login-forgot_password .langbutton {
+  color: $white;
+}
+
+#page-login-forgot_password .primary-navigation {
+  display: none !important;
+}
+
+body#page-admin-tool-mfa-auth {
+  background-image: none !important;
+}
+
+/* mod/assign - feedback - pdf editor - header sections */
+.path-mod-assign [data-region="user-selector"] {
+  max-width: 50%;
+  margin: 0;
+}
+.path-mod-assign [data-region="user-selector"] > div > div:nth-last-child(1) {
+  width: 100%;
+  right: 0;
+}
+
+.path-mod-assign [data-region="grading-navigation-panel"] {
+  height: 95px;
+}
+
+.alert-info {
+  font-weight: 400;
+  background-color: $info-light;
+  border-color: $info-light;
+  color: $body-color;
+  font-family: Heebo, sans-serif;
+  .alert-colorblock {
+    background-color: $info;
+    border: 0.0625rem solid $info;
+  }
+  a{
+    color: $info !important;
+  }
+}
+
+.text-info{
+  color: $info !important;
+}
+
+.bg-info{
+  background-color: $info !important;
+}
+
+.alert-success {
+  font-weight: 400;
+  background-color: $success-light;
+  border-color: $success-light;
+  color: $body-color;
+  font-family: Heebo, sans-serif;
+  .alert-colorblock {
+    background-color: $success;
+    border: 0.0625rem solid $success;
+  }
+  a{
+    color: $success !important;
+  }
+}
+
+.text-success{
+  color: $success !important;
+}
+
+.bg-success{
+  background-color: $success !important;
+}
+
+.alert-warning {
+  font-weight: 400;
+  background-color: $warning-light;
+  border-color: $warning-light;
+  color: $body-color;
+  font-family: Heebo, sans-serif;
+  .alert-colorblock {
+    background-color: $warningnotification;
+    border: 0.0625rem solid $warningnotification;
+  }
+  a{
+    color: $warningnotification !important;
+  }
+}
+
+.text-warning{
+  color: $warningnotification !important;
+}
+
+.bg-warning{
+  background-color: $orange !important;
+}
+
+.alert-danger {
+  font-weight: 400;
+  background-color: $danger-light;
+  border-color: $danger-light;
+  color: $body-color;
+  font-family: Heebo, sans-serif;
+  .alert-colorblock {
+    background-color: $danger;
+    border: 0.0625rem solid $danger;
+  }
+  a{
+    color: $danger !important;
+  }
+}
+
+.text-danger{
+  color: $danger !important;
+}
+
+.bg-danger{
+  background-color: $danger !important;
+}
+
+.yellow{
+  background-color: $yellow;
+}
+/* PTL-9575 Fix qtype/shortmath button directionality in RTL. */
+html[dir="rtl"] .visual-math-input-wrapper {
+  /*rtl:ignore*/
+  direction: ltr;
+}
+
+/* PTL-9536 narrow down the redundant space inside course module cards - flexsection */
+.path-course.format-flexsections .activity-wrapper .activity-item {
+  min-height: 4rem;
+  padding: 4px 8px 4px 8px;
+}
+
+/* PTL-9521 course format flexsection - center header image */
+.path-course.format-flexsections .course-content .course-image {
+  background-size: cover;
+  background-position: center;
+}
+
+/* PTL-9433 Course format flexsection - Hide text summery from topic card pictures */
+.path-course.format-flexsections .singlesection-card .card-header-fade .summary,
+.path-course.format-flexsections .dashboard-card-deck .card-main-content .summary {
+  display: none;
+}
+
+/* mod/hvp - Hide content hub from users (teachers) prevent sharing */
+.cm-type-hvp .content-hub-options {
+  display: none;
+}
+
+/* move the right drawer toggle, so it is not blocking the browser side scroll */
+.drawer-toggles .drawer-right-toggle {
+  right: 10px;
+}
+
+body#page-mod-hvp-view div#page-content div#region-main-box div[role="main"] h2 {
+  display: none;
+}
+
+/* PTL-9689 Right align ggb geogebra applet in quiz question, in RTL mode */
+/* .applet_scaler.ggbTransform { */
+/*
+.geogebra .applet_scaler {
+  float:right;
+}
+*/
+
+/* PTL-9689 Add border around ggb applets question type geogebra */
+.geogebra div[id*=ggbdiv] {
+  border: 1px solid gray;
+}
+
+/* PTL-9680 Question type algebra, always display f(x) on left side, even in RTL mode */
+.que.algebra .answer {
+  unicode-bidi: plaintext;
+}
+
+/* Quiz settings - highlight headers of question feedback options */
+#fgroup_id_closedoptionsgrp_label,
+#fgroup_id_openoptionsgrp_label,
+#fgroup_id_immediatelyoptionsgrp_label,
+#fgroup_id_duringoptionsgrp_label {
+  font-size: 1.3em;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* page header right alignment on wide pages */
+#page-local-metadata-index #page-header.header-maxwidth,
+#page-question-edit #page-header.header-maxwidth,
+#page-admin-roles-permissions #page-header.header-maxwidth,
+#page-filter-manage #page-header.header-maxwidth,
+#page-backup-backup #page-header.header-maxwidth,
+#page-backup-restorefile #page-header.header-maxwidth,
+#page-backup-import #page-header.header-maxwidth,
+#page-backup-copy #page-header.header-maxwidth,
+#page-backup-reset #page-header.header-maxwidth,
+#page-grade-report-grader-index #page-header.header-maxwidth {margin:0;}
+
+/* TinyMCE upload images - fix custom size inputs*/
+#_tiny_image_size {
+  .tiny_image_widthentry,
+  .tiny_image_heightentry {
+    min-width: 5rem;
+  }
+}
+html[dir="rtl"] .tox-dialog {
+  div[id$="_codeMirrorContainer"] {
+    direction: rtl;
+    text-align: right;
+  }
+}

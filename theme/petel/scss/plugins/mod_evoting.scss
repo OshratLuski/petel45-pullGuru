@@ -1,0 +1,22 @@
+body.path-mod-evoting {
+    #region-main .mform .container_add_choice>div.fitem.fitem_flink>div.felement a.addChoice {
+        background-position-x: 100%;
+    }
+    .header_choice>div.header_correct {
+        width: auto;
+    }
+    &.dir-rtl {
+        div#divTitle {
+            margin: 0 2em;
+            float: right !important;
+        }
+        #divButtonNavigate input,
+        #divButtonActivPoll input {
+            background-position-x: 93%;
+            background-position-y: 18px;
+        }
+        #divButtonNavigate input {
+            background-position-y: 10px;
+        }
+    }
+}

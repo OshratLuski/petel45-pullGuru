@@ -1,0 +1,115 @@
+.social {
+
+  .intro {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 79px 62px 0 108px;
+  }
+
+  .intro_wrapper {
+    height: calc(100vh - 91px);
+    // background-size: 50% auto;
+    // background-repeat: no-repeat;
+    // background-position: 100% 0;
+    // background-image: url([[pix:community_social|petel]]);
+    background: url([[pix:community_social|petel]]) no-repeat, linear-gradient(to top, #ddd, white);
+  }
+
+  .intro_head {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 29px;
+    color: $purple;
+    font-weight: $font-weight-light;
+    font-size: 60px;
+    line-height: 60px;
+    &--bold {
+      text-align: center;
+      font-weight: $font-weight-semibold;
+      font-size: 39px;
+    }
+  }
+
+  .intro_par {
+    color: #000;
+    font-weight: $font-weight-light;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 35px;
+  }
+  .intro_btn {
+    cursor: pointer;
+    border: none;
+    margin: 16px auto;
+    color: #fff;
+    font-weight: $font-weight-normal;
+    font-size: 24px;
+    line-height: 44px;
+    padding: 0 18px;
+    transition: .2s;
+    background-color: $purple;
+    border-radius: 5px;
+    &--small {
+      margin-top: 57px;
+      font-weight: $font-weight-normal;
+      font-size: 24px;
+      line-height: 36px;
+      padding: 0 15px;
+    }
+    &:hover {
+      text-decoration: none;
+      background-color: $hover_purple;
+    }
+  }
+
+  .intro_wrap {
+    display: flex;
+    flex-direction: column;
+    padding-top: 85px;
+  }
+  .intro_cards {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 9%;
+  }
+  .intro_icon {
+    width: 175px;
+    height: 175px;
+    border: 2px solid $purple;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    &--language {
+      background-image: url([[pix:community_social|language]]);
+    }
+    &--media {
+      background-size: 70%;
+      background-image: url([[pix:community_social|media]]);
+    }
+    &--notifications-active {
+      background-size: 70%;
+      background-image: url([[pix:community_social|notifications-active]]);
+    }
+    &--supervised {
+      background-image: url([[pix:community_social|supervised]]);
+    }
+  }
+  .intro_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //padding: 10px 10px 0 10px;
+    width: 25%;
+    padding: 32px 4% 0;
+
+  }
+  .intro_text-preview {
+    text-align: center;
+    font-weight: $font-weight-normal;
+    font-style: 23px;
+    line-height: 32px;
+    margin-top: 24px;
+  }
+}

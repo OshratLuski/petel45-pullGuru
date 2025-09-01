@@ -1,0 +1,14 @@
+.mod-tab-embedded{
+    border: none;
+    width: 100%; 
+    height: 800px;
+}
+
+#page-mod-tab-view .moremenu.navigation.observed {
+    display: contents;
+}
+
+#page-mod-tab-view .nav-tabs {
+    position: relative;
+    display: flex;
+}

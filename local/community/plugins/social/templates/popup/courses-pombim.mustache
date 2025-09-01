@@ -1,0 +1,24 @@
+<form class="pc-form" id="popup_courses_pombip">
+    <div class="pc-form_wrap">
+        <p class="pc-form_text mb-4">{{#str}} choosecourses, community_social{{/str}}</p>
+        <div class="pc-form_courses bg-light p-2 mb-4">
+            <p class="pc-form_head mb-2 text-primary bold">{{#str}} mycourses, community_social{{/str}}</p>
+            <div class="pc-form_course-items">
+                {{#courses}}
+                <div class="pc-form_course-item custom-control custom-checkbox bg-white border border-light d-flex align-items-center mb-3 pr-3 py-2">
+                    <input id="{{counter}}" type="checkbox" {{checked}} name="{{counter}}" value="{{id}}" class="custom-control-input">
+                    <label for="{{counter}}" class="pc-form_course custom-control-label pl-2">
+                        <!-- <div class="pc-forum_course-img" style="background-image: url('{{{imageurl}}}')"></div> -->
+                            <span class="pc-form_course-name text-body">{{fullname}}</span>
+                            <!-- <span class="pc-form_course-desc">{{{summary}}}</span> -->
+                    </label>
+                </div>
+                {{/courses}}
+            </div>
+        </div>
+        <div class="ifcopy-wrapper custom-control custom-checkbox">
+            <input id="ifcopy" type="checkbox" name="ifcopy" {{#ifcopy}}checked{{/ifcopy}} class="custom-control-input" />
+            <label for="ifcopy" class="custom-control-label ifcopy-label pl-2">{{#str}} ifcopycourse, community_social{{/str}}</label>
+        </div>
+    </div>
+</form>

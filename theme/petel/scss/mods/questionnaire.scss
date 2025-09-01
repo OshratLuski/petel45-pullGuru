@@ -1,0 +1,87 @@
+.path-mod-questionnaire {
+
+    .nav.nav-tabs {
+        border-bottom: none;
+        border: none;
+        max-width: 100%;
+        margin: 0 auto;
+
+        .nav-link {
+            color: $secondary;
+            position: relative;
+            font-size: 1rem;
+            font-weight: 400;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+            border: .0625rem solid transparent;
+            border-bottom: none;
+            padding: .125rem 1rem;
+            &.active,
+            &:active {
+                color: $body-color;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: .1875rem;
+                    background-color: $secondary;
+                    border-radius: .1875rem .1875rem 0 0;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            &:hover:not(.disabled),
+            &:hover:not(:disabled) {
+                border-color: $light;
+                background-color: $light;
+            }
+
+            &:focus:not(.disabled),
+            &:focus:not(:disabled) {
+                background-color: $white;
+                color: $body-color;
+                border-top: .0625rem solid $primary;
+                border-right: .0625rem solid $primary;
+                border-left: .0625rem solid $primary;
+                box-shadow: none;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: .1875rem;
+                    background-color: $secondary;
+                    border-radius: .1875rem .1875rem 0 0;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            &:disabled,
+            &.disabled {
+                background-color: $gray-100;
+                color: $gray-500;
+            }
+        }
+    }
+}
+
+.text-link{
+    color: $newlinkcolor !important;
+    text-decoration:underline !important;
+}
+
+.text-link:visited {
+    color: $secondary !important;
+    text-decoration:underline !important;
+}
+
+.text-link:hover {
+    color: $newlinkcolor !important;
+    font-weight: bold !important;
+    text-decoration:underline !important;
+}

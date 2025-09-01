@@ -1,0 +1,23 @@
+<span class="course__count text-primary">
+    {{^editable}}
+        <span>{{firstname_pombim}}</span>
+        <span>{{#str}}wordsharing, community_social{{/str}}</span>
+        <span>{{all_courses_count}}</span>
+        <span>{{#str}}wordcourses, community_social{{/str}}</span>
+    {{/editable}}
+
+    {{#editable}}
+        <span>{{#str}}wordyou, community_social{{/str}}</span>
+        <span>{{#str}}wordsharing, community_social{{/str}}</span>
+        <span>{{all_courses_count}}</span>
+        <span>{{#str}}wordcourses, community_social{{/str}}</span>
+    {{/editable}}
+  </span>
+
+<div class="courses_pombim__wrapper">
+    {{>community_social/profile/courses-pombim}}
+</div>
+
+<div class="courses_oer__wrapper">
+    {{>community_social/profile/courses-oer}}
+</div>

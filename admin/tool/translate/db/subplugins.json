@@ -1,0 +1,8 @@
+{
+  "subplugintypes": {
+    "translateengine": "engine"
+  },
+  "plugintypes": {
+    "translateengine": "admin\/tool\/translate\/engine"
+  }
+}

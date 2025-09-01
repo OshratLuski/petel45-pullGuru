@@ -1,0 +1,49 @@
+#page-user-profile,
+#page-user-preferences,
+#page-user-files,
+#page-grade-report-overview-index,
+#page-message-output-petel-notifications,
+.path-user
+ {
+    .page-context-header {
+        overflow: visible;
+    }
+
+    .page-header-headings {
+        display: flex;
+        align-items: center;
+    }
+
+    .page-header-image {
+        display: flex;
+        align-items: center;
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+    .fa-light.fa-circle-user.defaultuserpic {
+        font-size: 2.25rem;
+    }
+
+    .btn-group.header-button-group {
+        display: flex;
+        padding-bottom: .5rem;
+
+        .btn {
+            box-shadow: none;
+            border: none;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

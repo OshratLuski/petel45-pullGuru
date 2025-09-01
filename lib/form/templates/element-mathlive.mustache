@@ -1,0 +1,51 @@
+{{< core_form/element-template }}
+    {{$element}}
+        {{^element.frozen}}
+
+            <div class="form-control d-flex h-auto {{#error}}is-invalid{{/error}}" style="background-color: transparent; border: 0px;">
+                <math-field id="math_{{element.id}}"
+                    style="
+                        font-size: 32px;
+                        border-radius: 8px;
+                        border: 1px solid rgba(0, 0, 0, .3);
+                        box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+                        min-width: 20rem;
+                        direction: ltr;
+                        background-color: white;
+                    "
+                    virtual-keyboard-mode = manual
+
+                    {{#error}}
+                        autofocus aria-describedby="{{element.iderror}}"
+                    {{/error}}
+
+                    {{{element.attributes}}}
+                >
+                    {{element.value}}
+                </math-field>
+            </div>
+
+            <style>.ML__keyboard {direction:ltr;}</style>
+
+            <input type="hidden" id="{{element.id}}" name="{{element.name}}" value="{{element.value}}">
+
+        {{/element.frozen}}
+
+    {{/element}}
+{{/ core_form/element-template }}
+
+{{#js}}
+    document.querySelector('#math_{{element.id}}').addEventListener('input', function(){
+        document.querySelector('#{{element.id}}').value = this.value;
+    });
+
+    // Set settings to mathlive.
+    let interval{{element.id}} = setInterval(function (){
+        let obj = document.getElementById("math_{{element.id}}");
+        if (typeof obj.setOptions === "function") {
+
+        obj.setOptions({{{element.json}}});
+        clearInterval(interval{{element.id}});
+        }
+    },100);
+{{/js}}

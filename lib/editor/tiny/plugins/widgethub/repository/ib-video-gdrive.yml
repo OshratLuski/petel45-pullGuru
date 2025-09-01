@@ -1,0 +1,32 @@
+key: ib-video-gdrive
+name: Video-GDrive
+category: video
+instructions: >
+  Embed a video that the user has previously shared from its Google Drive. Enter the iframe share code and optionally a title.
+template: |
+  <p><br></p>
+  <div class="twh-video-container twh-video-gdrive" {{#if}}[maxWidth>100]style="max-width:{{maxWidth}}px"{{/if}}>
+    <div class="twh-videoWrapper">
+    {{{iframe_code}}}  
+    </div>
+      <div class="twh-caption">
+     <span class="twh-caption-counter">Video</span><span class="twh-caption-title">: {{title}}</span></div>
+    </div>
+  <p><br></p>
+parameters: 
+  - name: title
+    value: Write a title
+    title: Descriptive Title
+    type: textfield
+  - name: iframe_code
+    value: <iframe src="https://drive.google.com/file/d/1C-xFq_cPF9kr1Xq9XINixAkU46AHAVUE/preview" width="640" height="480" allow="autoplay" fullscreen="1"></iframe>
+    title: Iframe code
+    tip: Paste the iframe code you obtained from sharing on Drive.
+    type: textarea
+  - name: maxWidth
+    value: 500
+    title: Maximum width in px
+    min: 100
+scope: ^page-mod-(book|page|assign|quizz)-
+author: Josep Mulet Pol <pep.mulet@gmail.com>
+version: 1.1.0

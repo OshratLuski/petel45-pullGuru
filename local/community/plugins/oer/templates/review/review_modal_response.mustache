@@ -1,0 +1,265 @@
+
+      <div class="modal-content review_modal">
+          <div class="modal-header bg-primary d-flex align-items-center">
+              <div class="modal-header-content">
+                  <p class="modal-header-title mb-0 text-white">
+                      {{header}}
+                      <span class="modal-header-subtitle">{{^messageurl}}{{author}}{{/messageurl}}{{#messageurl}}<a href="{{.}}">{{author}}</a>{{/messageurl}} | {{objcreated}}</span>
+                  </p>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><i class="fa fa-times-circle text-white"></i></span>
+              </button>
+          </div>
+          <div class="modal-body d-flex flex-column">
+              <div class="modal-body-top">
+                  <a
+                        href = "{{objurl}}"
+                        target="_blank"
+                        class="btn btn-link btn-sm">
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                        {{objlinkname}}
+                  </a>
+              </div>
+
+              <div class="modal-body-main" data-simplebar>
+                  <div data-ref = "addInstantReview" class="instant_review_block review_block review-unit">
+                      <div class="userpic mr-2" style ="background-image: url({{avatar}})"></div>
+                      <div class="instant_review_block-content review_block-content w-100">
+                          <div class="instant_review_block-header review_block-header">
+                              <span>{{userfirstname}} {{userlastname}}</span>
+                          </div>
+                          <div class="instant_review_block-body review_block-body">
+                              <textarea rows=3 class="description_text short-review-form-description w-100" name="instant_review" placeholder="{{#str}}add_text, community_oer {{/str}}"></textarea>
+                              <div class = "control d-flex justify-content-end pt-2 sendshortreview">
+                                  <button
+                                          data-handler="sendShortReview"
+                                          data-objid="{{objid}}"
+                                          data-objtype="{{objtype}}"
+                                          data-requestid="0"
+                                          type="button"
+                                          class="btn btn-secondary btn-sm mr-2">
+                                      {{#str}}send, community_oer {{/str}}
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  {{#reviews}}
+                  <div class="review_bigblock" data-reviewid="{{reviewid}}" data-objid="{{objid}}">
+                    <div class="review_block">
+                        <div
+                          class="userpic mr-2"
+                          style ="background-image: url({{userpicture}})"
+                          >
+                        </div>
+                        <div class="review_block-content">
+                          <div class="review_block-header">
+                              <div class="user_info">
+                                  <span class="title">{{firstname}} {{lastname}}</span> |
+                                  <span class="date">{{reviewdate}}</span>
+                              </div>
+                              {{#objby}}
+                              <div class="terms">
+                                  <span class="title">{{#str}}timing, community_oer {{/str}}</span>
+                                  <span class="date">{{objby}}</span>
+                              </div>
+                              {{/objby}}
+                              {{#howtouse}}
+                              <div class="how_to_use">
+                                  <span class="title">{{#str}}howtouse, community_oer {{/str}}</span>
+                                  <div class="icons">
+                                    {{#classroom}}
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    {{/classroom}}
+                                    {{#home}}
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    {{/home}}
+                                    {{#phone}}
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    {{/phone}}
+                                    {{#pc}}
+                                    <i class="fa fa-laptop" aria-hidden="true"></i>
+                                    {{/pc}}
+                                  </div>
+                              </div>
+                              {{/howtouse}}
+                              {{#showdeletebutton}}
+                               <span class = "ml-2" style= "position: relative">
+                                  <i
+                                      class="fa fa-trash text-danger mr-2"
+                                      aria-hidden="true"
+                                      data-toggle="dropdown"
+                                      title = "{{#str}}delete, community_oer {{/str}}"
+                                  >
+                                </i>
+                                <div class="dropdown-menu p-2">
+                                    <p class = "text-secondary">{{#str}}reallydelete, community_oer {{/str}}</p>
+                                    <div class = "d-flex justify-content-center">
+                                      <button class = "btn btn-sm btn-danger mr-2" data-handler="deleteReview">{{#str}}yes, community_oer {{/str}}</button>
+                                      <button class="btm btn-sm btn-secondary">{{#str}}cancel, community_oer {{/str}}</button>
+                                    </div>
+                                </div>
+                              </span>
+                              {{/showdeletebutton}}
+                          </div>
+                          <div class="review_block-body">
+                              {{#descr}}
+                                <p class="review_block-body-text">{{.}}</p>
+                              {{/descr}}
+                              {{#descr1}}
+                                <h4 class="review_block-body-title">{{#str}}howtotransfer, community_oer {{/str}}</h4>
+                                <p class="review_block-body-text">{{.}}</p>
+                              {{/descr1}}
+                              {{#descr2}}
+                                  <h4 class="review_block-body-title">{{#str}}experience, community_oer {{/str}}</h4>
+                                  <p class="review_block-body-text">{{.}}</p>
+                              {{/descr2}}
+                              {{#descr3}}
+                                  <h4 class="review_block-body-title">{{#str}}recommendations, community_oer {{/str}}</h4>
+                                  <p class="review_block-body-text">{{.}}</p>
+                              {{/descr3}}
+                          </div>
+                        </div>
+                    </div>
+
+                      <div class="ml-5">
+
+                        <button data-handler = "addComment" class="btn btn-secondary btn-sm mb-3">{{#str}}addcomment, community_oer {{/str}}</button>
+
+                          <div data-ref = "addComment" class="review_block-comment">
+                              <div class="userpic mr-2" style ="background-image: url({{avatar}})"></div>
+                              <div class="review_block-content mt-0">
+                                  <div class="review_block-header">
+                                      <div class="user_info">
+                                        <span>{{userfirstname}} {{userlastname}}</span>
+                                      </div>
+                                  </div>
+                                  <div class="review_block-body addcomment_block review-unit">
+                                      <textarea rows=3 class="description_text w-100" name="addcomment{{reviewid}}" placeholder="{{#str}}add_text, community_oer {{/str}}"></textarea>
+                                      <div class = "control d-flex justify-content-end pt-2 sendcomment">
+                                          <button
+                                                  data-handler="sendComment"
+                                                  data-reviewid="{{reviewid}}"
+                                                  type="button"
+                                                  class="btn btn-secondary btn-sm mr-2">
+                                              {{#str}}send, community_oer {{/str}}
+                                          </button>
+                                          <!--button data-handler = "cancelComment" type="button" class="btn btn-sm">
+                                              {{#str}}cancel, community_oer {{/str}}
+                                          </button-->
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div id="btn-colapse-comments-{{reviewid}}" class="row ml-0 mt-2 mb-0 {{^comments.length}}hide{{/comments.length}}">
+                              <button class="collapse-comments btn btn-link ml-0 mt-0 d-flex align-items-center collapsed" type="button" data-toggle="collapse" data-target="#block-comments-{{reviewid}}"
+                                      aria-expanded="false" aria-controls="block-comments-{{reviewid}}">
+                                  <i class="fa fa-caret-down mr-1" aria-hidden="true"></i>
+                                  <i class="fa fa-caret-left mr-1" aria-hidden="true"></i>
+                                  <span class="collapsed-text">
+                                      {{#str}}review_show, community_oer {{/str}} <span id="count-comments-{{reviewid}}" class="mx-1">{{totalcomments}}</span> {{#str}}sub_comments, community_oer {{/str}}
+                                  </span>
+                                  <span class="expanded-text">
+                                      {{#str}}hide_comments, community_oer {{/str}}
+                                  </span>
+                              </button>
+                          </div>
+
+                          <div class="collapse mt-2 pl-2" id="block-comments-{{reviewid}}">
+
+                          {{#comments}}
+                          <div class="review_block-comment mb-3" data-commentid="{{commentid}}" data-reviewid="{{reviewid}}">
+                              <div class="userpic mr-2" style ="background-image: url({{userpicture}})"></div>
+                              <div class="review_block-content w-100 mt-0">
+                                <div class="review_block-header">
+                                    <div class="user_info">
+                                      <span class="title">{{firstname}} {{lastname}}</span> |
+                                      <span class="date">{{commentdate}} {{# edited}} {{#str}}edited, community_oer {{/str}} {{/ edited }}</span>
+                                    </div>
+                                  {{# showbuttons }}
+                                      <span class = "ml-2" style= "position: relative">
+                                    <i
+                                      class="fa fa-pencil text-success mr-2"
+                                      aria-hidden="true"
+                                      data-handler="editComment"
+                                      title = "{{#str}}edit, community_oer {{/str}}"
+                                      >
+                                    </i>
+                                    <i
+                                      class="fa fa-trash text-danger mr-2"
+                                      aria-hidden="true"
+                                      data-toggle="dropdown"
+                                      title = "{{#str}}delete, community_oer {{/str}}"
+                                      >
+                                    </i>
+                                    <div class="dropdown-menu p-2">
+                                        <p class = "text-secondary">{{#str}}reallydelete, community_oer {{/str}}</p>
+                                        <div class = "d-flex justify-content-center">
+                                          <button class = "btn btn-sm btn-danger mr-2" data-handler="deleteComment">{{#str}}yes, community_oer {{/str}}</button>
+                                          <button class="btm btn-sm btn-secondary">{{#str}}cancel, community_oer {{/str}}</button>
+                                        </div>
+                                    </div>
+                                  </span>
+                                  {{/ showbuttons }}
+                                </div>
+                                <div class="review_block-body">
+                                    <p class="review_block-body-text">{{comment}}</p>
+                                </div>
+                              </div>
+                          </div>
+                        {{/comments}}
+                        </div>
+                    </div>
+
+
+
+                    </div>
+                  {{/reviews}}
+              </div>
+          </div>
+      </div>
+
+<span class = "ml-2 d-none" style= "position: relative" id="controls">
+  <i
+    class="fa fa-pencil text-success mr-2"
+    aria-hidden="true"
+    data-handler="editComment"
+    title = "{{#str}}edit, community_oer {{/str}}"
+    >
+  </i>
+  <i
+    class="fa fa-trash text-danger mr-2"
+    aria-hidden="true"
+    data-toggle="dropdown"
+    title = "{{#str}}delete, community_oer {{/str}}"
+    >
+  </i>
+  <div class="dropdown-menu p-2">
+      <p class = "text-secondary">{{#str}}reallydelete, community_oer {{/str}}</p>
+      <div class = "d-flex justify-content-center">
+        <button class = "btn btn-sm btn-danger" data-handler="deleteComment">{{#str}}yes, community_oer {{/str}}</button>
+        <button class="btn btn-sm btn-secondary">{{#str}}cancel, community_oer {{/str}}</button>
+      </div>
+  </div>
+</span>
+{{#js}}
+require(['jquery', 'community_oer/review-events'], function ($, events) {
+`use strict`;
+
+  $('[data-handler="addComment"]').on('click', function(){
+    $(this).toggleClass('slide');
+    var commentBlock = $(this).next();
+
+    commentBlock.slideToggle('medium', function() {
+        if ($(this).is(':visible'))
+            $(this).css('display','flex');
+      }
+    );
+    commentBlock.find('textarea').focus();
+  });
+
+});
+{{/js}}

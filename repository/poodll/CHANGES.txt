@@ -1,0 +1,32 @@
+Change List
+=========
+Version 3.1.02(Build 2019112100)
+-tweaks to lang strings
+-fixed selector for whiteboard which was selecting audio(ouch)
+
+Version 3.1.01(Build 2018060100)
+- Fixed bug in snapshot recorder
+
+Version 3.1.0(Build 2018041000)
+-Implemented new Moodle Privacy API
+
+Version 2018020701
+Removed Red5 references
+Removed Widget selection option
+Removed player selection feature (though we want it back, just working and back)
+
+
+Version 2016112701
+fixed broken pdl links
+fixed broken whiteboard and video recorder
+
+Version 2016081401
+Added support for auto iframe resizing
+
+Version 2015121102
+Fixed a big that caused PoodLL repo to fail, and
+set whiteboard to drawingboard.js
+
+Version 2015121101
+Support for refactored PoodLL filter and support for Moodle 3.0
+

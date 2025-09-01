@@ -1,0 +1,140 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_myoverview/view-list
+
+    This template renders the list view for the myoverview block.
+
+    Example context (json):
+    {
+        "courses": [
+            {
+                "name": "Assignment due 1",
+                "viewurl": "https://moodlesite/course/view.php?id=2",
+                "courseimage": "https://moodlesite/pluginfile/123/course/overviewfiles/123.jpg",
+                "fullname": "course 3",
+                "hasprogress": true,
+                "progress": 10,
+                "coursecategory": "Miscellaneous"
+            }
+        ]
+    }
+}}
+
+<ul class="block-myoverview-list-group row">
+{{#courses}}
+    <li class="selector-inview course-listitem block-myoverview-listitem type-petel col-xs-4 col-md-4 col-sm-6 col-xs-12"
+        data-region="course-content"
+        data-course-id="{{{id}}}"
+    >
+        <div class="block-myoverview-listitem-content h-100">
+            <div class="myoverview-listitem-header d-flex">
+                <a href="{{viewurl}}" class="coursename text-bold" tabindex="0" role="link">
+                    {{> block_myoverview/petel/favouriteicon }}
+                    <span class="coursename-name" data-toggle="tooltip" data-placement="top" title="{{fullname}}">{{{fullname}}}</span>
+                </a>
+                {{> block_myoverview/petel/course-action-menu }}
+            </div>
+            <div class="myoverview-listitem-body flex-column">
+                {{#courseimage}}
+                <div class="course-image-wrapper position-relative" tabindex="0">
+                    <div class="course-action-menu-wrapper">
+                        <button id="toggleCourseActionMenuBtn" class="toggle-course-action-menu-btn" aria-label="Toggle course action menu" role="button" aria-expanded="false"
+                        onclick="(() => { this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); })()">
+                            <svg class="open-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                                <path d="M8.29459 9.3731L5.29545 6L8.29459 2.62689C8.36613 2.54643 8.40191 2.45115 8.40191 2.34104C8.40191 2.23093 8.36613 2.13564 8.29459 2.05518L7.35701 1.00069C7.28547 0.920228 7.20074 0.879996 7.10284 0.879996C7.00494 0.879996 6.92022 0.920228 6.84868 1.00069L2.65779 5.71414C2.58625 5.7946 2.55048 5.88989 2.55048 6C2.55048 6.1101 2.58625 6.20539 2.65779 6.28585L6.84868 10.9993C6.92022 11.0798 7.00494 11.12 7.10284 11.12C7.20074 11.12 7.28546 11.0798 7.35701 10.9993L8.29459 9.94481C8.36613 9.86435 8.4019 9.76906 8.4019 9.65895C8.4019 9.54885 8.36613 9.45356 8.29459 9.3731Z" fill="white"/>
+                            </svg>
+                            <i class="fal fa-times close-icon"></i>
+                        </button>
+                        <ul class="course-action-menu" role="list" tabindex="0" aria-label="{{#str}}aria:coursequickactions, block_myoverview{{/str}}">
+                            {{#links}}
+                            {{> block_myoverview/petel/course-links-block }}
+                            {{/links}}
+                        </ul>
+                    </div>
+                    <a href="{{viewurl}}" class="" >
+                        <div class="card-img dashboard-card-img" style='background-image: url("{{{courseimage}}}");' role="presentation">
+                            <span class="sr-only">{{#str}}aria:courseimage, core_course{{/str}}</span>
+                        </div>
+                    </a>
+                </div>
+                {{/courseimage}}
+
+                <div class="text-muted muted d-flex flex-wrap">
+                    {{#showshortname}}
+                        <div class="pl-1 pr-1">|</div>
+                        <span class="sr-only">
+                            {{#str}}aria:courseshortname, core_course{{/str}}
+                        </span>
+                        <div>{{{shortname}}}</div>
+                    {{/showshortname}}
+                </div>
+
+                <div class="quickaccesslink">
+                        {{{quickaccesslink}}}
+                </div>
+
+                <div class="activity-lines d-flex flex-column px-2 py-1">
+
+                    <div class="myoverview-events flex-column justify-content-center align-items-center">
+                        <div class="no-events">
+                            {{#str}}inprocess, block_myoverview{{/str}}
+                        </div>
+
+                        {{#events}}
+                            {{> block_myoverview/petel/event-list-item }}
+                        {{/events}}
+                    </div>
+
+                    {{#grademe}}
+                        <div class="course-activities">
+                            {{{grademe.text}}}
+                        </div>
+                    {{/grademe}}
+
+                </div>
+
+                {{^isteacher}}
+                    <div class="progress-bar-student" style="display:none;">
+                        {{#hasprogress}}
+                            <div class="col-md-12 py-2 d-flex align-items-center">
+                                {{> block_myoverview/progress-bar}}
+                            </div>
+                        {{/hasprogress}}
+                    </div>
+                {{/isteacher}}
+
+            </div>
+        </div>
+
+    </li>
+{{/courses}}
+</ul>
+
+{{#js}}
+    require(['block_myoverview/petel'], function(petel) {
+        petel.inview(500);
+    });
+    require(['jquery'], function($) {
+        $('.course-image-wrapper').focusin(function() {
+            $(this).find('.course-action-menu').addClass('show');
+        });
+        $('.course-image-wrapper').focusout(function() {
+            $(this).find('.course-action-menu').removeClass('show');
+        });
+    });
+{{/js}}

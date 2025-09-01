@@ -1,0 +1,41 @@
+.popup-local-diagnostic {
+    @import 'daterangepicker';
+    @import 'multiselect';
+    @import 'svg-charts';
+    @import 'questions-list';
+    @import 'other';
+}
+
+@import 'popup-activities';
+@import 'popup-description';
+@import 'popup-repository';
+@import 'popup-recommend';
+
+.popup-local-diagnostic.popup-local-diagnostic-main-p {
+    @import 'main-popup';
+}
+
+div.local-diagnostic-toast{
+    &.toast{
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-family: "Roboto", sans-serif;
+        border-radius: 0;
+        padding-right: 20px;
+
+        &.success{
+            background: #1a772f;
+            color: #ffffff;
+        }
+
+        &.error{
+            background: #c71e49;
+            color: #ffffff;
+        }
+    }
+}
+
+.dir-rtl .popup-local-diagnostic{
+    @import 'dir-rtl';
+}

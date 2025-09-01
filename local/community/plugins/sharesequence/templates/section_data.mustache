@@ -1,0 +1,60 @@
+{{#activities}}
+<div class="activity-item-wrapper" >
+    <div class="custom-control custom-checkbox activity-custom-checkbox py-1">
+        <input type="checkbox" class="custom-control-input check-activity-checkbox" id="sequence_cm_{{cmid}}-{{uniqueid}}" data-cmid="{{cmid}}"
+            data-checkbox-name="activity" data-name="{{name}}">
+            
+        
+            <label class="custom-control-label check-activity-label d-flex pl-1" for="sequence_cm_{{cmid}}-{{uniqueid}}" title="{{name}}">
+                <span class="activity-item-icon activity-icon d-block">{{{modicon}}}</span>
+                <span class="activity-name pr-2">
+                    {{name}}
+                </span>
+            </label>
+        
+    </div>
+</div>
+{{/activities}}
+
+{{#sections}}
+<div class="subsection-item-wrapper" >
+    <div class="subsection-item d-flex align-items-center">
+        <div class="custom-control custom-checkbox subsection-custom-checkbox">
+            <input type="checkbox" class="custom-control-input check-subsection-checkbox" id="subsection_{{id}}-{{uniqueid}}"
+                data-checkbox-name="subsection">
+            <label class="custom-control-label check-subsection-label" for="subsection_{{id}}-{{uniqueid}}">
+            </label>
+        </div>
+
+            <a class="check-subsection-label mb-0 d-flex align-items-center w-100 pr-2"
+            data-toggle="collapse" href="#subsection-collapse-id-{{id}}-{{uniqueid}}" aria-expanded="false"
+                aria-controls="subsection-collapse-id-{{id}}-{{uniqueid}}" title="{{name}}">
+                <i class="fal fa-caret-left collapse-subsection-btn d-flex border-0 bg-transparent collapsed mr-2" aria-hidden="true"></i>
+                <span class="subsection-name pr-2">
+                    {{name}}
+                </span>
+            </a>
+     
+    </div>
+    <div class="subsection-collapse multicollapse collapse bg-light" id="subsection-collapse-id-{{id}}-{{uniqueid}}"
+        data-checbox-parent="subsection_{{id}}-{{uniqueid}}" data-sectionid="{{id}}">
+    </div> 
+</div>
+{{/sections}}
+
+{{#empty_section}}
+    <h4 class="mb-0 color-primary text-center">
+        {{#str}}nothing_to_view, community_sharesequence{{/str}}
+    </h4>
+
+{{/empty_section}}
+
+{{#js}}
+require(['community_sharesequence/uploadPopupPage2', 'community_sharesequence/uploadPopupActionsPage2', 'jquery'],
+    function(uploadPopupPage2, uploadPopupActionsPage2, $) {
+        $(document).ready(()=>{
+        uploadPopupActionsPage2.openInviewSection('.subsection-collapse');
+        uploadPopupActionsPage2.selectActivities();
+    })
+});
+{{/js}}

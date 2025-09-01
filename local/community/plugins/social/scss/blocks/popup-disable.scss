@@ -1,0 +1,26 @@
+.socila_disable {
+  padding: 10px;
+  text-align: left;
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .text {
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: inherit;
+  }
+  .text-bold {
+    margin-top: 50px;
+    font-weight: $font-weight-semibold;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: inherit;
+  }
+}

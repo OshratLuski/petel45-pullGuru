@@ -1,0 +1,45 @@
+<div class="intro_wrapper">
+  <div class="intro">
+    <h1 class="intro_head">{{#str}}thepeerenvironment, community_social{{/str}}</h1>
+    <div class="intro_par">{{#str}}thepeerenvironmentdescr, community_social{{/str}}</div>
+
+    <h2 class="intro-title text-center text-primary my-4">{{#str}}whatcanbedoneinthepeerenvironment, community_social{{/str}}</h2>
+    <div class="col-12 intro-content mb-3 bg-white">
+      <div class="row">
+        <div class="col-3 exposure intro-content-item py-3 px-2">
+          <div class="intro-content-item-icon mb-3 mx-auto"></div>
+          <div class="intro-content-item-text text-center">
+            {{#str}}exposure, community_social{{/str}}
+          </div>
+        </div>
+        <div class="col-3 colleagues intro-content-item py-3 px-2">
+          <div class="intro-content-item-icon mb-3 mx-auto"></div>
+          <div class="intro-content-item-text text-center">
+            {{#str}}colleaguesstr, community_social{{/str}}
+          </div>
+        </div>
+        <div class="col-3 teachers intro-content-item py-3 px-2">
+          <div class="intro-content-item-icon mb-3 mx-auto"></div>
+          <div class="intro-content-item-text text-center">
+            {{#str}}teachers, community_social{{/str}}
+          </div>
+        </div>
+        <div class="col-3 comminities intro-content-item py-3 px-2">
+          <div class="intro-content-item-icon mb-3 mx-auto"></div>
+          <div class="intro-content-item-text text-center">
+            {{#str}}comminities, community_social{{/str}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center mb-4">
+      {{#social_enable}}
+        <a href="{{{link}}}" class="intro_btn text-white bg-secondary">{{#str}}activatingsocial, community_social{{/str}}</a>
+      {{/social_enable}}
+
+        {{#social_return}}
+            <a href="{{{link}}}" class="intro_btn text-white bg-secondary">{{#str}}returnsocial, community_social{{/str}}</a>
+        {{/social_return}}
+    </div>
+  </div>
+</div>

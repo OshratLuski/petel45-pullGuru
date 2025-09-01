@@ -1,0 +1,86 @@
+.qtext span,
+.que .qtext,
+.que .answer,
+.que .validationerror,
+.que p {
+    color: $body-color;
+}
+
+.qtext a{
+    color: $newlinkcolor !important;
+    font-weight: 500;
+}
+
+.path-question {
+    #id_competenciessectioncontainer {
+        span[role="option"].badge {
+            height: 2.125rem;
+            border-radius: 0;
+            background-color: $secondary;
+            border: .0625rem solid $secondary;
+            padding: .5rem 0;
+            box-shadow: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            color: $white;
+            &:hover {
+               background-color: $secondarylight;
+            border: .0625rem solid $secondarylight;
+               color: $body-color;
+            }
+            &:active, &.active {
+                background-color: $secondary;
+                color: $white;
+            }
+            &:focus {
+               background-color: $secondarylight;
+                outline: .0625rem solid $secondary;
+               color: $body-color;
+
+            }
+            .competency-heading {
+                margin: 0;
+                *{
+                    font-size: 1.125rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    color: inherit;
+                }
+            }
+            span[aria-hidden="true"] {
+                margin-right: 0.5rem;   
+            }
+        }
+        .form-autocomplete-suggestions {
+            li {
+                display: flex;
+                .competency-heading{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+ //PTL-14450
+#page-question-type-numerical.path-question.path-question-type {
+    div[id*="fgroup_id_answeroptions_"]{
+        .align-items-start.felement {
+            .d-flex.flex-wrap.align-items-center {
+                align-items: end !important;
+            }
+            .form-control, .custom-select {
+                border: .0625rem solid $secondary;
+                color: $secondary;
+            }
+            .fitem {
+                display: flex;
+                flex-direction: column;
+                padding-right: 0.5rem;
+            }
+        }
+    }
+}

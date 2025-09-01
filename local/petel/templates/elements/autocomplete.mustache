@@ -1,0 +1,82 @@
+<p>
+    <label for="{{inputid}}" class="mr-2">
+        {{title}}
+    </label>
+    <input name="{{inputid}}" id="{{inputid}}" class="custom-select w-100" type="text" value="{{paramdesc}}"
+        placeholder="{{placeholder}}" data-methodname="{{methodname}}" autocomplete="off">
+    <input type="hidden" name="{{paramname}}" id="{{paramid}}" value="{{paramvalue}}">
+
+    <span style="display: none;" class="label text-danger error-block">{{#str}}error {{/str}}</span>
+</p>
+
+{{#js}}
+
+require(['jquery', 'core/ajax', 'jqueryui', 'core/str'], function ($, Ajax, Jqueryui, Str) {
+
+    $("#{{inputid}}").on('input', (e) => {
+        updateac(e.target.value);
+    });
+
+    var modal = $('.modal.moodle-has-zindex.show .modal-content');
+
+    if(!modal.hasClass('nooverflow')) {
+        modal.addClass('nooverflow');
+    }
+
+    var list = [];
+    var updateac = function (str) {
+        list = [];
+        var selectedItem = (th, e, value) => {
+            $("#{{inputid}}").val(value);
+            id = list.indexOf(value);
+            if (id) {
+                $("#{{paramid}}").val(id);
+                e.preventDefault();
+            }
+        }
+
+        var parseResponse = function (response) {
+            list = [];
+            response = JSON.parse(response);
+            Object.keys(response).map(function (key) {
+                list[Number(key)] = response[key];
+                return;
+            });
+
+            Str.get_strings([{key: 'noresults'}]).done(function(strings) {
+                $("#{{inputid}}").autocomplete({
+                        appendTo: ".modal.moodle-has-zindex.show .modal-body",
+                        source: Object.values(list),
+                        minLength: 0,
+                        select: function (e, ui) {
+                            selectedItem($(this), e, ui.item.value);
+                            $(this).blur();
+                        },
+                        response: function(event, ui) {
+                            if (!ui.content.length) {
+                                $("#{{paramid}}").val('');
+                                var noResult = { value: "",label: strings[0] };
+                                ui.content.push(noResult);
+                            }
+                        }
+                }).focus(function() {
+                    $(this).autocomplete('search', $(this).val());
+                });
+            });
+
+        };
+        Ajax.call([{
+            methodname: 'local_petel_{{methodname}}',
+            args: {
+                query: str,
+            },
+            done: parseResponse,
+            fail: Notification.exeption
+        }]);
+    };
+
+    updateac('');
+
+});
+
+{{/js}}

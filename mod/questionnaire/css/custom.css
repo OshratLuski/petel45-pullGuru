@@ -1,0 +1,31 @@
+.mod_questionnaire_viewpage .complete,
+.mod_questionnaire_viewpage .completeadmin,
+.mod_questionnaire_viewpage .yourresponseadmin,
+.mod_questionnaire_viewpage .allresponses,
+.mod_questionnaire_viewpage .yourresponse {
+  display: inline-block;
+}
+
+/* seems redundant (nadavkav)
+.mod_questionnaire_viewpage .complete a,
+.mod_questionnaire_viewpage .completeadmin a,
+.mod_questionnaire_viewpage .yourresponseadmin a,
+.mod_questionnaire_viewpage .allresponses a,
+.mod_questionnaire_viewpage .yourresponse a{
+  display: inline-block;
+  border: 1px solid #3f1c7a;
+  background: #3f1c7a;
+  color: #fff;
+  transition: .2s;
+  font-size: 1.3rem;
+}
+*/
+
+/* .mod_questionnaire_viewpage .complete:hover a,
+.mod_questionnaire_viewpage .completeadmin:hover a,
+.mod_questionnaire_viewpage .yourresponseadmin:hover a,
+.mod_questionnaire_viewpage .allresponses:hover a,
+.mod_questionnaire_viewpage .yourresponse:hover a{
+  background-color: #9f8dbc;
+  border-color: #9f8dbc;
+} */

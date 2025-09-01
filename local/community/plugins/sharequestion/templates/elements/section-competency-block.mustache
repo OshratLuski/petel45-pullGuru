@@ -1,0 +1,47 @@
+<div class="section-competency-block">
+    {{!-- Activity theme   select   temprotary hardcoded --}}
+    <div class="form-group mb-4 select-section-dropdown-wrapper dropdown required">
+        <label class="text-primary input-title font-weight-bold w-100 mb-2">{{#str}}theme_of_the_question,
+            community_sharequestion{{/str}}</label>
+        <div class="d-flex flex-wrap align-items-center justify-content-start selected-sections-area-wrapper">
+            <button type="button" class="btn btn-primary dropdown-toggle mr-4 mb-2 select-section-dropdown-btn" type="button"
+                id="" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">{{#str}}selecting_the_topic_of_the_activity,
+                community_sharequestion{{/str}}</button>
+
+            <div class="dropdown-menu w-50 selectSectionDropdownMenu"></div>
+        </div>
+        <div style="font-size: 16px;" class="invalid-feedback error-selected_sections">
+            {{#str}}share_item_error, community_sharequestion{{/str}} {{#str}}theme_of_the_question,
+            community_sharequestion{{/str}}
+        </div>
+    </div>
+
+    {{! competencies select }}
+    <div class="form-group mb-4 select-competencies-dropdown-wrapper dropdown required hidden">
+        <label
+            class="text-primary input-title font-weight-bold w-100 mb-2">{{#str}}competencies_embedded_in_the_activity,
+            community_sharequestion{{/str}}</label>
+        <div class="d-flex flex-wrap align-items-center justify-content-start pr-3 selected-competencies-area-wrapper">
+            <button type="button" class="btn btn-primary dropdown-toggle mr-4 mb-2 select-competencies-dropdown-btn" type="button"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">{{#str}}select_competency, community_sharequestion{{/str}}</button>
+
+            <div class="dropdown-menu select-competency-dropdown-menu w-100 pl-0 pt-0">
+            </div>
+        </div>
+
+        <div style="font-size: 16px;" class="invalid-feedback error-selected_competencies">
+            {{#str}}share_item_error, community_sharequestion{{/str}} {{#str}}competencies_embedded_in_the_activity,
+            community_sharequestion{{/str}}
+        </div>
+    </div>
+    <div class="add-section-competency-block mb-4" style="display: none;">
+        <p class="bold text-secondary mb-0 mr-3 d-flex align-items-center ">
+            {{#str}}assign_the_activity_to_another_learning_topic, community_sharequestion{{/str}}
+            <button class="add-section-competency-btn border-0 d-flex align-items-center justify-content-center bold text-white rounded rounded-circle bg-secondary">
+            +
+            </button>
+        </p>
+    </div>
+</div>

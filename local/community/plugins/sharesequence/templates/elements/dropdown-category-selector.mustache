@@ -1,0 +1,29 @@
+{{#categories}}
+<a class="dropdown-item  category-dropdown-item pl-3 collapsed" id="{{cat_id}}" data-toggle="collapse" href="#collapse-{{cat_id}}" role="button"
+    aria-expanded="false" aria-controls="collapse-{{cat_id}}">
+        {{{#courses}}}<i class="fa fa-caret-down text-dark" aria-hidden="true"></i>{{{/courses}}}
+        <span>{{cat_name}}</span>
+</a>
+<div class="collapse" id="collapse-{{cat_id}}">
+    {{#courses}}
+    <div class="courses">
+        <a class="dropdown-item course-dropdown-item  pl-4 collapsed" id="{{course_id}}" data-toggle="collapse" href="#collapse-{{course_id}}" role="button"
+    aria-expanded="false" aria-controls="collapse-{{course_id}}">
+            {{{#sections}}}<i class="fa fa-caret-down text-primary" aria-hidden="true"></i>{{{/sections}}}
+            <span>{{course_name}}</span>
+        </a>
+        <div class="collapse" id="collapse-{{course_id}}">
+            {{#sections}}
+            <div class="sections">
+                <a class="dropdown-item section-dropdown-item pl-5" 
+                data-cat_id="{{cat_id}}" data-cat_name="{{cat_name}}" 
+                data-course_id="{{course_id}}" data-course_name="{{course_name}}" 
+                data-section_id="{{section_id}}" data-section_name="{{section_name}}" 
+                id="{{section_id}}">{{section_name}}</a>
+            </div>
+            {{/sections}}
+        </div>
+    </div>
+    {{/courses}}
+</div>
+{{/categories}}

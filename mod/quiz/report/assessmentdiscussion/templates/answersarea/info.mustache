@@ -1,0 +1,142 @@
+<div class="question-head py-3 px-2 mb-4">
+    <div class="d-flex align-items-center mb-3">
+        <div class="question-head-title text-primary">
+            {{#str}}question{{/str}} {{numberview}}: {{name}}
+        </div>
+
+        <span class="points-counter text-primary mr-auto">{{qmark}} {{#str}}points, quiz_assessmentdiscussion{{/str}}</span>
+
+        <a href="{{{linkreportgrading}}}" target="_blank" class="btn btn-outline-primary mr-3">
+            {{#str}}evaluationinthepreviousinterface, quiz_assessmentdiscussion{{/str}}
+        </a>
+
+        <button class="open-overlay-btn btn btn-secondary mr-3 position-relative d-flex align-items-center" type="button" aria-label="" aria-pressed="false" data-handler="open_overlay" data-qid="{{id}}">
+            <svg class="default" xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                <g clip-path="url(#clip0_963_4197)">
+                    <path
+                        d="M0.5 0C0.225 0 0 0.225 0 0.5C0 0.775 0.225 1 0.5 1H17.5C17.775 1 18 0.775 18 0.5C18 0.225 17.775 0 17.5 0H0.5ZM1 2V9C1 10.1031 1.89688 11 3 11H8.5V12.2937L5.64687 15.1469C5.45312 15.3406 5.45312 15.6594 5.64687 15.8531C5.84062 16.0469 6.15938 16.0469 6.35313 15.8531L9 13.2063L11.6469 15.8531C11.8406 16.0469 12.1594 16.0469 12.3531 15.8531C12.5469 15.6594 12.5469 15.3406 12.3531 15.1469L9.5 12.2937V11H15C16.1031 11 17 10.1031 17 9V2H16V9C16 9.55313 15.5531 10 15 10H9H3C2.44688 10 2 9.55313 2 9V2H1Z"
+                        fill="#554283" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_963_4197">
+                        <rect width="18" height="16" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <svg class="hover" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="presentation-screen-regular 1" clip-path="url(#clip0_1302_5)">
+            <path id="Vector" d="M0.865234 0C0.449609 0 0.115234 0.334375 0.115234 0.75C0.115234 1.16562 0.449609 1.5 0.865234 1.5H17.3652C17.7809 1.5 18.1152 1.16562 18.1152 0.75C18.1152 0.334375 17.7809 0 17.3652 0H0.865234ZM1.11523 2.5V9.25C1.11523 10.2156 1.89961 11 2.86523 11H8.36523V12.4406L6.08398 14.7219C5.79023 15.0156 5.79023 15.4906 6.08398 15.7812C6.37773 16.0719 6.85273 16.075 7.14336 15.7812L9.11211 13.8125L11.0809 15.7812C11.3746 16.075 11.8496 16.075 12.1402 15.7812C12.4309 15.4875 12.434 15.0125 12.1402 14.7219L9.85898 12.4406V11H15.3652C16.3309 11 17.1152 10.2156 17.1152 9.25V2.5H15.6152V9.25C15.6152 9.3875 15.5027 9.5 15.3652 9.5H9.11523H2.86523C2.72773 9.5 2.61523 9.3875 2.61523 9.25V2.5H1.11523Z" fill="#23164F"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1302_5">
+            <rect width="18" height="16" fill="white" transform="translate(0.115234)"/>
+            </clipPath>
+            </defs>
+            </svg>
+            <span class="ml-2">
+            {{#str}}classdiscussion, quiz_assessmentdiscussion{{/str}}
+            </span>
+
+            <div class="assessmentdisccus-tooltip p-2 position-absolute" data-position="bottom-left"
+                data-carret-position="top-right">
+                {{#str}}beyondtheclassdiscussiondisplay, quiz_assessmentdiscussion{{/str}}
+            </div>
+        </button>
+
+        <button class="discussion-state-btn btn btn-secondary p-0 position-relative {{#discussion_enable}}active{{/discussion_enable}}" type="button" aria-label="" aria-pressed="false" data-qid="{{id}}"
+            data-handler="change_question_discussion">
+            <svg class="default" width="19" height="16" viewBox="0 0 19 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="chalkboard-user-light (2) 1" clip-path="url(#clip0_1085_4443)">
+                    <path id="Vector"
+                        d="M16.7 1.70005H6.8C6.30219 1.70005 5.9 2.10224 5.9 2.60005V3.61255C5.61312 3.53942 5.30937 3.50005 5 3.50005V2.60005C5 1.60724 5.80719 0.800049 6.8 0.800049H16.7C17.6928 0.800049 18.5 1.60724 18.5 2.60005V10.7C18.5 11.6929 17.6928 12.5 16.7 12.5H16.25H11.75H11.3H9.9725C9.82344 12.1794 9.64062 11.8757 9.42406 11.6H11.3V10.25C11.3 9.50474 11.9047 8.90005 12.65 8.90005H15.35C16.0953 8.90005 16.7 9.50474 16.7 10.25V11.6C17.1978 11.6 17.6 11.1979 17.6 10.7V2.60005C17.6 2.10224 17.1978 1.70005 16.7 1.70005ZM15.8 11.6V10.25C15.8 10.0025 15.5975 9.80005 15.35 9.80005H12.65C12.4025 9.80005 12.2 10.0025 12.2 10.25V11.6H15.8ZM6.8 7.10005C6.8 6.62266 6.61036 6.16482 6.27279 5.82726C5.93523 5.48969 5.47739 5.30005 5 5.30005C4.52261 5.30005 4.06477 5.48969 3.72721 5.82726C3.38964 6.16482 3.2 6.62266 3.2 7.10005C3.2 7.57744 3.38964 8.03527 3.72721 8.37284C4.06477 8.71041 4.52261 8.90005 5 8.90005C5.47739 8.90005 5.93523 8.71041 6.27279 8.37284C6.61036 8.03527 6.8 7.57744 6.8 7.10005ZM2.3 7.10005C2.3 6.38396 2.58446 5.69721 3.09081 5.19086C3.59716 4.68451 4.28392 4.40005 5 4.40005C5.71608 4.40005 6.40284 4.68451 6.90919 5.19086C7.41554 5.69721 7.7 6.38396 7.7 7.10005C7.7 7.81613 7.41554 8.50289 6.90919 9.00924C6.40284 9.51559 5.71608 9.80005 5 9.80005C4.28392 9.80005 3.59716 9.51559 3.09081 9.00924C2.58446 8.50289 2.3 7.81613 2.3 7.10005ZM1.40281 14.3H8.59719C8.51844 12.7954 7.27531 11.6 5.75094 11.6H4.24906C2.72469 11.6 1.48156 12.7954 1.40281 14.3ZM0.5 14.4491C0.5 12.3791 2.17906 10.7 4.24906 10.7H5.74813C7.82094 10.7 9.5 12.3791 9.5 14.4491C9.5 14.8625 9.16531 15.2 8.74906 15.2H1.25094C0.834688 15.2 0.5 14.8654 0.5 14.4491Z"
+                        fill="#554283" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_1085_4443">
+                        <rect width="18" height="14.4" fill="none" transform="translate(0.5 0.800049)" />
+                    </clipPath>
+                </defs>
+            </svg>
+
+            <svg class="hover" width="18" height="16" viewBox="0 0 18 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="chalkboard-user-regular 1" clip-path="url(#clip0_1085_4931)">
+                    <path id="Vector"
+                        d="M16.2 2.15005H6.3C6.0525 2.15005 5.85 2.35255 5.85 2.60005V3.76161C5.43375 3.59286 4.97813 3.50005 4.5 3.50005V2.60005C4.5 1.60724 5.30719 0.800049 6.3 0.800049H16.2C17.1928 0.800049 18 1.60724 18 2.60005V10.7C18 11.6929 17.1928 12.5 16.2 12.5H15.3H14.625H11.025H10.35H9.4725C9.23906 11.9938 8.91562 11.5382 8.52469 11.15H10.35V10.025C10.35 9.15599 11.0559 8.45005 11.925 8.45005H13.725C14.5941 8.45005 15.3 9.15599 15.3 10.025V11.15H16.2C16.4475 11.15 16.65 10.9475 16.65 10.7V2.60005C16.65 2.35255 16.4475 2.15005 16.2 2.15005ZM13.95 11.15V10.025C13.95 9.9013 13.8487 9.80005 13.725 9.80005H11.925C11.8012 9.80005 11.7 9.9013 11.7 10.025V11.15H13.95ZM5.85 7.10005C5.85 6.74201 5.70777 6.39863 5.45459 6.14545C5.20142 5.89228 4.85804 5.75005 4.5 5.75005C4.14196 5.75005 3.79858 5.89228 3.54541 6.14545C3.29223 6.39863 3.15 6.74201 3.15 7.10005C3.15 7.45809 3.29223 7.80147 3.54541 8.05464C3.79858 8.30782 4.14196 8.45005 4.5 8.45005C4.85804 8.45005 5.20142 8.30782 5.45459 8.05464C5.70777 7.80147 5.85 7.45809 5.85 7.10005ZM1.8 7.10005C1.8 6.38396 2.08446 5.69721 2.59081 5.19086C3.09716 4.68451 3.78392 4.40005 4.5 4.40005C5.21608 4.40005 5.90284 4.68451 6.40919 5.19086C6.91554 5.69721 7.2 6.38396 7.2 7.10005C7.2 7.81613 6.91554 8.50289 6.40919 9.00924C5.90284 9.51559 5.21608 9.80005 4.5 9.80005C3.78392 9.80005 3.09716 9.51559 2.59081 9.00924C2.08446 8.50289 1.8 7.81613 1.8 7.10005ZM1.42594 13.85H7.57406C7.30687 12.815 6.3675 12.05 5.25094 12.05H3.74906C2.62969 12.05 1.69031 12.815 1.42594 13.85ZM0 14.4491C0 12.3791 1.67906 10.7 3.74906 10.7H5.24813C7.32094 10.7 9 12.3791 9 14.4491C9 14.8625 8.66531 15.2 8.24906 15.2H0.750938C0.334688 15.2 0 14.8654 0 14.4491Z"
+                        fill="#23164F" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_1085_4931">
+                        <rect width="18" height="14.4" fill="none" transform="translate(0 0.800049)" />
+                    </clipPath>
+                </defs>
+            </svg>
+             <div class="assessmentdisccus-tooltip p-2 position-absolute" data-position="bottom-left"
+                data-carret-position="top-right">
+                {{#str}}markthequestionforclassdiscussion, quiz_assessmentdiscussion{{/str}}
+            </div>
+        </button>
+
+    </div>
+
+    <div class="question-head-descr">
+        {{#iframeenable}}
+            <div class="short-descr clamp-line clamp-line-3">
+                {{{questiondescription}}}
+            </div>
+        {{/iframeenable}}
+
+        {{^iframeenable}}
+            <div class="short-descr clamp-line-advanced">
+                {{{preview_question}}}
+            </div>
+        {{/iframeenable}}
+    </div>
+
+    <div class="description_collapsed_block py-3 mx-3">
+        <div class="collapse preview-question-block" id="descriptionCollapsedBlock{{id}}">
+            {{#iframeenable}}
+                <iframe scrolling="yes" style="width:100%; height:300px;" src="{{{preview_question_link}}}"></iframe>
+            {{/iframeenable}}
+
+            {{^iframeenable}}
+                {{{preview_question}}}
+            {{/iframeenable}}
+        </div>
+
+        <div class="toggle-description collapse-btn" data-toggle="collapse" href="#descriptionCollapsedBlock{{id}}"
+            role="button" aria-expanded="false" aria-controls="descriptionCollapsedBlock{{id}}">
+
+            <span class="toggle-description-label">{{#str}}fullcontentdisplay, quiz_assessmentdiscussion{{/str}}</span>
+
+            <svg class="arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="&#239;&#131;&#153;"
+                    d="M6.84423 7.25038C6.39397 7.73816 5.60602 7.73816 5.15577 7.25038L0.353027 2.44764C0.0153339 2.10994 -0.0972304 1.58464 0.0903767 1.13439C0.277984 0.684129 0.690719 0.383957 1.1785 0.383957L10.784 0.383957C11.2718 0.383957 11.722 0.684129 11.9096 1.13439C12.0972 1.58464 11.9847 2.10994 11.647 2.44764L6.84423 7.25038Z"
+                    fill="#23164F" />
+            </svg>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery', 'core/str'], function($, Str) {
+        Str.get_strings([
+            { key: 'fullcontentdisplay', component: 'quiz_assessmentdiscussion' },
+            { key: 'smallcontentdisplay', component: 'quiz_assessmentdiscussion' },
+        ]).done(function (strings) {
+
+            $('#descriptionCollapsedBlock{{id}}').on('show.bs.collapse hide.bs.collapse', function (e) {
+
+                let obj = $(this).parent().find('.toggle-description .toggle-description-label');
+
+                if (e.type == 'show') {
+                    obj.text(strings[1]);
+                } else {
+                    obj.text(strings[0]);
+                }
+            })
+
+        })
+    });
+{{/js}}

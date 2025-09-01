@@ -1,0 +1,97 @@
+<div class="modal-header bg-secondary p-1 text-white">
+    <h5 class="modal-title">
+        {{#copySection}}{{#str}}eventsectioncopy, community_sharewith{{/str}}{{/copySection}}
+        {{#copyActivity}}{{#str}}eventactivitycopy, community_sharewith{{/str}}{{/copyActivity}}
+        {{#copyCourse}}{{#str}}eventcoursecopy, community_sharewith{{/str}}{{/copyCourse}}
+    </h5>
+    <button type="button" data-ref="close" class="close text-white d-flex align-items-center justify-content-center m-0" data-dismiss="modal" aria-label="Close">
+        <i class="fa-light fa-circle-xmark"></i>
+    </button>
+</div>
+
+<div class="modal-body p-3">
+    {{#copyCourse}}
+        {{#showAllCategories}}
+        <p class="mb-2">{{#str}}selectioncategories, community_sharecourse{{/str}}</p>
+        <select class="categories form-control mb-4 smartselect2">
+            {{#categories}}
+                <option data-categoryid="{{id}}">{{name}}</option>
+            {{/categories}}
+        </select>
+
+        {{#js}}
+            require(['jquery'], function ($) {
+                $(".smartselect2").select2({dropdownAutoWidth: true});
+            })
+        {{/js}}
+
+        {{/showAllCategories}}
+        {{^showAllCategories}}
+            <p class="mb-2">{{#str}}sure_duplicate_course_without_students, community_sharecourse{{/str}}</p>
+            <select class="categories form-control mb-4 sr-only">
+                {{#categories}}
+                    <option data-categoryid="{{id}}" selected>{{name}}</option>
+                {{/categories}}
+            </select>
+        {{/showAllCategories}}
+    {{/copyCourse}}
+    {{^copyCourse}}
+        <p class="mb-2 mr-3">{{#str}}selectcourse, community_sharewith{{/str}}</p>
+        <select
+                {{#copyActivity}}data-handler="selectSection"{{/copyActivity}}
+                class="courses form-control mb-4 smartselect2"
+        >
+            {{#courses}}
+                <option data-courseid="{{id}}">{{fullname}}</option>
+            {{/courses}}
+        </select>
+
+        {{#js}}
+            require(['jquery'], function ($) {
+                $(".smartselect2").select2({dropdownAutoWidth: true, dropdownParent: $('#modalSharewith')});
+
+                $('.smartselect2').on('select2:select', function (e) {
+                    var data = e.params.data;
+                    let courseid = $(data.element).data('courseid');
+
+                    $('.select2-hidden-accessible [data-courseid="'+courseid+'"]').attr('selected','selected');
+                    $('.select2-hidden-accessible').trigger( "click" );
+                });
+            })
+        {{/js}}
+
+        {{#copyActivity}}
+            <p class="mt-4">{{#str}}sectionselection, community_sharewith{{/str}}</p>
+            <select class="sections form-control">
+                <option data-sectionid="12"></option>
+            </select>
+        {{/copyActivity}}
+    {{/copyCourse}}
+</div>
+
+<div class="modal-footer">
+    {{#hidebtn}}
+        <button class="btn btn-secondary" type="button" data-ref="close" class="close" data-dismiss="modal">{{#str}}close, community_sharewith{{/str}}</button>
+    {{/hidebtn}}
+
+    {{^hidebtn}}
+        <button class="btn btn-secondary" type="button" data-handler="goBack">{{#str}}back, community_sharewith{{/str}}</button>
+    {{/hidebtn}}
+    <button
+        class="btn btn-success"
+        type="button"
+        {{#copyCourse}}data-handler="copyCourseToCategory"{{/copyCourse}}
+        {{#copySection}}data-handler="copySectionToCourse"{{/copySection}}
+        {{#copysub}}data-copysub="{{copysub}}"{{/copysub}}
+        {{#copyActivity}}data-handler="copyActivityToCourse"{{/copyActivity}}
+    >
+        <div id="modalspinner" class="spinner-border spinner-border-sm d-none" role="status">
+            <span class="sr-only">loading...</span>
+        </div>
+        <span>
+            {{#copyCourse}}{{#str}}save, community_sharewith{{/str}}{{/copyCourse}}
+            {{#copySection}}{{#str}}save, community_sharewith{{/str}}{{/copySection}}
+            {{#copyActivity}}{{#str}}copy, community_sharewith{{/str}}{{/copyActivity}}
+        </span>
+    </button>
+</div>

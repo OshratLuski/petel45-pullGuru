@@ -1,0 +1,13 @@
+<nav class="moremenu navigation observed px-0">
+    <ul id="" role="menubar" class="nav more-nav nav-tabs">
+        {{#tabs}}
+            <li data-key="modulepage" class="nav-item" role="none" data-forceintomoremenu="false">
+                <button role="button" class="nav-link {{#active}}active{{/active}} {{#disable}}disabled{{/disable}}" aria-current="true" href="javascript:void(0)" tabindex="-1" {{#clickable}} data-handler="answers_tab" {{/clickable}}
+                   data-id="{{id}}" {{#disable}}disabled{{/disable}}>
+                    {{{icon}}}
+                    {{name}} <span class="ml-1">({{count}})</span>
+                </button>
+            </li>
+        {{/tabs}}
+    </ul>
+</nav>

@@ -1,0 +1,224 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template format_flexsections/local/content/section/content
+
+    The internal content of a section.
+
+    Example context (json):
+    {
+        "num": 3,
+        "id": 35,
+        "controlmenu": "[tools menu]",
+        "header": {
+            "name": "Section title",
+            "title": "<a href=\"http://moodle/course/view.php?id=5#section-0\">Section title</a>",
+            "url": "#",
+            "ishidden": true
+        },
+        "cmlist": {
+            "cms": [
+                {
+                    "cmitem": {
+                        "cmformat": {
+                            "cmname": {"displayvalue": "<a class=\"aalink\" href=\"#\"><span class=\"instancename\">Forum example</span></a>"},
+                            "hasname": "true"
+                        },
+                        "cmid": 3,
+                        "module": "forum",
+                        "anchor": "activity-3",
+                        "extraclasses": "newmessages"
+                    }
+                },
+                {
+                    "cmitem": {
+                        "cmformat": {
+                            "cmname": {"displayvalue": "<a class=\"aalink\" href=\"#\"><span class=\"instancename\">Another forum</span></a>"},
+                            "hasname": "true"
+                        },
+                        "cmid": 4,
+                        "anchor": "activity-4",
+                        "module": "assign",
+                        "extraclasses": ""
+                    }
+                }
+            ],
+            "hascms": true
+        },
+        "ishidden": false,
+        "iscurrent": true,
+        "currentlink": "<span class=\"accesshide\">This topic</span>",
+        "availability": {
+            "info": "<span class=\"badge badge-info\">Hidden from students</span>",
+            "hasavailability": true
+        },
+        "summary": {
+            "summarytext": "Summary text!"
+        },
+        "controlmenu": {
+            "menu": "<a href=\"#\" class=\"d-inline-block dropdown-toggle icon-no-margin\">Edit<b class=\"caret\"></b></a>",
+            "hasmenu": true
+        },
+        "cmcontrols": "[Add an activity or resource]",
+        "iscoursedisplaymultipage": true,
+        "sectionreturnid": 0,
+        "contentcollapsed": false,
+        "insertafter": true,
+        "numsections": 42,
+        "sitehome": false,
+        "highlightedlabel" : "Highlighted",
+        "showaslink" : true,
+        "testingonly-make-mustache-lint-happy": 1
+    }
+}}
+{{#testingonly-make-mustache-lint-happy}}
+<div>
+{{/testingonly-make-mustache-lint-happy}}
+
+{{#header}}
+{{$ format_flexsections/local/content/section/header }}
+    {{> format_flexsections/local/content/section/header }}
+{{/ format_flexsections/local/content/section/header }}
+{{/header}}
+
+{{^header}}
+    {{#singleheader}}
+    {{$ format_flexsections/local/content/section/header }}
+        {{> format_flexsections/local/content/section/header }}
+    {{/ format_flexsections/local/content/section/header }}
+    {{/singleheader}}
+{{/header}}
+
+{{#restrictionlock}}
+    <div class="align-self-center ml-2">
+        {{#pix}}t/unlock, core{{/pix}}
+    </div>
+{{/restrictionlock}}
+<div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
+    {{$ format_flexsections/local/content/section/badges }}
+        {{> format_flexsections/local/content/section/badges }}
+    {{/ format_flexsections/local/content/section/badges }}
+</div>
+
+{{#sectioncompletion}}
+    <div class="coursecompletion ml-auto">
+        <div class="progress-wrapper p-2">
+            {{#iscomplete}}
+                <span class="sr-only">{{#str}} completed, core {{/str}}</span>
+            {{/iscomplete}}
+            <div class="progress mb-2">
+                <div class="progress-bar bg-linkhover" role="progressbar" style="width: {{percentage}}%"
+                     aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+            <p class="text-primary mb-0">
+                {{#showpercentage}}
+                    {{#str}} course:completion:percentage, format_flexsections, { "percentage":
+                        {{#quote}}{{percentage}}{{/quote}} } {{/str}}
+                {{/showpercentage}}
+                {{#showcount}}
+                    {{#str}} course:completion:count, format_flexsections, { "completed": {{#quote}}{{completed}}{{/quote}},
+                        "total": {{#quote}}{{total}}{{/quote}} } {{/str}}
+                {{/showcount}}
+            </p>
+        </div>
+    </div>
+{{/sectioncompletion}}
+
+
+{{#collapsemenu}}
+<div class="flex-fill d-flex justify-content-end mr-2 align-self-start mt-2">
+    <a
+        id="collapsesections"
+        class="section-collapsemenu"
+        href="#"
+        aria-expanded="true"
+        role="button"
+        data-toggle="toggleall"
+    >
+        <span class="collapseall text-nowrap">{{#str}}collapseall{{/str}}</span>
+        <span class="expandall text-nowrap">{{#str}}expandall{{/str}}</span>
+    </a>
+    </div>
+{{/collapsemenu}}
+
+{{#hassharebutton}}
+    <div class="ml-auto" data-region="share-button-section-area" data-sectionid="{{id}}"></div>
+{{/hassharebutton}}
+
+{{#controlmenu}}
+    {{$ core_courseformat/local/content/section/controlmenu }}
+        {{> core_courseformat/local/content/section/controlmenu }}
+    {{/ core_courseformat/local/content/section/controlmenu }}
+{{/controlmenu}}
+</div>
+<div id="coursecontentcollapse{{num}}"
+    class="content {{^iscoursedisplaymultipage}}
+        {{^sitehome}}course-content-item-content course-section-level-0 collapse p-3 {{^contentcollapsed}}show{{/contentcollapsed}}{{/sitehome}}
+    {{/iscoursedisplaymultipage}}">
+    <div class="{{#hasavailability}}description{{/hasavailability}} mb-3 px-3" data-for="sectioninfo">
+    {{#summary}}
+        {{$ core_courseformat/local/content/section/summary }}
+            {{> core_courseformat/local/content/section/summary }}
+        {{/ core_courseformat/local/content/section/summary }}
+    {{/summary}}
+    {{#availability}}
+        {{$ core_courseformat/local/content/section/availability }}
+            {{> core_courseformat/local/content/section/availability }}
+        {{/ core_courseformat/local/content/section/availability }}
+    {{/availability}}
+</div>
+{{#cmsummary}}
+    {{$ core_courseformat/local/content/section/cmsummary }}
+        {{> core_courseformat/local/content/section/cmsummary }}
+    {{/ core_courseformat/local/content/section/cmsummary }}
+{{/cmsummary}}
+<div data-cmlistid = "{{id}}" class="section-area">
+    {{#lazyload}}
+    <div class="loading">
+        <i class="fa-solid fa-sync fa-spin"></i>
+        <span class="pl-2">
+            {{#str}} loading, format_flexsections {{/str}}
+        </span>
+    </div>
+    {{/lazyload}}
+{{#cmlist}}
+    {{$ format_flexsections/local/content/section/cmlist }}
+        {{> format_flexsections/local/content/section/cmlist }}
+    {{/ format_flexsections/local/content/section/cmlist }}
+{{/cmlist}}
+</div>
+{{{cmcontrols}}}
+{{#insertafter}}
+    {{#numsections}}
+        {{$ core_courseformat/local/content/addsection}}
+            {{> core_courseformat/local/content/addsection}}
+        {{/ core_courseformat/local/content/addsection}}
+    {{/numsections}}
+{{/insertafter}}
+
+{{^showaslink}}
+<ul class="flexsections-level-{{level}}" data-for="course_subsectionlist" data-parent="{{id}}">
+    {{#subsections}}
+        {{> format_flexsections/local/content/section }}
+    {{/subsections}}
+</ul>
+{{/showaslink}}
+
+{{#testingonly-make-mustache-lint-happy}}
+</div>
+{{/testingonly-make-mustache-lint-happy}}

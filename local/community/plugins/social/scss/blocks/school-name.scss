@@ -1,0 +1,33 @@
+.social {
+
+  .shool-name {
+    padding: 20px;
+  }
+
+  .shool-name-text {
+    text-align: center;
+    font-weight: $font-weight-normal;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: inherit;
+  }
+
+  .shool-text-bold {
+    margin-top: 40px;
+    display: block;
+    text-align: left;
+  }
+
+  .shool-name input {
+    margin-top: 2px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 27px;
+    font-family: inherit;
+  }
+
+}

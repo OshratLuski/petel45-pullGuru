@@ -1,0 +1,15 @@
+#page-auth-saml2-error {
+    #topofscroll {
+        color: $petel-primary;
+        font-family: $primary-font;
+    }
+    .error-text a {
+        color: $petel-primary;
+    }
+    .navbar {
+        .langbutton,
+        .usermenu a {
+            color: #fff;
+        }
+    }
+}

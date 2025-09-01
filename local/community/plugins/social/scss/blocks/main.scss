@@ -1,0 +1,39 @@
+.social {
+
+  .main {
+    padding: 0 1.2rem;
+    flex-grow: 1;
+    min-height: 87vh;
+  }
+
+  .main_header {
+    display: flex;
+  }
+
+  .main_head {
+    font-weight: $font-weight-extralight;
+    font-size: 59px;
+    line-height: 60px;
+    font-family: inherit;
+    margin-bottom: 0;
+    margin-right: auto;
+  }
+
+  .main_disable {
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    color: $purple;
+    font-weight: $font-weight-normal;
+    font-size: 24px;
+    line-height: 55px;
+    font-family: inherit;
+    transition: .2s;
+    border: none;
+    background: none;
+  }
+
+  .main_disable:hover i {
+    color: red;
+  }
+}

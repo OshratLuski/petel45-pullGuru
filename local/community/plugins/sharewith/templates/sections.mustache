@@ -1,0 +1,14 @@
+<select
+    name = "sectionid"
+    class="custom-select"
+    data-handler="selectSectionOnCatalog"
+    data-trigger="manual"
+    data-content = "{{#str}}selecttopic, community_sharewith{{/str}}"
+    >
+  <option>{{#str}}select_sub_topic, community_sharewith{{/str}}</option>
+  {{#sections}}
+    <option data-section_id = '{{section_id}}' data-place = '{{place}}' value="{{section_id}}">
+    {{section_name}}
+    </option>
+  {{/sections}}
+</select>

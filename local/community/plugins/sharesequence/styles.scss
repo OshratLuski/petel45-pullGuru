@@ -1,0 +1,215 @@
+//FIXME: use this effect for whole site or for this page directly
+
+.modal.moodle-has-zindex.show {
+    backdrop-filter: blur(2px);
+}
+
+.sharesequence-modal {
+    .modal-content {
+        .modal-header {
+            padding: 0.75rem;
+            border: none;
+            .modal-title {
+                font-size: 2rem;
+                line-height: 1;
+                font-weight: bold;
+            }
+        }
+        .petel-progressbar-wrapper {
+            max-width: 18.4375rem;
+            margin-bottom: 2.875rem;
+            .underpin-text {
+                white-space: nowrap;
+            }
+            .pin-circle-wrapper {
+                z-index: 10;
+                .pin-circle {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+            .petel-progressbar-progressline {
+                max-width: 12.25rem;
+                top: 0.8125rem;
+                margin: 0;
+                width: 70%;
+                margin-left: 10%;
+                z-index: 1;
+            }
+        }
+        .block-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            margin-bottom: 0.25rem;
+        }
+        .block-subtitle,
+        .custom-control-label,
+        .check-subsection-label,
+        .check-section-label,
+        .sequence-item-name {
+            font-size: 1.125rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            color: inherit;
+            text-decoration: none;
+        }
+        .block-subtitle {
+            margin-bottom: 1.0625rem;
+            font-weight: normal;
+        }
+        .custom-control-label {
+            font-weight: 500;
+        }
+        .custom-checkbox .custom-control-label::before {
+            border-radius: 0.125rem;
+        }
+
+        .section-item-wrapper,
+        .sequence-item {
+            border-radius: 0.25rem;
+        }
+        .section-item,
+        .sequence-item {
+            padding: 0.5rem;
+        }
+        .collapse-section-btn {
+            transition: all 0.25s ease-out;
+            font-size: 1.75rem;
+            &[aria-expanded="true"] {
+                transition: all 0.25s ease-out;
+                transform: scaleY(-1);
+            }
+        }
+        .subsection-item-wrapper {
+            padding: 0.375rem 3.5rem;
+        }
+        .check-subsection-label {
+            line-height: 1.78;
+        }
+  
+        .check-section-label {
+           
+            &[aria-expanded="true"] i {
+                transition: all 0.25s ease-out;
+                transform: scaleY(-1);
+            }
+        }
+        .check-section-label,
+        .check-subsection-label,
+        .check-activity-label {
+            max-width: 100%;
+            display: flex;
+            flex: 1 1 auto;
+            min-width: 80%;
+            .section-name,
+            .subsection-name,
+            .activity-name {
+                overflow-x: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: inline-block;
+            }
+        }
+        .collapse-subsection-btn {
+            color: #707070;
+            transition: all 0.25s ease-out;
+
+            font-size: 1.75rem;
+        }
+        .check-subsection-label {
+            &[aria-expanded="true"] i {
+                transition: all 0.25s ease-out;
+                transform: rotate(-90deg);
+            }
+        }
+        .activity-item-wrapper {
+            padding-left: 3.5rem;
+        }
+        .check-activity-label {
+            font-weight: normal;
+        }
+        .units-wrapper,
+        .sequence-wrapper {
+            max-height: 34rem;
+        }
+        .sequence-item-list {
+            list-style-type: none;
+        }
+        .sequence-item {
+            &-name {
+                overflow-x: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: inline-block;
+                max-width: 75%;
+            }
+            button {
+                border: none;
+                background: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.875rem;
+                height: 1.875rem;
+                cursor: pointer;
+            }
+            .sequence-item-sort {
+                i {
+                    font-size: 1.3125rem;
+                }
+                margin-right: 0.875rem;
+                margin-left: 0.3125rem;
+            }
+            .sequence-item-rename {
+                display: none;
+                position: absolute;
+                right: 4.75rem;
+                i {
+                    font-size: 1.375rem;
+                }
+            }
+            .sequence-item-text {
+                width: 80%;
+            }
+            .sequence-item-delete {
+                border: none;
+                background: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.875rem;
+                height: 1.875rem;
+                cursor: pointer;
+                margin-bottom: 0;
+                i {
+                    font-size: 1.5625rem;
+                }
+            }
+            &:hover {
+                .sequence-item-rename {
+                    display: block;
+                }
+            }
+        }
+    }
+    .modal-footer {
+        padding: 0;
+    }
+    &.modal .close {
+        margin: 0;
+    }
+}
+html[dir="ltr"] {
+    .petel-progressbar-wrapper {
+        .petel-progressbar-progressline {
+            margin-left: 24%;
+        }
+    }
+}

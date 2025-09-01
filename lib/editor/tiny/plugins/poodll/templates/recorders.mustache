@@ -1,0 +1,23 @@
+{{< core/modal }}
+    {{$title}}
+        {{#isvideo}}{{#str}} videorecorder, tiny_poodll {{/str}}{{/isvideo}}
+        {{#isaudio}}{{#str}} audiorecorder, tiny_poodll {{/str}}{{/isaudio}}
+        {{#isscreen}}{{#str}} screenrecorder, tiny_poodll {{/str}}{{/isscreen}}
+        {{/title}}
+    {{$body}}
+<form class="tiny_poodll_form" id="{{elementid}}_tiny_poodll_form">
+    {{> tiny_poodll/menu}}
+    <div class="root tab-content">
+      {{#isvideo}}{{> tiny_poodll/videopanel}}{{/isvideo}}
+      {{#isaudio}}{{> tiny_poodll/audiopanel}}{{/isaudio}}
+      {{#isscreen}}{{> tiny_poodll/screenpanel}}{{/isscreen}}
+      {{^isscreen}}{{> tiny_poodll/uploadpanel}}{{/isscreen}}
+      {{> tiny_poodll/optionspanel}}
+      {{#showhistory}}{{> tiny_poodll/historypanel}}{{/showhistory}}
+    </div>
+</form>
+    {{/body}}
+    {{$footer}}
+        <button type="button" class="btn btn-secondary" data-action="cancel">{{#str}} cancel {{/str}}</button>
+    {{/footer}}
+{{/ core/modal }}

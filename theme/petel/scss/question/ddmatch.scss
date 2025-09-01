@@ -1,0 +1,16 @@
+.dragdrop-question h3,
+.dragdrop-question p {
+    max-height: unset;
+}
+
+.ddmatch li.draghome {
+    overflow: auto;
+}
+
+#page-mod-quiz-attempt>:not(.wrs_modal_dialogContainer) p {
+    overflow: unset;
+}
+
+.dragdrop-choice {
+    max-height: 100%;
+}

@@ -1,0 +1,49 @@
+<div id="insert_community_comments" class="comment ">
+    <div id="comments" class="comment__header">
+        <span class="comment__title">{{#str}}teachersdiscourse, community_comments{{/str}}</span>
+    </div>
+    <div class="comment__order">
+        <span class="comment__order-text">{{#str}}sortby, community_comments{{/str}}</span>
+
+        <select id="community_sort_comment" size="1" name="community_ordercomment"
+                class="comment__order-engine">
+            {{#sort_data_menu}}
+                <option value="{{value}}" class="comment__order" {{selected}}>{{name}}</option>
+            {{/sort_data_menu}}
+        </select>
+
+        <span class="comment__count">{{#str}}
+            view, community_comments{{/str}} {{{count_comments}}} {{#str}}comments, community_comments{{/str}}</span>
+
+    </div>
+
+    <input type="hidden" id="community_activityid_comment" value="{{{activityid}}}">
+
+    <textarea rows="2" id='community_textarea_comment' wrap="hard" class="comment__text"
+              placeholder="{{#str}}writeyourcomment, community_comments{{/str}}"></textarea>
+
+    <button class="comment__send" value="">{{#str}}send, community_comments{{/str}}</button>
+
+    {{#comments}}
+        <div class="comment__body comment__body--short">
+            <div class="comment__message">
+                <span class="comment__short">{{{short_content}}}</span>
+                <span class="comment__long display__none">{{{content}}}</span>
+            </div>
+        </div>
+        <div class="comment__bottom">
+            <span class="comment__author-name">{{firstname}} {{lastname}}</span>
+            <span class="comment__date">{{time_format}}</span>
+            <!--<span class="comment__answer">{{#str}}reply, community_comments{{/str}}</span>-->
+
+            {{#show_bugget}}
+                <span class="comment__close comment__icon-close">{{#str}}showcomments, community_comments{{/str}}</span>
+            {{/show_bugget}}
+
+        </div>
+    {{/comments}}
+    <div class="comment__error display__none">
+        <span>{{#str}}commentfieldisempty, community_comments{{/str}}</span>
+        <span class="comment__close-error">ok</span>
+    </div>
+</div>

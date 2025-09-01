@@ -1,0 +1,120 @@
+### User completion update
+#POST https://hswdwsv01t.weizmann.ac.il:7443/GW/rest/GC_INSERT_PASSED_MDL_TEST
+#POST https://esb-test.weizmann.ac.il/esb/rest/GC_INSERT_PASSED_MDL_TEST_HR
+POST https://esb.weizmann.ac.il/esb/rest/GC_INSERT_PASSED_MDL_TEST_HR
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic {{moodle_test_pass}}
+user-agent: phpstorm-test-client
+
+{
+    "esbOpsIn": {
+        "serviceName": "GC_INSERT_PASSED_MDL_TEST_HR",
+        "reqOrigin": "MOODLE",
+        "reqOriginator": "TEST",
+        "reqOriginApp": "Prevent sexual harassment tutorial"
+    },
+    "inputParameters": {
+        "primaryUserId": "liliiam",
+        "courseId": "244",
+        "testDate": "2022-10-19"
+    }
+}
+
+### enrol_manual_enrol_users_feinberg
+#POST https://feinberg-dev.weizmann.ac.il/webservice/restful/server.php/enrol_manual_enrol_users_feinberg
+POST https://feinberg.weizmann.ac.il/webservice/restful/server.php/enrol_manual_enrol_users_feinberg
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_feinberg_prod_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "courseid": "10",
+  "enrollments": [
+    {
+      "username": "nadavtest1114",
+      "firstname": "matan first114,שם פרטי",
+      "lastname": "Lastname14,שם משפחה",
+      "email": "maria.last14@weizmann.ac.il",
+      "rolename": "student"
+    }
+  ]
+}
+
+### enrol_manual_unenrol_users_feinberg (DEV/PROD)
+#POST https://feinberg-dev.weizmann.ac.il/webservice/restful/server.php/enrol_manual_unenrol_users_feinberg
+POST https://feinberg.weizmann.ac.il/webservice/restful/server.php/enrol_manual_unenrol_users_feinberg
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_feinberg_prod_ws}}
+user-agent: phpstorm-test-client
+
+{
+
+  "enrollments" : [
+    {
+      "username":"test11",
+      "firstname":"test11",
+      "lastname":"student1",
+      "email":"nadavkav+test2@gmail.com",
+      "rolename":"student"
+    }
+  ]
+}
+
+### enrol_manual_unenrol_users_feinberg (DEV/PROD)
+#POST https://feinberg-dev.weizmann.ac.il/webservice/restful/server.php/enrol_manual_unenrol_users_feinberg
+POST https://feinberg.weizmann.ac.il/webservice/restful/server.php/enrol_manual_unenrol_users_feinberg
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_feinberg_prod_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "enrollments": [
+    {
+      "username": "yonir",
+      "courseid": "510",
+      "rolename": "student"
+    }
+  ]
+}
+
+
+### enrol_manual_enrol_users_feinberg (DEV/PROD)
+#POST https://feinberg-dev.weizmann.ac.il/webservice/restful/server.php/enrol_manual_enrol_users_feinberg
+POST https://feinberg.weizmann.ac.il/webservice/restful/server.php/enrol_manual_enrol_users_feinberg
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_feinberg_prod_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "courseid": "510",
+  "enrollments": [
+    {
+      "username": "yonir",
+      "firstname": "YONI,שם פרטי",
+      "lastname": "ROZMAN,שם משפחה",
+      "email": "david.elbaz@weizmann.ac.il",
+      "rolename": "student"
+    }
+  ]
+}
+
+### core_course_get_courses (PROD/DEV)
+#POST https://feinberg-dev.weizmann.ac.il/webservice/restful/server.php/core_course_get_courses
+POST https://feinberg.weizmann.ac.il/webservice/restful/server.php/core_course_get_courses
+Content-Type: application/json
+Accept: application/json
+Authorization: {{auth_token_feinberg_prod_ws}}
+user-agent: phpstorm-test-client
+
+{
+  "options": {
+    "ids": [
+      191
+    ]
+  }
+}

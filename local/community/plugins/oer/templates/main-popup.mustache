@@ -1,0 +1,44 @@
+<div class="main-area row">
+
+    <aside class="main-aside col-3 activity-aside-menu px-1 py-2"></aside>
+
+    <main class="col-9">
+
+<!--        <h1 class="main-title bold pt-4"></h1>-->
+
+        <div class="main-filter-block mb-4">
+            <div class="main-filter-nav">
+                <ul class="nav nav-tabs position-relative">
+
+                    {{#menu}}
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link d-flex align-items-center justify-content-center {{#active}}active{{/active}}" href="javascript:void(0)"-->
+<!--                               data-plugin="main" data-area="menu" data-value="{{area}}">-->
+<!--                                {{name}} <p data-plugin="main" data-area="menu" data-value="{{area}}" class="main-total-elements-{{area}} mb-0 ml-1"></p></a>-->
+<!--                        </li>-->
+                    {{/menu}}
+
+                    <!--Search-->
+                    <li class="d-flex align-items-center justify-content-end search-form-wrapper w-50" >
+                        <form id="search_form" class="form-inline main-filter-form">
+                            <div class="form-group position-relative w-100 petel-search">
+                                <input type="text" class="form-control w-100 petel-search-input" data-plugin="main" data-area="mainsearch"
+                                       placeholder="{{#str}}searchplaceholder, community_oer{{/str}}">
+                                <div class="position-absolute border-0 petel-search-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M15.7824 13.8234L12.6666 10.7081C12.5259 10.5674 12.3353 10.4893 12.1353 10.4893H11.6259C12.4884 9.38631 13.001 7.99895 13.001 6.48972C13.001 2.89945 10.0914 -0.00964355 6.50048 -0.00964355C2.90959 -0.00964355 0 2.89945 0 6.48972C0 10.08 2.90959 12.9891 6.50048 12.9891C8.00996 12.9891 9.39756 12.4766 10.5008 11.6142V12.1235C10.5008 12.3235 10.5789 12.5141 10.7195 12.6547L13.8354 15.7701C14.1292 16.0638 14.6042 16.0638 14.8948 15.7701L15.7793 14.8858C16.0731 14.5921 16.0731 14.1171 15.7824 13.8234ZM6.50048 10.4893C4.29094 10.4893 2.50018 8.70201 2.50018 6.48972C2.50018 4.28056 4.28781 2.49011 6.50048 2.49011C8.71001 2.49011 10.5008 4.27744 10.5008 6.48972C10.5008 8.69888 8.71314 10.4893 6.50048 10.4893Z" fill="#554283"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-dashboard"></div>
+
+    </main>
+
+</div>

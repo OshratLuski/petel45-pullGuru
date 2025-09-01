@@ -1,0 +1,17 @@
+/**
+* Styles for quiz_correctanswer
+*/
+
+.quiz-correctanswer-hint {
+    width: 18rem;
+}
+
+.quiz-correctanswer-mddata {
+    max-width: 100%;
+    width: fit-content;
+    min-width: 18rem!important;
+}
+
+.correct-answer .que {
+    page-break-inside: avoid;
+}

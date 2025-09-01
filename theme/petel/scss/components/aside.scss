@@ -1,0 +1,354 @@
+// Aside drawer togglers btns.
+.drawer-toggles {
+  .drawer-toggler {
+    top: calc(3.75rem + 5rem);
+
+    button.btn {
+      box-shadow: 0 .125rem .1875rem 0 rgba(0, 0, 0, .18);
+      background-color: $secondarymedium;
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+    }
+
+    button[data-target="theme_boost-drawers-blocks"] {
+      color: #fff;
+    }
+  }
+}
+
+// start -->  PTL-9553: new incourse navigation design (aside).
+.drawer.drawer-left {
+  width: 26.25rem;
+  max-width: 26.25rem;
+  left: calc(-26.25rem + -0.625rem);
+  visibility: hidden;
+}
+
+@media (min-width: 992px) {
+  #page.drawers.show-drawer-left,
+  #page.drawers.show-drawer-left.show-drawer-right {
+    margin-left: 26.25rem;
+  }
+}
+
+#theme_boost-drawers-courseindex {
+  .drawercontent.drag-container {
+    padding: 0.625rem;
+  }
+
+  .courseindex-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .courseindex {
+/*     .courseindex-section:focus {
+      box-shadow: none;
+    } */
+    &>.courseindex-section {
+      border-radius: 0.5rem;
+      border: .0625rem solid $petel-secondarylight;
+      margin-bottom: 1rem;
+      background-color: $white;
+
+      &.current {
+        border: .0625rem solid $petel-secondarymedium;
+        border-left: 0.375rem solid $secondary;
+
+        &>div.courseindex-item {
+          border-bottom: .0625rem solid $petel-secondarymedium;
+        }
+      }
+
+      &>div.courseindex-item {
+        background: $white;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-bottom: .0625rem solid $petel-secondarylight;
+
+        .courseindex-chevron svg {
+          height: 0.60269rem;
+          width: 1rem;
+        }
+
+        .courseindex-link {
+          font-family: $primary-font;
+          font-size: 1.375rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          color: $body-color;
+        }
+
+        &:hover {
+          background: $petel-light;
+
+          .courseindex-link {
+            text-shadow: .025rem 0 0 currentColor;
+            text-decoration: none;
+          }
+        }
+        &:active,
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          background-color: $petel-secondarylight;
+          box-shadow: none;
+        }
+      }
+    }
+    .courseindex-section:has(.pageitem) {
+      border: .125rem solid $petel-secondarymedium;
+      &>div.courseindex-item {
+        border-bottom: .0625rem solid $petel-secondarymedium;
+      }
+    }
+    .courseindex-section:not(:has(.courseindex-item-content li)),
+    .courseindex-section:has(.courseindex-chevron.icons-collapse-expand.collapsed){
+      .courseindex-section-title {
+        border-bottom: none;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+    .courseindex-item {
+      padding: .5rem 1rem;
+      border-radius: 0;
+
+      &.pageitem,
+      &:active,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        background-color: $petel-secondarylight;
+        box-shadow: none;
+
+        a {
+          color: $body-color;
+        }
+      }
+
+      .pageitem:hover {
+        color: $body-color;
+
+        a {
+          color: $body-color;
+        }
+      }
+
+      .courseindex-chevron svg {
+        width: 0.75rem;
+        height: 0.452rem;
+      }
+    }
+
+
+    .courseindex-chevron svg path {
+      fill: $body-color;
+    }
+  }
+
+  .courseindex-sectioncontent {
+    .courseindex-link {
+      font-size: 1.125rem;
+      line-height: 2rem;
+      font-style: normal;
+      font-weight: 400;
+      color: $body-color;
+
+    }
+  }
+
+  .courseindex-sectioncontent-children {
+    margin-left: 0;
+
+    .courseindex-section {
+      border-left: none;
+    }
+
+    .courseindex-item {
+      padding-left: 3.5rem;
+    }
+
+    .courseindex-section-title {
+      padding-left: 2.5rem;
+      a {
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 700;
+        color: $body-color;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:has(.courseindex-item-content.collapse.show) {
+      .courseindex-item {
+        background-color: $gray-100;
+        &:focus,
+        &:active,
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          background-color: $petel-secondarylight;
+        }
+      }
+    }
+  }
+
+  .courseindex-item-content {
+    .courseindex-item:last-of-type {
+      border-bottom-left-radius: .5rem;
+      border-bottom-right-radius: .5rem;
+    }
+  }
+
+  .completioninfo {
+    min-width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    i.icon {
+      color: $primary;
+      border-radius: 100%;
+    }
+
+    &.completion_complete {
+      i.icon {
+        color: $green;
+        position: relative;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0.75rem;
+        height: 0.75rem;
+        font-size: 0;
+        &::before {
+          width: .625rem;
+          height: .625rem;
+          background-color: #287D28;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+
+  .current-badge {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.625rem;
+  }
+
+  .courseindex-link,
+  .courseindex-chevron {
+    color: $body-color;
+  }
+
+  .courseindex-item.pageitem {
+    background-color: $secondary;
+
+    &:hover {
+      color: $body-color;
+    }
+  }
+
+  .courseindex-link {
+    font-size: 1rem;
+    font-family: $primary-font, serif;
+    font-weight: 400;
+  }
+
+  .courseindex-locked {
+    width: 1.125rem;
+    height: 1.125rem;
+
+    i {
+      font-size: 1.125rem;
+      color: $body-color;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+// end -->  PTL-9553: new incourse navigation design (aside).
+
+#block-region-side-pre {
+  .dropdown .dropdown-menu.menu .dropdown-item {
+    white-space: normal;
+  }
+}
+
+#theme_boost-drawers-blocks {
+  .block.card {
+    border: .0625rem solid $gray-300;
+    border-radius: .5rem;
+  }
+}
+
+// Mobile. 
+@include media-breakpoint-down(sm) {
+  .drawer[data-region="right-hand-drawer"] {
+    top: 3rem;
+  }
+}
+
+// Mobile. 
+@include media-breakpoint-down(md) {
+  #theme_boost-drawers-primary {
+    top: 3rem;
+    height: calc(100vh - 3rem);
+
+    .drawerheader {
+      background-color: $primary;
+      padding: .5rem .5rem .5rem 1rem;
+      height: auto;
+
+      .btn.btn-icon {
+        color: $white;
+
+        &:hover,
+        &:focus {
+          background-color: unset;
+        }
+      }
+    }
+
+    .drawercontent {
+      background-color: $white;
+
+      .list-group .list-group-item {
+        border: none;
+        padding: 1rem;
+        color: $primary;
+        font-size: 1rem;
+        font-weight: 300;
+
+        &:hover {
+          background-color: inherit;
+        }
+
+        &.active {
+          color: $primary;
+          background-color: $white;
+        }
+      }
+    }
+  }
+  .drawer.drawer-left {
+    width: 100vw;
+    max-width: 100vw;
+    left: 0;
+    visibility: hidden;
+  }
+  [data-region="right-hand-drawer"].drawer {
+    height: calc(100% - 3rem);
+    width: 100vw;
+  }
+}

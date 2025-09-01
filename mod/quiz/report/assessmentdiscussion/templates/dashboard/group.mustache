@@ -1,0 +1,25 @@
+{{#group.groupmodeenable}}
+    <div class="assessmentdiscussion_report-dropdown dropdown mr-3">
+        <button class="btn dropdown-toggle assessmentdiscussion_report-dropdown-btn" type="button"
+            id="questionGroupDropdown" data-value="{{group.currentvalue}}" data-name="{{group.currentname}}"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="assessmentdiscussion_report-dropdown-btn-title">
+                {{group.currentname}}
+            </span>
+            <svg class="arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="&#239;&#131;&#153;"
+                    d="M6.84423 7.25038C6.39397 7.73816 5.60602 7.73816 5.15577 7.25038L0.353027 2.44764C0.0153339 2.10994 -0.0972304 1.58464 0.0903767 1.13439C0.277984 0.684129 0.690719 0.383957 1.1785 0.383957L10.784 0.383957C11.2718 0.383957 11.722 0.684129 11.9096 1.13439C12.0972 1.58464 11.9847 2.10994 11.647 2.44764L6.84423 7.25038Z"
+                    fill="#23164F" />
+            </svg>
+        </button>
+        <div class="dropdown-menu {{#group.dir_rtl}} dropdown-menu-right {{/group.dir_rtl}}"
+            aria-labelledby="assessmentdiscussion_report">
+            {{#group.data}}
+            <a class="dropdown-item {{#selected}}selected{{/selected}}" href="javascript:void(0)" data-value="{{value}}"
+                data-name="{{name}}" data-handler="dashboard_group">
+                <span>{{name}}</span>
+            </a>
+            {{/group.data}}
+        </div>
+    </div>
+{{/group.groupmodeenable}}

@@ -1,0 +1,25 @@
+<div class="quiz-bottom-bar d-flex align-items-center">
+
+    {{#details.viewall_button_enable}}
+        {{#details.url_viewall}}
+            <a  class="btn btn-primary quiz-view-all mr-2" role="button" href="{{details.url_viewall}}">
+
+                {{#details.viewall}}
+                    {{# str }} buttonviewcustom, local_quizpreset {{/ str }}
+                {{/details.viewall}}
+
+                {{^details.viewall}}
+                    {{# str }} buttonviewall, local_quizpreset {{/ str }}
+                {{/details.viewall}}
+
+            </a>
+        {{/details.url_viewall}}
+    {{/details.viewall_button_enable}}
+
+    {{#details.my_preset_enable}}
+        <a id="save-my-preset" href="javascript:void(0)" class="btn btn-outline-secondary" role="button">
+            {{# str }} buttonsavemypreset, local_quizpreset {{/ str }}
+        </a>
+    {{/details.my_preset_enable}}
+
+</div>

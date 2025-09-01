@@ -1,0 +1,303 @@
+/**********************Multiselect styles***********************/
+span.multiselect-native-select {
+  position: relative;
+}
+
+span.multiselect-native-select select {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px -1px -1px -3px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  left: 50%;
+  top: 30px;
+}
+
+.multiselect.dropdown-toggle:after {
+  display: none;
+}
+
+.multiselect {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.multiselect-container {
+  position: absolute;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.multiselect-container .multiselect-reset .input-group {
+  width: 93%;
+}
+
+.multiselect-container .multiselect-filter > .fa-search {
+  z-index: 1;
+  padding-left: 0.75rem;
+}
+
+.multiselect-container .multiselect-filter > input.multiselect-search {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  padding-left: 2rem;
+  margin-left: -1.625rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.multiselect-container .multiselect-filter > input.multiselect-search:focus {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.multiselect-container .multiselect-filter > .multiselect-moz-clear-filter {
+  margin-left: -1.5rem;
+  display: none;
+}
+
+.multiselect-container .multiselect-option.multiselect-group-option-indented {
+  padding-left: 1.75rem;
+}
+
+.multiselect-container .multiselect-option.dropdown-item,
+.multiselect-container .multiselect-group.dropdown-item,
+.multiselect-container .multiselect-all.dropdown-item,
+.multiselect-container .multiselect-option.dropdown-toggle,
+.multiselect-container .multiselect-group.dropdown-toggle,
+.multiselect-container .multiselect-all.dropdown-toggle {
+  cursor: pointer;
+}
+
+.multiselect-container .multiselect-option .form-check-label,
+.multiselect-container .multiselect-group .form-check-label,
+.multiselect-container .multiselect-all .form-check-label {
+  cursor: pointer;
+}
+
+.multiselect-container .multiselect-option.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-group.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-all.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-option:not(.multiselect-active-item-fallback):active,
+.multiselect-container .multiselect-group:not(.multiselect-active-item-fallback):active,
+.multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active {
+  background-color: lightgrey;
+  color: black;
+}
+
+.multiselect-container .multiselect-option .form-check,
+.multiselect-container .multiselect-group .form-check,
+.multiselect-container .multiselect-all .form-check {
+  padding: 0 5px 0 20px;
+}
+
+.multiselect-container .multiselect-option:focus,
+.multiselect-container .multiselect-group:focus,
+.multiselect-container .multiselect-all:focus {
+  outline: none;
+}
+
+.form-inline .multiselect-container span.form-check {
+  padding: 3px 20px 3px 40px;
+}
+
+.input-group.input-group-sm > .multiselect-native-select .multiselect {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-right: 1.75rem;
+  height: calc(1.5em + 0.5rem + 2px);
+}
+
+.input-group > .multiselect-native-select {
+  flex: 1 1 auto;
+  width: 1%;
+}
+
+.input-group > .multiselect-native-select > div.btn-group {
+  width: 100%;
+}
+
+.input-group > .multiselect-native-select:not(:first-child) .multiselect {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group > .multiselect-native-select:not(:last-child) .multiselect {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.multiselect-container {
+  transform: none !important;
+  top: 37px !important;
+  margin-top: 4px;
+  background: #f6f6f7;
+  left: -208px !important;
+}
+
+.multiselect-group.dropdown-item,
+.multiselect-option.dropdown-item {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: right;
+    color: #2b2b2b;
+}
+
+.multiselect-group.dropdown-item {
+    margin-top: 16px;
+    padding-right: 40px;
+    font-family: OEMeodedPashutPro;
+    font-weight: bold;
+}
+
+.multiselect-option.dropdown-item {
+    padding-right: 60px;
+    font-weight: normal;
+}
+
+.multiselect.dropdown-toggle.custom-select:before {
+    display: inline-block;
+    position: absolute;
+    font-family: 'Font Awesome 6 Pro';
+    font-weight: 900;
+    content: "";
+    color: #fff;
+    font-size: 24px;
+    top: 0;
+    left: 17px;
+}
+
+.multiselect-container.dropdown-menu.show {
+    /* left: -97%!important; */
+    top: 6px;
+}
+
+.diagnostic .multiselect-container button {
+    text-align: left;
+}
+
+button.multiselect {
+  position: relative;
+  width: initial;
+  margin: 0 24px;
+  padding: 4px 15px 4px 34px;
+  border-radius: 4px;
+  box-shadow: 0 3px 3px 0 rgba(43, 43, 43, 0.35);
+  /*background-color: #23164f;
+color: #ffffff;*/
+  font-size: 18px;
+}
+
+button.multiselect:active,
+button.multiselect:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+
+button.multiselect:hover:before {
+    color: #000 !important;
+}
+
+button.multiselect.custom-select {
+    background-image: none !important;
+}
+
+button.multiselect-group .form-check-input {
+    display: none;
+}
+
+button.multiselect-group .form-check-label.ltr-direction:before {
+    left: -10px;
+}
+
+/******/
+
+.multiselect-container button.multiselect-option.multiselect-group-option-indented{
+    padding-left: 20px;
+}
+
+button.multiselect-option .form-check-input {
+    display: block;
+}
+
+button.multiselect-option .form-check-label.ltr-direction:before {
+    left: -10px;
+}
+
+button.multiselect-option .form-check {
+    padding-left: 40px;
+}
+
+.multiselect-submit {
+  position: sticky;
+  bottom: 20px;
+}
+
+.multiselect-container-text {
+  padding: 12px 14px 0;
+  font-family: Heebo;
+  font-size: 24px;
+  letter-spacing: normal;
+  color: #554283;
+  white-space: nowrap;
+}
+
+button.multiselect-group .form-check-label:before {
+  display: none;
+  position: relative;
+  content: "";
+  background-image: none;
+  top: 2px;
+  left: -10px;
+  height: 24px;
+  width: 24px;
+  padding: 4px 0 1px;
+  border-radius: 2px;
+  border: 1px solid #554283;
+  margin-left: -18px;
+  color: transparent;
+  background-color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+button.multiselect-group.active .form-check-label:before {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e") center center no-repeat;
+  background-color: #554283;
+  background-size: 12px;
+  color: #fff;
+}
+
+button.multiselect-option .form-check-label:before {
+  display: none;
+  position: relative;
+  background-image: none;
+  content: "";
+  left: -8px;
+  border: 1px solid #554283;
+  top: 1px;
+  height: 16px;
+  width: 16px;
+  border-radius: 3px;
+  margin-left: -18px;
+  color: transparent;
+  background-color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+button.multiselect-option.active .form-check-label:before {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e") center center no-repeat;
+  background-color: #554283;
+  color: #fff;
+}

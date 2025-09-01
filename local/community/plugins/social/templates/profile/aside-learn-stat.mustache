@@ -1,0 +1,15 @@
+    <div class = "learn-stat__header">
+      <div class = "learn-stat__head">{{#str}}heteaches, community_social{{/str}}</div>
+
+    </div>
+      {{#activities_learn_stat}}
+
+        <div class = "learn-stat__item">{{section_name}}</div>
+
+      {{/activities_learn_stat}}
+
+      {{^activities_learn_stat}}
+
+        <div class = "">{{#str}} nodata, community_social{{/str}}</div>
+
+      {{/activities_learn_stat}}

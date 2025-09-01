@@ -1,0 +1,45 @@
+{{#oercatalog_courses_enable}}
+    <div class = "subj__wrap">
+<!--        {{^editable}}-->
+<!--            <div class = "subj__header text-primary">-->
+<!--                <span>{{firstname_pombim}}</span>-->
+<!--                <span>{{#str}}wordsharing, community_social{{/str}}</span>-->
+<!--                <span>{{count_oercatalog_courses}}</span>-->
+<!--                <span>{{#str}}wordoercourses, community_social{{/str}}</span>-->
+<!--            </div>-->
+<!--        {{/editable}}-->
+
+<!--        {{#editable}}-->
+<!--            <div class = "subj__header text-primary">{{#str}}wordsharing, community_social{{/str}}<span> {{count_oercatalog_courses}} </span>{{#str}}wordoercourses, community_social{{/str}}</div>-->
+<!--        {{/editable}}-->
+
+        <div class = "subjs">
+
+            {{#oercatalog_courses}}
+                <div id="petel_course_page">
+                    <div class="user-nav" style = "margin: 20px calc(5% + 30px); border: none; top: 10px;">
+
+                        {{> community_oer/course/block }}
+
+                        <div class="user-nav__footer">
+
+                            <div id = "hidden_inputs_filter">
+                                <input id="activity_id" type="hidden" name="copy_from_activity_id" value="{{petelepage.activityid}}">
+                                <input id="course_id" type="hidden" name="copy_to_course_id" value="">
+                                <input id="section_id" type="hidden" name="copy_to_section_id" value="">
+                                <input id="sesskey_user" type="hidden" value="">
+                                <input id="hidden-sesskey" type="hidden" value="{{petelepage.sesskey}}">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {{/oercatalog_courses}}
+
+            {{^oercatalog_courses}}
+                <div class = "">{{#str}}noitemsmaagar, community_social{{/str}}</div>
+            {{/oercatalog_courses}}
+
+        </div>
+    </div>
+{{/oercatalog_courses_enable}}

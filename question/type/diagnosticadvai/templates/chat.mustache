@@ -1,0 +1,24 @@
+<div class="chat-container p-3">
+    <div class="chat-messages">
+        {{#messages}}
+            <div class="{{#sender}}user-message right{{/sender}}{{^sender}}ai-message left{{/sender}}">
+                <div class="message-bubble">
+                    <span class="message-text">{{text}}</span>
+                    <span class="message-timestamp">{{timestamp}}</span>
+                </div>
+            </div>
+        {{/messages}}
+    </div>
+    <input type="hidden" id="slot" value="{{slot}}">
+    <div class="chat-input mb-3">
+        {{^attemptstate}}
+            <span id="allbuttons" style="display: none;">
+                <textarea class="mb-3" id="question" placeholder="{{#str}}ask_your_question, qtype_diagnosticadvai{{/str}}"></textarea>
+                <button class="btn btn-secondary send-button">{{#str}}send_message, qtype_diagnosticadvai{{/str}}</button>
+                <i class="fas fa-spinner fa-pulse btn_aianalytics_spinner" style="display:none;"></i>
+            </span>
+            <button class="btn btn-secondary run-button">{{#str}}runbutton, qtype_diagnosticadvai{{/str}}</button>
+            <i class="fas fa-spinner fa-pulse btn_aianalytics_spinner_run" style="display:none;"></i>
+        {{/attemptstate}}
+    </div>
+</div>

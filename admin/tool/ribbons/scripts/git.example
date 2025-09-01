@@ -1,0 +1,7 @@
+<?php
+// Display current git branch.
+require '../../../config.php';
+$head = file_get_contents($CFG->dirroot . '/.git/HEAD');
+$branch = rtrim(preg_replace('/(.*?\/){2}/', '', $head));
+$hash = substr(rtrim(file_get_contents($CFG->dirroot . '/.git/refs/heads/' . $branch)), 0, 8);
+echo $branch . ' | ' . $hash;

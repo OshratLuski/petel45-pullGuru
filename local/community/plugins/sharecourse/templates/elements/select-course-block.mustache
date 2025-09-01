@@ -1,0 +1,26 @@
+<div class="section-competency-block">
+    {{!-- Activity theme   select   temprotary hardcoded --}}
+    <div class="form-group mb-4 select-section-dropdown-wrapper dropdown required">
+        <label class="text-primary input-title font-weight-bold w-100 mb-2">{{#str}}theme_of_the_course,
+            community_sharecourse{{/str}}</label>
+        <div class="d-flex flex-wrap align-items-center justify-content-start selected-courses-area-wrapper">
+
+        </div>
+
+        <div style="font-size: 16px;" class="invalid-feedback error-selected_courses">
+            {{#str}}share_item_error, community_sharesequence{{/str}} {{#str}}theme_of_the_course,
+            community_sharecourse{{/str}}
+        </div>
+    </div>
+
+
+</div>
+
+{{#js}}
+    require(['jquery', 'community_sharecourse/treeview'], function($, treeView) {
+        let data = '{{data}}';
+        treeObject = JSON.parse(data.replace(/&quot;/g,'"'));
+
+        treeView.init(treeObject, {showAlwaysCheckBox:true,fold:true}, $('.selected-courses-area-wrapper'));
+    });
+{{/js}}

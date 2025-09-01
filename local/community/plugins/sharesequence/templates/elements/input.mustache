@@ -1,0 +1,22 @@
+<div class="form-group mb-4 {{#required}}required{{/required}}">
+
+    {{#title}}
+        <label class="text-primary input-title font-weight-bold mb-2" for="{{data_formated.metadata_id}}">
+
+            {{{title}}}
+
+            {{#description}}
+                <small class="form-text text-muted">{{{description}}}</small>
+            {{/description}}
+            
+        </label>
+    {{/title}}
+
+    <input type="text" class="form-control" id="{{data_formated.metadata_id}}" name="{{shortname}}" value="{{defaultdata}}"
+           placeholder="{{#str}}enter_subject_name, community_sharesequence{{/str}}">
+
+    <div style="font-size: 16px;" class="invalid-feedback error-{{shortname}}">
+        {{#str}}share_item_error, community_sharesequence{{/str}} {{{title}}}
+    </div>
+
+</div>

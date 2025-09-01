@@ -1,0 +1,59 @@
+body.editing #inplacetranslate_menu {
+  display: none;
+}
+body.editing #inplacetranslate_menu .inplacetranslate-strings-wrapper {
+  overflow-y: auto;
+  height: 74vh;
+}
+body.editing #inplacetranslate_menu_toggler {
+  position: fixed;
+  top: 4rem;
+  left: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+body.editing #inplacetranslate_menu_toggler .fa-times {
+  display: none;
+}
+body.editing #inplacetranslate_menu_toggler span {
+  display: none;
+}
+body.editing #inplacetranslate_menu_toggler.shown {
+  position: relative;
+  top: unset;
+  left: unset;
+  width: auto;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+body.editing #inplacetranslate_menu_toggler.shown span {
+  display: inline-block;
+}
+body.editing.inplacetranslate-menu-shown #inplacetranslate_menu {
+  display: block;
+  position: fixed;
+  height: calc(100vh - 4rem);
+  width: 30vw;
+  left: 0;
+  top: 4rem;
+  z-index: 100;
+}
+body.editing.inplacetranslate-menu-shown #inplacetranslate_menu_toggler {
+  left: calc(30vw + 0.5rem);
+}
+body.editing.inplacetranslate-menu-shown #inplacetranslate_menu_toggler .fa-language {
+  display: none;
+}
+body.editing.inplacetranslate-menu-shown #inplacetranslate_menu_toggler .fa-times {
+  display: block;
+}
+body.editing .translates-wrapper .lang-separator:last-of-type {
+  display: none;
+}
+
+body.editing:has(#inplacetranslate_menu.shown) #page {
+  padding-left: 32vw;
+}/*# sourceMappingURL=styles.css.map */

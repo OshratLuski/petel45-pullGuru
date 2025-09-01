@@ -1,0 +1,207 @@
+This editor plugin is used by qtype_pmatch and qtype_varnumeric. This testcase
+uses qtype_pmatch to test the editor.
+
+The readme.txt explains general details such as Supported Browsers and Operating systems to test
+
+To test the editor you must create a quiz question that uses the sup/sub editor.
+
+1. Go to the question bank in any course, and start creating a pmatch question.
+
+2. Choose the option Allow use of subscript: Yes, Allow use of superscript: No,
+and complete the rest of the form however you like.
+
+3. Preview the question in Firefox, IE and Chrome, ensure you can enter
+superscripts, and there are no JavaScript errors at any time.
+
+4. Repeat 2. & 3. using the Allow use of subscript: Yes, Allow use of superscript: Yes.
+
+5. Repeat 2. & 3. using the Allow use of subscript: No, Allow use of superscript: Yes.
+
+Feature Testing
+Using the buttons the superscript and subscript style is toggled. repeatedly pressing the superscript button would
+apply and remove superscript to the selected area. The same is true for subscript.
+
+Where keyboards are available the keyboard short cuts are:
+Superscript: CTRL/COMMAND + ^, Up arrow
+Subscript: CTRL/COMMAND + _, Down arrow
+Undo: CTRL/COMMAND + Z or the device undo option
+Redo: CTRL/COMMAND + Y or the device redo option
+
+SUP01 Button
+Superscript
+open the superscript only question in the preview window from the question bank 
+enter 1.2x103 g as the answer
+Highlight the '3' with the mouse and click the superscript button
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUP02 keyboard ^
+Repeat SUP01
+Instead of clicking the superscript button
+press CTRL/COMMAND + ^ to apply superscript
+press CTRL/COMMAND + ^ again. (Nothing should happen)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUP03 Keyboard up arrow
+Repeat SUP01
+Instead of clicking the superscript button
+press the Up arrow to apply superscript
+press the Up arrow again. (Nothing should happen)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUP04 Keyboard Down arrow
+Repeat SUP01
+Before pressing check
+press the Down arrow. (Nothing should happen.)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUP05 verify Keyboard _ supscript not available
+Repeat SUP01
+Before pressing check
+press CTRL/COMMAND + ^. 
+-- verify The highlighted '3' is changed to '_'
+
+SUB01 Button
+Subscript
+open the subscript only question in the preview window from the question bank 
+enter H2O as the answer
+Highlight the '2' with the mouse and click the subscript button
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUB02 keyboard ^
+Repeat SUB01
+Instead of clicking the subscript button
+press CTRL/COMMAND + _ to apply subscript
+press CTRL/COMMAND + _ again. (Nothing should happen)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUB03 Keyboard down arrow
+Repeat SUB01
+Instead of clicking the subscript button
+press the Down arrow to apply subscript
+press the Down arrow again. (Nothing should happen)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUB04 Keyboard up arrow supercript
+Repeat SUB01
+Before pressing check
+press the up arrow. (Nothing should happen.)
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SUB05 Verify Keyboard ^ (superscript) not available 
+Repeat SUB01
+Before pressing check
+press CTRL/COMMAND + ^. 
+-- verify The highlighted '2' is changed to '^'
+
+SS01
+open the subscript and superscript (both) only question in the preview window from the question bank 
+enter H2Ox103 g as the answer
+Highlight the '2' with the mouse and click the subscript button
+Highlight the '3' with the mouse and click the superscript button
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SS02 Keyboard cycles from superscript > normal > subscript and back correctly.
+open the subscript and superscript (both) only question in the preview window from the question bank 
+enter H2Ox103 g as the answer
+Highlight the '2' with the mouse and click the superscript button
+--Verify superscript is applied
+press CTRL/COMMAND + _ to apply subscript
+--Verify text returns to normal
+press down arrow 
+--Verify subscript is applied
+Highlight the '3' with the mouse and click the subscript button
+press CTRL/COMMAND + ^ to apply superscript
+--Verify text returns to normal
+press up arrow 
+--Verify superscript is applied
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SS03 Paste
+open the subscript and superscript (both) only question in the preview window from the question bank 
+copy either of the example answers in the question e.g H2Ox103 g
+Paste into the answer box
+-- Verify the answer looks correct
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SS04 Paste
+open the subscript and superscript (both) only question in the preview window from the question bank 
+copy either of the example answers in the question e.g H2Ox103 g
+Paste into the answer box
+-- Verify the answer looks correct
+Press check
+-- Verify Matched answer 1. Question ends. is displayed
+
+SS05 Paste advanced
+open the subscript and superscript (both) only question in the preview window from the question bank 
+copy an entire page of a website. e.g. yahoo.com/a moodle page
+Paste into the answer box
+-- Verify that text with only superscript or subscript is in the answer box
+-- Verify the alignment of the answer box has not changed
+-- Verify the width of the answer box has not changed
+-- Verify the height of the answer box has not changed
+
+SS06 Single line answer box
+open the subscript and superscript (both) only question in the preview window from the question bank 
+Enter 'The text should stay on a single line no matter how long the text that is entered.'
+-- verify the answer box horizontal scroll bar appears
+-- verify the entered text has not wrapped and is all in one line
+-- verify start and end of text left and right arrow keys  
+-- Verify the alignment of the answer box has not changed
+-- Verify the width of the answer box has not changed
+-- Verify the height of the answer box has not changed
+place the cursor in the answer box
+press and hold the right arrow button
+-- verify the text scrolls until the end of the entered text is in view 
+press and hold the left arrow button
+-- verify the text scrolls until the start of the entered text is in view
+
+SS07 Undo/Redo Buttons
+repeat SS01
+before pressing check
+press ctrl+z
+-- verify superscript was removed
+press ctrl+z
+-- verify subscript was removed
+press ctrl+z (until text is removed)
+-- verify all text was removed
+press ctrl+y (until text is restored)
+-- verify all text was restored
+press ctrl+y
+-- verify subscript was applied
+press ctrl+y
+-- verify superscript was applied
+continue SS01
+
+SS08 Undo/Redo Buttons
+repeat SS04
+before pressing check
+press ctrl+z
+-- verify pasted text was removed
+press ctrl+y
+-- verify pasted text was restored
+continue SS04
+
+SS09 Aria/Accessibility
+open the subscript and superscript (both) only question in the preview window from the question bank 
+place the cursor in the answer box
+Press shift + tab
+-- Verify the focus moves to the subscript button
+press left arrow 
+-- Verify the focus moves to the superscript button
+Press shift
+-- Verify the focus moves to the answer box
+Hover the mouse over the superscript button
+-- verify Superscript [Ctrl + ^] appears as a tooltip
+Hover the mouse over the subscript button
+-- verify Subscript [Ctrl + _] appears as a tooltip

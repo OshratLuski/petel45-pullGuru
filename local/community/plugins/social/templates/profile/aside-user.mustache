@@ -1,0 +1,36 @@
+<div class="aside flex-shrink-0 position-relative">
+    <div class="aside-inner">
+
+        <div class="user px-4 py-0">
+            {{>community_social/profile/aside-user-data}}
+        </div>
+
+        <!--  <div class = "learn-stat">
+    {{>community_social/profile/aside-learn-stat}}
+  </div> -->
+
+        <div class="public-course mx-4 mt-4">
+            {{>community_social/profile/aside-public-course}}
+        </div>
+        <a href="{{config.wwwroot}}/local/community/plugins/social/moreinfo.php"
+            class="about-link text-secondary text-center mt-3">
+            <svg class="about-icon mr-2" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="circle-info-light (1) 1" clip-path="url(#clip0_524_4234)">
+                <path id="Vector" d="M9.08423 1.125C11.1728 1.125 13.1758 1.95468 14.6527 3.43153C16.1295 4.90838 16.9592 6.91142 16.9592 9C16.9592 11.0886 16.1295 13.0916 14.6527 14.5685C13.1758 16.0453 11.1728 16.875 9.08423 16.875C6.99565 16.875 4.99261 16.0453 3.51576 14.5685C2.03891 13.0916 1.20923 11.0886 1.20923 9C1.20923 6.91142 2.03891 4.90838 3.51576 3.43153C4.99261 1.95468 6.99565 1.125 9.08423 1.125ZM9.08423 18C11.4712 18 13.7604 17.0518 15.4482 15.364C17.136 13.6761 18.0842 11.3869 18.0842 9C18.0842 6.61305 17.136 4.32387 15.4482 2.63604C13.7604 0.948212 11.4712 0 9.08423 0C6.69728 0 4.40809 0.948212 2.72027 2.63604C1.03244 4.32387 0.0842285 6.61305 0.0842285 9C0.0842285 11.3869 1.03244 13.6761 2.72027 15.364C4.40809 17.0518 6.69728 18 9.08423 18ZM7.39673 12.375C7.08735 12.375 6.83423 12.6281 6.83423 12.9375C6.83423 13.2469 7.08735 13.5 7.39673 13.5H10.7717C11.0811 13.5 11.3342 13.2469 11.3342 12.9375C11.3342 12.6281 11.0811 12.375 10.7717 12.375H9.64673V8.4375C9.64673 8.12813 9.3936 7.875 9.08423 7.875H7.67798C7.3686 7.875 7.11548 8.12813 7.11548 8.4375C7.11548 8.74687 7.3686 9 7.67798 9H8.52173V12.375H7.39673ZM9.08423 6.46875C9.30801 6.46875 9.52262 6.37986 9.68085 6.22162C9.83908 6.06339 9.92798 5.84878 9.92798 5.625C9.92798 5.40122 9.83908 5.18661 9.68085 5.02838C9.52262 4.87014 9.30801 4.78125 9.08423 4.78125C8.86045 4.78125 8.64584 4.87014 8.48761 5.02838C8.32937 5.18661 8.24048 5.40122 8.24048 5.625C8.24048 5.84878 8.32937 6.06339 8.48761 6.22162C8.64584 6.37986 8.86045 6.46875 9.08423 6.46875Z" fill="#554283"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_524_4234">
+                <rect width="18" height="18" fill="white" transform="translate(0.0842285)"/>
+                </clipPath>
+                </defs>
+            </svg>
+            {{#str}}aboutpeerenvironment, community_social{{/str}}
+        </a>
+        {{#user_settings_link}}
+        <div class="profile-user d-none">
+            <a class="profile-user__item" href="{{user_settings_link}}">{{#str}} profile{{/str}}</a>
+        </div>
+        {{/user_settings_link}}
+
+    </div>
+</div>

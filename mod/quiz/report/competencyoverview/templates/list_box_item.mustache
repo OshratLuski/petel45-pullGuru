@@ -1,0 +1,78 @@
+<div class="card">
+    <a target="_blank" href="{{{activitylink}}}" class="image-wrapper">
+        <img src="{{{activityimage}}}" class="card-img" alt="{{mod_name}}">
+    </a>
+    <div class="card-data pb-2">
+        <h4 class="card-title">{{mod_name}}</h4>
+        <div class="card-data-inner">
+            <div class="card-text mb-15">
+                <span class="card-text-icon download"></span>
+                <span> {{count_used_activity}} {{#str}}activity_used, community_oercatalog{{/str}}</span>
+            </div>
+            <div class="card-text mb-15">
+                <span class="card-text-icon calendar"></span>
+                <span>{{#str}}upload_date, quiz_competencyoverview{{/str}}{{activitycreateddate}}</span>
+            </div>
+            <div class="card-text">
+                <span class="card-text-icon comments"></span>
+                <span>{{countreview}} {{#str}}comments_box, community_oercatalog{{/str}}</span>
+            </div>
+            <div class="card-text">
+                {{#user_id}}
+                <a data-user_id="{{user_id}}" href="{{urltosocialprofile}}">
+                    <div class="user-name"><img src="{{{urlimageuser}}}" alt="user photo"
+                            style="height: 22px;" />{{user_fname}} {{user_lname}}</div>
+                </a>
+                {{/user_id}}
+
+                {{^user_id}}
+                <a class="" href="javascript:void(0);">
+                    <div class="user-name"><img src="{{{urlimageuser}}}" alt="user photo" style="height: 22px;">{{#str}}
+                        mahon_wizman, community_oercatalog{{/str}}</div>
+                </a>
+                {{/user_id}}
+
+                {{#metadata_activitytype}}
+                <div class=" strip__link--{{class}}">{{name}}</div>
+                {{/metadata_activitytype}}
+            </div>
+            <p class="card-text">
+                {{{metadata_teacherremarks}}}
+            </p>
+        </div>
+        <div class="d-flex flex-column">
+
+            {{#metadata_levelactivity}}
+            <div class="item">
+                {{#str}}levelactivity_box, community_oercatalog{{/str}}:
+                <span>{{metadata_levelactivity}}</span>
+            </div>
+            {{/metadata_levelactivity}}
+
+            {{#metadata_responsibility}}
+            {{#name}}
+            <div class="item">
+                {{#str}}technicalassessments, community_oercatalog{{/str}}:
+                <span>{{name}}</span>
+            </div>
+            {{/name}}
+            {{/metadata_responsibility}}
+
+            {{#metadata_durationactivity}}
+            <div class="item">
+                {{#str}}durationactivity_box, community_oercatalog{{/str}}:
+                <span>{{metadata_durationactivity}}</span>
+            </div>
+            {{/metadata_durationactivity}}
+
+        </div>
+        {{#choose_button}}
+
+        <div class="d-flex flex-column btn btn-primary quiz_competencyoverview-select-button"
+            data-activity_id="{{activity_id}}" data-course_id="{{course_id}}" data-modname="{{mod_name}}">
+            {{#str}}choose{{/str}}
+        </div>
+
+        {{/choose_button}}
+    </div>
+</div>

@@ -1,0 +1,657 @@
+/*
+Inmported in theme/petel
+@import url('https://wfonts.weizmann.ac.il/css/Meoded+Pashut:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Assistant|Heebo&display=swap&subset=hebrew');
+*/
+.competencies_wizard #aa_bk {
+  font: 300 16px/32px Heebo;
+  letter-spacing: 0;
+  color: #554374;
+  margin-bottom: 0.5rem;
+}
+.competencies_wizard #aa_main .activity-title h2 {
+  font-size: 1rem;
+  line-height: 1;
+}
+.competencies_wizard .cardgroup_title {
+  height: 48px;
+  background: #f2f1f3 0% 0% no-repeat padding-box;
+  text-align: left;
+  letter-spacing: 0;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  display: flex;
+  box-shadow: 2px 4px 6px rgba(85, 67, 116, 0.34);
+  border-radius: 4px;
+  font: 400 24px/29px Meoded Pashut;
+  color: #220F44;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.competencies_wizard .cardgroup_title .carret-down {
+  display: block;
+  width: 22px;
+  height: 12px;
+  background-image: url([[pix:quiz_competencyoverview|caret-down-light]]);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.competencies_wizard .cardgroup_title.active .carret-down {
+  transform: rotate(180deg);
+}
+.competencies_wizard .modal-dialog {
+  max-width: 1200px;
+  height: 720px;
+}
+.competencies_wizard .modal-backdrop {
+  background-color: #220F44;
+}
+.competencies_wizard .modal-content {
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(34, 15, 68, 0.3490196078);
+  border-radius: 8px;
+}
+.competencies_wizard .modal-header {
+  background-color: #220F44;
+  box-shadow: 0px 3px 4px #220F44;
+  border-radius: 4px 4px 0px 0px;
+  padding: 13px 16px;
+}
+.competencies_wizard .modal-header h4 {
+  color: #fff;
+  margin: 0;
+  font: 400 32px/38px Meoded Pashut;
+}
+.competencies_wizard .modal-header button.close {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.competencies_wizard .modal-header button.close span {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+}
+.competencies_wizard .modal-body {
+  background-image: url([[pix:quiz_competencyoverview|Petel_Logo]]);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position-x: -50px;
+}
+.competencies_wizard .modal-footer {
+  padding: 0;
+}
+.competencies_wizard .modal-title {
+  color: #fff;
+}
+.competencies_wizard .progress-bar-wrapper {
+  position: relative;
+  width: 348px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.competencies_wizard .progress-bar {
+  width: 340px;
+  height: 6px;
+  background-color: rgba(165, 155, 181, 0.88);
+  position: absolute;
+  z-index: 5;
+}
+.competencies_wizard .progress-bar-item {
+  position: relative;
+  color: #220F44;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #554374;
+  z-index: 10;
+}
+.competencies_wizard .progress-bar-item.active {
+  color: #ffffff;
+  background: transparent radial-gradient(closest-side at 50% 50%, #7a58b2 0%, #220f44 100%) 0% 0% no-repeat padding-box;
+}
+.competencies_wizard .select_source.btn-block {
+  min-width: 240px;
+  height: 56px;
+  border: 1px solid #220F44;
+  border-radius: 4px;
+  background-color: #fff;
+  text-align: center;
+  font: 400 18px/32px Heebo;
+  color: #220F44;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.competencies_wizard #aa_bk span {
+  font: 500 18px/32px Heebo;
+  letter-spacing: 0;
+  color: #220F44;
+}
+.competencies_wizard #aa_st_list > div {
+  font: 400 24px/29px Meoded Pashut;
+  letter-spacing: 0;
+  color: #220F44;
+}
+.competencies_wizard #aa_st_list ul {
+  align-items: flex-start;
+}
+.competencies_wizard #aa_st_list li {
+  border-top: 1px solid #c1bbcc;
+  background-color: transparent;
+  min-width: 200px;
+}
+.competencies_wizard #aa_st_list li:last-of-type {
+  border-bottom: 1px solid #c1bbcc;
+}
+.competencies_wizard .card_wrapper {
+  display: none;
+  margin-bottom: 1.5rem;
+}
+.competencies_wizard .competencies_wizard-button {
+  min-width: 136/16rem;
+  height: 41/16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #220F44;
+  border: 1px solid #220F44;
+  border-radius: 0.25rem;
+  color: #ffffff;
+}
+.competencies_wizard .competencies_wizard-button-outline {
+  background-color: #fff;
+  color: #220F44;
+}
+.competencies_wizard .coursename-wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.competencies_wizard .coursename-wrapper .coursename-image {
+  margin: 0;
+  margin-right: 1rem;
+  width: 184px;
+  height: 80px;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.competencies_wizard .coursename-wrapper .coursename-image img {
+  height: 100%;
+  width: auto;
+}
+
+#page-mod-quiz-report {
+  /*     .card {
+      background-color: #f2f1f3;
+      border-radius: 5px;
+  } */
+}
+#page-mod-quiz-report #region-main > div.card-body {
+  background-color: #fff;
+}
+#page-mod-quiz-report h2 {
+  font: 700 32px/42px Asisstant;
+  letter-spacing: 0;
+  color: #220F44;
+}
+#page-mod-quiz-report .btn,
+#page-mod-quiz-report button {
+  cursor: pointer;
+}
+#page-mod-quiz-report .list-group-item {
+  border-color: #c1bbcc;
+}
+#page-mod-quiz-report .img-wrapper {
+  width: 100%;
+  height: 360px;
+}
+#page-mod-quiz-report .img-background {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#page-mod-quiz-report .bravo-img-wrapper h2 {
+  font: normal 16px/24px Heebo;
+  color: #554374;
+}
+#page-mod-quiz-report .bravo-img-wrapper .img-background {
+  width: 391px;
+  height: 335px;
+}
+#page-mod-quiz-report .image {
+  width: 100%;
+  margin: auto;
+  height: auto;
+  display: block;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider.toggle-checked {
+  background-color: #2196f3;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider.toggle-focus {
+  box-shadow: 0 0 1px #2196f3;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider.toggle-checked:before {
+  left: 16px;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider.round {
+  border-radius: 17px;
+}
+#page-mod-quiz-report .toggle-switch-area .toggle-slider.round:before {
+  border-radius: 50%;
+}
+#page-mod-quiz-report .average-grade-value {
+  text-align: center;
+  cursor: pointer;
+}
+#page-mod-quiz-report .average-grade-value.not-clicable {
+  cursor: auto;
+}
+#page-mod-quiz-report .table-scroll {
+  position: relative;
+  max-width: 99rem;
+  height: 42.5rem;
+  margin: auto;
+  overflow: hidden;
+}
+#page-mod-quiz-report .table-scroll .no-overflow {
+  width: 100%;
+  overflow: auto;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0.1875rem solid #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .container {
+  width: 100%;
+  max-width: 100%;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .questionsbycompetency {
+  display: block;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .sortcol {
+  display: block;
+  background-image: url([[pix:quiz_competencyoverview|sort-light]]);
+  width: 2rem;
+  height: 2rem;
+  background-size: 1rem;
+  align-self: normal;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table thead {
+  border: 3px solid #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table tbody {
+  border: 3px solid #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table tr {
+  height: 3rem;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table th {
+  width: 27rem;
+  border: 1px solid #220F44;
+  vertical-align: top;
+  padding: 0;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table th .container {
+  padding: 1rem 0.5rem;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td {
+  vertical-align: middle;
+  padding: 0.5rem 1rem;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td.cell a {
+  font: 300 18px/32px Heebo;
+  letter-spacing: 0;
+  color: #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .header-inner {
+  padding: 1rem 0.5rem;
+  background-color: #fff;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .header-inner .hlfilter {
+  padding: 0.5rem 2rem;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .header-inner.checked {
+  background-color: rgba(165, 155, 181, 0.15);
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table #selectallstudents {
+  text-decoration: underline;
+  font: 400 24px/29px Meoded Pashut;
+  letter-spacing: 0;
+  color: #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .title-wrapper label.title {
+  text-align: left;
+  font: 700 24px/29px Meoded Pashut;
+  letter-spacing: 0;
+  color: #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td {
+  border: 1px solid #220F44;
+  width: 27rem;
+  color: #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td a {
+  color: inherit;
+  text-decoration: none;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td.cell.bg-success {
+  background-color: #e9f2e9 !important;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td.sent {
+  background-color: rgba(165, 155, 181, 0.15);
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td.sent .custom-checkbox:checked + label:before {
+  background-color: rgba(165, 155, 181, 0.15);
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table td:first-child,
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table th:first-child {
+  width: 18.5rem;
+  border-right: 3px solid #220F44;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell {
+  /*rtl:ignore*/
+  cursor: default;
+  color: #220F44;
+  display: flex;
+  text-align: right;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell a {
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell.no-data {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell.no-data::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 30%;
+  height: 2px;
+  background-color: rgba(165, 155, 181, 0.88);
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell .percent-wrapper {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 10;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .skill-grade-cell .percent-wrapper .percent {
+  position: absolute;
+  z-index: -1;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .grade-low-cell {
+  background-color: #fae6e6;
+}
+#page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .grade-med-cell {
+  background-color: #fde9d5;
+}
+#page-mod-quiz-report #assign_activity_body {
+  height: 600px;
+}
+#page-mod-quiz-report #aa_main_col {
+  height: inherit;
+}
+#page-mod-quiz-report .aa_scroll {
+  overflow: auto;
+  flex-grow: 1;
+  max-height: 400px;
+  margin-bottom: 10px;
+}
+#page-mod-quiz-report .aa_scroll .card {
+  height: 144px;
+  background: #F2F1F3;
+  box-shadow: 2px 4px 6px rgba(85, 67, 116, 0.34);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 0.5rem;
+}
+#page-mod-quiz-report .aa_scroll .image-wrapper {
+  width: 144px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin-right: 18px;
+}
+#page-mod-quiz-report .aa_scroll .card-img {
+  height: 144px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+#page-mod-quiz-report .aa_scroll .card-title {
+  font: 700 18px/22px Meoded Pashut;
+  margin-bottom: 0.8rem;
+}
+#page-mod-quiz-report .aa_scroll .card-data-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+#page-mod-quiz-report .aa_scroll .card-data {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+#page-mod-quiz-report .aa_scroll .card-text {
+  width: 50%;
+  display: flex;
+  font: 300 18px/22px Meoded Pashut;
+  color: #220F44;
+}
+#page-mod-quiz-report .aa_scroll .card-text .user-name {
+  text-decoration: underline;
+  font: inherit;
+  letter-spacing: 0;
+  color: #7A58B2;
+}
+#page-mod-quiz-report .aa_scroll .card-text-icon {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+#page-mod-quiz-report .aa_scroll .card-text-icon.download {
+  width: 19px;
+  height: 19px;
+  background-image: url([[pix:quiz_competencyoverview|download-light]]);
+}
+#page-mod-quiz-report .aa_scroll .card-text-icon.calendar {
+  width: 22px;
+  height: 22px;
+  background-image: url([[pix:quiz_competencyoverview|calendar]]);
+}
+#page-mod-quiz-report .aa_scroll .card-text-icon.comments {
+  width: 24px;
+  height: 21px;
+  background-image: url([[pix:quiz_competencyoverview|comments-light]]);
+}
+#page-mod-quiz-report .aa_scroll .quiz_competencyoverview-select-button {
+  width: 200px;
+  margin-bottom: 0.2rem;
+}
+#page-mod-quiz-report .aa_scroll .quiz_competencyoverview-select-button label {
+  font: 400 16px/16px Meoded Pashut;
+  letter-spacing: 0;
+  margin-bottom: 0;
+  color: #FFFFFF;
+}
+#page-mod-quiz-report .aa_scroll .quiz_competencyoverview-select-button label:before {
+  background-color: #fff;
+  width: 16px;
+  height: 16px;
+}
+#page-mod-quiz-report .aa_scroll #aa_targetsection_list .aa_targetsection {
+  margin: 0 auto;
+  width: 568px;
+  height: 48px;
+  background: #F2F1F3 0% 0% no-repeat padding-box;
+  box-shadow: 2px 4px 6px rgba(165, 155, 181, 0.15);
+  border-radius: 4px;
+  font: 200 24px/29px Meoded Pashut;
+  color: #220F44;
+  margin-bottom: 1rem;
+  border: none;
+}
+#page-mod-quiz-report .aa_scroll #aa_targetsection_list .aa_targetsection.active {
+  border: 2px solid #554374;
+}
+#page-mod-quiz-report textarea#messagetostudents {
+  width: 568px;
+  height: 280px;
+}
+#page-mod-quiz-report #nextbtn,
+#page-mod-quiz-report #backbtn {
+  min-width: 136px;
+  height: 41px;
+  border: 1px solid #220F44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: normal 18px/32px Heebo;
+}
+#page-mod-quiz-report .custom_container {
+  width: 100%;
+}
+#page-mod-quiz-report .custom-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+#page-mod-quiz-report .custom-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+#page-mod-quiz-report .custom-checkbox + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  border: 1px solid #220F44;
+  border-radius: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(165, 155, 181, 0.1);
+}
+#page-mod-quiz-report .custom-checkbox:hover + label:before {
+  background: #ffffff;
+}
+#page-mod-quiz-report .custom-checkbox:checked + label:before {
+  background: #ffffff;
+}
+#page-mod-quiz-report .custom-checkbox:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+#page-mod-quiz-report .custom-checkbox:disabled + label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+#page-mod-quiz-report .custom-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 16px;
+  height: 8px;
+  border: solid #220F44;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg);
+}
+#page-mod-quiz-report .competency-popup-subtitle {
+  font: Bold 18px/24px Heebo;
+  color: #220F44;
+}
+#page-mod-quiz-report .competency-popup-subtitle p {
+  font: Normal 16px/24px Heebo;
+}
+
+#page-mod-quiz-report #user-action:disabled {
+  background-color: #8e7bb8;
+  color: #efebeb;
+}
+
+html[dir=ltr] #page-mod-quiz-report #mod-quiz-report-competencyoverview-report-table .custom-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 16px;
+  height: 8px;
+  border: solid #220F44;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}
+html[dir=ltr] .modal-body {
+  background-position-x: 108%;
+}/*# sourceMappingURL=styles.css.map */

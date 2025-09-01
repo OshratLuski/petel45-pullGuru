@@ -1,0 +1,41 @@
+
+.sharebtn,
+.editing_addsubsection {
+    margin-left: 1rem;
+    i {
+        color: $secondary;
+        font-size: 1.5rem;
+    }
+
+    &:focus,
+    &:hover {
+        border-color: $primary;
+
+        i {
+            color: $primary;
+        }
+    }
+}
+
+.copytoclipboard_alert {
+    background-color: $petel-green-light;
+
+    .line {
+        background-color: $green;
+    }
+
+    .fa-circle-info {
+        color: $green;
+    }
+
+    .text {
+        font-family: $primary-font;
+        color: $body-color;
+    }
+
+    .close {
+        i {
+            color: $green;
+        }
+    }
+}

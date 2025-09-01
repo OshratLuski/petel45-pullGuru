@@ -1,0 +1,7 @@
+#tinymce span.bdi {
+    border-width: 0 2px;
+    border-style: dotted;
+    border-color: green;
+    padding: 0 2px;
+    background-color: #f1f1f1;
+}

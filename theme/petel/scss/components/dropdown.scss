@@ -1,0 +1,36 @@
+.dropdown {
+    .dropdown-menu.menu {
+        border-radius: .5rem;
+        background-color: $gray-100;
+        border: .0625rem solid $gray-300;
+        padding: .5rem 0;
+        .dropdown-item {
+            padding: .5rem 1rem;
+            color: $body-color;
+            font-family: $primary-font;
+            white-space: inherit;
+            &:hover {
+               background-color: $secondarylight;
+            }
+            &:active, &.active {
+                background-color: $secondary;
+                color: $white;
+            }
+            &:focus {
+               background-color: $secondarylight;
+                outline: .0625rem solid $secondary;
+            }
+        }
+        z-index: 10000;
+    }
+    .dropdown-menu {
+        background-color: $gray-100;
+    }
+    .dropdown-menu.show {
+        width: fit-content;
+    }
+}
+
+.dropdown-divider {
+    border-top: .0625rem solid $petel-primary;
+}

@@ -1,0 +1,146 @@
+.que.essayannotate textarea.qtype_essayannotate_response {
+    width: 100%;
+}
+
+.que.essayannotate textarea.qtype_essayannotate_response.qtype_essayannotate_plain {
+    white-space: pre-wrap;
+    font: inherit;
+}
+
+.que.essayannotate textarea.qtype_essayannotate_response.qtype_essayannotate_monospaced {
+    white-space: pre;
+    font-family: Andale Mono, Monaco, Courier New, DejaVu Sans Mono, monospace;
+}
+
+.que.essayannotate .qtype_essayannotate_response {
+    min-height: 3em;
+}
+
+.que.essayannotate .qtype_essayannotate_response.readonly {
+    background-color: white;
+}
+
+.que.essayannotate div.qtype_essayannotate_response textarea {
+    width: 100%;
+}
+
+.que.essayannotate .ablock .filemanager .fp-restrictions {
+    margin-top: 1em;
+}
+
+/* Styles */
+/* Originally taken from Ravisha Hesh : https://github.com/RavishaHesh/PDFJsAnnotations/tree/master */
+/* removed background colour, prefixed class names */
+
+.qtype_essayannotate_canvas-container {
+    -webkit-box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qtype_essayannotate_toolbar {
+    width: 100%;
+    background-color: rgba(50, 54, 57, 0.21);
+    height: 50px;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    margin-top: 0;
+}
+
+.qtype_essayannotate_pdf_container {
+    margin-top: 60px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.qtype_essayannotate_toolbar
+button:focus {
+    outline: 0;
+}
+
+.qtype_essayannotate_toolbar .tool {
+    display: inline-block;
+    color: #fff;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.qtype_essayannotate_toolbar .tool label,
+.qtype_essayannotate_toolbar .tool select,
+.qtype_essayannotate_toolbar .tool input {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0;
+
+}
+
+.qtype_essayannotate_toolbar .tool label {
+    color: #1d2125;
+}
+
+.qtype_essayannotate_toolbar .tool input {
+    width: 50px;
+}
+
+.qtype_essayannotate_toolbar .tool .color-tool {
+    height: 25px;
+    width: 25px;
+    border-radius: 25px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.qtype_essayannotate_toolbar .tool .color-tool.active {
+    -webkit-box-shadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.75);
+}
+
+.qtype_essayannotate_toolbar .tool:nth-last-child(1) {
+    float: right;
+}
+
+.qtype_essayannotate_toolbar .tool .tool-button {
+    background-color: rgb(50, 54, 57);
+    border: 1px solid rgb(50, 54, 57);
+    color: #fff;
+    cursor: pointer;
+}
+
+.qtype_essayannotate_toolbar .tool .tool-button:hover,
+.qtype_essayannotate_toolbar .tool .tool-button.active {
+    background-color: rgb(82, 86, 89);
+    border-color: rgb(82, 86, 89);
+}
+
+/* Styles for visible message boxes */
+.qtype_essayannotate_messagebox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #c2c6ca;
+    color: #1d2125;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+/* Styles for hidden message boxes */
+.qtype_essayannotate_messagebox.hidden {
+    display: none;
+}
+
+/* Annotate button in comment.php */
+.qtype_essayannotate_annotatebtn {
+    margin-left: 5px;
+    padding: 4px;
+}

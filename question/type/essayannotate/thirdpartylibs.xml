@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>amd/src/fabric.js</location>
+        <name>Fabric JS</name>
+        <description>Javascript Canvas Library, SVG-to-Canvas (and canvas-to-SVG) Parser</description>
+        <version>5.3.0</version>
+        <license>MIT</license>
+        <licenseversion></licenseversion>
+    </library>
+    <library>
+        <location>amd/src/pdf.js</location>
+        <name>PDF JS</name>
+        <description>PDF.js is a Portable Document Format (PDF) viewer that is built with HTML5</description>
+        <version>3.11.174</version>
+        <license>Apache</license>
+        <licenseversion>2.0</licenseversion>
+    </library>
+    <library>
+        <location>amd/src/pdfworker.js</location>
+        <name>Pdf worker JS</name>
+        <version>3.11.174</version>
+        <license>Apache</license>
+        <licenseversion>2.0</licenseversion>
+    </library>
+     <library>
+        <location>annotator/fpdi-fpdf/fpdi</location>
+        <name>FPDI</name>
+        <description>Collection of PHP classes facilitating developers to read pages from existing PDF documents and use them as templates in FPDF.</description>
+        <version>2.3.6</version>
+        <license>MIT</license>
+  </library>
+  <library>
+        <location>annotator/fpdi-fpdf/fpdf</location>
+        <name>FPDF</name>
+        <description>FPDF is a PHP class which allows to generate PDF files with pure PHP.</description>
+        <version>1.85</version>
+        <license>MIT</license>
+  </library>
+  <library>
+        <location>annotator/alphapdf.php</location>
+        <name>Alpha PDF</name>
+        <description>The AlphaPDF is an extended class on FPDI that is used for setting transparency.</description>
+        <license>MIT</license>
+  </library>
+  <library>
+        <location>amd/src/clickhandlers.js</location>
+        <name>PDFJsAnnotations</name>
+        <description>Wrapper for PDF JS to add annotations.</description>
+        <license>MIT</license>
+  </library>
+  <library>
+        <location>amd/src/pdfannotate.js</location>
+        <name>PDFJsAnnotations</name>
+        <description>Wrapper for PDF JS to add annotations.</description>
+        <license>MIT</license>
+  </library>
+</libraries>

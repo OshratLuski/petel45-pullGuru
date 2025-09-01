@@ -1,0 +1,22 @@
+{{!
+    @template core/signup_form_layout
+
+    Example context (json):
+    {
+        "logourl": "https://moodle.org/logo/moodle-logo.svg",
+        "sitename": "Site name",
+        "formhtml": "<p>(Form html would go here)</p>"
+    }
+}}
+<div class="signupform">
+    <h1 class="login-heading">{{#str}} signuptitle, theme_petel {{/str}}</h1>
+
+    <p style="font-weight:bold; font-size: 1.125rem">{{#str}} signuptext1, theme_petel {{/str}}</p>
+
+    <p class="required">
+        {{#str}} signuptext2, theme_petel {{/str}}
+        <i class="icon fa fa-exclamation-circle text-danger fa-fw ml-2" title="שדה נדרש" role="img" aria-label="שדה נדרש"></i>
+    </p>
+
+    {{{formhtml}}}
+</div>

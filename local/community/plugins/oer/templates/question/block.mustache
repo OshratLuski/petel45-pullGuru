@@ -1,0 +1,300 @@
+<div class="question-blocks-heading d-flex align-items-center bg-primary text-white p-2 mb-2">
+    <div class="custom-control custom-checkbox question-custom-checkbox px-2 d-flex align-items-center justify-content-center border-right border-secondary">
+        <input type="checkbox" class="custom-control-input select-all-checkboxes" id="all_checkboxes">
+        <label class="custom-control-label " for="all_checkboxes"></label>
+    </div>
+    <div class="heading-title px-3 flex-grow-1 border-right border-secondary" role="heading">
+        {{#str}}the_subject_of_the_question, community_oer{{/str}}
+    </div>
+    <div class="heading-title px-2 text-center flex-grow-0 border-right border-secondary" role="heading">
+        {{#str}}type, community_oer{{/str}}
+    </div>
+    <div class="heading-title px-2 text-center flex-grow-0 border-right border-secondary" role="heading">
+        {{#str}}shared_by, community_oer{{/str}}
+    </div>
+
+    <div class="heading-title px-2 text-center flex-grow-0 border-right border-secondary creation-date" role="heading"
+        data-plugin="question" data-area="sort-column" data-column="creation_date"
+        data-value="{{sortingtabs.creation_date.sort}}">
+
+        {{#str}}creation_date, community_oer{{/str}}
+
+        {{#sortingtabs.creation_date.sort_desc}}
+        <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+        {{/sortingtabs.creation_date.sort_desc}}
+
+        {{#sortingtabs.creation_date.sort_asc}}
+        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+        {{/sortingtabs.creation_date.sort_asc}}
+
+    </div>
+
+    {{#if_hidden_items}}
+        <div class="heading-title px-2 text-center change-hidden-question-btn-wrapper" role="heading"></div>
+    {{/if_hidden_items}}
+
+    <div class="heading-title px-2 text-center flex-grow-0" role="heading"></div>
+</div>
+
+{{#blocks}}
+<div class="question-item-wrapper border border-light mb-2">
+    <div class="question-item d-flex position-relative  p-2">
+
+        <div class="custom-control custom-checkbox question-custom-checkbox px-2 d-flex align-items-center justify-content-center border-right border-secondary">
+            <input type="checkbox" class="custom-control-input checkbox-share-question-oer" id="checkbox{{qid}}"
+                data-qid="{{qid}}">
+            <label class="custom-control-label " for="checkbox{{qid}}"></label>
+        </div>
+
+        <div class="question-item-cell px-3 flex-grow-1 d-flex justify-content-between align-items-center  border-secondary">
+            {{#shortentext}} 50,{{qname_text}} {{/shortentext}}
+        </div>
+
+        <div class="question-info-blocks px-3 align-items-center justify-content-between ml-auto">
+            <div class="text-primary mr-3">
+                <i class="fal fa-download"></i>
+                <span class="text-body m-0">{{count_used_question}}</span>
+            </div>
+            <div class="text-primary mr-3" data-objid="{{qid}}" data-type="question" data-handler="showReview" title="{{#str}}comments_box, community_oer{{/str}}">
+                <i class="fal fa-comment"></i>
+                <span class="text-body m-0">{{countreview}}</span>
+            </div>
+        </div>
+
+        <div class="question-item-cell px-3 flex-grow-0 d-flex justify-content-center align-items-center border-right border-left border-secondary">
+            {{{qtypeimage}}} {{#shortentext}} 20,{{qtypename}} {{/shortentext}}
+        </div>
+
+        <div class="question-item-cell  flex-grow-0 d-flex justify-content-center align-items-center border-right border-secondary">
+            {{#metadata_qsource}}
+            <div class="text-primary question-info-tooltip position-relative ml-4">
+                <i class="fal fa-quote-right"></i>
+                <div class="oer-tooltip p-2 position-absolute" data-position="bottom-left" data-carret-position="top-left" >
+                    <span class="d-flex flex-column">{{{metadata_qsource}}}</span>
+                </div>
+            </div>
+            {{/metadata_qsource}}
+
+            <a href="{{{urltosocialprofile}}}" {{#urltosocialtarget}} target="_blank" {{/urltosocialtarget}} class="user-link text-center pr-2 w-100">
+                {{#shortentext}} 20, {{user_fname}} {{user_lname}} {{/shortentext}}
+            </a>
+        </div>
+
+        <div class="question-item-cell px-3 flex-grow-0 d-flex justify-content-center align-items-center border-right border-secondary">
+            {{qcreated_format}}
+        </div>
+
+        {{#if_hidden_items}}
+            {{#metadata_qhidden}}
+                <div class="change-hidden-question-btn-wrapper d-flex justify-content-center align-items-center">
+                    <button role="button" class="change-hidden-question-btn d-flex border-0 bg-transparent" data-target="{{qid}}">
+                        <i class="fal fa-eye-slash"></i>
+                    </button>
+                </div>
+            {{/metadata_qhidden}}
+
+            {{^metadata_qhidden}}
+                <div class="change-hidden-question-btn-wrapper d-flex justify-content-center align-items-center">
+                    <button role="button" class="change-hidden-question-btn d-flex border-0 bg-transparent" data-target="{{qid}}">
+                        <i class="fal fa-eye"></i>
+                    </button>
+                </div>
+            {{/metadata_qhidden}}
+        {{/if_hidden_items}}
+
+        <div class="flex-grow-0 d-flex justify-content-center align-items-center">
+            <button role="button" class="collapse-question-btn d-flex border-0 bg-transparent" data-toggle="collapse"
+                data-target="#question-collapse-id-{{qid}}" aria-expanded="false"
+                aria-controls="question-collapse-id-{{qid}}">
+                <i class="fa fa-caret-down text-primary ml-2" aria-hidden="true"></i>
+            </button>
+        </div>
+
+    </div>
+    <div class="question-collapse collapse multi-collapse px-0 py-3 position-relative "
+        id="question-collapse-id-{{qid}}" data-qid="{{qid}}">
+        <div class="loading-icon w-100 icon-no-margin raspberry_loading position-absolute mx-auto mt-5 pt-3" role="status"
+            style="display: none;">
+        {{> community_oer/loading }}
+        </div>
+        <div class="question-collapse-inner"></div>
+
+        <div class="d-flex justify-content-end">
+
+            {{#enable_edit_question_metadata}}
+                <a href="{{{link_edit_question_metadata}}}" target="_blank" role="button"
+                   class="btn btn-secondary inner-copy-question-btn position-relative"
+                   style="display: none;">
+
+                    <i class="fa fa-database fa-fw mr-2"></i>
+                    <span>
+                        {{#str}}edit_question_metadata, community_oer{{/str}}
+                    </span>
+                </a>
+            {{/enable_edit_question_metadata}}
+
+            {{#enable_edit_question}}
+                <a href="{{{link_edit_question}}}" target="_blank" role="button"
+                   class="btn btn-secondary inner-copy-question-btn position-relative mx-3"
+                   style="display: none;">
+
+                    <i class="far fa-cog mr-2"></i>
+                    <span>
+                        {{#str}}edit_question, community_oer{{/str}}
+                    </span>
+                </a>
+            {{/enable_edit_question}}
+
+            <button role="button"
+                class="btn btn-secondary inner-copy-question-btn position-relative mr-5 btn-share-question-oer"
+                data-qid="{{qid}}" style="display: none;">
+                <i class="fa-light fa-copy mr-2"></i>
+                <span>
+                    {{#str}}copy_for_my_environment, community_oer{{/str}}
+                </span>
+            </button>
+
+        </div>
+    </div>
+</div>
+{{/blocks}}
+
+{{#enable_pagination}}
+    {{> community_oer/pagination }}
+{{/enable_pagination}}
+
+{{#js}}
+require(['community_sharequestion/main', 'community_oer/inview', 'community_oer/question', 'jquery', 'core/ajax', 'core/notification'], function (main, inView, Question, $, Ajax, Notification) {
+
+    // Event on button change-hidden-question-btn.
+    $('.change-hidden-question-btn').on( "click", function(e) {
+        let selected = [];
+        selected.push($(this).data('target'));
+
+        Ajax.call([{
+            methodname: 'community_oer_change_hidden_questions',
+            args: {
+                qids: JSON.stringify(selected)
+            },
+            done: function (response) {
+                Question.renderBlocks();
+            },
+            fail: Notification.exception
+        }]);
+    });
+
+    // Default state.
+    $('.btn-share-checkboxes-question-oer').attr('disabled', 'disabled');
+    $('.btn-delete-checkboxes-question-oer').attr('disabled', 'disabled');
+    $('.btn-show-question-content').attr('disabled', 'disabled');
+    $('.btn-view-only-question-hidden').attr('disabled', 'disabled');
+    $('.btn-hide-question-content').attr('disabled', 'disabled');
+
+    $('.select-all-checkboxes').click(function () {
+        if ($(this).is(':checked')) {
+            $('.checkbox-share-question-oer').each(function () {
+                $(this).prop("checked", true);
+            });
+            if ($('.checkbox-share-question-oer').length > 0) {
+                $('.btn-share-checkboxes-question-oer').removeAttr('disabled');
+                $('.btn-delete-checkboxes-question-oer').removeAttr('disabled');
+                $('.btn-show-question-content').removeAttr('disabled');
+                $('.btn-view-only-question-hidden').removeAttr('disabled');
+            }
+        } else {
+            $('.checkbox-share-question-oer').each(function () {
+                $(this).prop("checked", false);
+            });
+            $('.btn-share-checkboxes-question-oer').attr('disabled', 'disabled');
+            $('.btn-delete-checkboxes-question-oer').attr('disabled', 'disabled');
+            $('.btn-show-question-content').attr('disabled', 'disabled');
+            $('.btn-view-only-question-hidden').attr('disabled', 'disabled');
+        }
+    });
+
+    $('.checkbox-share-question-oer').click(function () {
+        $('.select-all-checkboxes').prop("checked", false);
+        let flag = false;
+        $('.checkbox-share-question-oer').each(function () {
+            if ($(this).is(':checked')) {
+                flag = true;
+            }
+        });
+        if (flag === true) {
+            $('.btn-share-checkboxes-question-oer').removeAttr('disabled');
+            $('.btn-delete-checkboxes-question-oer').removeAttr('disabled');
+            $('.btn-show-question-content').removeAttr('disabled');
+            $('.btn-view-only-question-hidden').removeAttr('disabled');
+        } else {
+            $('.btn-share-checkboxes-question-oer').attr('disabled', 'disabled');
+            $('.btn-delete-checkboxes-question-oer').attr('disabled', 'disabled');
+            $('.btn-show-question-content').attr('disabled', 'disabled');
+            $('.btn-view-only-question-hidden').attr('disabled', 'disabled');
+        }
+    });
+
+    // Event on button.
+    $('.btn-share-question-oer').on("click", function (e) {
+        let selected = [];
+        selected.push($(this).data('qid'));
+        main.community_oer_question(selected);
+    });
+
+    // Open iframe.
+    inView('.question-collapse').on('enter', function (e) {
+        let parent = $(e);
+        if (!parent.hasClass('inview-done')) {
+            parent.addClass('inview-done');
+            let qid = parent.data('qid');
+            let spinner = parent.find('.raspberry_loading');
+            spinner.show();
+            let html = '<iframe id="iframe' + qid + '" scrolling="yes" style="width:100%; height:300px;" src="' + M.cfg.wwwroot + '/local/community/plugins/oer/previewquestion.php?id=' + qid + '&behaviour=adaptive"></iframe>';
+            parent.find('.question-collapse-inner').html(html);
+            document.querySelector('#iframe' + qid).addEventListener('load', function () {
+                spinner = parent.find('.raspberry_loading');
+                const btn = parent.find('.inner-copy-question-btn');
+                spinner.remove();
+                btn.show();
+            });
+        }
+
+    }).on('exit', el => { });
+
+    // Toggle class active when click on question item collapse btn.
+    $(document).ready(function () {
+        $('.collapse-question-btn').on("click", function (e) {
+            const target = $(e.currentTarget);
+            const parent = target.closest('.question-item-wrapper');
+            parent.toggleClass('active');
+            $('.btn-hide-question-content').attr('disabled', 'disabled');
+            $('.question-item-wrapper').each(function () {
+                if ($(this).hasClass('active')) {
+                    $('.btn-hide-question-content').removeAttr('disabled');
+                }
+            });
+        });
+        $('.question-item-cell').on("click", function (e) {
+            const target = $(e.currentTarget);
+            const parent = target.closest('.question-item-wrapper');
+            const collapseBtn = parent.find('.collapse-question-btn');
+            collapseBtn.trigger('click');
+        });
+        $('.user-link').on('click', (e) => {
+            e.stopPropagation();
+        })
+    });
+
+    window.addEventListener("message", (event) => {
+        const { data } = event;
+        if(event.data.length == 2) {
+            const height = +event.data[0];
+            const id = event.data[1];
+            let target = $('#iframe' + id);
+            if (height < 300) {
+                target.css('height', height);
+            }
+        }
+    });
+
+});
+{{/js}}

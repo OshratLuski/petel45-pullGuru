@@ -1,0 +1,172 @@
+<h3 class="activity-aside-menu-title p-2 mb-0">
+    {{#str}}titleaside, community_oer{{/str}}
+</h3>
+
+<ul class="list-unstyled p-0 m-0">
+
+    {{#aside_menu}}
+    <li class="p-0">
+        <div class="d-flex heading-wrapp p-2">
+            <div class="collapse-btn border-0 mr-2 p-0 " role="button" data-toggle="collapse" data-target="#questioncategory{{cat_id}}"
+                aria-expanded="false" aria-controls="questioncategory{{cat_id}}">
+                <i class="fa-solid fa-caret-left  m-0"></i>
+            </div>
+            <a class="menu-heading bold d-flex align-items-center pl-2" href="javascript:void(0);"
+                data-plugin="question" data-area="sidemenu" data-action="category" data-value="{{cat_id}}"
+                data-breadcrumbs="{{cat_name}}">
+                {{cat_name}}
+            </a>
+        </div>
+
+        <ul class="activity-aside-menu-block collapse list-unstyled p-0 m-0" id="questioncategory{{cat_id}}">
+            {{#courses}}
+
+            <li class="collapsed p-0 pl-3">
+                <div class="d-flex heading-wrapp submenu-heading-wrapp p-2 pl-3">
+                    <div class="collapse-btn border-0 mr-2 p-0 " role="button" data-toggle="collapse" data-target="#questioncourse{{id}}"
+                        aria-expanded="false" aria-controls="questioncourse{{id}}">
+                        <i class="fa-solid fa-caret-left  m-0"></i>
+                    </div>
+
+
+                    <a class="submenu-heading d-flex align-items-center " href="javascript:void(0);"
+                        data-plugin="question" data-area="sidemenu" data-action="course" data-value="{{id}}"
+                        data-breadcrumbs="{{cat_name}} | {{fullname}}">
+
+                        {{fullname}}
+                    </a>
+                </div>
+
+                <ul class="sub-menu collapse list-unstyled" id="questioncourse{{id}}">
+                    {{#sections}}
+                    <li class="pl-3">
+
+                        {{^if_child_category_present}}
+                            <a href="javascript:void(0);" class="sub-menu-item" role="button" data-plugin="question"
+                                data-area="sidemenu" data-action="section" data-value="{{sectionid}}" data-parentcourse="{{id}}"
+                                data-breadcrumbs="{{cat_name}} | {{fullname}} | {{section_name}}">
+                                {{section_name}}
+                            </a>
+                        {{/if_child_category_present}}
+
+                        {{#if_child_category_present}}
+                            <div class="d-flex heading-wrapp subsubmenu-heading-wrapp p-2">
+                                <div class="collapse-btn border-0 mr-2 p-0 " role="button" data-toggle="collapse"
+                                     data-target="#questionchildcategory{{sectionid}}" aria-expanded="false"
+                                     aria-controls="questionchildcategory{{sectionid}}">
+
+                                    <i class="fa-solid fa-caret-left  m-0"></i>
+                                </div>
+                                <a class="sub-submenu-heading d-flex align-items-center " href="javascript:void(0);"
+                                    data-plugin="question" data-area="sidemenu" data-action="section" data-value="{{sectionid}}" data-parentcourse="{{id}}"
+                                    data-breadcrumbs="{{cat_name}} | {{fullname}} | {{section_name}}">
+                                     {{section_name}}
+                                </a>
+                            </div>
+
+                            <ul class="sub-sub-menu list-unstyled collapse" id="questionchildcategory{{sectionid}}">
+                                <li class="collapsed p-0 pl-3">
+
+                                    {{#child_category}}
+                                        <a href="javascript:void(0);" class="sub-sub-menu-item" role="button" data-plugin="question"
+                                            data-area="sidemenu" data-action="section" data-value="{{sectionid}}" data-parentcourse="{{id}}"
+                                            data-secondaction="childcategory" data-childcategory="{{childcatid}}"
+                                            data-breadcrumbs="{{cat_name}} | {{fullname}} | {{section_name}} | {{childcatname}}">
+                                            {{childcatname}}
+                                        </a>
+                                    {{/child_category}}
+
+                                </li>
+                            </ul>
+                        {{/if_child_category_present}}
+
+                    </li>
+                    {{/sections}}
+
+                </ul>
+            </li>
+            {{/courses}}
+        </ul>
+    </li>
+    {{/aside_menu}}
+</ul>
+
+{{#js}}
+require(['jquery'], function ($) {
+
+    var aside = $('ul.list-unstyled');
+
+    function setActive(target) {
+        aside.find('.active').removeClass('active');
+        target.parent().addClass('active');
+        target.siblings('.collapse-btn').attr('aria-expanded', 'false');
+    }
+
+    function collapseNotActive(target) {
+        if ($(target).hasClass('menu-heading')) {
+            var elements = $('.menu-heading').not($(target));
+            elements.each(function () {
+                $(this).siblings('.collapse-btn').attr('aria-expanded', 'false');
+                $(this).closest('li').find('.collapse.show').removeClass('show');
+                var btns = $(this).closest('li').find('.btn.collapse-btn');
+                btns.each(function () {
+                    $(this).attr('aria-expanded', 'false');
+                    $(this).closest('.heading-wrapp').find('ul.sub-menu').removeClass('show');
+                })
+            });
+            $(target).siblings('.collapse-btn').attr('aria-expanded', 'true');
+            $(target).closest('li').find('ul.collapse.activity-aside-menu-block').addClass('show');
+        };
+        if ($(target).hasClass('submenu-heading')) {
+            var elements = $('.submenu-heading').not($(target));
+            elements.each(function () {
+                $(this).siblings('.collapse-btn').attr('aria-expanded', 'false');
+                $(this).closest('li').find('.collapse.show').removeClass('show');
+                var btns = $(this).closest('li').find('.btn.collapse-btn');
+            });
+            $(target).siblings('.collapse-btn').attr('aria-expanded', 'true');
+            $(target).closest('li').find('ul.collapse.sub-menu').addClass('show');
+
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.menu-heading');
+            collapseNotActive(parent);
+        };
+        if ($(target).hasClass('sub-submenu-heading')) {
+            var elements = $('.sub-submenu-heading').not($(target));
+            elements.each(function () {
+                $(this).siblings('.collapse-btn').attr('aria-expanded', 'false');
+                $(this).closest('li').find('.collapse.show').removeClass('show');
+            });
+            $(target).siblings('.collapse-btn').attr('aria-expanded', 'true');
+            $(target).closest('li').find('ul.collapse.sub-sub-menu').addClass('show');
+            
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.submenu-heading');
+            collapseNotActive(parent);
+        };
+
+        if ($(target).hasClass('sub-menu-item')) {
+            if(!$(target).parent().hasClass('heading-wrapp')){
+                var parent = $(target).closest('ul');
+                var notActive = parent.find('li').not('.active').find('.collapse.show');
+                notActive.each(function(){
+                        $(this).removeClass('show');
+                        $(this).siblings('.heading-wrapp').find('.btn.collapse-btn').attr('aria-expanded', 'false');
+                });
+            }
+
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.submenu-heading');
+            collapseNotActive(parent);
+        };
+        if ($(target).hasClass('sub-sub-menu-item')) {
+            var parent = $(target).closest('ul').siblings('.heading-wrapp').find('.sub-submenu-heading');
+            collapseNotActive(parent);
+            $(target).addClass('active');
+        };
+    };
+
+    $(document).on('click', '.menu-heading, .submenu-heading, .sub-menu-item, .sub-submenu-heading, .sub-sub-menu-item', function (e) {
+        var target = $(e.currentTarget);
+        setActive(target);
+        collapseNotActive(target);
+    });
+});
+{{/js}}

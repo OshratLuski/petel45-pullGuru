@@ -1,0 +1,198 @@
+/* Prevent the menu from protruding from the editor if really many styles are added to the menu. */
+.editor_atto_menu .atto_styles_button .dropdown-menu {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+/* Prevent the menu from wrapping the menu items */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li {
+    white-space: nowrap;
+}
+
+/* Separate the style list menu items more clearly. */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/* Do not add a bottom border to the last list element. */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li:last-child {
+    border-bottom: none;
+}
+
+/* Position menu item icons */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li > a i {
+    display: inline-block;
+    height: 15px;
+    margin-right: 10px;
+    width: 15px;
+}
+
+/* Override Atto core paddings for menu items to prevent the disabled inline menu items from showing a hand cursor */
+/* Additionally remove text underline from menu items in this widget because Boost adds underlines to menu items by default
+   but for disabled menu items this is counterproductive */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li > a {
+    padding: 0;
+    text-decoration: none;
+}
+.editor_atto_menu .atto_styles_button .dropdown-menu > li > a div.preview,
+.editor_atto_menu .atto_styles_button .dropdown-menu > li > a div.title {
+    display: inline-block;
+    /* stylelint-disable-next-line declaration-no-important */
+    max-width: calc(100% - 55px) !important;
+    /* stylelint-disable-next-line declaration-no-important */
+    margin: 0 !important;
+}
+
+/* Override Moodle core's styling, because the underline should not appear within the dropdown list. */
+.editor_atto_menu .atto_styles_button .dropdown-menu > li:focus,
+.editor_atto_menu .atto_styles_button .dropdown-menu > li:hover {
+    background-color: #f8f9fa;
+}
+.editor_atto_menu .atto_styles_button .dropdown-menu > li > a:focus {
+    box-shadow: none;
+}
+
+/* Disabled inline style menu item visually */
+.editor_atto_menu .disableinline .atto_styles_button .inlinestyle {
+    cursor: default;
+}
+.editor_atto_menu .atto_styles_button .inlinehint {
+    display: none;
+}
+.editor_atto_menu .disableinline .atto_styles_button .inlinehint {
+    display: inline-block;
+    margin-left: 39px;
+}
+
+/* Style samples */
+.attostylesbox {
+    padding: 0px 5px;
+    line-height: 2;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%
+}
+.attostylesbox.attostylesbox-solid {
+    color: white !important;
+}
+.attostylesbox.attostylesbox-outline {
+    background-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+.attostylesbox.attostylesbox-callout {
+    background-color: white !important;
+    border: 1px solid #eee !important;
+    border-left-width: 5px !important;
+}
+.attostylesbox.attostylesbox-solid-blue {
+    background-color: #4C74BB;
+}
+.attostylesbox.attostylesbox-solid-green {
+    background-color: #597725;
+}
+.attostylesbox.attostylesbox-solid-yellow {
+    background-color: #F9CF51;
+    /*color: #414141 !important;*/
+}
+.attostylesbox.attostylesbox-solid-red {
+    background-color: #D42820;
+}
+.attostylesbox.attostylesbox-solid-black {
+    background-color: #3a3a3a;
+}
+.attostylesbox.attostylesbox-solid-physics {
+    background-color: #554283;
+}
+.attostylesbox.attostylesbox-outline-physics {
+    border-color: #554283;
+    color: #554283 !important;
+}
+.attostylesbox.attostylesbox-solid-chemistry {
+    background-color: #0B4886;
+}
+.attostylesbox.attostylesbox-outline-chemistry {
+    border-color: #0B4886;
+    color: #0B4886 !important;
+}
+.attostylesbox.attostylesbox-solid-biology {
+    background-color: #398065;
+}
+.attostylesbox.attostylesbox-outline-biology {
+    border-color: #398065;
+    color: #398065 !important;
+}
+.attostylesbox.attostylesbox-solid-science {
+    background-color: #B53F0C;
+}
+.attostylesbox.attostylesbox-outline-science {
+    border-color: #B53F0C;
+    color: #B53F0C !important;
+}
+.attostylesbox.attostylesbox-solid-math {
+    background-color: #236B7C;
+}
+.attostylesbox.attostylesbox-outline-math {
+    border-color: #236B7C;
+    color: #236B7C !important;
+}
+.attostylesbox.attostylesbox-solid-computers {
+    background-color: #922C48;
+}
+.attostylesbox.attostylesbox-outline-computers {
+    border-color: #922C48;
+    color: #922C48 !important;
+}
+.attostylesbox.attostylesbox-outline-blue {
+    border-color: #4C74BB;
+    color: #4C74BB !important;
+}
+.attostylesbox.attostylesbox-outline-green {
+    border-color: #597725;
+    color: #597725 !important;
+}
+.attostylesbox.attostylesbox-outline-yellow {
+    border-color: #F9CF51;
+    color: #F9CF51 !important;
+    /*background-color: #414141;*/
+}
+.attostylesbox.attostylesbox-outline-red {
+    border-color: #D42820;
+    color: #D42820 !important;
+}
+.attostylesbox.attostylesbox-outline-black {
+    border-color: #3a3a3a;
+    color: #3a3a3a !important;
+}
+.attostylesbox.attostylesbox-callout-blue {
+    border-left-color: #4C74BB !important;
+}
+.attostylesbox.attostylesbox-callout-green {
+    border-left-color: #597725 !important;
+}
+.attostylesbox.attostylesbox-callout-yellow {
+    border-left-color: #ffcf35 !important;
+}
+.attostylesbox.attostylesbox-callout-red {
+    border-left-color: #ef4540 !important;
+}
+.attostylesbox.attostylesbox-callout-black {
+    border-left-color: #3a3a3a !important;
+}
+.attostylestextmarker {
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.attostylestextmarker.attostylestextmarker-green {
+    background: #99ffcc;
+}
+.attostylestextmarker.attostylestextmarker-pink {
+    background: #ffccff;
+}
+.attostylestextmarker.attostylestextmarker-yellow {
+    background: #ffffcc;
+}

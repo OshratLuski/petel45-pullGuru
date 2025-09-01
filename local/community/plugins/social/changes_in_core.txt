@@ -1,0 +1,11 @@
+Changes in core:
+
+1) In course\externallib.php
+
+
+
+Add in mod\assign\amd\src\grading_panel.js line 3608
+
+In case 'stealth':
+
+\community_social\event\course_module_visibility_changed::create_from_cm($cm, $modcontext, $action)->trigger();

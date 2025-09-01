@@ -1,0 +1,72 @@
+.social {
+  .col-card {
+    display: flex;
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .col-card-img {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: #f3f7f9;
+  }
+
+  .col-card-img div{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: auto;
+  }
+
+  .col-card-inner {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .col-card-name {
+    color: $purple;
+    font-weight: $font-weight-semibold;
+    font-size: 24px;
+    line-height: 24px;
+    font-family: inherit;
+    margin-bottom: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .col-card-tag {
+    color: $purple;
+    font-weight: $font-weight-normal;
+    font-size: 18px;
+    line-height: 20px;
+    font-family: inherit;
+    border: 1px solid $purple;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  .col-card-tag::before {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    padding-right: 5px;
+  }
+
+  .col-card-rss::before {
+    content: '\f09e';
+    font-family: 'FontAwesome';
+  }
+}

@@ -1,0 +1,59 @@
+.petel-search {
+    position: relative;
+    gap: 0;
+    &-input {
+        height: 2.375rem;
+        border-radius: 0.5rem;
+        border: .0625rem solid #E2E1E1;
+        padding-right: 2.875rem;
+        padding-left: 0.5rem;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        border: .0625rem solid $gray-300;
+
+        &::placeholder {
+            font-size: 1.125rem;
+            font-style: normal;
+            font-weight: 400;
+            color: $gray-600;
+        }
+
+        &:active,
+        &:focus,
+        &:focus-visible {
+            outline: .0625rem solid $gray-500;
+            border: .0625rem solid $gray-500;
+            box-shadow: none;
+        }
+    }
+
+    &-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: .0625rem;
+        right: .0625rem;
+        border-radius: 0rem .4375rem 0.4375rem 0rem;
+        background-color: $secondarylight !important;
+        svg path {
+            fill: $secondary;
+        }
+    }
+    .btn.btn-clear:not(.d-none) {
+        width: 2.25rem;
+        height: 2.25rem;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: .0625rem;
+        right: .0625rem;
+        border-radius: 0rem .4375rem 0.4375rem 0rem;
+        background-color: $secondarylight !important;
+    }
+}
+

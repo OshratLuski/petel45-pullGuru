@@ -1,0 +1,20 @@
+#page-mod-mindmaap-view .mindmaap-embed {
+    height: 600px;
+    width: 100%;
+}
+
+#page-mod-mindmaap-view #mindmapiframe {
+    height: 600px;
+    width: 100%;
+    border: 0px;
+}
+
+#page-mod-mindmaap-view div[role=main] {
+    display: flex;
+}
+
+#page-mod-mindmaap-view a.mindmaapbutton {
+    display: block;
+    margin: 50px auto;
+    width: 150px;
+}

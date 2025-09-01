@@ -1,0 +1,19 @@
+{{#enable_table_according_diagnostic_questions}}
+<div class="row py-3 bg-white">
+    <div class="col-12">
+        <h2 role="button" data-toggle="collapse" data-target="#diagnostic-questions-collapse" aria-expanded="true" aria-controls="diagnostic-questions-collapse">
+            {{#str}}diagnosticquestions, quiz_advancedoverview{{/str}}
+            ({{count_diagnostic_questions}})
+        </h2>
+        <div class="collapse show" id="diagnostic-questions-collapse">
+            <div id="diagnostic-table"></div>
+        </div>
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery', 'quiz_advancedoverview/tables'], function($, Tables) {
+        Tables.initdiagnosticquestionstable('{{{data_table_according_diagnostic_questions}}}', {{{diagnosticQuestionTexts}}});
+    });
+{{/js}}
+{{/enable_table_according_diagnostic_questions}}

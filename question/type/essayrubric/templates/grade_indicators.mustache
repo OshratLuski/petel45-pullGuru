@@ -1,0 +1,68 @@
+<div class="indicatorscomments {{#isstudent}}bg-white{{/isstudent}}" id="indicatorscomments-{{qid}}">
+    <table class="table table-sm table-hover {{^isstudent}}table-borderless{{/isstudent}}">
+        <thead>
+            <tr>
+                <th scope="col">{{#str}}nameresponse, qtype_essayrubric{{/str}}</th>
+                {{^isstudent}}
+                <th scope="col">{{#str}}typeresponse, qtype_essayrubric{{/str}}</th>
+                {{/isstudent}}
+                <th scope="col">{{#str}}igrade, qtype_essayrubric{{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#indicators}}
+            <tr class="table">
+                <td>{{name}}</td>
+                {{^isstudent}}
+                <td>{{type}}</td>
+                {{/isstudent}}
+                <td class="col-2 text-center">
+                    {{#isgradestypescalar}}
+                    {{#isstudent}}
+                    {{#selected0}}{{#str}}scalar_grade_0, qtype_essayrubric{{/str}}{{/selected0}}
+                    {{#selected1}}{{#str}}scalar_grade_1, qtype_essayrubric{{/str}}{{/selected1}}
+                    {{#selected2}}{{#str}}scalar_grade_2, qtype_essayrubric{{/str}}{{/selected2}}
+                    {{#selected3}}{{#str}}scalar_grade_3, qtype_essayrubric{{/str}}{{/selected3}}
+                    {{#selected4}}{{#str}}scalar_grade_4, qtype_essayrubric{{/str}}{{/selected4}}
+                    {{#selected5}}{{#str}}scalar_grade_5, qtype_essayrubric{{/str}}{{/selected5}}
+                    {{/isstudent}}
+
+                    {{^isstudent}}
+                    <select class="form-control gradeinput" name="indicator_{{qaid}}_{{id}}">
+                        <option value="0" {{#selected0}}selected{{/selected0}}>{{#str}}scalar_grade_0,
+                            qtype_essayrubric{{/str}}</option>
+                        <option value="1" {{#selected1}}selected{{/selected1}}>{{#str}}scalar_grade_1,
+                            qtype_essayrubric{{/str}}</option>
+                        <option value="2" {{#selected2}}selected{{/selected2}}>{{#str}}scalar_grade_2,
+                            qtype_essayrubric{{/str}}</option>
+                        <option value="3" {{#selected3}}selected{{/selected3}}>{{#str}}scalar_grade_3,
+                            qtype_essayrubric{{/str}}</option>
+                        <option value="4" {{#selected4}}selected{{/selected4}}>{{#str}}scalar_grade_4,
+                            qtype_essayrubric{{/str}}</option>
+                        <option value="5" {{#selected5}}selected{{/selected5}}>{{#str}}scalar_grade_5,
+                            qtype_essayrubric{{/str}}</option>
+                    </select>
+                    {{/isstudent}}
+
+                    {{/isgradestypescalar}}
+                    {{^isgradestypescalar}}
+                    {{^isstudent}}
+                    <input type="checkbox" class="form-control form-control-sm gradeinput"
+                        name="indicator_{{qaid}}_{{id}}" length="4" placeholder="" value=""
+                        {{#checked}}checked{{/checked}}>
+                    {{/isstudent}}
+
+                    {{#isstudent}}
+
+                    {{#checked}}<i class='fa fa-check text-success'></i>{{/checked}}
+                    {{^checked}}<i class='fa fa-times text-danger'></i>{{/checked}}
+
+                    {{/isstudent}}
+
+                    {{/isgradestypescalar}}
+                </td>
+            </tr>
+            {{/indicators}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<form class="pc-form" id="popup_migrate_courses_pombim">
+    <div class="pc-form_wrap mb-4">
+        <div class="pc-form_text mb-4">{{#str}} migratecoursesdesc, community_social{{/str}}</div>
+        <div class="pc-form_head mb-2 bold">{{#str}} publiccourses, community_social{{/str}}</div>
+        <select id="oldcourseid" class="select custom-select w-100 mb-4" name="oldcourseid">
+            {{#pombim}}
+            <option selected="selected" value="{{id}}">{{name}}</option>
+            {{/pombim}}
+        </select>
+        <div class="pc-form_head mb-2 bold">{{#str}} mycourses, community_social{{/str}}</div>
+        <select id="newcourseid" class="select custom-select w-100" name="newcourseid">
+            {{#migrate}}
+            <option selected="selected" value="{{id}}">{{name}}</option>
+            {{/migrate}}
+        </select>
+    </div>
+    <div class="ifcopy-wrapper custom-control custom-checkbox">
+        <input id="ifcopy" type="checkbox" name="ifcopy" {{#ifcopy}}checked{{/ifcopy}} class="custom-control-input" />
+        <label for="ifcopy" class="custom-control-label ifcopy-label pl-2">{{#str}} ifcopycourse,
+            community_social{{/str}}</label>
+    </div>
+</form>

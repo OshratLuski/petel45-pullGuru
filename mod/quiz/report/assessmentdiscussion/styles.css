@@ -1,0 +1,815 @@
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #page.drawers .main-inner {
+  margin-bottom: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-advanced {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* Show only 3 lines */
+  max-height: 3.6em; /* Adjust for 3 lines of text */
+  transition: max-height 0.5s ease;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-2 {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-3 {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-4 {
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-5 {
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .clamp-line-6 {
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #page {
+  max-height: 114rem;
+  overflow: auto;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #page.drawers {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #page.drawers div[role=main] {
+  padding: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) nav.moremenu:first-of-type {
+  margin-bottom: 2.125rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .heading-wrapper {
+  margin-bottom: 2rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs {
+  border-bottom: none;
+  border-radius: 1.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item {
+  min-height: 2.25rem;
+  margin: 0;
+  background-color: transparent;
+  border-radius: 1.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item .nav-link {
+  font-weight: normal;
+  border-radius: 1.25rem !important;
+  background-color: transparent;
+  border-color: transparent;
+  margin-bottom: 0;
+  height: 2.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item .nav-link:hover p, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item .nav-link:focus p, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item .nav-link.disabled p, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) #questionsTabs .nav.nav-tabs .nav-item .nav-link.active p {
+  text-shadow: 0.0625rem 0 0 currentColor;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle label {
+  cursor: pointer;
+  box-sizing: border-box;
+  text-indent: -9999px;
+  width: 2.125rem;
+  height: 1.125rem;
+  background: #b2b2b2;
+  display: block;
+  border-radius: 1rem;
+  position: relative;
+  outline: 0.0625rem solid #b2b2b2;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle label:active:after {
+  width: 2.125rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle label:after {
+  content: "";
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  right: unset;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: #fff;
+  border-radius: 100%;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle input:checked + label {
+  background: #eee;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle input:checked + label:after {
+  right: 0.0625rem;
+  left: unset;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle .link-btn-text {
+  font-size: 1rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .qustion-sorting-wrapper {
+  padding-bottom: 0.75rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .qustion-sorting-wrapper > span {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-dropdown-btn {
+  display: flex;
+  height: 2.25rem;
+  padding: 0.375rem 0.75rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid grey;
+  background: #fff;
+  box-shadow: 0rem 0.375rem 0.25rem 0rem rgba(108, 117, 125, 0.15);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-dropdown-btn.dropdown-toggle::after {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-dropdown-btn .arrow {
+  margin-left: 0.625rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-dropdown-btn[aria-expanded=true] .arrow {
+  transform: scale(-1);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .btn[data-handler=submit_all_grades] {
+  display: flex;
+  height: 2.25rem;
+  padding: 0.375rem 0.75rem;
+  align-items: center;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-dropdown-btn-title {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item {
+  /* width: 26.25rem; */
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid transparent;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .question-block-title {
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .qtypename {
+  color: #495057;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .qtypename,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .question-block-summary {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .question-block-summary {
+  margin-bottom: 0.75rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item .pendinggrade {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .question-block-item:hover {
+  cursor: pointer;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-divider {
+  background-color: #CED4DA;
+  width: 0.625rem;
+  padding-top: 13rem;
+  cursor: pointer;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-divider:active {
+  cursor: grab;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-divider .assessmentdiscussion_report-divider-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  flex-shrink: 0;
+  background-color: #495057;
+  margin-bottom: 0.38rem;
+  border-radius: 100%;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .question-head,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answer-item {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0.1875rem 0.1875rem 0.375rem 0rem rgba(43, 43, 43, 0.2);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .question-head:has(.preview-question-block.collapse.show) .question-head-descr,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .question-head:has(.preview-question-block.collapsing) .question-head-descr {
+  display: none;
+  opacity: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .btn.small-btn {
+  box-shadow: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .btn.small-btn svg {
+  width: 1.13rem;
+  height: auto;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .question-head-title {
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .points-counter {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 1.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .toggle-secription {
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answer-nav {
+  margin-bottom: 0.875rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answer-nav .moremenu {
+  height: 1.7875rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answer-nav .moremenu.navigation .nav-link {
+  padding: 0 1.125rem;
+  height: 1.7875rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answer-nav .moremenu.navigation .nav-link.disabled svg path {
+  fill: #b2b2b2;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answers-inner {
+  padding-top: 1.68rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-block-wrapper .answers-inner .answer-item .answer-item-head {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution {
+  max-width: 21.75rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution-title {
+  font-size: 1.125rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .subtitles {
+  padding-right: 1.75rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .subtitles span {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .subtitle-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .subtitle-icon.correct {
+  background-image: url([[pix:quiz_assessmentdiscussion|check]]);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .subtitle-icon.uncorrect {
+  background-image: url([[pix:quiz_assessmentdiscussion|xmark]]);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .progress-wrapper {
+  border-left: 0.125rem solid #2B2B2B;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .progress-line span {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .progress-bar {
+  width: 10rem;
+  height: 1.5rem;
+  border: 0.0625rem solid #2B2B2B;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .students_answers_distribution .progress-inner {
+  background-color: #003F5B;
+  height: 100%;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn .hover {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:hover, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:active, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:focus, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn.active {
+  outline: none;
+  box-shadow: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:hover .default, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:active .default, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:focus .default, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn.active .default {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:hover .hover, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:active .hover, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:focus .hover, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn.active .hover {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .discussion-state-btn:hover .assessmentdisccus-tooltip {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item-head .discussion-state-btn,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item-body .discussion-state-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .open-overlay-btn {
+  height: 2.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .open-overlay-btn .hover {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .open-overlay-btn:hover .assessmentdisccus-tooltip {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .open-overlay-btn:hover .default {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .open-overlay-btn:hover .hover {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel {
+  position: relative;
+  height: 75vh !important;
+  /*    .hsplitter {
+      background-color: $gray-600;
+      cursor: row-resize;
+      z-index: 800;
+      height: .4375rem;
+  } */
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter {
+  background-color: #CED4DA;
+  cursor: col-resize;
+  z-index: auto;
+  width: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter::before {
+  font-family: "FontAwesome";
+  content: "\f142";
+  font-size: x-large;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter.splitter-invisible,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .hsplitter.splitter-invisible {
+  background: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .left_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .right_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .hsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .top_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .bottom_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .horizontal_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vertical_panel {
+  position: absolute;
+  overflow: auto;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .left_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .right_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vertical_panel {
+  height: 100%;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .hsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .top_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .bottom_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .horizontal_panel {
+  width: 100%;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .top_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .left_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .vertical_panel {
+  top: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .top_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .bottom_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .left_panel,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .hsplitter,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .horizontal_panel {
+  left: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .bottom_panel {
+  bottom: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .right_panel {
+  right: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) #splitpanel .splitterMask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .sticky-stripe {
+  display: none;
+  height: 3rem;
+  width: 100%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  position: fixed;
+  top: 3.875rem;
+  left: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .sticky-stripe i {
+  font-size: 2rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .sticky-stripe .link-btn-text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report):has(.assessmentdiscussion_report-toggle input:checked) .sticky-stripe {
+  display: flex;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report):has(.answeroverlay .assessmentdiscussion_report-toggle input:checked) .sticky-stripe {
+  display: flex;
+  z-index: 10000;
+  top: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report):has(.answeroverlay .assessmentdiscussion_report-toggle input:checked) .answeroverlay {
+  padding-top: 2.875rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report):has(.answeroverlay .assessmentdiscussion_report-toggle input:not(:checked)) .sticky-stripe {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report):has(.answeroverlay .assessmentdiscussion_report-toggle input:not(:checked)) .answeroverlay {
+  padding-top: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .answer-item-head-title {
+  cursor: pointer;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .answer-item-head-title:hover .assessmentdisccus-tooltip {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item textarea {
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #E2E1E1;
+  background: #FFF;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .alert {
+  bottom: 2rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .alert-warning {
+  display: flex;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .score-wrapper {
+  color: #000;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .score-wrapper .score {
+  ont-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .score-wrapper input {
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #B2B2B2;
+  background: #FFF;
+  width: 2.6875rem;
+  text-align: center;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answer-item .score-wrapper .score-text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip {
+  display: none;
+  min-width: 10.375rem;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #E2E1E1;
+  z-index: 10;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.3125rem 0.5rem 0.3125rem;
+  border-color: transparent transparent #E2E1E1 transparent !important;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.3125rem 0.5rem 0.3125rem;
+  border-color: transparent transparent #fff transparent !important;
+  margin-top: 0.0625rem;
+  z-index: 5;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-position=top] {
+  left: 0;
+  bottom: calc(100% + 0.5rem);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-position=bottom] {
+  left: 0;
+  top: calc(100% + 0.5rem);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-position=bottom-left] {
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=bottom-left]::before {
+  bottom: -0.5rem;
+  left: 0.5rem;
+  transform: rotate(-180deg);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=bottom-left]::after {
+  bottom: -0.5625rem;
+  left: 0.5rem;
+  z-index: -1;
+  transform: rotate(-180deg);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=top-left]::before {
+  top: -0.5rem;
+  left: 0.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=top-left]::after {
+  top: -0.5625rem;
+  left: 0.5rem;
+  z-index: -1;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=top-right]::before {
+  top: -0.5rem;
+  right: 0.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdisccus-tooltip[data-carret-position=top-right]::after {
+  top: -0.5625rem;
+  right: 0.5rem;
+  z-index: -1;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .collapse-btn[aria-expanded=true] svg {
+  transform: scale(-1);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-body {
+  height: calc(100vh - 6.625rem);
+  overflow: auto;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-header {
+  height: 3.5rem;
+  padding: 0.5rem 3.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .back-btn span {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-title {
+  font-size: 1.5rem;
+  font-style: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head {
+  padding: 1rem 3.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-dropdown-btn {
+  height: 2rem;
+  font-size: 1.5rem;
+  font-style: normal;
+  background: #fff;
+  box-shadow: none;
+  text-align: left;
+  border: none;
+  outline: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-dropdown-btn[aria-expanded=true] .carret {
+  transform: scaleY(-1);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-dropdown .carret {
+  top: 0.625rem;
+  right: 0.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay_collapsed_block,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-menu-wrapper {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay:has(.preview-question-block.collapse.show) .answeroverlay-head-text, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay:has(.preview-question-block.collapsing) .answeroverlay-head-text {
+  display: none;
+  opacity: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-text {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-head-text p {
+  font-size: 1.5rem;
+  font-style: normal;
+  margin-bottom: 0;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-menu-wrapper {
+  border-bottom: 1px solid #E2E1E1;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .moremenu.navigation .nav-link {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .moremenu.navigation .nav-link.disabled {
+  background-color: #f9f9f9;
+  color: #b2b2b2 !important;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .moremenu.navigation .nav-link.disabled svg path {
+  fill: #b2b2b2;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .viewtype-btn {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .viewtype-btn:hover .assessmentdisccus-tooltip {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answer-counter {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .hidestate-btn .show-state,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .hidestate-btn .hide-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .hidestate-btn .hide-state {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .hidestate-btn.active .show-state {
+  display: none;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .hidestate-btn.active .hide-state {
+  display: flex;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-content.blured::before {
+  content: attr(data-bluredtext);
+  display: block;
+  position: absolute;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #707070;
+  text-align: center;
+  top: 5rem;
+  left: calc(50% - 11.3125rem);
+  z-index: 10;
+  width: 22.625rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-content.blured .blured-area {
+  filter: blur(1rem);
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel-item-title {
+  font-size: 1.125rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel {
+  padding: 2.5rem 10.28rem;
+  box-shadow: 0.1875rem 0.1875rem 0.375rem 0rem rgba(43, 43, 43, 0.2);
+  align-items: center;
+  display: flex;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-item {
+  padding: 0 0.38rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-item-title {
+  font-size: 1.5rem;
+  padding: 0 1.25rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control {
+  width: 5rem;
+  height: 5rem;
+  opacity: 1;
+  top: calc(50% - 2.5rem);
+  bottom: unset;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control-prev {
+  left: 5.28rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control-next {
+  right: 5.28rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control-inner {
+  width: 3rem;
+  height: 3rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel:has(.answeroverlay-carousel-item:first-child.active) .answeroverlay-carousel-control-prev {
+  cursor: default;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel:has(.answeroverlay-carousel-item:last-child.active) .answeroverlay-carousel-control-next {
+  cursor: default;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list-item {
+  border-radius: 0.5rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list-item-head {
+  font-size: 1.125rem;
+  font-style: normal;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list-item-head-title {
+  font-size: 1.125rem;
+  font-style: normal;
+  cursor: pointer;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list-item-head-title:hover .assessmentdisccus-tooltip {
+  display: block;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-list-item-content,
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel-item-text {
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-inner p, #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-inner span {
+  font-size: 1.375rem;
+}
+#page-mod-quiz-report:has(.block_assessmentdiscussion_report) .modal-backdrop.in.show {
+  /*  z-index: 99999 !important; */
+}
+
+html[dir=rtl] #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle label:after {
+  right: 0.125rem;
+  left: unset;
+}
+html[dir=rtl] #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .assessmentdiscussion_report-toggle input:checked + label:after {
+  left: 0.125rem;
+  right: unset;
+  /* transform: translateX(100%); */
+}
+html[dir=rtl] #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control-prev {
+  transform: scaleX(-1);
+}
+
+html[dir=ltr] #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .back-btn .arrow,
+html[dir=ltr] #page-mod-quiz-report:has(.block_assessmentdiscussion_report) .answeroverlay .answeroverlay-carousel .answeroverlay-carousel-control-next {
+  transform: scaleX(-1);
+}/*# sourceMappingURL=styles.css.map */

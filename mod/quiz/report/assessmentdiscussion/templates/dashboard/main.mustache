@@ -1,0 +1,67 @@
+<div class="sticky-stripe align-items-center justify-content-center yellow" id="anonymousStripe">
+    <div class="d-flex align-items-center advancedoverview_report-toggle anonymousmode">
+        <span class="link-btn-text">{{#str}}anonymousmodeison, quiz_assessmentdiscussion{{/str}}</span>
+        <i class="fas fa-user-secret ml-4"></i>
+    </div>
+</div>
+
+
+<div class="heading-wrapper d-flex align-itens-center justify-content-between flew-wrap">
+
+    <div id="questionsTabs">
+        {{> quiz_assessmentdiscussion/dashboard/tabs}}
+    </div>
+
+    <div class="answers-contorls d-flex align-items-center">
+        <div class="d-flex align-items-center assessmentdiscussion_report-toggle"
+            data-textoff="{{#str}}anonymousmodeisoff, quiz_assessmentdiscussion{{/str}}"
+            data-texton="{{#str}}anonymousmodeison, quiz_assessmentdiscussion{{/str}}">
+
+            <input type="checkbox" id="anonymousmodeToggler" class="toggle-btn"
+                {{#anonymous_mode}}checked{{/anonymous_mode}} data-handler="dashboard_anonymous">
+            <label for="anonymousmodeToggler" class="mb-0 mr-2 anonymousmodeToggler"> </label>
+            <span class="link-btn-text">{{#str}}anonymousmodeisoff, quiz_assessmentdiscussion{{/str}}</span>
+        </div>
+        <div class="btns-wrapper ml-3 pl-3 border-primary border-left d-flex">
+            {{> quiz_assessmentdiscussion/dashboard/group}}
+
+            {{#quizpreset_type4_enable}}
+                {{#quizpreset_button_state}}
+                    <div class="btn btn-secondary mr-3" data-handler="dashboard_change_grades" data-action="disable">
+                        {{#str}}buttondisablegrades, quiz_assessmentdiscussion{{/str}}
+                    </div>
+                {{/quizpreset_button_state}}
+
+                {{^quizpreset_button_state}}
+                    <div class="btn btn-primary mr-3" data-handler="dashboard_change_grades" data-action="enable">
+                        {{#str}}buttonenablegrades, quiz_assessmentdiscussion{{/str}}
+                    </div>
+                {{/quizpreset_button_state}}
+            {{/quizpreset_type4_enable}}
+
+            <div class="btn btn-primary" data-handler="submit_all_grades">
+                {{#str}}saveandupdatetheclass, quiz_assessmentdiscussion{{/str}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> quiz_assessmentdiscussion/dashboard/sort}}
+
+<div id="splitpanel" class="py-2 d-flex">
+
+    <div id="leftPanel" class="question-block-wrapper">
+        {{> quiz_assessmentdiscussion/aside/questionlist}}
+    </div>
+
+    <div id="rightPanel" class="answer-block-wrapper px-2">
+        {{> quiz_assessmentdiscussion/answersarea/main }}
+    </div>
+
+</div>
+
+{{#js}}
+    require(['jquery', 'quiz_assessmentdiscussion/splitter'], function($, Splitter) {
+        Splitter.init();
+    });
+{{/js}}

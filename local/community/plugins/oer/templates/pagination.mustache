@@ -1,0 +1,36 @@
+<nav class="d-flex justify-content-center align-items-center pt-3">
+    <ul class="pagination">
+
+        <li class="page-item {{#prev_pagination_disable}}disabled{{/prev_pagination_disable}}">
+            <a class="page-link prev-btn" data-plugin="{{template_type}}" data-area="paging" data-value="previus"
+               data-page="{{default_page}}" href="javascript:void(0)" title="{{#str}}previous{{/str}}">
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"
+                       data-plugin="{{template_type}}" data-area="paging" data-value="previus" data-page="{{default_page}}"></i>
+                </div>
+            </a>
+        </li>
+
+        {{#pagination}}
+            {{#show}}
+                <li class="page-item {{#active}}active{{/active}}">
+                    <a class="page-link" data-plugin="{{template_type}}" data-area="paging" data-value="{{value}}"
+                        {{#active}}data-selected="1" {{/active}} href="javascript:void(0)">
+                        {{value}}
+                    </a>
+                </li>
+            {{/show}}
+        {{/pagination}}
+
+        <li class="page-item {{#next_pagination_disable}}disabled{{/next_pagination_disable}}">
+            <a class="page-link next-btn" data-plugin="{{template_type}}" data-area="paging" data-value="next"
+               data-page="{{default_page}}" href="javascript:void(0)" title=" {{#str}}next{{/str}}">
+                <div class="circle">
+                    <i class="fa-solid fa-angle-right"
+                       data-plugin="{{template_type}}" data-area="paging" data-value="next" data-page="{{default_page}}"></i>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</nav>

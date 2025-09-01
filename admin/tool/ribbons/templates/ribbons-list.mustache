@@ -1,0 +1,37 @@
+<p><a href="{{{new_ribbon_url}}}" class="btn btn-primary">{{#str}} ribbon:new, tool_ribbons {{/str}}</a></p>
+<table class="table table-bordered">
+    <tr>
+        <th>{{#str}} ribbon:position, tool_ribbons {{/str}}</th>
+        <th>{{#str}} type, tool_ribbons {{/str}}</th>
+        <th>{{#str}} data, tool_ribbons {{/str}}</th>
+        <th></th>
+    </tr>
+    {{#list}}
+        <tr>
+            <td>{{position}}</td>
+            <td>{{type}}</td>
+            <td>
+            {{#link}}
+                <a href="{{link}}">{{data}}</a>
+            {{/link}}
+            {{^link}}
+                {{data}}
+            {{/link}}
+            </td>
+            <td>
+                {{#edit_url}}
+                    <a href="{{{edit_url}}}" title="{{#str}} edit {{/str}}"><i class="icon fa fa-cog fa-fw"></i></a>
+                {{/edit_url}}
+
+                {{#delete_url}}
+                    <a href="{{{delete_url}}}" title="{{#str}} delete {{/str}}"><i class="icon fa fa-trash fa-fw"></i></a>
+                {{/delete_url}}
+
+                {{#toggle_url}}
+                    <a href="{{{toggle_url}}}" title="{{toggle_title}}"><i class="icon fa
+                    fa-{{toggle_icon}} fa-fw"></i></a>
+                {{/toggle_url}}
+            </td>
+        </tr>
+    {{/list}}
+</table>

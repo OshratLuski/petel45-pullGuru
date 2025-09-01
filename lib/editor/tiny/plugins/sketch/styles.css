@@ -1,0 +1,28 @@
+.tinymce_sketch-iframe {
+    width: 100%;
+    height: calc(100% - 8px);
+}
+
+@media (min-width: 992px) {
+    .modal-dialog:has(.tinymce_sketch-iframe) {
+        max-width: 800px !important;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-dialog:has(.tinymce_sketch-iframe) {
+        max-width: 1140px !important;
+        height: 100vh;
+    }
+}
+
+.modal-dialog:has(.tinymce_sketch-iframe) .modal-content {
+    height: 100vh;
+}
+
+.modal-dialog:has(.tinymce_sketch-iframe)  .modal-body {
+    padding: 0;
+    overflow-y: auto;
+    height: calc(100vh - 3.5rem);
+}

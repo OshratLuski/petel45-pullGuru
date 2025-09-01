@@ -1,0 +1,44 @@
+.qtype_geogebra-article * input {
+    height: auto !important;
+    margin: auto !important;
+}
+
+.qtype-geogebra-hover {
+    border: 2px dashed #000;
+    background: rgba(192,192,192,0.5);
+    opacity: 0.4;
+}
+
+/* Geogebra ggb_preview overlay fix */
+.ggb_preview {
+    z-index: 0 !important;
+}
+html[dir=rtl] .ggbcontainer{
+    direction: rtl;
+}
+
+#page:has(.GeoGebraFrame) {
+    overflow-x: hidden;
+}
+#page-question-type-geogebra{
+    padding-bottom: 0px !important;
+}
+#page-mod-quiz-attempt{
+    padding-bottom: 0px !important;
+}
+#responseform:has(#splitpanel) {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#page.drawers div[role="main"]:has(#splitpanel) {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.right_panel::-webkit-scrollbar, .left_panel::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+.right_panel::-webkit-scrollbar-thumb, .left_panel::-webkit-scrollbar-thumb {
+    background: #707070;
+    border-radius: 16px;
+}
