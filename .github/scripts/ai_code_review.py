@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# NOTE: All comments in English as requested.
+
 import os, json, re, argparse
 import requests
 import boto3
+import sys
 
+# ---------- Env ----------
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 REPO = os.environ["REPO"]
 PR_NUMBER = os.environ["PR_NUMBER"]
@@ -16,7 +22,7 @@ GH_API = "https://api.github.com"
 DEBUG = os.environ.get("DEBUG", "0") == "1"
 def debug(msg: str):
     if DEBUG:
-        print(f"DEBUG: {msg}")
+        print(f"[DEBUG] {msg}", file=sys.stderr)
 
 # ---------- GitHub helpers ----------
 def gh_headers():
@@ -31,7 +37,7 @@ def get_changed_files():
     files = []
     page = 1
     while True:
-        resp = requests.get(url, headers=gh_headers(), params={"page": page, "per_page": 100})
+        resp = requests.get(url, headers=gh_headers(), params={"page": page, "per_page": 100}, timeout=30)
         resp.raise_for_status()
         chunk = resp.json()
         if not chunk:
@@ -47,13 +53,13 @@ def get_full_pr_diff_text() -> str:
     url = f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}"
     headers = gh_headers().copy()
     headers["Accept"] = "application/vnd.github.v3.diff"
-    resp = requests.get(url, headers=headers)
+    resp = requests.get(url, headers=headers, timeout=30)
     resp.raise_for_status()
     return resp.text or ""
 
 def create_or_update_comment(body: str):
     list_url = f"{GH_API}/repos/{REPO}/issues/{PR_NUMBER}/comments"
-    resp = requests.get(list_url, headers=gh_headers())
+    resp = requests.get(list_url, headers=gh_headers(), timeout=30)
     resp.raise_for_status()
     comments = resp.json()
     marker = "<!-- ai-code-review:bedrock-claude -->"
@@ -63,10 +69,10 @@ def create_or_update_comment(body: str):
 
     if existing:
         edit_url = f"{GH_API}/repos/{REPO}/issues/comments/{existing['id']}"
-        r = requests.patch(edit_url, headers=gh_headers(), json=payload)
+        r = requests.patch(edit_url, headers=gh_headers(), json=payload, timeout=30)
         r.raise_for_status()
     else:
-        r = requests.post(list_url, headers=gh_headers(), json=payload)
+        r = requests.post(list_url, headers=gh_headers(), json=payload, timeout=30)
         r.raise_for_status()
 
 # ---------- Bedrock (Anthropic Messages) ----------
@@ -102,13 +108,11 @@ Diff:
 """
 
 def parse_comments_json(text: str) -> list[dict]:
-    # Defensive parse: try to locate the first {...} JSON object in the text
+    """Parse model output defensively and return list of comments."""
     try:
-        # common: model returns pure JSON
         obj = json.loads(text)
         return obj.get("comments", []) if isinstance(obj, dict) else []
     except Exception:
-        # try to extract JSON substring
         start = text.find("{")
         end = text.rfind("}")
         if start != -1 and end != -1 and end > start:
@@ -118,44 +122,6 @@ def parse_comments_json(text: str) -> list[dict]:
             except Exception:
                 return []
         return []
-    
-def patch_line_positions(patch: str) -> dict:
-    """
-    Return a mapping from patch line index (1-based 'position') to the actual text line (with +/-/space).
-    """
-    lines = patch.splitlines()
-    positions = {}
-    pos = 1
-    for ln in lines:
-        # All lines in 'patch' contribute to position counting (GitHub counts within the patch)
-        positions[pos] = ln
-        pos += 1
-    return positions
-
-def find_position_for_anchor(patch: str, anchor_text: str) -> int | None:
-    """
-    Find the first position in patch where an added line '+...' matches the given anchor_text.
-    anchor_text must match the content after the '+' exactly.
-    """
-    positions = patch_line_positions(patch)
-    target = "+" + anchor_text.strip("\n")
-    for pos, ln in positions.items():
-        if ln == target:
-            return pos
-    return None
-
-def post_inline_review(comments: list[dict]):
-    """
-    POST one review with multiple inline comments.
-    Each item must have: path, position, body
-    """
-    url = f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}/reviews"
-    pr = requests.get(f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}", headers=gh_headers(), timeout=30)
-    pr.raise_for_status()
-    commit_id = pr.json()["head"]["sha"]
-    payload = {"event": "COMMENT", "commit_id": commit_id, "comments": comments}
-    r = requests.post(url, headers=gh_headers(), json=payload, timeout=30)
-    r.raise_for_status()
 
 def build_unified_diff(files):
     """
@@ -203,20 +169,8 @@ def call_bedrock(prompt: str) -> str:
             text += p.get("text","")
     return text.strip()
 
-def extract_verdict(markdown: str) -> str:
-    """
-    Naively infer a verdict string from the combined markdown:
-    approve | comment | request_changes
-    """
-    m = re.search(r'Overall verdict.*?:\s*(.+)', markdown, re.IGNORECASE | re.DOTALL)
-    text = (m.group(1) if m else markdown).lower()
-    if "request changes" in text or "changes requested" in text:
-        return "request_changes"
-    if "approve" in text or "lgtm" in text:
-        return "approve"
-    return "comment"
-
 def chunk_text(text: str, max_chars: int = 12000):
+    """Split large unified diff into chunk(s) at hunk boundaries when possible."""
     text = text.strip()
     if len(text) <= max_chars:
         return [text]
@@ -232,6 +186,66 @@ def chunk_text(text: str, max_chars: int = 12000):
         start = split
     return chunks
 
+# ---------- Mapping patch -> new-file line numbers ----------
+HUNK_RE = re.compile(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@')
+
+def build_newline_map(patch: str) -> dict[int, int | None]:
+    """
+    Returns mapping: patch-index (1-based) -> new-file line number.
+    For lines not on RIGHT side (e.g. '-' deletions or headers), value is None.
+    """
+    mapping: dict[int, int | None] = {}
+    pos = 0
+    new_line = None
+    for raw in patch.splitlines():
+        pos += 1
+        m = HUNK_RE.match(raw)
+        if m:
+            new_line = int(m.group(1))
+            mapping[pos] = None
+            continue
+        if new_line is None:
+            mapping[pos] = None
+            continue
+        if raw.startswith('+'):
+            mapping[pos] = new_line
+            new_line += 1
+        elif raw.startswith('-'):
+            mapping[pos] = None
+        else:  # context ' '
+            mapping[pos] = new_line
+            new_line += 1
+    return mapping
+
+def find_position_and_line(patch: str, anchor_text: str) -> tuple[int | None, int | None]:
+    """
+    Returns (patch_position, new_file_line) for the first added line that equals anchor_text.
+    """
+    target = "+" + anchor_text.strip("\n")
+    lines = patch.splitlines()
+    for idx, ln in enumerate(lines, start=1):
+        if ln == target:
+            newline_map = build_newline_map(patch)
+            return idx, newline_map.get(idx)
+    return None, None
+
+def post_inline_comment_single(path: str, commit_id: str, line: int, body: str):
+    """
+    Create a single inline PR comment using 'line' + side=RIGHT (no 'position').
+    """
+    url = f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}/comments"
+    payload = {
+        "path": path,
+        "commit_id": commit_id,
+        "side": "RIGHT",
+        "line": line,
+        "body": body
+    }
+    debug(f"POST inline comment path={path} line={line} body_len={len(body)}")
+    r = requests.post(url, headers=gh_headers(), json=payload, timeout=30)
+    r.raise_for_status()
+
+# ---------- Main ----------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--emit-verdict", action="store_true")
@@ -241,7 +255,7 @@ def main():
     files = get_changed_files()
     debug(f"files count from GitHub API: {len(files)}")
 
-    # Warning: changes in theme/ except theme/petel
+    # Notice about theme changes outside theme/petel
     theme_warnings = []
     for f in files:
         filename = f.get("filename", "")
@@ -262,12 +276,11 @@ def main():
             print("comment", end="")
         return
 
-    # Use patch from files API to compute positions, and build unified diff for model context
+    # Use patch from files API to compute lines; build unified diff for LLM context
     patch_by_path = {f["filename"]: f.get("patch", "") for f in files if f.get("patch")}
     unified = build_unified_diff(files)
     debug(f"unified diff length (from files API): {len(unified)}")
 
-    # If no unified diff (e.g. binary/large), fetch full PR diff for model context (positions still from files API)
     if not unified:
         debug("no patches via files API; fetching full PR diff text…")
         unified = get_full_pr_diff_text()
@@ -288,8 +301,13 @@ def main():
         out = call_bedrock(user)
         raw_comments.extend(parse_comments_json(out))
 
-    # 3) Process JSON -> review comments with positions
-    review_comments = []
+    # 3) Process JSON -> per-line inline comments using line+side
+    #    Fetch PR head sha once
+    pr = requests.get(f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}", headers=gh_headers(), timeout=30)
+    pr.raise_for_status()
+    head_sha = pr.json()["head"]["sha"]
+
+    published = 0
     for c in raw_comments:
         path = c.get("path")
         anchor = (c.get("anchor_text") or "").rstrip("\n")
@@ -298,24 +316,30 @@ def main():
 
         if not path or not anchor or not msg:
             continue
+
         patch = patch_by_path.get(path)
         if not patch:
+            # No patch for this file (binary/too-large) -> cannot place inline comment
             continue
 
-        pos = find_position_for_anchor(patch, anchor)
-        if pos is None:
+        patch_pos, new_line = find_position_and_line(patch, anchor)
+        if new_line is None:
+            # Could not resolve a new-file line for this anchor
+            debug(f"anchor not found or not add-line: path={path} anchor='{anchor[:80]}'")
             continue
 
         body = msg
         if suggestion:
             body += "\n\n```suggestion\n" + suggestion.rstrip("\n") + "\n```"
 
-        review_comments.append({"path": path, "position": pos, "body": body})
+        try:
+            post_inline_comment_single(path, head_sha, new_line, body)
+            published += 1
+        except requests.HTTPError as e:
+            # Log and continue with the rest
+            debug(f"failed to post comment on {path}:{new_line} -> {e}")
 
-    # 4) Publish: only inline comments; no summary post
-    if review_comments:
-        post_inline_review(review_comments)
-    else:
+    if not published:
         create_or_update_comment("AI review: no actionable inline comments on changed lines.")
 
     # Minimal feedback so you know the run executed
