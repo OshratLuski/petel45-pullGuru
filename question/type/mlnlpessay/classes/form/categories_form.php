@@ -44,7 +44,7 @@ class categories_form extends \moodleform {
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
 
-        $mform->addElement('text', 'name', get_string('categoryname', 'qtype_mlnlpessay'));
+        $mform->addElement('textarea', 'name', get_string('categoryname', 'qtype_mlnlpessay'));
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->setType('name', PARAM_TEXT);
 
