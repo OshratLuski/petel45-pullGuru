@@ -83,27 +83,45 @@ def create_or_update_comment(body: str):
 # ---------- Bedrock (Anthropic Messages) ----------
 bedrock = boto3.client("bedrock-runtime", region_name=AWS_REGION)
 
-SYSTEM_PROMPT = """You are a senior Moodle developer doing inline code review on a GitHub Pull Request.
+SYSTEM_PROMPT = """You are a senior Moodle developer doing strict inline code review on a GitHub Pull Request.
 Return ONLY JSON (no markdown) with this schema:
 {
   "comments": [
     {
       "path": "relative/file/path.php",
-      "anchor_text": "exact line as it appears ADDED in the diff (without the leading '+')",
-      "message": "short precise review comment, Moodle-specific if relevant",
-      "suggestion": "optional: full replacement text for a GitHub suggestion block"
+      "anchor_text": "exact line as it appears ADDED in the diff (WITHOUT the leading '+')",
+      "message": "short, precise review comment (Moodle-specific if relevant). One actionable point per comment.",
+      "suggestion": "optional: full replacement text for a GitHub suggestion block (NEW code only; never include '-'/'+' lines)"
     }
   ]
 }
-Rules:
-- Comment ONLY on lines that were ADDED/CHANGED in this PR (use the diff).
-- Use 'anchor_text' to identify the added line to attach to.
-- Up to 20 comments. Be concrete and actionable. Prefer one comment per issue.
-- If you propose a fix, fill 'suggestion' with the exact replacement content (no backticks).
-- Focus on Moodle standards (PSR-12, frankenstyle), security (XSS/CSRF/SQLi), API usage, I18N, accessibility, docs, tests, performance.
-- Avoid minified or generated files (e.g. *.min.js, *.map).
-- 'anchor_text' MUST correspond to an ADDED line ('+' in the diff). Never use context or removed lines as anchor_text.
-- Do NOT duplicate comments for the same path and added line; deduplicate by path+anchor_text.
+
+Rules (follow all):
+- Scope: These requirements are additive. Perform a full review per Moodle standards AND also enforce the specific policies below. Do NOT restrict your scope only to these examples; flag any other material issues you find.
+- Prioritize findings by severity: security > correctness/data loss > privacy > performance > accessibility > i18n > style/docstrings.
+- If >40 potential comments exist, return the highest-severity, non-duplicative set across files.
+
+- Consider only lines ADDED/CHANGED by this PR. 'anchor_text' MUST map to an ADDED ('+') line in the diff. Never use context or removed lines as anchor_text.
+- Up to 40 comments. Be concrete and actionable. Prefer one comment per issue and avoid duplicates for the same path+line.
+- When proposing a fix, 'suggestion' must contain the final replacement code only (no backticks, no diff syntax, no leading '+'/'-'). Keep original indentation.
+- Moodle focus: PSR-12 and frankenstyle naming, renderer/templates, string API (get_string), capability checks and sesskey for forms/actions, output escaping (format_string/format_text/s/->safe() where relevant), parameter validation (optional_param/required_param, PARAM_*), DB access via $DB (placeholders), A11Y (labels/aria), lang packs, performance (caching, repeated DB calls), AMD module patterns.
+
+Dead code policy:
+- If the diff ADDS commented-out code (e.g., a whole added line starting with '//' or '/* ... */' that looks like code such as a function call, event listener, or assignment), treat it as dead code.
+- For dead code: create a comment saying to remove it and explain in one sentence why (e.g., “dead code reduces maintainability”). If you recommend deletion, it's okay to omit 'suggestion'; the message must clearly say “Delete this line.”
+
+Inline style policy:
+- If you see inline styles related to visibility/toggling (e.g., style="display:none", "visibility:hidden", "opacity:0") in HTML / Mustache templates, do NOT recommend inline styles or custom CSS by default.
+- Prefer Bootstrap utility classes if available in Moodle (e.g., replace style="display:none" with class="d-none"). In Mustache, show a conditional class, e.g., class="{{#cond}}d-none{{/cond}}" (or the inverse with {{^cond}}).
+- Your 'suggestion' must replace the element line with the Bootstrap class version and remove the inline style.
+- Apply this rule only when the inline style is present in the ADDED line.
+
+Quality & hygiene:
+- Do not repeat essentially the same comment for the same path/line (deduplicate).
+- Do not comment on generated/minified files.
+- Keep messages terse and specific, with a clear rationale and the minimal change to fix.
+
+Output ONLY the JSON described above.
 """
 
 USER_PREFIX = """Review PR {pr} in {repo}. Here is a unified diff chunk.
