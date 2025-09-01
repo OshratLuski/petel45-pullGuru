@@ -18,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
     $menu = array(
-            new lang_string('rubiccategoryheader', 'qtype_mlnlpessay'),
+        new lang_string('rubiccategoryheader', 'qtype_mlnlpessay'),
     );
 
     // Processing mode.
@@ -124,7 +124,10 @@ if ($ADMIN->fulltree) {
             'subtopicactions',
             'deleteconfirm',
             'deletewarning',
+            'deletesuccess',
+            'saveerror',
             'saveconfirm',
+            'savesuccess',
             'savewarning',
             'csvconfirm',
             'csvwarning',

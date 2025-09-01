@@ -165,7 +165,6 @@ $string['searchcategories'] = 'Search categories...';
 
 $string['submitbtn'] = 'Submit';
 $string['active'] = 'Active';
-$string['savesuccess'] = 'Successfully saved';
 $string['saveerror'] = 'Error occured while saving data';
 $string['catid'] = 'ID #';
 $string['catlang'] = 'Language';
@@ -228,3 +227,6 @@ $string['name'] = 'Name';
 $string['tag'] = 'Tag';
 $string['reason'] = 'Reason';
 $string['csvundodone'] = 'Bulk import undone.';
+$string['savesuccess'] = 'Category saved successfully';
+$string['categoryexists'] = 'Category name already exists';
+$string['failedaddcategory'] = 'Failed to save category';
