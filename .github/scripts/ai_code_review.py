@@ -22,6 +22,19 @@ def debug(msg: str):
     if DEBUG:
         print(f"[DEBUG] {msg}", file=sys.stderr)
 
+# ---------- Path filters / normalization ----------
+IGNORED_RE = re.compile(r'.*\.(min\.js|map)$')  # ignore *.min.js and *.map
+
+def is_ignored_path(p: str) -> bool:
+    p = p.lstrip('./')
+    return bool(IGNORED_RE.match(p))
+
+def norm_path(p: str) -> str:
+    p = p.lstrip('./')
+    if p.startswith('a/') or p.startswith('b/'):
+        p = p[2:]
+    return p
+
 # ---------- GitHub helpers ----------
 def gh_headers():
     return {
@@ -115,9 +128,15 @@ def parse_comments_json(text: str) -> list[dict]:
         return []
 
 def build_unified_diff(files):
+    """
+    Build unified diff only for non-ignored files that actually have a patch.
+    """
     diffs = []
     for f in files:
         filename = f.get("filename")
+        if not filename or is_ignored_path(filename):
+            debug(f"skip ignored in unified: {filename}")
+            continue
         status = f.get("status")
         has_patch = "patch" in f
         debug(f"file: {filename} status={status} has_patch={has_patch}")
@@ -161,6 +180,10 @@ def chunk_text(text: str, max_chars: int = 12000):
 HUNK_RE = re.compile(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@')
 
 def build_newline_map(patch: str) -> dict[int, int | None]:
+    """
+    Map patch line index (1-based) to RIGHT-side new-file line numbers.
+    Non-right lines (headers or '-') map to None.
+    """
     mapping: dict[int, int | None] = {}
     pos, new_line = 0, None
     for raw in patch.splitlines():
@@ -178,26 +201,24 @@ def build_newline_map(patch: str) -> dict[int, int | None]:
             new_line += 1
         elif raw.startswith('-'):
             mapping[pos] = None
-        else:
+        else:  # context ' '
             mapping[pos] = new_line
             new_line += 1
     return mapping
 
 def normalize_code_line(s: str) -> str:
-    # Collapse whitespace, strip trailing commas/semicolons (helps JS/TS/PHP arrays/objects)
+    # Collapse whitespace and strip trailing commas/semicolons.
     s = s.strip()
     s = re.sub(r'\s+', ' ', s)
     s = re.sub(r'[;,]\s*$', '', s)
     return s
 
-def norm_path(p: str) -> str:
-    p = p.lstrip('./')
-    if p.startswith('a/') or p.startswith('b/'):
-        p = p[2:]
-    return p
-
 def find_new_line_fuzzy(patch: str, anchor_text: str) -> int | None:
-    """Find new-file line for anchor using exact -> normalized -> substring matching."""
+    """
+    Find new-file line for anchor using exact -> normalized -> substring matching
+    on '+' and ' ' lines. If the anchor matches a '-' line (deletion), bind to the
+    nearest '+' line in the same hunk (replacement scenario).
+    """
     if not anchor_text:
         return None
     target_exact = anchor_text.strip('\n')
@@ -205,25 +226,43 @@ def find_new_line_fuzzy(patch: str, anchor_text: str) -> int | None:
     lines = patch.splitlines()
     m = build_newline_map(patch)
 
-    # 1) exact match on added line
+    def is_hunk_sep(s: str) -> bool:
+        return s.startswith('@@')
+
+    # 1) exact match on added or context line
     for idx, ln in enumerate(lines, 1):
-        if ln.startswith('+') and ln[1:] == target_exact:
+        if (ln.startswith('+') or ln.startswith(' ')) and ln[1:] == target_exact:
             return m.get(idx)
 
-    # 2) normalized equality
+    # 2) normalized equality on added or context
     for idx, ln in enumerate(lines, 1):
-        if not ln.startswith('+'):
-            continue
-        if normalize_code_line(ln[1:]) == target_norm:
-            return m.get(idx)
+        if ln.startswith('+') or ln.startswith(' '):
+            if normalize_code_line(ln[1:]) == target_norm:
+                return m.get(idx)
 
-    # 3) substring fallback (avoid very short anchors)
+    # 3) substring fallback (ignore too-short anchors)
     if len(target_norm) >= 6:
         for idx, ln in enumerate(lines, 1):
-            if not ln.startswith('+'):
-                continue
-            if target_norm in normalize_code_line(ln[1:]):
-                return m.get(idx)
+            if ln.startswith('+') or ln.startswith(' '):
+                if target_norm in normalize_code_line(ln[1:]):
+                    return m.get(idx)
+
+    # 4) anchor matched a removed line -> bind to nearest '+' in same hunk
+    for idx, ln in enumerate(lines, 1):
+        if ln.startswith('-') and normalize_code_line(ln[1:]) == target_norm:
+            # forward within hunk
+            j = idx + 1
+            while j <= len(lines) and not is_hunk_sep(lines[j-1]):
+                if lines[j-1].startswith('+'):
+                    return m.get(j)
+                j += 1
+            # backward within hunk
+            j = idx - 1
+            while j >= 1 and not is_hunk_sep(lines[j-1]):
+                if lines[j-1].startswith('+'):
+                    return m.get(j)
+                j -= 1
+            break
 
     return None
 
@@ -233,6 +272,50 @@ def post_inline_comment_single(path: str, commit_id: str, line: int, body: str):
     debug(f"POST inline comment path={path} line={line} body_len={len(body)}")
     r = requests.post(url, headers=gh_headers(), json=payload, timeout=30)
     r.raise_for_status()
+
+# ---------- Parse unified diff into per-file patches (fallback) ----------
+def build_patch_map_from_unified(unified: str) -> dict[str, str]:
+    """
+    Parse the full unified diff text into per-file patch snippets keyed by the RIGHT path (b/<path>).
+    Only returns patches that actually have hunks (@@ ...).
+    """
+    patches: dict[str, list[str]] = {}
+    cur_path = None
+    collecting = False
+    buf: list[str] = []
+
+    for line in unified.splitlines():
+        if line.startswith('diff --git '):
+            # flush previous
+            if cur_path and buf and any(l.startswith('@@') for l in buf):
+                patches[cur_path] = buf.copy()
+            cur_path, collecting, buf = None, False, []
+            continue
+
+        if line.startswith('--- '):
+            buf = [line]
+            collecting = True
+            continue
+
+        if collecting and line.startswith('+++ '):
+            buf.append(line)
+            # decide path on RIGHT side
+            if line.startswith('+++ b/'):
+                cur_path = line[6:]
+            elif line.startswith('+++ /dev/null'):
+                cur_path = None  # removed file -> no RIGHT side
+            else:
+                cur_path = line[4:]
+            continue
+
+        if collecting:
+            buf.append(line)
+
+    # flush last
+    if cur_path and buf and any(l.startswith('@@') for l in buf):
+        patches[cur_path] = buf.copy()
+
+    return {p: "\n".join(lines) for p, lines in patches.items()}
 
 # ---------- Main ----------
 def main():
@@ -262,8 +345,12 @@ def main():
             print("comment", end="")
         return
 
-    # Prepare diffs & patches
-    patch_by_path = {f["filename"]: f.get("patch", "") for f in files if f.get("patch")}
+    # Prepare diffs & patches (skip ignored)
+    patch_by_path = {
+        f["filename"]: f.get("patch", "")
+        for f in files
+        if f.get("patch") and not is_ignored_path(f.get("filename",""))
+    }
     unified = build_unified_diff(files)
     debug(f"unified diff length (from files API): {len(unified)}")
 
@@ -277,6 +364,18 @@ def main():
         if args.emit_verdict:
             print("comment", end="")
         return
+
+    # Fill patch_by_path from unified diff for files missing patch (still skip ignored)
+    if unified:
+        fallback_map = build_patch_map_from_unified(unified)
+        filled = 0
+        for p, patch in fallback_map.items():
+            if is_ignored_path(p):
+                continue
+            if p not in patch_by_path:
+                patch_by_path[p] = patch
+                filled += 1
+        debug(f"filled {filled} missing patches from unified; total patch_by_path={len(patch_by_path)}")
 
     # 2) LLM
     chunks = chunk_text(unified if unified else "")
@@ -300,6 +399,10 @@ def main():
 
     for c in raw_comments:
         path = norm_path(c.get("path", ""))
+        if is_ignored_path(path):
+            debug(f"skip ignored from model: {path}")
+            continue
+
         anchor = (c.get("anchor_text") or "").rstrip("\n")
         msg = (c.get("message") or "").strip()
         suggestion = c.get("suggestion")
@@ -316,7 +419,7 @@ def main():
         new_line = find_new_line_fuzzy(patch, anchor)
         if new_line is None:
             skipped_no_anchor += 1
-            debug(f"anchor not found on RIGHT side: path={path} anchor='{anchor[:120]}'")
+            debug(f"anchor not found in hunk: path={path} anchor='{anchor[:120]}'")
             continue
 
         body = msg
