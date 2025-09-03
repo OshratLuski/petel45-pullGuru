@@ -1,5 +1,3 @@
-
-
 import Ajax from "core/ajax";
 import Notification, {saveCancelPromise} from "core/notification";
 import Tabulator from "qtype_mlnlpessay/tabulatorlib";
@@ -54,7 +52,7 @@ export const init = async(contextid) => {
             history: true, // Allow undo and redo actions on the table
             pagination: "local", // Paginate the data
             paginationSize: 7, // Allow 7 rows per page of data
-            paginationSizeSelector:true,
+            paginationSizeSelector: true,
             paginationCounter: "rows", // Display count of paginated rows in footer
             movableColumns: true, // Allow column order to be changed
             initialSort: [ // Set the initial sort order of the data
@@ -64,7 +62,7 @@ export const init = async(contextid) => {
                 tooltip: true, // Show tool tips on cells
             },
             columns: [ // Define the table columns
-                {title: M.util.get_string('catid', 'qtype_mlnlpessay'), field: "id"},
+                {title: M.util.get_string('catid', 'qtype_mlnlpessay'), field: "id", headerSort: true, sorter: "number"},
                 {
                     title: M.util.get_string('categoryname', 'qtype_mlnlpessay'), field: "name",
                     headerFilter: "input",
@@ -106,7 +104,6 @@ export const init = async(contextid) => {
                     headerFilterLiveFilter: true,
                 },
                 {title: M.util.get_string('catstatus', 'qtype_mlnlpessay'), field: "active", formatter: "html"},
-                {title: M.util.get_string('catdisabled', 'qtype_mlnlpessay'), field: "disabled"},
                 {title: M.util.get_string('catactions', 'qtype_mlnlpessay'), field: "catactions", formatter: "html"},
             ],
         }),
@@ -118,7 +115,7 @@ export const init = async(contextid) => {
             history: true, // Allow undo and redo actions on the table
             pagination: "local", // Paginate the data
             paginationSize: 7, // Allow 7 rows per page of data
-            paginationSizeSelector:true,
+            paginationSizeSelector: true,
             paginationCounter: "rows", // Display count of paginated rows in footer
             movableColumns: true, // Allow column order to be changed
             initialSort: [ // Set the initial sort order of the data
@@ -143,7 +140,7 @@ export const init = async(contextid) => {
             history: true, // Allow undo and redo actions on the table
             pagination: "local", // Paginate the data
             paginationSize: 7, // Allow 7 rows per page of data
-            paginationSizeSelector:true,
+            paginationSizeSelector: true,
             paginationCounter: "rows", // Display count of paginated rows in footer
             movableColumns: true, // Allow column order to be changed
             initialSort: [ // Set the initial sort order of the data
@@ -167,7 +164,7 @@ export const init = async(contextid) => {
             history: true, // Allow undo and redo actions on the table
             pagination: "local", // Paginate the data
             paginationSize: 7, // Allow 7 rows per page of data
-            paginationSizeSelector:true,
+            paginationSizeSelector: true,
             paginationCounter: "rows", // Display count of paginated rows in footer
             movableColumns: true, // Allow column order to be changed
             initialSort: [ // Set the initial sort order of the data
@@ -204,37 +201,58 @@ export const init = async(contextid) => {
             Fragment.loadFragment('qtype_mlnlpessay', 'settingsform', contextid,
                 fragmentargs
             ).done(async function(html, js) {
-                Templates.replaceNodeContents($(SELECTORS.MODALCONTAINER), html, js);
-                $(SELECTORS.MODALCONTAINER).find('form').on('submit', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    Notification.saveCancelPromise(
-                        M.util.get_string('saveconfirm', 'qtype_mlnlpessay'),
-                        M.util.get_string('savewarning', 'qtype_mlnlpessay')
-                    ).then(() => {
+                    Templates.replaceNodeContents($(SELECTORS.MODALCONTAINER), html, js);
+                    $(SELECTORS.MODALCONTAINER).find('form').on('submit', async function(e) {
                         e.preventDefault();
-                        let formdata = $(this).serialize();
-                        Ajax.call([{
-                            methodname: "qtype_mlnlpessay_save_settings", args: {action: action, formdata: formdata}
-                        }])[0].done(async function(response) {
-                            if (response.status) {
-                                Notification.addNotification({
-                                    message: M.util.get_string('savesuccess', 'qtype_mlnlpessay'),
-                                    type: 'info'
-                                });
-                                modal.hide();
-                                let actiontable = action + 'table';
-                                tables[actiontable].replaceData(await getData(action));
-                            } else {
-                                Notification.addNotification({
-                                    message: M.util.get_string('saveerror', 'qtype_mlnlpessay'),
-                                    type: 'error'
-                                });
-                            }
-                        }).fail(Notification.exception);
+                        e.stopPropagation();
+                        const formData = $(this).serializeArray();
+                        const newCategoryName = formData.find(item => item.name === 'name')?.value;
+                        const existingCategories = tables.categoriestable.getData();
+                        const categoryExists = existingCategories.some(category =>
+                            category.name.toLowerCase() === newCategoryName.toLowerCase() &&
+                            (!fragmentargs.id || category.id.toString() !== fragmentargs.id)
+                        );
+
+                        if (categoryExists) {
+                            modal.hide();
+                            const errorModal = await Modal.create({
+                                title: await getString('failedaddcategory', 'qtype_mlnlpessay'),
+                                body: await getString('categoryexists', 'qtype_mlnlpessay'),
+                                type: Modal.ALERT
+                            });
+                            errorModal.show();
+                            errorModal.getRoot().on(ModalEvents.hidden, function() {
+                                errorModal.destroy();
+                            });
+                            return;
+                        }
+
+                        Notification.saveCancelPromise(
+                            M.util.get_string('saveconfirm', 'qtype_mlnlpessay'),
+                            M.util.get_string('savewarning', 'qtype_mlnlpessay')
+                        ).then(() => {
+                            let formdata = $(this).serialize();
+                            Ajax.call([{
+                                methodname: "qtype_mlnlpessay_save_settings", args: {action: action, formdata: formdata}
+                            }])[0].done(async function(response) {
+                                if (response.status) {
+                                    Notification.addNotification({
+                                        message: M.util.get_string('savesuccess', 'qtype_mlnlpessay'),
+                                        type: 'info'
+                                    });
+                                    modal.hide();
+                                    let actiontable = action + 'table';
+                                    tables[actiontable].replaceData(await getData(action));
+                                } else {
+                                    Notification.addNotification({
+                                        message: M.util.get_string('saveerror', 'qtype_mlnlpessay'),
+                                        type: 'error'
+                                    });
+                                }
+                            }).fail(Notification.exception);
+                        });
                     });
                 });
-            });
         }
         if (e.target.classList.contains(SELECTORS.DELETETRIGGER)) {
             e.preventDefault();
@@ -447,6 +465,13 @@ export const init = async(contextid) => {
                     (val !== null && val !== undefined && (val + '').includes(query))
                 );
             });
+        }
+    });
+    $(document).on('keydown', '.tabulator-col input', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
         }
     });
 };
