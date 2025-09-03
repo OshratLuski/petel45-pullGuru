@@ -210,3 +210,40 @@ function theme_petel_get_policies() {
     }
     return $policies;
 }
+
+function theme_petel_get_customfields_for_duplication($oldquestionid, $newquestionid = null) {
+    global $DB;
+
+    $customfields = $DB->get_records('customfield_data', ['instanceid' => $oldquestionid]);
+
+    if (empty($customfields)) {
+        return false;
+    }
+
+    $inserted = true;
+    foreach ($customfields as $customfield) {
+        $record = new stdClass();
+        $record->id = $newquestionid;
+        $record->fieldid = $customfield->fieldid;
+        $record->instanceid = $newquestionid;
+        $record->intvalue = $customfield->intvalue ?? null;
+        $record->decvalue = $customfield->decvalue ?? null;
+        $record->shortcharvalue = $customfield->shortcharvalue ?? null;
+        $record->charvalue = $customfield->charvalue ?? null;
+        $record->value = $customfield->value ?? null;
+        $record->valueformat = $customfield->valueformat ?? 0;
+        $record->valuetrust = $customfield->valuetrust ?? 0;
+        $record->timecreated = time();
+        $record->timemodified = time();
+        $record->contextid = $customfield->contextid;
+
+        try {
+            $DB->insert_record('customfield_data', $record);
+        } catch (dml_exception $e) {
+            $inserted = false;
+            debugging('Error inserting custom field data: ' . $e->getMessage(), DEBUG_DEVELOPER);
+        }
+    }
+
+    return $inserted;
+}
